@@ -1,0 +1,24 @@
+{
+  "name": "SM_VRK_Wall_A",
+  "version": 2,
+  "pipeline": "dominant organic core + deeply embedded shoulder/buttress/local ledge -> voxel remesh -> relax -> soft macro planes -> decimate",
+  "source_stamps": [
+    "ENV_Rock_BoulderLarge_A.glb",
+    "ENV_Rock_BoulderMedium_A.glb",
+    "ENV_Rock_BoulderMedium_B.glb",
+    "ENV_Rock_ShoreFlat_A.glb"
+  ],
+  "vertices": 1439,
+  "faces": 2874,
+  "non_manifold_edges": 0,
+  "connected_components": 1,
+  "watertight_single_volume": true,
+  "volume_m3": 101.649,
+  "dimensions_xyz_m": [
+    9.554,
+    3.556,
+    5.336
+  ],
+  "voxel_size_m": 0.105,
+  "dominant_core_target_width_m": 8.2
+}

@@ -1,0 +1,470 @@
+{
+  "asset_count": 8,
+  "source_assets_modified": false,
+  "derivatives": [
+    {
+      "name": "SM_VRKS_Straight_A",
+      "source": {
+        "vertices": 471,
+        "faces": 896,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 112.9978,
+        "selected_source_mesh": "Cube.029",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 2.fbx"
+      },
+      "art_deformation": {
+        "mode": "none",
+        "vertex_positions_modified": false
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 471,
+          "faces": 896,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 70.4541
+        },
+        "after": {
+          "vertices": 471,
+          "faces": 896,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 70.4541
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.35,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 471,
+        "faces": 896,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 66.8335,
+        "dimensions_xyz_m": [
+          7.486,
+          2.863,
+          6.093
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_Corner_A",
+      "source": {
+        "vertices": 629,
+        "faces": 1231,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 158.0712,
+        "selected_source_mesh": "Cube.038",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 5.fbx"
+      },
+      "art_deformation": {
+        "mode": "none",
+        "vertex_positions_modified": false
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 629,
+          "faces": 1231,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 77.4942
+        },
+        "after": {
+          "vertices": 629,
+          "faces": 1231,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 77.4942
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.45,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 629,
+        "faces": 1231,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 72.9405,
+        "dimensions_xyz_m": [
+          6.186,
+          4.359,
+          5.982
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_End_A",
+      "source": {
+        "vertices": 472,
+        "faces": 912,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 71.4234,
+        "selected_source_mesh": "Cube.026",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 1.fbx"
+      },
+      "art_deformation": {
+        "mode": "none",
+        "vertex_positions_modified": false
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 472,
+          "faces": 912,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 39.9016
+        },
+        "after": {
+          "vertices": 472,
+          "faces": 912,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 39.9016
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.2,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 472,
+        "faces": 912,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 36.8143,
+        "dimensions_xyz_m": [
+          5.085,
+          3.031,
+          5.442
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_Straight_B",
+      "source": {
+        "vertices": 520,
+        "faces": 1007,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 205.4006,
+        "selected_source_mesh": "Cube.032",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 3.fbx"
+      },
+      "art_deformation": {
+        "mode": "wide_convex_taper",
+        "vertex_positions_modified": true
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 520,
+          "faces": 1007,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 92.6128
+        },
+        "after": {
+          "vertices": 520,
+          "faces": 1007,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 92.6128
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.55,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 520,
+        "faces": 1007,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 81.5283,
+        "dimensions_xyz_m": [
+          8.617,
+          3.137,
+          5.795
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_Corner_B",
+      "source": {
+        "vertices": 472,
+        "faces": 912,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 71.4234,
+        "selected_source_mesh": "Cube.001",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 1.fbx"
+      },
+      "art_deformation": {
+        "mode": "corner_shear_warp",
+        "vertex_positions_modified": true
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 472,
+          "faces": 912,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 66.3763
+        },
+        "after": {
+          "vertices": 472,
+          "faces": 912,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 66.3763
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.35,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 472,
+        "faces": 912,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 60.1049,
+        "dimensions_xyz_m": [
+          5.917,
+          4.179,
+          5.941
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_End_B",
+      "source": {
+        "vertices": 629,
+        "faces": 1231,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 158.0712,
+        "selected_source_mesh": "Cube.006",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 5.fbx"
+      },
+      "art_deformation": {
+        "mode": "end_nonlinear_profile",
+        "vertex_positions_modified": true
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 629,
+          "faces": 1231,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 32.8404
+        },
+        "after": {
+          "vertices": 629,
+          "faces": 1231,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 32.8404
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.25,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 629,
+        "faces": 1231,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 29.9921,
+        "dimensions_xyz_m": [
+          5.093,
+          3.022,
+          4.688
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_Ledge_A",
+      "source": {
+        "vertices": 876,
+        "faces": 1714,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 239.3968,
+        "selected_source_mesh": "Cube.035",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 4.fbx"
+      },
+      "art_deformation": {
+        "mode": "wide_local_shelf",
+        "vertex_positions_modified": true
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 876,
+          "faces": 1714,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 52.4511
+        },
+        "after": {
+          "vertices": 876,
+          "faces": 1714,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 52.4511
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.8,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 876,
+        "faces": 1714,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 48.3297,
+        "dimensions_xyz_m": [
+          9.58,
+          3.333,
+          3.176
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "SM_VRKS_Transition_A",
+      "source": {
+        "vertices": 520,
+        "faces": 1007,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 205.4006,
+        "selected_source_mesh": "Cube.010",
+        "source_file": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 3.fbx"
+      },
+      "art_deformation": {
+        "mode": "descending_transition",
+        "vertex_positions_modified": true
+      },
+      "repair": {
+        "required": false,
+        "voxel_size_m": null,
+        "discarded_small_components": 0,
+        "before": {
+          "vertices": 520,
+          "faces": 1007,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 40.3384
+        },
+        "after": {
+          "vertices": 520,
+          "faces": 1007,
+          "non_manifold_edges": 0,
+          "connected_components": 1,
+          "volume_m3": 40.3384
+        }
+      },
+      "back_embedding": {
+        "front_preserved_fraction_of_depth": 0.62,
+        "rear_depth_scale": 0.62
+      },
+      "recommended_overlap_m": 1.45,
+      "recommended_burial_m": 0.18,
+      "final": {
+        "vertices": 520,
+        "faces": 1007,
+        "non_manifold_edges": 0,
+        "connected_components": 1,
+        "volume_m3": 36.9954,
+        "dimensions_xyz_m": [
+          7.481,
+          2.62,
+          3.712
+        ],
+        "pivot_bottom_center_error_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ]
+}

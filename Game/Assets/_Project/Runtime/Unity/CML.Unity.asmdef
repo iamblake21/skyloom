@@ -1,0 +1,16 @@
+{
+  "name": "CML.Unity",
+  "rootNamespace": "CML.Unity",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Inventory",
+    "CML.Simulation",
+    "CML.Persistence",
+    "CML.Diagnostics",
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Core.Runtime",
+    "Unity.RenderPipelines.Universal.Runtime"
+  ],
+  "autoReferenced": true
+}

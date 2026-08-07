@@ -1,0 +1,11 @@
+{
+  "name": "CML.Simulation",
+  "rootNamespace": "CML.Simulation",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Inventory"
+  ],
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

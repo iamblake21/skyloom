@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/_Project/Art/UI/Crafting/WorkbenchHUD.uss?fileID=7433441132597879392&amp;guid=d894c082ac1370f4d9fbc16a1ca332b7&amp;type=3#WorkbenchHUD" />
+    <ui:VisualElement name="workbench-screen" class="workbench-screen">
+        <ui:VisualElement name="workbench-backdrop" class="workbench-backdrop" style="display: none;" />
+        <ui:VisualElement name="workbench-panel" class="workbench-panel" style="display: none;">
+            <ui:VisualElement class="workbench-header">
+                <ui:Label text="BANCO DA LAVORO" class="workbench-title" />
+                <ui:Label name="workbench-recipe-count" text="0 ricette" class="workbench-count" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="workbench-tabs">
+                <ui:Button name="workbench-tab-objective" text="PER L'OBIETTIVO" class="workbench-tab" />
+                <ui:Button name="workbench-tab-all" text="TUTTE" class="workbench-tab workbench-tab--selected" />
+                <ui:Button name="workbench-tab-structures" text="STRUTTURE" class="workbench-tab" />
+                <ui:Button name="workbench-tab-logistics" text="LOGISTICA" class="workbench-tab" />
+                <ui:Button name="workbench-tab-machinery" text="MACCHINARI" class="workbench-tab" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="workbench-body">
+                <ui:VisualElement class="workbench-recipes-column">
+                    <ui:Label text="RICETTE" class="workbench-section-title" />
+                    <ui:ScrollView name="workbench-recipe-scroll" class="workbench-recipe-scroll" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto">
+                        <ui:VisualElement name="workbench-recipe-grid" class="workbench-recipe-grid" />
+                    </ui:ScrollView>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="workbench-detail-column">
+                    <ui:Label name="workbench-detail-name" text="RICETTA" class="workbench-detail-name" />
+                    <ui:VisualElement name="workbench-detail-icon" class="workbench-detail-icon" />
+                    <ui:Label name="workbench-detail-description" text="" class="workbench-detail-description" />
+                    <ui:Label text="MATERIALI" class="workbench-section-title workbench-materials-title" />
+                    <ui:VisualElement name="workbench-materials" class="workbench-materials" />
+                    <ui:VisualElement class="workbench-craft-row">
+                        <ui:Button name="workbench-minus" text="−" class="workbench-step-button" />
+                        <ui:Label name="workbench-quantity" text="1" class="workbench-quantity" />
+                        <ui:Button name="workbench-plus" text="+" class="workbench-step-button" />
+                        <ui:Button name="workbench-craft" text="CREA" class="workbench-craft-button" />
+                    </ui:VisualElement>
+                    <ui:Label name="workbench-feedback" text="" class="workbench-feedback" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="workbench-backpack-section">
+                <ui:Label text="ZAINO" class="workbench-section-title" />
+                <ui:VisualElement name="workbench-backpack" class="workbench-backpack" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

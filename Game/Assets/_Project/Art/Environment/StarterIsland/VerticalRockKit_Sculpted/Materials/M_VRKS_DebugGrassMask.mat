@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_VRKS_DebugGrassMask
+  m_Shader: {fileID: 4800000, guid: 2ccbfeec6affded4b8c706276e1f754a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrassMap:
+        m_Texture: {fileID: 2800000, guid: 8097a347685d4f14ab0e4869ae016de3, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrassNormalMap:
+        m_Texture: {fileID: 2800000, guid: 7bc4ce935ec97264ca9d78d5ce76bf62, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RockMap:
+        m_Texture: {fileID: 2800000, guid: defe9ae160884f54780b395b651fe687, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RockNormalMap:
+        m_Texture: {fileID: 2800000, guid: d40014023a4aa764da776f6f693c6e8f, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AmbientStrength: 1.08
+    - _Cutoff: 0
+    - _DebugGrassMask: 1
+    - _GrassNoiseScale: 0.24
+    - _GrassNoiseStrength: 0.07
+    - _GrassNormalStrength: 0.1
+    - _GrassSlopeEnd: 0.9
+    - _GrassSlopeStart: 0.74
+    - _GrassTileScale: 0.15
+    - _MacroVariation: 0.035
+    - _PaletteStrength: 0.86
+    - _PlaneToneStrength: 0.47
+    - _RockNormalStrength: 0.2
+    - _RockTileScale: 0.115
+    - _ShadowFloor: 0.32
+    - _SpecularStrength: 0.042
+    - _SurfaceRoughness: 0.88
+    - _TriplanarSharpness: 4.2
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GrassBaseColor: {r: 0.44313726, g: 0.5176471, b: 0.23137255, a: 1}
+    - _GrassHighlightColor: {r: 0.61960787, g: 0.67058825, b: 0.32941177, a: 1}
+    - _GrassShadowColor: {r: 0.20784314, g: 0.27058825, b: 0.16470589, a: 1}
+    - _GrassTint: {r: 1, g: 1, b: 1, a: 1}
+    - _RockBaseColor: {r: 0.72156864, g: 0.45882353, b: 0.34117648, a: 1}
+    - _RockHighlightColor: {r: 0.87058824, g: 0.6313726, b: 0.45490196, a: 1}
+    - _RockShadowColor: {r: 0.44313726, g: 0.27450982, b: 0.22745098, a: 1}
+    - _RockTint: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

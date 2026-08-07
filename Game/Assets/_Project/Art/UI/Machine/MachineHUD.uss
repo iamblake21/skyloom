@@ -1,0 +1,192 @@
+/* Machine panel — the new parts only.
+ *
+ * The panel surface, the hairline edges, the typography and every slot come from
+ * InventoryHUD.uss, which the controller applies alongside this sheet. Copying those
+ * rules here would give two panels that agree today and drift tomorrow.
+ *
+ * What is new: a progress bar and a line that names why the machine is not producing.
+ * Both follow the same restraint as the rest — no filled badges, one accent.
+ *
+ * Cream #F2E3C0, gold #D7A52D and the warning red #D8664E are the game's palette.
+ */
+
+.machine-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: rgb(242, 227, 192);
+}
+
+.machine-panel {
+    display: none;
+    width: 620px;
+    flex-direction: column;
+    align-self: center;
+}
+
+.machine-port-row {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.machine-port-section {
+    width: 176px;
+}
+
+.machine-grid {
+    justify-content: flex-start;
+}
+
+.machine-slot {
+    width: 62px;
+    height: 62px;
+    margin-right: 8px;
+}
+
+.machine-player-section {
+    height: 154px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top-width: 1px;
+    border-top-color: rgba(242, 227, 192, 0.10);
+}
+
+.machine-player-grid {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.machine-player-slot {
+    width: 62px;
+    height: 58px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.machine-player-slot .slot-index {
+    display: none;
+}
+
+/* A machine port has no slot numbers. In the inventory the number is the key that
+   selects the slot; here there is nothing to press, and a digit in the corner of an
+   empty slot reads as a quantity. */
+.machine-slot .slot-index {
+    display: none;
+}
+
+/* Progress: a hairline track with a gold fill. No gloss, no rounded cap sticking out
+   of the track, no percentage badge — the number sits on the glass like the others. */
+.machine-progress {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+/* Two rules learned by measuring the rendered pixels rather than the resolved style.
+ *
+ * No hairlines: on a 5 px bar a 1 px border top and bottom leaves almost nothing
+ * between them, and the two edges merge into one bright line that reads as a full bar
+ * even at zero per cent.
+ *
+ * No rounded corners and no overflow clipping either. With both, UI Toolkit took the
+ * clipping path on a 5 px box, the clip degenerated, and the track was drawn as opaque
+ * white in every state — while resolvedStyle still reported the correct colour. A bar
+ * this thin gains nothing from rounded ends and cannot afford to be a special case. */
+.progress-track {
+    flex-grow: 1;
+    height: 5px;
+    background-color: rgba(242, 227, 192, 0.12);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background-color: rgba(215, 165, 45, 0.90);
+}
+
+/* A held cycle is at 100% and going nowhere. Showing it in gold would read as
+   working, so a blocked bar goes to the warning colour while keeping its length. */
+.machine-panel--blocked .progress-fill {
+    background-color: rgba(216, 102, 78, 0.78);
+}
+
+.progress-label {
+    width: 44px;
+    margin-left: 10px;
+    -unity-text-align: middle-right;
+    color: rgba(242, 227, 192, 0.62);
+    font-size: 10px;
+    letter-spacing: 0.4px;
+}
+
+/* The cause line. It is always present and never empty: a machine that showed
+   nothing here would be reported as merely stopped. */
+.machine-cause {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2px;
+    padding-top: 9px;
+    border-top-width: 1px;
+    border-top-color: rgba(242, 227, 192, 0.10);
+}
+
+.cause-dot {
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: rgba(215, 165, 45, 0.85);
+}
+
+.machine-panel--blocked .cause-dot {
+    background-color: rgb(216, 102, 78);
+}
+
+.machine-panel--resting .cause-dot {
+    background-color: rgba(242, 227, 192, 0.30);
+}
+
+.cause-label {
+    color: rgba(242, 227, 192, 0.88);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.machine-panel--blocked .cause-label {
+    color: rgba(238, 168, 148, 0.95);
+}
+
+.shortfall-label {
+    margin-left: 8px;
+    color: rgba(242, 227, 192, 0.42);
+    font-size: 10px;
+    letter-spacing: 0.4px;
+}
+
+.machine-status {
+    min-height: 16px;
+    margin-top: 7px;
+    color: rgba(238, 168, 148, 0.95);
+    font-size: 10px;
+    letter-spacing: 0.4px;
+}
+
+.machine-panel--open {
+    display: flex;
+}
+
+.machine-screen {
+    color: rgb(255, 255, 255);
+}
+
+.progress-label,
+.cause-label,
+.shortfall-label {
+    color: rgba(255, 255, 255, 0.88);
+}

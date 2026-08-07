@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Machine panel.
+     It deliberately reuses the inventory classes — inventory-panel, inventory-header,
+     inventory-title, inventory-section, section-heading, inventory-grid — so the glass,
+     the hairlines and the typography are the same rules and not a second copy that
+     would slowly stop matching. Only the progress row and the cause line are new. -->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/_Project/Art/UI/Inventory/InventoryHUD.uss?fileID=7433441132597879392&amp;guid=057cac2a5f7ba0b4791535cdfd17dae6&amp;type=3#InventoryHUD" />
+    <Style src="project://database/Assets/_Project/Art/UI/Machine/MachineHUD.uss?fileID=7433441132597879392&amp;guid=6716167f7f93d614398e8b4773ec1178&amp;type=3#MachineHUD" />
+    <ui:VisualElement name="machine-screen" class="machine-screen">
+        <ui:VisualElement name="machine-backdrop" class="inventory-backdrop" />
+
+        <ui:VisualElement name="machine-panel" class="inventory-panel machine-panel">
+            <ui:VisualElement class="inventory-header">
+                <ui:Label name="machine-title" text="MACCHINA" class="inventory-title" />
+                <ui:Label name="machine-recipe" text="" class="capacity-label" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="machine-port-row">
+                <ui:VisualElement name="input-section" class="inventory-section machine-port-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label name="input-title" text="INGRESSO" class="section-title" />
+                        <ui:Label name="input-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="input-grid" class="inventory-grid machine-grid" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="fuel-section" class="inventory-section machine-port-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label name="fuel-title" text="COMBUSTIBILE" class="section-title" />
+                        <ui:Label name="fuel-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="fuel-grid" class="inventory-grid machine-grid" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="output-section" class="inventory-section machine-port-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label name="output-title" text="USCITA" class="section-title" />
+                        <ui:Label name="output-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="output-grid" class="inventory-grid machine-grid" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="progress-row" class="machine-progress">
+                <ui:VisualElement name="progress-track" class="progress-track">
+                    <ui:VisualElement name="progress-fill" class="progress-fill" />
+                </ui:VisualElement>
+                <ui:Label name="progress-label" text="0%" class="progress-label" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="cause-row" class="machine-cause">
+                <ui:VisualElement name="cause-dot" class="cause-dot" />
+                <ui:Label name="cause-label" text="" class="cause-label" />
+                <ui:Label name="shortfall-label" text="" class="shortfall-label" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="player-section" class="inventory-section machine-player-section">
+                <ui:VisualElement class="section-heading">
+                    <ui:Label text="ZAINO" class="section-title" />
+                    <ui:Label name="player-note" text="Click per trasferire" class="section-note" />
+                </ui:VisualElement>
+                <ui:VisualElement name="player-grid" class="inventory-grid machine-player-grid" />
+            </ui:VisualElement>
+
+            <ui:Label name="machine-status" text="" class="machine-status" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

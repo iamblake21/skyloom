@@ -1,0 +1,20 @@
+{
+  "name": "CML.Tests.Unity.EditMode",
+  "rootNamespace": "CML.Tests.Unity",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Inventory",
+    "CML.Simulation",
+    "CML.Diagnostics",
+    "CML.Unity",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}

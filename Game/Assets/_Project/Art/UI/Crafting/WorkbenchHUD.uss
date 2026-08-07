@@ -1,0 +1,442 @@
+@import url("../Inventory/InventoryHUD.uss");
+
+.workbench-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: rgb(242, 227, 192);
+}
+
+.workbench-backdrop {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.workbench-panel {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    translate: -50% -50%;
+    width: 900px;
+    height: 570px;
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.13);
+    border-right-color: rgba(242, 227, 192, 0.13);
+    border-top-color: rgba(242, 227, 192, 0.21);
+    border-bottom-color: rgba(242, 227, 192, 0.08);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.workbench-header {
+    height: 30px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(242, 227, 192, 0.10);
+}
+
+.workbench-title,
+.workbench-detail-name {
+    color: rgba(249, 243, 227, 0.94);
+    font-size: 12px;
+    -unity-font-style: bold;
+    letter-spacing: 2.8px;
+}
+
+.workbench-count {
+    color: rgba(242, 227, 192, 0.42);
+    font-size: 9px;
+}
+
+.workbench-tabs {
+    height: 42px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.workbench-tab {
+    height: 28px;
+    margin-right: 17px;
+    padding-left: 0;
+    padding-right: 0;
+    color: rgba(242, 227, 192, 0.48);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 0.8px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.workbench-tab--selected {
+    color: rgba(249, 243, 227, 0.92);
+    border-bottom-color: rgba(215, 165, 45, 0.85);
+}
+
+.workbench-body {
+    height: 350px;
+    flex-direction: row;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.workbench-recipes-column {
+    width: 568px;
+    padding-right: 24px;
+    overflow: hidden;
+}
+
+.workbench-detail-column {
+    width: 280px;
+    padding-left: 24px;
+    border-left-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.12);
+    overflow: hidden;
+}
+
+.workbench-section-title {
+    color: rgba(242, 227, 192, 0.58);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 2px;
+}
+
+.workbench-recipe-scroll {
+    margin-top: 10px;
+    height: 316px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.workbench-recipe-scroll .unity-scroll-view__content-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-right: 8px;
+}
+
+.workbench-recipe-scroll .unity-scroller--vertical {
+    width: 8px;
+    margin-left: 5px;
+}
+
+.workbench-recipe-scroll .unity-base-slider__tracker {
+    background-color: rgba(242, 227, 192, 0.055);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.workbench-recipe-scroll .unity-base-slider__dragger {
+    background-color: rgba(215, 165, 45, 0.55);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.workbench-recipe-grid {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.workbench-recipe-tile {
+    width: 164px;
+    height: 112px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 6px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.10);
+    border-right-color: rgba(242, 227, 192, 0.10);
+    border-top-color: rgba(242, 227, 192, 0.17);
+    border-bottom-color: rgba(242, 227, 192, 0.07);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.workbench-recipe-tile--selected {
+    border-left-color: rgba(215, 165, 45, 0.78);
+    border-right-color: rgba(215, 165, 45, 0.78);
+    border-top-color: rgba(237, 194, 87, 0.92);
+    border-bottom-width: 2px;
+    border-bottom-color: rgba(215, 165, 45, 0.86);
+}
+
+.workbench-recipe-tile--blocked {
+    opacity: 0.50;
+}
+
+.workbench-recipe-icon {
+    width: 62px;
+    height: 62px;
+}
+
+.workbench-recipe-name {
+    margin-top: 2px;
+    color: rgba(249, 243, 227, 0.86);
+    font-size: 9px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.workbench-detail-name {
+    letter-spacing: 1.2px;
+}
+
+.workbench-detail-icon {
+    width: 78px;
+    height: 78px;
+    margin-top: 8px;
+}
+
+.workbench-detail-description {
+    min-height: 34px;
+    color: rgba(242, 227, 192, 0.58);
+    font-size: 10px;
+    white-space: normal;
+}
+
+.workbench-materials-title {
+    margin-top: 8px;
+}
+
+.workbench-materials {
+    min-height: 70px;
+    margin-top: 5px;
+}
+
+.workbench-material-row {
+    height: 32px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.workbench-material-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 7px;
+}
+
+.workbench-material-name {
+    flex-grow: 1;
+    color: rgba(249, 243, 227, 0.80);
+    font-size: 9px;
+    -unity-font-style: bold;
+}
+
+.workbench-material-count {
+    color: rgba(249, 243, 227, 0.78);
+    font-size: 10px;
+    -unity-font-style: bold;
+}
+
+.workbench-material-count--missing {
+    color: rgba(224, 137, 112, 0.88);
+}
+
+.workbench-craft-row {
+    margin-top: 7px;
+    height: 34px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.workbench-step-button {
+    width: 32px;
+    height: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    color: rgba(242, 227, 192, 0.72);
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.11);
+    border-right-color: rgba(242, 227, 192, 0.11);
+    border-top-color: rgba(242, 227, 192, 0.18);
+    border-bottom-color: rgba(242, 227, 192, 0.08);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.workbench-quantity {
+    width: 38px;
+    color: rgba(249, 243, 227, 0.92);
+    font-size: 11px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.workbench-craft-button {
+    flex-grow: 1;
+    height: 31px;
+    margin-left: 12px;
+    color: rgb(237, 194, 87);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(215, 165, 45, 0.72);
+    border-right-color: rgba(215, 165, 45, 0.72);
+    border-top-color: rgba(237, 194, 87, 0.88);
+    border-bottom-color: rgba(215, 165, 45, 0.58);
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.workbench-craft-button:disabled {
+    color: rgba(242, 227, 192, 0.28);
+    border-left-color: rgba(242, 227, 192, 0.12);
+    border-right-color: rgba(242, 227, 192, 0.12);
+    border-top-color: rgba(242, 227, 192, 0.18);
+    border-bottom-color: rgba(242, 227, 192, 0.08);
+}
+
+.workbench-craft-button--blocked {
+    color: rgba(242, 227, 192, 0.46);
+    border-left-color: rgba(242, 227, 192, 0.18);
+    border-right-color: rgba(242, 227, 192, 0.18);
+    border-top-color: rgba(242, 227, 192, 0.24);
+    border-bottom-color: rgba(242, 227, 192, 0.12);
+}
+
+.workbench-feedback {
+    min-height: 14px;
+    margin-top: 3px;
+    color: rgba(242, 227, 192, 0.52);
+    font-size: 9px;
+}
+
+.workbench-backpack-section {
+    flex-shrink: 0;
+    padding-top: 12px;
+    border-top-width: 1px;
+    border-top-color: rgba(242, 227, 192, 0.10);
+}
+
+.workbench-backpack {
+    margin-top: 8px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.workbench-backpack .inventory-slot {
+    width: 54px;
+    height: 54px;
+    margin-right: 9px;
+}
+
+/* White UI pass: the workbench follows the same clear-glass language as the
+   inventory, with colour reserved for feedback rather than controls. */
+.workbench-screen {
+    color: rgb(255, 255, 255);
+}
+
+.workbench-title,
+.workbench-detail-name,
+.workbench-recipe-name,
+.workbench-material-name,
+.workbench-material-count,
+.workbench-quantity {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.workbench-count,
+.workbench-section-title,
+.workbench-detail-description,
+.workbench-feedback {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.workbench-count,
+.workbench-detail-description,
+.workbench-feedback,
+.workbench-step-button {
+    -unity-font-style: bold;
+}
+
+.workbench-tab,
+.workbench-tab--selected,
+.workbench-step-button,
+.workbench-craft-button,
+.workbench-craft-button:disabled,
+.workbench-craft-button--blocked {
+    color: rgb(255, 255, 255);
+}
+
+.workbench-tab--selected {
+    border-bottom-color: rgba(255, 255, 255, 0.88);
+}
+
+.workbench-recipe-tile--selected {
+    border-left-color: rgba(255, 255, 255, 0.78);
+    border-right-color: rgba(255, 255, 255, 0.78);
+    border-top-color: rgba(255, 255, 255, 0.92);
+    border-bottom-color: rgba(255, 255, 255, 0.86);
+}
+
+.workbench-step-button,
+.workbench-craft-button,
+.workbench-craft-button:disabled,
+.workbench-craft-button--blocked {
+    border-left-color: rgba(255, 255, 255, 0.72);
+    border-right-color: rgba(255, 255, 255, 0.72);
+    border-top-color: rgba(255, 255, 255, 0.88);
+    border-bottom-color: rgba(255, 255, 255, 0.58);
+}
+
+.workbench-recipe-scroll .unity-base-slider__tracker {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.workbench-recipe-scroll .unity-base-slider__dragger {
+    background-color: rgba(255, 255, 255, 0.72);
+}

@@ -1,0 +1,7 @@
+{
+  "name": "CML.Foundation",
+  "rootNamespace": "CML.Foundation",
+  "references": [],
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

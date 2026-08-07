@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/_Project/Art/UI/Inventory/InventoryHUD.uss?fileID=7433441132597879392&amp;guid=057cac2a5f7ba0b4791535cdfd17dae6&amp;type=3#InventoryHUD" />
+    <ui:VisualElement name="inventory-screen" class="inventory-screen">
+        <ui:VisualElement name="inventory-backdrop" class="inventory-backdrop" />
+
+        <ui:VisualElement name="inventory-panel" class="inventory-panel inventory-panel--player">
+            <ui:VisualElement class="inventory-column">
+                <ui:VisualElement class="inventory-header">
+                    <ui:Label text="INVENTARIO" class="inventory-title" />
+                    <ui:Label name="capacity-label" text="0 oggetti · 16 slot" class="capacity-label" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="inventory-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="BARRA RAPIDA" class="section-title" />
+                        <ui:Label text="1 – 8" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="quickbar-grid" class="inventory-grid" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="inventory-section inventory-section--backpack">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="ZAINO" class="section-title" />
+                        <ui:Label text="8 slot" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="backpack-grid" class="inventory-grid" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="quick-craft-column">
+                <ui:VisualElement class="quick-craft-header">
+                    <ui:Label text="CRAFTING RAPIDO" class="inventory-title" />
+                    <ui:Label text="SENZA POSTAZIONE" class="section-note" />
+                </ui:VisualElement>
+                <ui:VisualElement name="quick-craft-list" class="quick-craft-list" />
+                <ui:Label name="quick-craft-feedback" text="" class="quick-craft-feedback" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="aim-reticle" class="aim-reticle" picking-mode="Ignore">
+            <ui:VisualElement class="aim-reticle-ring" picking-mode="Ignore" />
+            <ui:VisualElement class="aim-reticle-dot" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement class="hotbar-shell">
+            <ui:Label name="selected-item-label" text="Mani libere" class="selected-item-label" />
+            <ui:VisualElement class="hotbar-row">
+                <ui:VisualElement name="hotbar" class="hotbar" />
+                <ui:VisualElement class="hotbar-inventory-button">
+                    <ui:Label text="TAB" class="hotbar-inventory-key" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

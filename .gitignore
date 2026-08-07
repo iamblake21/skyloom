@@ -1,0 +1,85 @@
+# Unity project lives in Game/. Keep Assets/, Packages/, ProjectSettings/
+# and all Unity .meta files under version control.
+
+# Unity-generated state
+/Game/[Ll]ibrary/
+/Game/[Tt]emp/
+/Game/[Oo]bj/
+/Game/[Ll]ogs/
+/Game/[Uu]ser[Ss]ettings/
+/Game/[Mm]emoryCaptures/
+/Game/[Rr]ecordings/
+/Game/Assets/[Ss]treamingAssets/aa.meta
+/Game/Assets/[Ss]treamingAssets/aa/
+
+# Player builds and build artifacts
+/Artifacts/
+/Game/[Bb]uild/
+/Game/[Bb]uilds/
+/Game/[Dd]ist/
+/Game/[Ee]xports/
+/Game/[Ss]erverData/
+/Game/*.apk
+/Game/*.aab
+/Game/*.app
+/Game/*.ipa
+/Game/*.unitypackage
+
+# IDEs and generated project files
+/.vs/
+/.idea/
+/.vscode/
+/Game/.vs/
+/Game/.idea/
+/Game/.vscode/
+/Game/*.csproj
+/Game/*.sln
+/Game/*.slnx
+/Game/*.unityproj
+/Game/*.user
+/Game/*.userprefs
+/Game/*.pidb
+/Game/*.booproj
+/Game/*.svd
+/Game/*.pdb
+/Game/*.mdb
+/Game/*.opendb
+/Game/*.VC.db
+
+# Test, coverage and profiling output
+/Game/[Tt]est[Rr]esults/
+/Game/[Cc]overage[Rr]esults/
+/Game/[Pp]rofiling[Cc]aptures/
+
+# Crash reports and temporary files
+/unity-*.log
+/.codex_spreadsheet_work/
+/Game/sysinfo.txt
+/Game/crashlytics-build.properties
+/Game/[Cc]rash[Rr]eports/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# -------------------------------------------------------------
+# Exclude non-essential project files (manuscripts, build scripts, source art, etc.)
+# -------------------------------------------------------------
+/*.md
+/Concepts/
+/SourceArt/
+/Tools/
+/*.log
+/development-plan-viewer/
+/outputs/
+/*.zip
+/.agents/
+/.claude/
+/.codex-tmp/

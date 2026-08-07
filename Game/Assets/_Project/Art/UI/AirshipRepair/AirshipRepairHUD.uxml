@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Airship repair panel.
+     Reuses the inventory and machine classes — inventory-panel, inventory-backdrop,
+     inventory-header, inventory-title, inventory-section, section-heading,
+     section-title, section-note, capacity-label, inventory-slot, progress-track,
+     progress-fill, progress-label, cause-dot, cause-label — so the glass, the
+     hairlines and the typography stay one rule set. The panel is deliberately
+     translucent: that is the HUD language of this game, not an oversight.
+
+     Structure: an orbitable 3D view of the hull on the left, what it still needs
+     on the right, the player's backpack underneath. -->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/_Project/Art/UI/Inventory/InventoryHUD.uss?fileID=7433441132597879392&amp;guid=057cac2a5f7ba0b4791535cdfd17dae6&amp;type=3#InventoryHUD" />
+    <Style src="project://database/Assets/_Project/Art/UI/Machine/MachineHUD.uss?fileID=7433441132597879392&amp;guid=6716167f7f93d614398e8b4773ec1178&amp;type=3#MachineHUD" />
+    <ui:VisualElement name="repair-screen" class="repair-screen">
+        <ui:VisualElement name="repair-backdrop" class="inventory-backdrop" />
+
+        <ui:VisualElement name="repair-panel" class="inventory-panel repair-panel">
+            <ui:VisualElement class="inventory-header">
+                <ui:Label name="repair-title" text="AERONAVE DANNEGGIATA" class="inventory-title" />
+                <ui:Label name="repair-status" text="" class="capacity-label" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="repair-columns" class="repair-columns">
+                <ui:VisualElement name="preview-section" class="inventory-section repair-preview-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="SCAFO" class="section-title" />
+                        <ui:Label name="preview-hint" text="trascina per ruotare — destro per spostare" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="repair-preview" class="repair-preview" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="requirements-section" class="inventory-section repair-requirements-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="COMPONENTI RICHIESTI" class="section-title" />
+                        <ui:Label name="requirements-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="repair-requirements" class="repair-requirements" />
+
+                    <ui:VisualElement name="progress-row" class="repair-progress">
+                        <ui:VisualElement name="progress-track" class="progress-track">
+                            <ui:VisualElement name="progress-fill" class="progress-fill" />
+                        </ui:VisualElement>
+                        <ui:Label name="progress-label" text="" class="progress-label" />
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="cause-row" class="repair-cause">
+                        <ui:VisualElement name="cause-dot" class="cause-dot" />
+                        <ui:Label name="cause-label" text="" class="cause-label" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="stores-row" class="repair-stores">
+                <ui:VisualElement name="hold-section" class="inventory-section repair-store-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="STIVA AERONAVE" class="section-title" />
+                        <ui:Label name="hold-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="repair-hold" class="repair-store-grid" />
+                </ui:VisualElement>
+
+                <ui:VisualElement name="backpack-section" class="inventory-section repair-store-section">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="ZAINO" class="section-title" />
+                        <ui:Label name="backpack-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="repair-backpack" class="repair-store-grid" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

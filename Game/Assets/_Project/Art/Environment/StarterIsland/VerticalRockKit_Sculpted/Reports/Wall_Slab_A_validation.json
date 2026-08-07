@@ -1,0 +1,21 @@
+{
+  "name": "SM_VRK_Wall_Slab_A",
+  "version": 2,
+  "vertices": 265,
+  "faces": 271,
+  "non_manifold_edges": 0,
+  "watertight": true,
+  "signed_volume_abs_m3": 50.057,
+  "dimensions_blender_xyz_m": [
+    8.931,
+    2.036,
+    5.426
+  ],
+  "design_gate": {
+    "continuous_trench": false,
+    "local_feature_width_fraction": 0.425,
+    "separated_local_features": 3,
+    "authored_diagonal_fracture_cells": 4,
+    "single_connected_mesh": true
+  }
+}

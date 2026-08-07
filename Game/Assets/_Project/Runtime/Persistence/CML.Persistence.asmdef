@@ -1,0 +1,11 @@
+{
+  "name": "CML.Persistence",
+  "rootNamespace": "CML.Persistence",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Simulation"
+  ],
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

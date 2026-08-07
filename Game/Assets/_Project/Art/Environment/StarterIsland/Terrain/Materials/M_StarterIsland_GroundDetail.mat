@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_StarterIsland_GroundDetail
+  m_Shader: {fileID: 4800000, guid: 32936efa7e620b4448da89ff65618f41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BladeMask:
+        m_Texture: {fileID: 2800000, guid: 2af1601ba09f43e4f8b69a794b72fb75, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 01028bf29e549c24e9501ed29341721a, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AmbientStrength: 0.66
+    - _Cutoff: 0.38
+    - _FarMatchEnd: 54
+    - _FarMatchStart: 24
+    - _GustStrength: 0.28
+    - _RootBrightness: 0.96
+    - _ShadowAttenuationFloor: 0.08
+    - _ShadowFloor: 0.16
+    - _TerrainMacroVariation: 0.13
+    - _TipBrightness: 1.025
+    - _WindSpeed: 1.38
+    - _WindStrength: 0.022
+    m_Colors:
+    - _BaseColor: {r: 0.24313726, g: 0.46666667, b: 0.23137255, a: 1}
+    - _FallbackColor: {r: 0.29, g: 0.48, b: 0.2, a: 1}
+    - _ShadowColor: {r: 0.14117648, g: 0.2901961, b: 0.16078432, a: 1}
+    - _TipColor: {r: 0.4509804, g: 0.6627451, b: 0.2901961, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

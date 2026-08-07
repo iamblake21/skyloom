@@ -1,0 +1,381 @@
+﻿"""
+build_heroes.py -- generates the three hero prototypes (Arch, Overhang, Stone B)
+for the stylized vertical rock kit.
+
+Run:
+  blender --background --python build_heroes.py
+
+Outputs: .blend source, OBJ meshes, and a validation JSON.
+"""
+
+import os
+import sys
+import json
+import math
+
+import bpy
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(bpy.data.filepath or __file__))
+if not HERE or not os.path.isdir(HERE):
+    HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+
+import rockkit_lib as RK          # noqa: E402
+import importlib                  # noqa: E402
+importlib.reload(RK)
+
+ROOT = os.path.abspath(os.path.join(HERE, os.pardir))
+MODELS = os.path.join(ROOT, "Models")
+REPORTS = os.path.join(ROOT, "Reports")
+for d in (MODELS, REPORTS):
+    os.makedirs(d, exist_ok=True)
+
+
+# =========================================================== ARCH
+# Reference read: NOT a rainbow. A flat-topped wall mass with a tall opening
+# punched through it. Legs of unequal width that pinch at different heights and
+# splay into irregular feet; the crown is a compressed band whose depth and
+# thickness both change along its run; the whole wall leans and its depth axis
+# meanders so front and back never become parallel planes.
+
+def spec_arch():
+    # Measured off the reference thumbnail: the doorway is only about 17% of the
+    # overall width, the legs about 38% and 45%, and the crown band about 30% of
+    # the height. The earlier passes had a doorway near 30% wide, which is why
+    # the piece read as thin bent tubing instead of a chunky wall.
+    # The leg centrelines step *outward* toward the feet by the same amount the
+    # half-width grows. Without that, a symmetric foot flare pushes the inner
+    # faces toward each other and the doorway pinches shut at ground level --
+    # the opposite of the reference, where the void is widest where you walk
+    # through it.
+    cps = [
+        (-0.92, -0.07, -0.22),     # runs below the floor plane; the cut makes the sole
+        (-0.86,  0.03,  0.30),
+        (-0.79,  0.14,  0.78),
+        (-0.74,  0.05,  1.20),
+        (-0.66, -0.09,  1.56),
+        (-0.52, -0.15,  1.84),     # shoulder held high so the plateau reaches the corners
+        (-0.25, -0.15,  1.90),
+        ( 0.06, -0.06,  1.90),     # level crown run
+        ( 0.35,  0.05,  1.88),
+        ( 0.54,  0.12,  1.83),     # right shoulder
+        ( 0.66,  0.10,  1.52),
+        ( 0.76,  0.02,  0.94),
+        ( 0.84, -0.09, -0.22),
+    ]
+    s = RK.LoftSpec(cps, stations=64, n_theta=48)
+    # V half-extent = leg width across the arch on the legs, crown thickness on top.
+    # Each leg gets its own pronounced, differently placed waist.
+    #
+    # The shoulder values are deliberately the *narrowest* on the whole run. The
+    # shoulder bend radius is only ~0.55m, so any half-width approaching that
+    # folds the inside of the turn through itself -- that was the fin pushing out
+    # of the doorway crown. Keeping the shoulders at ~0.42 leaves clear margin,
+    # and the shoulders were raised instead so the plateau cut still reaches the
+    # corners.
+    s.wv = [(0.00, 0.660), (0.09, 0.600), (0.20, 0.520), (0.31, 0.540),
+            (0.375, 0.462), (0.47, 0.550), (0.56, 0.555), (0.635, 0.452),
+            (0.74, 0.520), (0.83, 0.460), (0.92, 0.535), (1.00, 0.600)]
+    # U half-extent = depth. The wall is now clearly wider than it is deep, so
+    # the doorway reads as a passage from three-quarter rather than sealing into
+    # a blind alcove behind a long tunnel.
+    s.wu = [(0.00, 0.520), (0.12, 0.430), (0.24, 0.372), (0.36, 0.455),
+            (0.48, 0.520), (0.60, 0.408), (0.72, 0.342), (0.86, 0.400),
+            (1.00, 0.472)]
+    # depth centroid wanders independently of the centreline
+    s.cu = [(0.00, -0.07), (0.20, 0.07), (0.40, -0.06), (0.55, 0.12),
+            (0.75, -0.04), (1.00, -0.14)]
+    s.cv = [(0.00, 0.03), (0.30, -0.05), (0.55, 0.06), (0.80, -0.04), (1.00, 0.02)]
+    s.roll = [(0.00, 0.12), (0.30, -0.10), (0.50, 0.08), (0.70, -0.14), (1.00, 0.06)]
+    s.sharp = [(0.00, 15.0), (0.35, 17.0), (0.50, 19.0), (0.70, 16.5), (1.00, 15.0)]
+    s.top_gain = [(0.00, 0.99), (0.35, 0.96), (0.50, 0.95), (0.65, 0.96), (1.00, 0.99)]
+    s.bot_gain = [(0.00, 1.20), (0.50, 1.04), (1.00, 1.20)]
+    s.facets = 10
+    s.facet_jitter = 0.44
+    s.facet_drift = 0.34
+    # Wider facet swell/pinch and stronger low harmonics: the legs were reading
+    # as featureless gradients with no meso structure at all.
+    s.facet_gain = (0.83, 1.13)
+    s.facet_wave = (1.1, 3.6)
+    # arched doorway ceiling -- kept shallow so it does not eat the crown band
+    s.conc = [(0.00, 0.0), (0.38, 0.035), (0.50, 0.065), (0.64, 0.030), (1.00, 0.0)]
+    s.conc_sigma = [(0.0, 0.9), (1.0, 0.9)]
+    s.conc_offset = [(0.0, 0.18), (0.5, -0.22), (1.0, 0.15)]
+    s.harmonics = [
+        (2, [(0.0, 0.060), (0.35, 0.042), (0.7, 0.052), (1.0, 0.064)], 2.1, -1.7),
+        (3, [(0.0, 0.058), (0.35, 0.082), (0.7, 0.060), (1.0, 0.076)], 0.4, 3.4),
+        (5, [(0.0, 0.026), (0.5, 0.034), (1.0, 0.022)], 1.2, 2.6),
+    ]
+    # caps sit well below the floor slice, so they are never seen
+    s.start_cap = dict(height=0.10, rings=3, flare=1.25, tilt=(0.05, -0.03), wobble=0.02)
+    s.end_cap = dict(height=0.10, rings=3, flare=1.15, tilt=(-0.04, 0.04), wobble=0.02)
+    s.seed = 11
+    return s
+
+
+# =========================================================== OVERHANG
+# Reference read: a rooted mass that turns and cantilevers out and down, thick
+# and anchored at the back, thinning to a tip in every view, with a scooped
+# undercut and an axis that curves sideways so the top view is never a bar.
+
+def spec_overhang():
+    # A single continuous shelf sweep. The earlier L-shaped centreline put an
+    # elbow between a vertical root and a horizontal arm, and that waist read as
+    # a neck with a beak on it. Here the root is simply the fat end of the
+    # sweep: mass falls away monotonically from the anchored end to the tip.
+    # The lateral bow is real but deliberately broad. The previous arc had a
+    # local curvature radius of ~0.53 against a 0.6 half-width, so the inside of
+    # the turn folded through itself and pushed a fin out of the surface.
+    cps = [
+        (-0.72, -0.20, 0.62),
+        (-0.46, -0.11, 0.66),
+        (-0.18,  0.00, 0.67),
+        ( 0.10,  0.07, 0.64),
+        ( 0.36,  0.08, 0.57),
+        ( 0.60,  0.03, 0.49),
+        ( 0.80, -0.07, 0.40),
+        ( 0.96, -0.19, 0.33),
+    ]
+    s = RK.LoftSpec(cps, stations=56, n_theta=48)
+    # wu = lateral half-width, wv = vertical half-thickness.
+    # Lateral width peaks past the root and stays broad, so the plan view is a
+    # tapering shield rather than a beak; thickness falls away steadily so the
+    # tip thins in every view.
+    s.wu = [(0.00, 0.520), (0.15, 0.585), (0.32, 0.615), (0.50, 0.552),
+            (0.68, 0.432), (0.84, 0.288), (1.00, 0.155)]
+    s.wv = [(0.00, 0.720), (0.15, 0.662), (0.32, 0.572), (0.50, 0.446),
+            (0.68, 0.310), (0.84, 0.178), (1.00, 0.072)]
+    # Gentler than the arch: the undercut is carved with a real boolean below,
+    # so the sweep itself does not need to fight for it.
+    s.cu = [(0.00, 0.04), (0.30, -0.06), (0.55, 0.07), (0.80, -0.05), (1.00, 0.02)]
+    s.cv = [(0.00, -0.03), (0.35, 0.04), (0.60, -0.04), (1.00, 0.02)]
+    s.roll = [(0.00, -0.06), (0.30, 0.05), (0.60, -0.08), (0.85, 0.04), (1.00, -0.02)]
+    s.sharp = [(0.00, 15.0), (0.40, 18.0), (0.70, 16.0), (1.00, 13.0)]
+    s.top_gain = [(0.00, 0.930), (0.35, 0.915), (0.60, 0.925), (1.00, 0.955)]
+    s.bot_gain = [(0.00, 1.20), (0.45, 1.15), (1.00, 1.15)]
+    s.facets = 10
+    s.facet_jitter = 0.46
+    s.facet_drift = 0.34
+    s.facet_gain = (0.88, 1.08)
+    s.facet_wave = (1.2, 3.4)
+    # The undercut is a boolean, not a field term -- see main().
+    s.conc = [(0.00, 0.0), (1.00, 0.0)]
+    s.harmonics = [
+        (3, [(0.0, 0.028), (0.4, 0.048), (0.75, 0.036), (1.0, 0.022)], 1.1, 2.9),
+        (2, [(0.0, 0.034), (0.5, 0.024), (1.0, 0.016)], 0.3, -1.9),
+        (5, [(0.0, 0.014), (0.5, 0.018), (1.0, 0.010)], 2.4, 3.7),
+    ]
+    # anchored end: a broad shallow butt that beds into a wall. A tall, flared
+    # cap here grew a visible thumb off the back of the root.
+    s.start_cap = dict(height=0.09, rings=3, flare=1.05, tilt=(0.03, 0.02), wobble=0.012)
+    # blunt chisel end, not a needle
+    # chisel end: thins in front, top and profile, never a rounded knob
+    s.end_cap = dict(height=0.035, rings=3, flare=2.3, tilt=(0.03, -0.04), wobble=0.010)
+    s.seed = 23
+    return s
+
+
+# =========================================================== STONE B
+# Reference read: compact, softly squared boulder. Broad facets of clearly
+# different sizes on tilted, non-orthogonal axes, one displaced mass lobe, one
+# broad upper scoop, and flattened contact only where it meets the ground.
+
+def spec_stone_b():
+    s = RK.BoulderSpec()
+    # "softly squared": rounded in all three dimensions with broad facets, not a
+    # cut gem. A big bevel on a low plane count just gets clamped away, so the
+    # roundness comes from a denser plane set with a modest bevel instead.
+    s.bevel = 0.085
+    s.bevel_wide = 2.7
+    s.bevel_wide_frac = 0.42
+    s.bevel_segments = 3
+    s.densify = 1
+    # Offsets kept close together so the sides stay upright -- a big spread
+    # between base and shoulders turns the boulder into a truncated pyramid.
+    # Normals are deliberately non-orthogonal and unevenly spaced in azimuth,
+    # and every offset differs, so no two facets are parallel or equal in size.
+    # Offsets now span 0.46 -> 0.82. A tight spread gives facets of near-equal
+    # area, which is half of what made this read as a die; the widest facet here
+    # is several times the area of the narrowest.
+    s.planes = [
+        (RK.azel(20, -80), 0.520),    # base
+        (RK.azel(205, 70), 0.520),    # tilted top plateau, pulled down flat
+        (RK.azel(0, 4), 0.615),
+        (RK.azel(38, -16), 0.700),
+        (RK.azel(74, 14), 0.570),
+        (RK.azel(108, 30), 0.530),
+        (RK.azel(142, -8), 0.670),
+        (RK.azel(172, 16), 0.600),
+        (RK.azel(202, -20), 0.715),
+        (RK.azel(236, 10), 0.575),
+        (RK.azel(268, -12), 0.655),
+        (RK.azel(300, 26), 0.585),
+        (RK.azel(330, -4), 0.690),
+        (RK.azel(85, 48), 0.530),     # upper shoulder facet
+        (RK.azel(255, -48), 0.630),   # lower rear facet
+        # Three unequal upper facets rather than one: with a single top plane
+        # the steep side planes met in a ridge and the stone grew a peak.
+        (RK.azel(38, 64), 0.512),
+        (RK.azel(152, 60), 0.533),
+    ]
+    s.bulges = [
+        (RK.azel(300, -25), 0.085, 2.2),    # low shoulder pushes the mass centre off
+        (RK.azel(135, 42), -0.062, 2.8),    # broad upper scoop
+        (RK.azel(45, 60), -0.038, 3.2),
+    ]
+    # Axes unequal (about 1.00 : 0.82 : 0.70) but not flattened into a shard --
+    # the reference stone is compact. The non-cube read has to come from unequal
+    # facets, a displaced mass centre and real concavities, not from squashing.
+    s.affine = np.array([
+        [1.14, 0.09, 0.05],
+        [-0.06, 0.93, 0.03],
+        [0.05, -0.04, 0.86],
+    ])
+    s.noise = [(1.5, 0.007), (2.8, 0.0035)]
+    s.seed = 5
+    return s
+
+
+# =========================================================== driver
+
+def clear_scene():
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+
+
+def export_obj(ob, path):
+    bpy.ops.object.select_all(action='DESELECT')
+    ob.select_set(True)
+    bpy.context.view_layer.objects.active = ob
+    bpy.ops.wm.obj_export(
+        filepath=path,
+        export_selected_objects=True,
+        forward_axis='NEGATIVE_Z', up_axis='Y',
+        export_materials=False, export_uv=False,
+        export_normals=True, export_triangulated_mesh=False,
+        apply_modifiers=False,
+    )
+
+
+def obj_bounds(ob):
+    v = np.array([list(x.co) for x in ob.data.vertices])
+    return v.min(axis=0), v.max(axis=0)
+
+
+def ground(ob):
+    """Bottom-centre pivot: base on z=0, centred on the XY bounding box."""
+    import bmesh
+    me = ob.data
+    v = np.array([list(x.co) for x in me.vertices])
+    lo, hi = v.min(axis=0), v.max(axis=0)
+    off = np.array([(lo[0] + hi[0]) * 0.5, (lo[1] + hi[1]) * 0.5, lo[2]])
+    for x in me.vertices:
+        x.co = (x.co[0] - off[0], x.co[1] - off[1], x.co[2] - off[2])
+    me.update()
+    del bmesh
+    return ob
+
+
+def shade(ob, angle_deg=33.0):
+    """A 20-degree split was low enough to crease along the sweep's own quad
+    rows, which showed up as rectangular shading terraces. 33 degrees splits
+    only the authored facet creases."""
+    bpy.ops.object.select_all(action='DESELECT')
+    ob.select_set(True)
+    bpy.context.view_layer.objects.active = ob
+    bpy.ops.object.shade_smooth()
+    try:
+        bpy.ops.object.shade_auto_smooth(angle=math.radians(angle_deg))
+    except Exception:
+        pass
+
+
+def main():
+    clear_scene()
+    report = {}
+
+    # --- Arch
+    # The plateau top and the sole are quarried with real world-space bisects,
+    # so the flat sky-facing surface is genuinely level across the whole crown
+    # instead of following the swept centreline over the shoulders.
+    ob = RK.to_blender(RK.build_loft(spec_arch()), "SM_VRKC1_Arch_A")
+    RK.plane_cut(ob, (0, 0, 2.06), (0.03, -0.03, 1.0), bevel=0.06)
+    RK.plane_cut(ob, (0, 0, 0.0), (0.0, 0.0, -1.0), bevel=0.045)
+    RK.cleanup(ob)
+    ground(ob)
+    shade(ob)
+    report["Arch_A"] = RK.validate(ob)
+    export_obj(ob, os.path.join(MODELS, "SM_VRKC1_Arch_A.obj"))
+
+    # --- Overhang
+    # top plane tilts down toward the tip, which is what gives the reference its
+    # sloping shelf over a scooped undercut
+    m = RK.build_loft(spec_overhang())
+    ob = RK.to_blender(m, "SM_VRKC1_Overhang_A")
+    # the undercut, carved as a real volume: a broad tilted scoop biased to one
+    # side of the axis so the void is asymmetric
+    # Deep enough to be a genuine undercut, and shifted toward the tip so it
+    # bites hardest at mid-length and fades out under the root rather than
+    # eating the anchoring mass.
+    cutter = RK.make_ellipsoid("cut_under", loc=(0.42, -0.05, 0.06),
+                               scale=(0.76, 0.56, 0.38),
+                               rot=(math.radians(7.0), math.radians(-16.0),
+                                    math.radians(13.0)))
+    RK.boolean_cut(ob, cutter)
+    # Anchored end: two unequal facets at different angles rather than one flat
+    # ellipse, so the root reads as broken rock bedded into a cliff.
+    RK.plane_cut(ob, (-0.64, 0.0, 0.55), (-1.0, 0.22, 0.30), bevel=0.05)
+    RK.plane_cut(ob, (-0.50, -0.44, 0.30), (-0.62, -1.0, 0.12), bevel=0.045)
+    RK.plane_cut(ob, (0, 0, 1.16), (0.42, -0.07, 1.0), bevel=0.045)
+    RK.plane_cut(ob, (0, 0, 0.0), (0.0, 0.0, -1.0), bevel=0.04)
+    RK.cleanup(ob)
+    RK.bevel_sharp_edges(ob, angle_deg=52.0, offset=0.030, segments=2)
+    RK.cleanup(ob)
+    ground(ob)
+    shade(ob)
+    report["Overhang_A"] = RK.validate(ob)
+    export_obj(ob, os.path.join(MODELS, "SM_VRKC1_Overhang_A.obj"))
+
+    # --- Stone B
+    ob = RK.boulder_object("SM_VRKC1_Stone_B", spec_stone_b())
+    lo = min(v.co[2] for v in ob.data.vertices)
+    RK.plane_cut(ob, (0, 0, lo + 0.075), (0.0, 0.0, -1.0), bevel=0.05)
+    RK.cleanup(ob)
+    ground(ob)
+    # Break the convex hull. A smoothed polytope with only additive bulges is
+    # ~100% solid in plan, which is the "one primitive plus a bevel" failure --
+    # these are real subtracted volumes: an undercut bite in a lower flank and a
+    # shallow saddle worn across the top.
+    blo, bhi = obj_bounds(ob)
+    span = bhi - blo
+    RK.boolean_cut(ob, RK.make_ellipsoid(
+        "bite_flank",
+        loc=(blo[0] + span[0] * 0.02, blo[1] + span[1] * 0.72, blo[2] + span[2] * 0.40),
+        scale=(span[0] * 0.26, span[1] * 0.30, span[2] * 0.34),
+        rot=(math.radians(14.0), math.radians(-9.0), math.radians(24.0))))
+    RK.boolean_cut(ob, RK.make_ellipsoid(
+        "bite_saddle",
+        loc=(blo[0] + span[0] * 0.62, blo[1] + span[1] * 0.38, bhi[2] + span[2] * 0.20),
+        scale=(span[0] * 0.34, span[1] * 0.30, span[2] * 0.30),
+        rot=(math.radians(-11.0), math.radians(17.0), math.radians(8.0))))
+    RK.cleanup(ob)
+    ground(ob)
+    shade(ob, 32.0)
+    report["Stone_B"] = RK.validate(ob)
+    export_obj(ob, os.path.join(MODELS, "SM_VRKC1_Stone_B.obj"))
+
+    with open(os.path.join(REPORTS, "heroes_validation.json"), "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+
+    bpy.ops.wm.save_as_mainfile(
+        filepath=os.path.join(ROOT, "VerticalRockKit_ClaudeV1_Heroes.blend"))
+
+    for k, v in report.items():
+        print(f"[VALIDATE] {k}: watertight={v['watertight']} tris={v['tris']} "
+              f"comps={v['components']} nm_e={v['non_manifold_edges']} "
+              f"nm_v={v['non_manifold_verts']} wire={v['wire_edges']} "
+              f"bnd={v['boundary_edges']} vol={v['signed_volume']:.4f} "
+              f"size={['%.2f' % x for x in v['size']]} depthvar={v['depth_variation']:.3f}")
+
+
+main()

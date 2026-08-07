@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Crate panel: the crate on the left, the backpack on the right, drag-and-drop or a
+     click moves a stack across. Like the machine panel it reuses the inventory classes, so the glass,
+     the hairlines, the typography and the slots are the same rules and not a copy. -->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/_Project/Art/UI/Inventory/InventoryHUD.uss?fileID=7433441132597879392&amp;guid=057cac2a5f7ba0b4791535cdfd17dae6&amp;type=3#InventoryHUD" />
+    <Style src="project://database/Assets/_Project/Art/UI/Chest/ChestHUD.uss?fileID=7433441132597879392&amp;guid=852b4a6188d251241854a5970d5cd338&amp;type=3#ChestHUD" />
+    <ui:VisualElement name="chest-screen" class="chest-screen">
+        <ui:VisualElement name="chest-backdrop" class="inventory-backdrop" />
+
+        <ui:VisualElement name="chest-panel" class="inventory-panel chest-panel">
+            <ui:VisualElement class="inventory-header">
+                <ui:Label name="chest-title" text="CASSA" class="inventory-title" />
+                <ui:Label name="chest-hint" text="Trascina una pila tra cassa e zaino" class="capacity-label" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="chest-columns">
+                <ui:VisualElement class="inventory-section chest-column">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label name="crate-title" text="CONTENUTO" class="section-title" />
+                        <ui:Label name="crate-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="crate-grid" class="inventory-grid chest-grid" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="inventory-section chest-column chest-column--player">
+                    <ui:VisualElement class="section-heading">
+                        <ui:Label text="ZAINO" class="section-title" />
+                        <ui:Label name="player-note" text="" class="section-note" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="player-grid" class="inventory-grid chest-grid" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="chest-footer">
+                <ui:Label name="chest-status" text="" class="chest-status" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

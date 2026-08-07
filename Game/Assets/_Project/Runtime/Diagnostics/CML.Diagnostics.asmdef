@@ -1,0 +1,11 @@
+{
+  "name": "CML.Diagnostics",
+  "rootNamespace": "CML.Diagnostics",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Simulation"
+  ],
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

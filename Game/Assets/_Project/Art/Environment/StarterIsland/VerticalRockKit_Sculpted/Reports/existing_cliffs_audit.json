@@ -1,0 +1,73 @@
+{
+  "purpose": "Read-only clay contact-sheet audit of owned Stylized Nature Kit Lite cliff assets",
+  "asset_count": 6,
+  "consistent_preview_rotation_z_degrees": 24.0,
+  "assets": [
+    {
+      "name": "Rock Cliff 1",
+      "source": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 1.fbx",
+      "vertices": 966,
+      "faces": 1880,
+      "dimensions_m_xyz": [
+        5.865,
+        4.999,
+        6.079
+      ]
+    },
+    {
+      "name": "Rock Cliff 2",
+      "source": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 2.fbx",
+      "vertices": 963,
+      "faces": 1849,
+      "dimensions_m_xyz": [
+        6.451,
+        5.29,
+        7.632
+      ]
+    },
+    {
+      "name": "Rock Cliff 3",
+      "source": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 3.fbx",
+      "vertices": 1063,
+      "faces": 2064,
+      "dimensions_m_xyz": [
+        8.209,
+        7.283,
+        6.573
+      ]
+    },
+    {
+      "name": "Rock Cliff 4",
+      "source": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 4.fbx",
+      "vertices": 1789,
+      "faces": 3495,
+      "dimensions_m_xyz": [
+        13.316,
+        8.091,
+        5.206
+      ]
+    },
+    {
+      "name": "Rock Cliff 5",
+      "source": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Rock Cliffs\\Rock Cliff 5.fbx",
+      "vertices": 1286,
+      "faces": 2517,
+      "dimensions_m_xyz": [
+        8.55,
+        6.735,
+        6.575
+      ]
+    },
+    {
+      "name": "Mountain",
+      "source": "D:\\Changing My Life\\Game\\Assets\\Proxy Games\\Stylized Nature Kit Lite\\Meshes\\Rocks\\Mountain\\Mountain.fbx",
+      "vertices": 2311,
+      "faces": 4606,
+      "dimensions_m_xyz": [
+        54.464,
+        51.281,
+        45.125
+      ]
+    }
+  ]
+}

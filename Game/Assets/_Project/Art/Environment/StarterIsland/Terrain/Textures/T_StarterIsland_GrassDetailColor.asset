@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!28 &2800000
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: T_StarterIsland_GrassDetailColor
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 8
+  m_Height: 8
+  m_CompleteImageSize: 340
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 4
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 340
+  _typelessdata: 61913fff669541ff6a9a43ff6f9e45ff61913fff669541ff6a9a43ff6f9e45ff6b9a43ff709e45ff74a348ff669541ff6b9a43ff709e45ff74a348ff669541ff75a348ff79a84aff6b9a44ff709f46ff75a348ff79a84aff6b9a44ff709f46ff7eac4cff719f46ff75a348ff7aa84aff7eac4cff719f46ff75a348ff7aa84aff76a348ff7aa84aff7fad4cff83b14eff76a348ff7aa84aff7fad4cff83b14eff7fad4dff84b14fff89b651ff7ba84bff7fad4dff84b14fff89b651ff7ba84bff89b651ff8ebb53ff80ad4dff84b14fff89b651ff8ebb53ff80ad4dff84b14fff93bf55ff85b14fff8ab651ff8ebb53ff93bf55ff85b14fff8ab651ff8ebb53ff689742ff6c9c44ff689742ff6c9c44ff77a549ff72a047ff77a549ff72a047ff7caa4bff81af4dff7caa4bff81af4dff8bb852ff87b350ff8bb852ff87b350ff6f9d45ff6f9d45ff83b04eff83b04eff79a649ff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 

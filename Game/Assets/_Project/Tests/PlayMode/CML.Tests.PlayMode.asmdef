@@ -1,0 +1,17 @@
+{
+  "name": "CML.Tests.PlayMode",
+  "rootNamespace": "CML.Tests.PlayMode",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Inventory",
+    "CML.Simulation",
+    "CML.Unity",
+    "Unity.InputSystem",
+    "Unity.InputSystem.TestFramework"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}

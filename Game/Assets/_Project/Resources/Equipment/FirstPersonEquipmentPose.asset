@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f56fc24e57dc14280b7d256267c96f, type: 3}
+  m_Name: FirstPersonEquipmentPose
+  m_EditorClassIdentifier: CML.Unity::CML.Unity.Presentation.Equipment.FirstPersonEquipmentPose
+  pickaxe:
+    localPosition: {x: 0.26, y: -0.44, z: 0.72}
+    localEulerAngles: {x: 7, y: -9, z: -11}
+    localScale: {x: 0.74, y: 0.74, z: 0.74}
+  rightHand:
+    localPosition: {x: 0.2600098, y: -0.3599999, z: 0.7200012}
+    localEulerAngles: {x: 76.985, y: -131.086, z: 12.239}
+    localScale: {x: 1, y: 1, z: 1}
+  leftHand:
+    localPosition: {x: 0.2737927, y: -0.1592048, z: 0.7293689}
+    localEulerAngles: {x: 103.015, y: 85, z: 102.239}
+    localScale: {x: 1, y: 1, z: 1}

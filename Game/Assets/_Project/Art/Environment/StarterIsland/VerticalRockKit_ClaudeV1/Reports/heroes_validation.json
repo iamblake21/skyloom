@@ -1,0 +1,92 @@
+{
+  "Arch_A": {
+    "name": "SM_VRKC1_Arch_A",
+    "verts": 2087,
+    "faces": 3465,
+    "tris": 4170,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "non_manifold_verts": 0,
+    "boundary_edges": 0,
+    "wire_edges": 0,
+    "loose_verts": 0,
+    "signed_volume": 2.629712588773008,
+    "watertight": true,
+    "bbox_min": [
+      -1.286156177520752,
+      -0.7363765239715576,
+      0.0
+    ],
+    "bbox_max": [
+      1.286156177520752,
+      0.7363765239715576,
+      2.1687188148498535
+    ],
+    "size": [
+      2.572312355041504,
+      1.4727530479431152,
+      2.1687188148498535
+    ],
+    "depth_variation": 0.1392594518333524
+  },
+  "Overhang_A": {
+    "name": "SM_VRKC1_Overhang_A",
+    "verts": 2287,
+    "faces": 3807,
+    "tris": 4570,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "non_manifold_verts": 0,
+    "boundary_edges": 0,
+    "wire_edges": 0,
+    "loose_verts": 0,
+    "signed_volume": 1.0513527649802705,
+    "watertight": true,
+    "bbox_min": [
+      -1.1722242832183838,
+      -0.6969380378723145,
+      0.0
+    ],
+    "bbox_max": [
+      1.1722242832183838,
+      0.6969380378723145,
+      1.215675711631775
+    ],
+    "size": [
+      2.3444485664367676,
+      1.393876075744629,
+      1.215675711631775
+    ],
+    "depth_variation": 0.3188100191438878
+  },
+  "Stone_B": {
+    "name": "SM_VRKC1_Stone_B",
+    "verts": 1016,
+    "faces": 1707,
+    "tris": 2028,
+    "components": 1,
+    "non_manifold_edges": 0,
+    "non_manifold_verts": 0,
+    "boundary_edges": 0,
+    "wire_edges": 0,
+    "loose_verts": 0,
+    "signed_volume": 0.47833331203467905,
+    "watertight": true,
+    "bbox_min": [
+      -0.6950388550758362,
+      -0.5414015054702759,
+      0.0
+    ],
+    "bbox_max": [
+      0.6950388550758362,
+      0.5414015054702759,
+      0.8823543190956116
+    ],
+    "size": [
+      1.3900777101516724,
+      1.0828030109405518,
+      0.8823543190956116
+    ],
+    "depth_variation": 0.20343602087393264
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "CML.Inventory",
+  "rootNamespace": "CML.Inventory",
+  "references": [
+    "CML.Foundation",
+    "CML.Content"
+  ],
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

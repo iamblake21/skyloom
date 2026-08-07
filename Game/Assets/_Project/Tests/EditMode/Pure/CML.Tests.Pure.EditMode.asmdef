@@ -1,0 +1,20 @@
+{
+  "name": "CML.Tests.Pure.EditMode",
+  "rootNamespace": "CML.Tests.Pure",
+  "references": [
+    "CML.Foundation",
+    "CML.Content",
+    "CML.Inventory",
+    "CML.Simulation",
+    "CML.Persistence",
+    "CML.Diagnostics"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false,
+  "noEngineReferences": true
+}

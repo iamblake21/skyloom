@@ -1,0 +1,229 @@
+/* Airship repair panel — the new parts only.
+ *
+ * Surface, hairlines, slot frames, progress bar and cause line come from
+ * InventoryHUD.uss and MachineHUD.uss, both applied by the UXML. The panel stays
+ * translucent on purpose: that is this game's HUD language, and making it opaque
+ * would put it at odds with every other panel.
+ *
+ * Type scale is the system's: panel title 12px, section labels 9px with wide
+ * tracking. A requirement name therefore sits at 11px bold, one step under the
+ * title and never above it.
+ *
+ * Palette: cream #F2E3C0, gold #D7A52D, warning red #D8664E.
+ */
+
+.repair-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: rgb(242, 227, 192);
+}
+
+/* 960 is not arbitrary: slots are 62 wide with an 8 margin, so each store
+   column needs 6 x 70 = 420 to hold six per row. Two of those plus the gap and
+   the panel's own 26 padding either side lands here. Sizing the panel to the
+   grid, rather than the grid to the panel, is what stops the last column
+   spilling past the border. */
+.repair-panel {
+    display: none;
+    width: 960px;
+    flex-direction: column;
+    align-self: center;
+}
+
+/* ------------------------------------------------------------- columns ---- */
+
+/* Every section here overrides height.
+ *
+ * .inventory-section is fixed at 108px, which suits the player panel's uniform
+ * rows. This panel's sections are all taller than that — a 300px hull stage,
+ * two requirement rows with a progress bar, four rows of hold slots — and UI
+ * Toolkit does not clip, so inheriting that height made the contents spill out
+ * of the panel entirely. */
+.repair-columns {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+.repair-preview-section {
+    width: 380px;
+    height: auto;
+    margin-right: 18px;
+}
+
+.repair-requirements-section {
+    flex-grow: 1;
+    height: auto;
+    min-width: 0;
+}
+
+/* The render target fills this; the element itself only reserves the stage and
+   draws the frame around it. */
+.repair-preview {
+    height: 300px;
+    margin-top: 10px;
+    background-color: rgba(18, 15, 12, 0.22);
+    border-width: 1px;
+    border-color: rgba(242, 227, 192, 0.12);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+/* --------------------------------------------------------- requirements ---- */
+
+.repair-requirements {
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+/* No :last-child. USS supports only :hover, :active, :focus, :disabled,
+   :enabled, :checked, :selected and :root — structural pseudo-classes are not
+   among them. */
+.repair-row {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(242, 227, 192, 0.08);
+}
+
+/* The frame is .inventory-slot, added by the controller so the tile matches
+   every other slot in the game. This only sets the footprint. */
+.repair-row-slot {
+    width: 62px;
+    height: 62px;
+    margin-right: 16px;
+}
+
+.repair-row-text {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.repair-row-name {
+    color: rgba(242, 227, 192, 0.92);
+    font-size: 11px;
+    -unity-font-style: bold;
+    letter-spacing: 1.6px;
+}
+
+.repair-row-owned {
+    color: rgba(242, 227, 192, 0.30);
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    margin-top: 5px;
+}
+
+/* Red only when the player cannot pay at all. A row that is merely incomplete
+   is normal progress, not an error. */
+.repair-row-owned.is-short {
+    color: rgba(216, 102, 78, 0.85);
+}
+
+.repair-row-count {
+    color: rgb(215, 165, 45);
+    font-size: 14px;
+    -unity-font-style: bold;
+    letter-spacing: 0.6px;
+    margin-right: 18px;
+    min-width: 40px;
+    -unity-text-align: middle-right;
+}
+
+.repair-row-count.is-complete {
+    color: rgba(242, 227, 192, 0.38);
+}
+
+.repair-install {
+    min-width: 96px;
+    height: 30px;
+    font-size: 9px;
+    letter-spacing: 2.4px;
+    -unity-font-style: bold;
+    color: rgba(242, 227, 192, 0.92);
+    background-color: rgba(242, 227, 192, 0.05);
+    border-width: 1px;
+    border-color: rgba(242, 227, 192, 0.18);
+    border-radius: 1px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.repair-install:hover:enabled {
+    background-color: rgba(215, 165, 45, 0.14);
+    border-color: rgba(215, 165, 45, 0.50);
+    color: rgb(242, 227, 192);
+}
+
+.repair-install:disabled {
+    opacity: 0.28;
+}
+
+.repair-progress {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.repair-cause {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Nothing is being repaired yet, so bar and dot carry the warning colour
+   instead of gold, matching machine-panel--blocked. Gold would read as
+   "working" on a hull that cannot fly. */
+.repair-panel--blocked .progress-fill {
+    background-color: rgba(216, 102, 78, 0.78);
+}
+
+.repair-panel--blocked .cause-dot {
+    background-color: rgb(216, 102, 78);
+}
+
+/* ------------------------------------------------------------ backpack ---- */
+
+.repair-stores {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top-width: 1px;
+    border-top-color: rgba(242, 227, 192, 0.10);
+}
+
+/* flex-basis 0 with equal growth, not width 50%: the sections then share the
+   panel's inner width after its padding, instead of half of the outer width,
+   which is what pushed the last column past the border. */
+.repair-store-section {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 0;
+    height: auto;
+    padding-right: 16px;
+}
+
+.repair-store-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+/* The game's standard slot footprint. InventorySlotView always adds
+   .inventory-slot, which is 62x62, so matching it here means the tile size never
+   depends on which stylesheet the cascade happens to apply last. */
+.repair-backpack-slot {
+    width: 62px;
+    height: 62px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* No quantity rule here: the tiles are real InventorySlotView instances now, so
+   the count, the durability bar and the selection state all come from the
+   inventory stylesheet like everywhere else. */

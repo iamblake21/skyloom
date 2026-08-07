@@ -1,0 +1,670 @@
+/* Inventory HUD — minimal, translucent, frameless.
+ *
+ * Rules that keep it from looking cheap:
+ *   · the panel stays almost invisible: only the slots carry the milky white glass;
+ *   · edges are 1 px hairlines, never chunky borders;
+ *   · no filled badges — numbers sit on the glass with a text outline;
+ *   · exactly one accent, the game's warm gold, used only for selection;
+ *   · item icons are renders of the real 3D models (Art/UI/Icons, built by
+ *     Tools/Art/build_item_icons.py), so nothing is faked with rectangles.
+ *
+ * Cream #F2E3C0 and gold #D7A52D come from the game's canonical palette.
+ */
+
+.inventory-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: rgb(242, 227, 192);
+}
+
+.inventory-backdrop {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(18, 15, 12, 0.52);
+}
+
+/* -------------------------------------------------------------- aiming ---- */
+
+.aim-reticle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 14px;
+    height: 14px;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.78;
+}
+
+.aim-reticle-ring {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.58);
+    border-right-color: rgba(242, 227, 192, 0.58);
+    border-top-color: rgba(242, 227, 192, 0.58);
+    border-bottom-color: rgba(242, 227, 192, 0.58);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.aim-reticle-dot {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(249, 243, 227, 0.92);
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.inventory-screen--open .aim-reticle {
+    display: none;
+}
+
+/* ---------------------------------------------------------------- panel ---- */
+
+.inventory-panel {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 44%;
+    translate: -50% -50%;
+    flex-direction: column;
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 22px;
+    padding-bottom: 26px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.13);
+    border-right-color: rgba(242, 227, 192, 0.13);
+    border-top-color: rgba(242, 227, 192, 0.20);
+    border-bottom-color: rgba(242, 227, 192, 0.08);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+/* Only the player inventory owns the quick-craft column.  Chest and machine
+ * panels deliberately reuse inventory-panel, so putting the row layout on the
+ * shared class folds their header, contents and footer into one broken row. */
+.inventory-panel--player {
+    width: 936px;
+    flex-direction: row;
+}
+
+.inventory-column {
+    width: 558px;
+}
+
+.quick-craft-column {
+    width: 326px;
+    margin-left: 26px;
+    padding-left: 26px;
+    border-left-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.13);
+}
+
+.quick-craft-header {
+    height: 26px;
+    margin-bottom: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quick-craft-list {
+    flex-grow: 1;
+}
+
+.quick-craft-card {
+    min-height: 96px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.10);
+    border-right-color: rgba(242, 227, 192, 0.10);
+    border-top-color: rgba(242, 227, 192, 0.16);
+    border-bottom-color: rgba(242, 227, 192, 0.07);
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+.quick-craft-card--blocked {
+    opacity: 0.58;
+}
+
+.quick-craft-icon {
+    width: 58px;
+    height: 58px;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-craft-copy {
+    flex-grow: 1;
+}
+
+.quick-craft-name {
+    color: rgba(249, 243, 227, 0.94);
+    font-size: 11px;
+    -unity-font-style: bold;
+    letter-spacing: 0.5px;
+}
+
+.quick-craft-ingredients {
+    margin-top: 7px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.quick-craft-ingredient {
+    margin-right: 9px;
+    color: rgba(242, 227, 192, 0.48);
+    font-size: 9px;
+}
+
+.quick-craft-ingredient--missing {
+    color: rgba(224, 137, 112, 0.82);
+}
+
+.quick-craft-button {
+    width: 56px;
+    height: 30px;
+    margin-left: 8px;
+    color: rgb(237, 194, 87);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(215, 165, 45, 0.72);
+    border-right-color: rgba(215, 165, 45, 0.72);
+    border-top-color: rgba(237, 194, 87, 0.88);
+    border-bottom-color: rgba(215, 165, 45, 0.58);
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.quick-craft-button:disabled {
+    color: rgba(242, 227, 192, 0.28);
+    border-left-color: rgba(242, 227, 192, 0.12);
+    border-right-color: rgba(242, 227, 192, 0.12);
+    border-top-color: rgba(242, 227, 192, 0.18);
+    border-bottom-color: rgba(242, 227, 192, 0.08);
+}
+
+.quick-craft-button--blocked {
+    color: rgba(242, 227, 192, 0.44);
+    border-left-color: rgba(242, 227, 192, 0.18);
+    border-right-color: rgba(242, 227, 192, 0.18);
+    border-top-color: rgba(242, 227, 192, 0.24);
+    border-bottom-color: rgba(242, 227, 192, 0.12);
+}
+
+.quick-craft-feedback {
+    min-height: 14px;
+    margin-top: 2px;
+    color: rgba(242, 227, 192, 0.54);
+    font-size: 9px;
+    letter-spacing: 0.3px;
+}
+
+.inventory-header {
+    height: 26px;
+    margin-bottom: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inventory-title {
+    color: rgba(242, 227, 192, 0.92);
+    font-size: 12px;
+    -unity-font-style: bold;
+    letter-spacing: 3.4px;
+}
+
+.capacity-label {
+    color: rgba(242, 227, 192, 0.42);
+    font-size: 10px;
+    letter-spacing: 0.4px;
+}
+
+.inventory-section {
+    height: 108px;
+}
+
+.inventory-section--backpack {
+    margin-top: 14px;
+}
+
+.section-heading {
+    height: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-title {
+    color: rgba(242, 227, 192, 0.55);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 2.4px;
+}
+
+.section-note {
+    color: rgba(242, 227, 192, 0.30);
+    font-size: 9px;
+    letter-spacing: 0.8px;
+}
+
+.inventory-grid {
+    margin-top: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ---------------------------------------------------------------- hotbar ---- */
+
+.hotbar-shell {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    translate: -50% 0;
+    align-items: center;
+}
+
+/* No pill: the name floats on the scene, kept legible by its outline. */
+.selected-item-label {
+    margin-bottom: 10px;
+    color: rgba(242, 227, 192, 0.95);
+    font-size: 12px;
+    -unity-font-style: bold;
+    letter-spacing: 0.6px;
+    -unity-text-outline-width: 1.1px;
+    -unity-text-outline-color: rgba(16, 13, 10, 0.85);
+}
+
+.hotbar-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+/* No rack, no tray: the slots are the only thing on screen. */
+.hotbar {
+    flex-direction: row;
+    align-items: center;
+}
+
+.hotbar-inventory-button {
+    width: 46px;
+    height: 46px;
+    margin-left: 16px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.14);
+    border-right-color: rgba(242, 227, 192, 0.14);
+    border-top-color: rgba(242, 227, 192, 0.20);
+    border-bottom-color: rgba(242, 227, 192, 0.10);
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+.hotbar-inventory-key {
+    color: rgba(242, 227, 192, 0.62);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 1.2px;
+}
+
+/* ----------------------------------------------------------------- slots ---- */
+
+.inventory-slot {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(242, 227, 192, 0.14);
+    border-right-color: rgba(242, 227, 192, 0.14);
+    border-top-color: rgba(242, 227, 192, 0.20);
+    border-bottom-color: rgba(242, 227, 192, 0.09);
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    transition-property: background-color, border-top-color;
+    transition-duration: 110ms, 110ms;
+}
+
+/* An occupied slot only needs a touch more presence than an empty one. */
+.inventory-slot--occupied {
+    background-color: rgba(255, 255, 255, 0.24);
+    border-top-color: rgba(242, 227, 192, 0.26);
+}
+
+.inventory-slot:hover {
+    background-color: rgba(255, 255, 255, 0.30);
+    border-top-color: rgba(242, 227, 192, 0.34);
+}
+
+.hotbar-slot {
+    width: 58px;
+    height: 58px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.backpack-slot {
+    height: 62px;
+}
+
+/* Selection stays quiet on the light glass: no coloured ring or badge. */
+.slot-selection-frame {
+    display: none;
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 2px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.inventory-slot--selected {
+    background-color: rgba(255, 255, 255, 0.28);
+    border-top-color: rgba(255, 255, 255, 0.42);
+}
+
+.inventory-slot--selected .slot-selection-frame {
+    display: none;
+}
+
+.inventory-slot--invalid {
+    background-color: rgba(216, 102, 78, 0.22);
+    border-left-color: rgba(216, 102, 78, 0.75);
+    border-right-color: rgba(216, 102, 78, 0.75);
+    border-top-color: rgba(229, 131, 107, 0.85);
+    border-bottom-color: rgba(216, 102, 78, 0.55);
+}
+
+/* Numbers live directly on the glass — no keycaps, no badges. */
+.slot-index {
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    color: rgba(242, 227, 192, 0.38);
+    font-size: 9px;
+    -unity-font-style: bold;
+}
+
+.inventory-slot--selected .slot-index {
+    color: rgba(249, 243, 227, 0.72);
+}
+
+.backpack-slot .slot-index {
+    display: none;
+}
+
+/* The item owns the slot, but stops short of the bottom strip so the count
+   never has to be read against the mesh. */
+.slot-icon-host {
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    right: 3px;
+    bottom: 11px;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot-quantity {
+    position: absolute;
+    right: 8px;
+    bottom: 3px;
+    color: rgb(249, 243, 227);
+    font-size: 12px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-right;
+    -unity-text-outline-width: 1.6px;
+    -unity-text-outline-color: rgba(14, 11, 9, 0.95);
+}
+
+.slot-durability-track {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 5px;
+    height: 3px;
+    background-color: rgba(242, 227, 192, 0.16);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    overflow: hidden;
+}
+
+.slot-durability-fill {
+    height: 3px;
+    /* The controller interpolates this from green through yellow to red as
+       durability falls. Green is the safe default before the first refresh. */
+    background-color: rgb(95, 190, 112);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+/* ----------------------------------------------------------------- icons ---- */
+
+.item-icon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+/* Renders of the actual meshes, one per item. Keep these asset paths explicit
+   in this stylesheet: importing the USS after the PNGs establishes Unity's
+   asset dependencies and prevents UI Toolkit's yellow missing-image marker. */
+.item-icon--ore {
+    background-image: url("../Icons/ICON_RawIron.png");
+}
+
+.item-icon--ingot {
+    background-image: url("../Icons/ICON_IronIngot.png");
+}
+
+.item-icon--plate {
+    background-image: url("../Icons/ICON_IronPlate.png");
+}
+
+.item-icon--wooden-crate {
+    background-image: url("../Icons/ICON_WoodenCrate.png");
+}
+
+.item-icon--belt-straight {
+    background-image: url("../Icons/ICON_BeltStraight.png");
+}
+
+.item-icon--belt-curve {
+    background-image: url("../Icons/ICON_BeltCurve.png");
+}
+
+.item-icon--belt-curve-left {
+    background-image: url("../Icons/ICON_BeltCurveLeft.png");
+}
+
+.item-icon--belt-incline {
+    background-image: url("../Icons/ICON_BeltIncline.png");
+}
+
+.item-icon--belt-support {
+    background-image: url("../Icons/ICON_BeltSupport.png");
+}
+
+.item-icon--belt-funnel {
+    background-image: url("../Icons/ICON_BeltFunnel.png");
+}
+
+.item-icon--belt-drive-unit {
+    background-image: url("../Icons/ICON_BeltDriveUnit.png");
+}
+
+.item-icon--mechanical-press {
+    background-image: url("../Icons/ICON_MechanicalPress.png");
+}
+
+.item-icon--mechanical-drill {
+    background-image: url("../Icons/ICON_MechanicalDrill.png");
+}
+
+.item-icon--crude-pickaxe {
+    background-image: url("../Icons/ICON_PickaxeCrude.png");
+}
+
+.item-icon--stone {
+    background-image: url("../Icons/ICON_Stone.png");
+}
+
+.item-icon--wood-log {
+    background-image: url("../Icons/ICON_WoodLog.png");
+}
+
+.item-icon--plant-fiber {
+    background-image: url("../Icons/ICON_PlantFiber.png");
+}
+
+.item-icon--stick {
+    background-image: url("../Icons/ICON_Stick.png");
+}
+
+/* The dedicated iron-pickaxe model belongs to its later art ticket. Until
+   then the data-ready item reuses the pickaxe silhouette, never a missing
+   texture marker. */
+.item-icon--iron-pickaxe {
+    background-image: url("../Icons/ICON_PickaxeCrude.png");
+}
+
+/* The old rectangle-built icons stay in the view code for compatibility but
+   must never be visible now that real renders exist. */
+.ore-chip,
+.ingot-body,
+.ingot-shine,
+.plate-body,
+.plate-rivet {
+    display: none;
+}
+
+/* Fallback for items without a render yet: initials on bare glass. */
+.item-icon--generic {
+    align-items: center;
+    justify-content: center;
+}
+
+.generic-icon-label {
+    color: rgba(242, 227, 192, 0.62);
+    font-size: 15px;
+    -unity-font-style: bold;
+    letter-spacing: 0.8px;
+}
+
+/* White UI pass: with the glass panel cleared out, labels and actions belong
+   to the same clean white language. Coloured states remain reserved for
+   warnings and the durability meter. */
+.inventory-screen {
+    color: rgb(255, 255, 255);
+}
+
+.inventory-title,
+.quick-craft-name,
+.selected-item-label,
+.slot-quantity,
+.generic-icon-label {
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.capacity-label,
+.section-title,
+.section-note,
+.quick-craft-ingredient,
+.quick-craft-feedback,
+.hotbar-inventory-key,
+.slot-index {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.quick-craft-button,
+.quick-craft-button:disabled,
+.quick-craft-button--blocked {
+    color: rgb(255, 255, 255);
+    border-left-color: rgba(255, 255, 255, 0.72);
+    border-right-color: rgba(255, 255, 255, 0.72);
+    border-top-color: rgba(255, 255, 255, 0.88);
+    border-bottom-color: rgba(255, 255, 255, 0.58);
+}

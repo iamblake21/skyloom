@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_CIN_DeepSpace
+  m_Shader: {fileID: 4800000, guid: f1f3e7eee4c3a9a438f37aad7356b014, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Exposure: 1
+    - _GalaxyIntensity: 1.7
+    - _GalaxyWidth: 0.26
+    - _NebulaContrast: 3.4
+    - _NebulaCoverage: 0.42
+    - _NebulaIntensity: 0.95
+    - _NebulaScale: 1.05
+    - _StarBrightness: 8.5
+    - _StarDensity: 0.085
+    - _StarSharpness: 3.2
+    - _TwinkleSpeed: 1.4
+    - _WarpBlend: 0
+    - _WarpStretch: 0.42
+    m_Colors:
+    - _GalaxyAxis: {r: 0.34, g: 0.88, b: -0.33, a: 0}
+    - _GalaxyColor: {r: 0.6, g: 0.66, b: 0.9, a: 1}
+    - _NebulaColorA: {r: 0.16, g: 0.07, b: 0.38, a: 1}
+    - _NebulaColorB: {r: 0.03, g: 0.3, b: 0.52, a: 1}
+    - _NebulaColorC: {r: 0.78, g: 0.24, b: 0.44, a: 1}
+    - _SpaceColor: {r: 0.003, g: 0.004, b: 0.012, a: 1}
+    - _WarpAxis: {r: 0, g: 0, b: 1, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

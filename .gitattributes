@@ -1,0 +1,60 @@
+# Normalize text files across Windows and automated builds.
+* text=auto eol=lf
+
+# Windows command scripts need CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Unity serializes these formats as text. Never send them to Git LFS.
+*.meta text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.asset text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+*.overrideController text eol=lf
+*.mask text eol=lf
+*.physicMaterial text eol=lf
+*.physicsMaterial2D text eol=lf
+*.playable text eol=lf
+*.renderTexture text eol=lf
+*.shader text eol=lf
+*.shadergraph text eol=lf
+*.shadersubgraph text eol=lf
+*.compute text eol=lf
+*.asmdef text eol=lf
+*.asmref text eol=lf
+*.uxml text eol=lf
+*.uss text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.cs text eol=lf
+
+# Binary source art, textures and models.
+*.[Pp][Ss][Dd] filter=lfs diff=lfs merge=lfs -text
+*.[Pp][Ss][Bb] filter=lfs diff=lfs merge=lfs -text
+*.[Tt][Gg][Aa] filter=lfs diff=lfs merge=lfs -text
+*.[Tt][Ii][Ff] filter=lfs diff=lfs merge=lfs -text
+*.[Tt][Ii][Ff][Ff] filter=lfs diff=lfs merge=lfs -text
+*.[Pp][Nn][Gg] filter=lfs diff=lfs merge=lfs -text
+*.[Jj][Pp][Gg] filter=lfs diff=lfs merge=lfs -text
+*.[Jj][Pp][Ee][Gg] filter=lfs diff=lfs merge=lfs -text
+*.[Bb][Mm][Pp] filter=lfs diff=lfs merge=lfs -text
+*.[Ee][Xx][Rr] filter=lfs diff=lfs merge=lfs -text
+*.[Hh][Dd][Rr] filter=lfs diff=lfs merge=lfs -text
+*.[Ff][Bb][Xx] filter=lfs diff=lfs merge=lfs -text
+*.[Bb][Ll][Ee][Nn][Dd] filter=lfs diff=lfs merge=lfs -text
+*.[Gg][Ll][Bb] filter=lfs diff=lfs merge=lfs -text
+
+# Binary audio and video assets.
+*.[Ww][Aa][Vv] filter=lfs diff=lfs merge=lfs -text
+*.[Mm][Pp]3 filter=lfs diff=lfs merge=lfs -text
+*.[Oo][Gg][Gg] filter=lfs diff=lfs merge=lfs -text
+*.[Ff][Ll][Aa][Cc] filter=lfs diff=lfs merge=lfs -text
+*.[Aa][Ii][Ff] filter=lfs diff=lfs merge=lfs -text
+*.[Aa][Ii][Ff][Ff] filter=lfs diff=lfs merge=lfs -text
+*.[Mm]4[Aa] filter=lfs diff=lfs merge=lfs -text
+*.[Mm][Pp]4 filter=lfs diff=lfs merge=lfs -text
+*.[Mm][Oo][Vv] filter=lfs diff=lfs merge=lfs -text
+*.[Ww][Ee][Bb][Mm] filter=lfs diff=lfs merge=lfs -text
