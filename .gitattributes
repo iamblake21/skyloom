@@ -31,6 +31,13 @@
 *.md text eol=lf
 *.cs text eol=lf
 
+# Unity serializes TerrainData as binary even though the extension is .asset.
+# EOL normalization strips CR bytes and corrupts them, so opt these back out.
+TD_*.asset -text
+TerrainData_*.asset -text
+Terrain.asset -text
+"New Terrain*.asset" -text
+
 # Binary source art, textures and models.
 *.[Pp][Ss][Dd] filter=lfs diff=lfs merge=lfs -text
 *.[Pp][Ss][Bb] filter=lfs diff=lfs merge=lfs -text
