@@ -7,15 +7,15 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TL_StarterIsland_CliffPeach_ReferenceMatch_v1
-  m_DiffuseTexture: {fileID: 2800000, guid: 7ba04fd3caa79214b86d02ae8037c200, type: 3}
-  m_NormalMapTexture: {fileID: 0}
+  m_DiffuseTexture: {fileID: 2800000, guid: 6f3c5f011a2c4a42b4e98fcfe2e1eaa1, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: cd5f0b2f3e7d4ff7a8782c5ea5fab00b, type: 3}
   m_MaskMapTexture: {fileID: 0}
-  m_TileSize: {x: 22, y: 22}
+  m_TileSize: {x: 30, y: 30}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 1}
   m_Metallic: 0
-  m_Smoothness: 0.01
-  m_NormalScale: 0
+  m_Smoothness: 0
+  m_NormalScale: 1.3
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}

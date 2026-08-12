@@ -45,6 +45,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LandmassCliffAlbedo:
+        m_Texture: {fileID: 2800000, guid: 6f3c5f011a2c4a42b4e98fcfe2e1eaa1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LandmassCliffNormal:
+        m_Texture: {fileID: 2800000, guid: cd5f0b2f3e7d4ff7a8782c5ea5fab00b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LandmassVariationMask:
+        m_Texture: {fileID: 2800000, guid: aa17d250c83e46f39f990351392b55fb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Mask0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -99,51 +111,35 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AmbientStrength: 0.66
     - _ClayMode: 0
-    - _CliffAmbientReduction: 0.24
-    - _CliffBrightness: 0.98
-    - _CliffCavityStrength: 0.2
-    - _CliffLichenScale: 0.16
-    - _CliffLichenStrength: 0
-    - _CliffLightingContrast: 0.82
-    - _CliffMacroVariation: 0.045
-    - _CliffMicroNormalStrength: 0
-    - _CliffNormalFadeEnd: 210
-    - _CliffNormalFadeStart: 72
-    - _CliffNormalStrength: 0
-    - _CliffPaletteStrength: 0.78
-    - _CliffReliefNormalStrength: 0
-    - _CliffRunoffVariation: 0.003
-    - _CliffSoilStrength: 0
-    - _CliffSpecularStrength: 0.02
-    - _CliffStrataScale: 0.38
-    - _CliffStrataStrength: 0.24
-    - _CliffTriplanarSharpness: 3.4
     - _EnableHeightBlend: 0
     - _EnableInstancedPerPixelNormal: 1
     - _HeightTransition: 0
-    - _MacroVariation: 0.13
+    - _LandmassColorSlopeHardness: 2.953668
+    - _LandmassColorSlopeOffset: -0.499157
+    - _LandmassGrassAmount: 1
+    - _LandmassIndirectScale: 3.2
+    - _LandmassNormalStrength: 1.3
+    - _LandmassRockTintStrength: 0.3
+    - _LandmassSlopeHardness: 10
+    - _LandmassSlopeOffset: -0.6
+    - _LandmassVariationWorldSizeA: 35
+    - _LandmassVariationWorldSizeB: 40.96
+    - _LandmassWorldSize: 30
     - _Metallic0: 0
     - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
     - _NumLayersCount: 1
-    - _ShadowFloor: 0.16
-    - _Smoothness0: 0.5
-    - _Smoothness1: 0.5
-    - _Smoothness2: 0.5
-    - _Smoothness3: 0.5
+    - _Smoothness0: 0.02
+    - _Smoothness1: 0.015
+    - _Smoothness2: 0.01
+    - _Smoothness3: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _ClayColor: {r: 0.54999995, g: 0.47999996, b: 0.42999998, a: 1}
-    - _CliffBaseColor: {r: 0.6039216, g: 0.4392157, b: 0.40784314, a: 1}
-    - _CliffCavityColor: {r: 0.34509805, g: 0.29411766, b: 0.3372549, a: 1}
-    - _CliffHighlightColor: {r: 0.74509805, g: 0.5568628, b: 0.4745098, a: 1}
-    - _CliffLichenColor: {r: 0.44313726, g: 0.5019608, b: 0.32156864, a: 1}
-    - _CliffShadowColor: {r: 0.4, g: 0.32941177, b: 0.36862746, a: 1}
-    - _CliffSoilColor: {r: 0.3529412, g: 0.27450982, b: 0.21960784, a: 1}
-    - _CliffStrataColor: {r: 0.45882353, g: 0.3372549, b: 0.35686275, a: 1}
-    - _TerrainSizeXZ: {r: 660, g: 500, b: 0, a: 0}
+    - _LandmassGrassColor1: {r: 0.03529412, g: 0.09019608, b: 0, a: 1}
+    - _LandmassGrassColor2: {r: 0.15294118, g: 0.18039216, b: 0.003921569, a: 1}
+    - _LandmassRockTintColor: {r: 0.473531, g: 0.198069, b: 0.0865, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

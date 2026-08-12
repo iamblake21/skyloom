@@ -1,0 +1,136 @@
+// Port of Assets/_Project/Art/Environment/StarterIsland/Shaders/
+// StarterIslandGroundDetail.shader
+//
+// The Terrain detail grass does not carry its own colour: it re-samples the
+// Terrain's own splat layers at the blade's anchor so every blade agrees with
+// the ground it grows from. Those layer textures and their remap ranges were
+// pushed as Unity global shader properties by the terrain blend component;
+// here they are ordinary material parameters the Unreal terrain system drives.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+
+/** Procedural silhouette of the authored ribbon blade. */
+float CMLGroundDetailBladeAlpha(float2 UnityUV)
+{
+    float EdgeDistance = 1.0f - abs(UnityUV.x * 2.0f - 1.0f);
+    float Serration = CMLHash21(floor(UnityUV * float2(12.0f, 24.0f)) + 7.0f);
+    return smoothstep(0.025f, 0.135f + Serration * 0.025f, EdgeDistance);
+}
+
+/**
+ * Blade deformation. Everything is phased from the *anchor* (the blade's root
+ * in world space), not the deformed vertex, so a blade never chases itself.
+ */
+float3 CMLGroundDetailWindOffset(
+    float3 UnityAnchorWS,
+    float4 VertexColor,
+    float TimeSeconds,
+    float WindStrength,
+    float WindSpeed,
+    float GustStrength)
+{
+    float HeightWeight = pow(smoothstep(0.12f, 1.0f, saturate(VertexColor.r)), 1.6f);
+    float Flexibility = lerp(0.86f, 1.14f, VertexColor.b);
+    float Phase = VertexColor.g * 6.2831853f
+        + CMLHash21(floor(UnityAnchorWS.xz * 3.17f)) * 6.2831853f;
+
+    float2 WindDirection = normalize(float2(0.82f, 0.57f));
+    float2 CrossDirection = float2(-WindDirection.y, WindDirection.x);
+
+    float SharedWave = sin(
+        TimeSeconds * WindSpeed + dot(UnityAnchorWS.xz, float2(0.58f, 0.41f)) + Phase * 0.30f);
+    float Gust = sin(
+        TimeSeconds * (WindSpeed * 0.31f) +
+        dot(UnityAnchorWS.xz, float2(0.19f, -0.14f)) + Phase * 0.12f) * 0.5f + 0.5f;
+    float Flutter = sin(
+        TimeSeconds * (WindSpeed * 5.2f) + Phase * 1.73f + UnityAnchorWS.x * 1.91f) * 0.0032f;
+
+    float Travel = WindStrength * (SharedWave * lerp(0.78f, 1.16f, Gust * GustStrength));
+    float2 Displacement =
+        WindDirection * Travel +
+        CrossDirection * (SharedWave * 0.19f + Gust * 0.12f) * WindStrength +
+        WindDirection * Flutter;
+
+    float3 Offset = float3(0.0f, 0.0f, 0.0f);
+    Offset.xz = Displacement * HeightWeight * Flexibility;
+    return Offset;
+}
+
+float3 CMLGroundDetailRemapLayer(float3 Source, float3 RemapMinimum, float3 RemapScale)
+{
+    return Source * RemapScale + RemapMinimum;
+}
+
+/**
+ * Re-derive the Terrain albedo under the blade. `WorldXZ` is the *anchor* in
+ * Unity world space; the low-frequency sine fields reproduce the same worn
+ * compaction and macro variation the Terrain material applies.
+ */
+float3 CMLGroundDetailTerrainAlbedo(
+    float2 WorldXZ,
+    float4 Control,
+    float3 GrassSun,
+    float3 GrassDeep,
+    float3 Dirt,
+    float3 Cliff,
+    float TerrainMacroVariation)
+{
+    Control /= max(Control.r + Control.g + Control.b + Control.a, 0.0001f);
+
+    Dirt *= float3(1.88f, 1.56f, 2.00f);
+    float BroadCompaction =
+        sin(WorldXZ.x * 0.41f + WorldXZ.y * 0.23f) * sin(WorldXZ.x * 0.17f - WorldXZ.y * 0.53f);
+    float MediumCompaction =
+        sin(WorldXZ.x * 1.37f - WorldXZ.y * 0.79f) * sin(WorldXZ.x * 0.93f + WorldXZ.y * 1.61f);
+    float FineCompaction =
+        sin(WorldXZ.x * 3.17f + WorldXZ.y * 2.43f) * sin(WorldXZ.x * 2.21f - WorldXZ.y * 3.71f);
+    float WornPatch = smoothstep(
+        0.18f, 0.72f, BroadCompaction * 0.62f + MediumCompaction * 0.38f);
+
+    Dirt *= 1.0f + BroadCompaction * 0.135f + MediumCompaction * 0.070f + FineCompaction * 0.022f;
+    Dirt = lerp(Dirt, Dirt * float3(0.91f, 0.94f, 0.97f), WornPatch * 0.34f);
+
+    float3 Albedo =
+        GrassSun * Control.r + GrassDeep * Control.g + Dirt * Control.b + Cliff * Control.a;
+
+    float Macro =
+        sin(WorldXZ.x * 0.047f + WorldXZ.y * 0.031f) * sin(WorldXZ.x * 0.019f - WorldXZ.y * 0.073f);
+    float MacroMedium =
+        sin(WorldXZ.x * 0.181f - WorldXZ.y * 0.144f) * sin(WorldXZ.x * 0.117f + WorldXZ.y * 0.203f);
+    Albedo *= 1.0f + (Macro * 0.62f + MacroMedium * 0.38f)
+        * TerrainMacroVariation * (1.0f - Control.a * 0.72f);
+    return Albedo;
+}
+
+/** Root-to-tip brightness ramp, released back to flat ground colour at range. */
+float3 CMLGroundDetailBladeColor(
+    float3 TerrainAlbedo,
+    float4 VertexColor,
+    float CameraDistanceMetres,
+    float RootBrightness,
+    float TipBrightness,
+    float FarMatchStart,
+    float FarMatchEnd)
+{
+    float HeightWeight = smoothstep(0.02f, 0.98f, saturate(VertexColor.r));
+    float DistanceFade = smoothstep(
+        FarMatchStart, max(FarMatchStart + 0.01f, FarMatchEnd), CameraDistanceMetres);
+
+    float Brightness = lerp(RootBrightness, TipBrightness, HeightWeight);
+    Brightness = lerp(Brightness, 1.0f, DistanceFade);
+
+    float3 BladeColor = TerrainAlbedo * Brightness;
+    BladeColor *= lerp(
+        float3(0.985f, 0.992f, 0.98f),
+        float3(1.008f, 1.018f, 0.995f),
+        HeightWeight * (1.0f - DistanceFade));
+    return BladeColor * lerp(0.985f, 1.015f, VertexColor.b);
+}
+
+/** Blades are shaded almost as if facing straight up; Unity leans 88% to +Y. */
+float3 CMLGroundDetailNormal(float3 UnityFaceNormal)
+{
+    return normalize(lerp(normalize(UnityFaceNormal), float3(0.0f, 1.0f, 0.0f), 0.88f));
+}

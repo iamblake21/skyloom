@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "requested": 9,
+  "imported": 9,
+  "failed": 0,
+  "mergedIntoAssetReport": 9,
+  "results": [
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm.asset",
+      "guid": "defe9ae160884f54780b395b651fe687",
+      "sha256": "c1c14e66865c0adc2333cf9526f157f5a51ea3766cfe434a1842072fee3234ee",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm.png",
+      "pngSha256": "9ba018d1d460a19d7261816397479c7e2c6d1f027a318b1147cd53667d64b46b",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_CliffWarm",
+      "normalMap": false,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm.T_StarterIsland_CliffWarm"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm_Normal.asset",
+      "guid": "d40014023a4aa764da776f6f693c6e8f",
+      "sha256": "095b913fd97f0aa3ef213d785458dc29da35183905bd2fb947fa54080420605e",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm_Normal.png",
+      "pngSha256": "87d0446c0edaf7fc208ce25e95c746359384c913d65fc2fedc7f8afc0b176ea6",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_CliffWarm_Normal",
+      "normalMap": true,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm_Normal.T_StarterIsland_CliffWarm_Normal"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath.asset",
+      "guid": "777bc3ec43433b54a90a0f20e521b1c9",
+      "sha256": "d4a0ef2b3e79b76e3fbda2707799318ff0ed3f98852546a13efb9e33b15620c8",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath.png",
+      "pngSha256": "d0a9850a28591e6934384209e1da509713d0ac504e73599b293a08ee4ae9680b",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_DirtPath",
+      "normalMap": false,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath.T_StarterIsland_DirtPath"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath_Normal.asset",
+      "guid": "1fd4fa7374ee2364db779f1820cf39e3",
+      "sha256": "11f161473b83278dfd912c82b2beac1e2a6357ca173790ab3da8a1282feb90cb",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath_Normal.png",
+      "pngSha256": "764c89d8206d0cec0791866b4366de613131a32844fcdc7c3ef75fc90264a84f",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_DirtPath_Normal",
+      "normalMap": true,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath_Normal.T_StarterIsland_DirtPath_Normal"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep.asset",
+      "guid": "6c0255371b03d8a46bfacf884a8011b2",
+      "sha256": "5547df4123a23af96932dc815e22770e2c5ff4c8e421158e6595a7ee26e18ad5",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep.png",
+      "pngSha256": "b98d932ba72e2245ef70d5ae1fa7d5ce361b17153402cb9a15d9d23c7f56d13d",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_GrassDeep",
+      "normalMap": false,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep.T_StarterIsland_GrassDeep"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep_Normal.asset",
+      "guid": "08e4a97747ae625429679edf1cbe38d2",
+      "sha256": "bb2cf5db8406a3c88ac48ebefadbe22dc1f9b0e6066ca2edeef55d0c0a5c1261",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep_Normal.png",
+      "pngSha256": "6880203b046563b132697b473c227f8e635cf22d9289095693efe38b5d1d700c",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_GrassDeep_Normal",
+      "normalMap": true,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep_Normal.T_StarterIsland_GrassDeep_Normal"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDetailColor.asset",
+      "guid": "01028bf29e549c24e9501ed29341721a",
+      "sha256": "da6c2cb70b77037f36a364f297dadfc0adc7940c658141fe86fa162029e967c4",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDetailColor.png",
+      "pngSha256": "54a71f190cc1aa7ef4abfa2d2523d7ada56ed26052e155c2938cc306f1dd5659",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_GrassDetailColor",
+      "normalMap": false,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDetailColor.T_StarterIsland_GrassDetailColor"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.asset",
+      "guid": "8097a347685d4f14ab0e4869ae016de3",
+      "sha256": "99aad83a8731cb15f44052ffa6b7deb7f0a3717e9da3facb827079297a3ba2cf",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.png",
+      "pngSha256": "fa3374f93d5dd86ddc1a308323af06f81225e1288036cb5819519c13619237e2",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_GrassSun",
+      "normalMap": false,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun"
+      ],
+      "status": "imported"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun_Normal.asset",
+      "guid": "7bc4ce935ec97264ca9d78d5ce76bf62",
+      "sha256": "ae51aa5d5f577abdf81e2c6db2da73a3ed6e3d0e45140c7a5c1b0614298d26a3",
+      "png": "Migration/UnityEmbeddedTextures/Assets/_Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun_Normal.png",
+      "pngSha256": "33923b6311141ec83b474dc8cc792a2c3fa76d3c2f346114728b17028d390857",
+      "destination_path": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures",
+      "destination_name": "T_StarterIsland_GrassSun_Normal",
+      "normalMap": true,
+      "objects": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun_Normal.T_StarterIsland_GrassSun_Normal"
+      ],
+      "status": "imported"
+    }
+  ]
+}

@@ -28,8 +28,16 @@ Shader "CML/Environment/Starter Island Stylized Water"
         _NormalDetailSpeed("Fine Ripple Speed", Range(0, 6)) = 1.72
         _NormalDetailStrength("Fine Ripple Strength", Range(0, 0.35)) = 0.075
         _CascadeNormalStrength("Cascade Ripple Strength", Range(0, 0.5)) = 0.19
+        _AmbientStrength("Ambient Response", Range(0, 2)) = 1.0
+        _TransmissionStrength("Water Transmission", Range(0, 1)) = 0.76
+        _CrestStrength("Pool Crest Strength", Range(0, 1)) = 0.28
+        _FoamIntensity("Foam Intensity", Range(0, 2)) = 1.0
         _ColorBoost("Color Boost", Range(0.5, 2)) = 1.08
         _Opacity("Opacity", Range(0, 1)) = 0.72
+        [HideInInspector] _SrcBlend("", Float) = 1
+        [HideInInspector] _DstBlend("", Float) = 0
+        [HideInInspector] _ZWrite("", Float) = 1
+        [HideInInspector] _Cull("", Float) = 2
     }
 
     SubShader
@@ -45,10 +53,10 @@ Shader "CML/Environment/Starter Island Stylized Water"
         {
             Name "ForwardWater"
             Tags { "LightMode" = "UniversalForward" }
-            Blend SrcAlpha OneMinusSrcAlpha
-            ZWrite Off
+            Blend [_SrcBlend] [_DstBlend]
+            ZWrite [_ZWrite]
             ZTest LEqual
-            Cull Off
+            Cull [_Cull]
 
             HLSLPROGRAM
             #pragma target 3.0
@@ -93,9 +101,64 @@ Shader "CML/Environment/Starter Island Stylized Water"
                 half _NormalDetailSpeed;
                 half _NormalDetailStrength;
                 half _CascadeNormalStrength;
+                half _AmbientStrength;
+                half _TransmissionStrength;
+                half _CrestStrength;
+                half _FoamIntensity;
                 half _ColorBoost;
                 half _Opacity;
             CBUFFER_END
+
+            // A smooth, periodic wave with an analytic slope and no
+            // trigonometric instructions. Phases are expressed in cycles.
+            void EvaluateWave(
+                float phase,
+                out half height,
+                out half slope)
+            {
+                float cycle = frac(phase);
+                half triangleWave =
+                    1.0h - abs(cycle * 2.0h - 1.0h);
+                half smoothTriangle =
+                    triangleWave * triangleWave *
+                    (3.0h - 2.0h * triangleWave);
+                height = smoothTriangle * 2.0h - 1.0h;
+                half direction = cycle < 0.5h ? 1.0h : -1.0h;
+                slope =
+                    direction *
+                    (4.0h * triangleWave * (1.0h - triangleWave));
+            }
+
+            // Pools encode radial distance in vertex red and radial UVs.
+            // Route meshes deliberately break that relationship; their V
+            // coordinate also keeps increasing with travelled distance.
+            void EvaluateWaterMasks(
+                float2 uv,
+                half4 vertexColor,
+                half normalUp,
+                out half poolMask,
+                out half routeMask,
+                out half cascadeMask)
+            {
+                half orientationCascade =
+                    smoothstep(0.14h, 0.72h, 1.0h - normalUp);
+                cascadeMask = saturate(
+                    max(saturate(vertexColor.b), orientationCascade));
+
+                half poolUvRadius =
+                    length((half2)uv - half2(0.5h, 0.5h)) * 2.0h;
+                half radialError =
+                    abs(poolUvRadius - saturate(vertexColor.r));
+                half poolSignature =
+                    1.0h - smoothstep(0.10h, 0.24h, radialError);
+                half routeUvHint =
+                    smoothstep(1.02h, 1.42h, abs((half)uv.y));
+                routeMask = saturate(
+                    max(
+                        cascadeMask,
+                        max(1.0h - poolSignature, routeUvHint)));
+                poolMask = 1.0h - routeMask;
+            }
 
             struct Attributes
             {
@@ -113,10 +176,9 @@ Shader "CML/Environment/Starter Island Stylized Water"
                 half3 normalWS : TEXCOORD1;
                 float2 uv : TEXCOORD2;
                 half fogFactor : TEXCOORD3;
-                float4 screenPosition : TEXCOORD4;
-                float viewDepth : TEXCOORD5;
-                half4 color : TEXCOORD6;
-                float4 shadowCoord : TEXCOORD7;
+                float viewDepth : TEXCOORD4;
+                half4 color : TEXCOORD5;
+                float4 shadowCoord : TEXCOORD6;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -135,156 +197,192 @@ Shader "CML/Environment/Starter Island Stylized Water"
                 float3 positionWS =
                     TransformObjectToWorld(input.positionOS.xyz);
                 float2 horizontalPosition = positionWS.xz;
-                half displacementPhaseA =
+                float displacementPhaseA =
                     dot(horizontalPosition, half2(0.82h, 0.57h)) *
-                    _WaveScaleA +
-                    _Time.y * _WaveSpeedA;
-                half displacementPhaseB =
+                    _WaveScaleA * 0.15915494 +
+                    _Time.y * _WaveSpeedA * 0.15915494;
+                float displacementPhaseB =
                     dot(horizontalPosition, half2(-0.42h, 0.91h)) *
-                    _WaveScaleB -
-                    _Time.y * _WaveSpeedB;
-                half cascadePhase =
-                    input.uv.y * _FlowScale * 6.2831853h -
-                    _Time.y * _FlowSpeed +
-                    sin(input.uv.x * 12.5663706h) * 0.28h;
+                    _WaveScaleB * 0.15915494 -
+                    _Time.y * _WaveSpeedB * 0.15915494;
+
+                half waveA;
+                half slopeA;
+                half waveB;
+                half slopeB;
+                EvaluateWave(displacementPhaseA, waveA, slopeA);
+                EvaluateWave(displacementPhaseB, waveB, slopeB);
+
+                half lateralFlow;
+                half lateralSlope;
+                EvaluateWave(input.uv.x * 2.0, lateralFlow, lateralSlope);
+                float routePhase =
+                    input.uv.y * _FlowScale -
+                    _Time.y * _FlowSpeed * 0.15915494 +
+                    lateralFlow * 0.045h;
+                half routeWave;
+                half routeSlope;
+                half routeDetailWave;
+                half routeDetailSlope;
+                EvaluateWave(routePhase, routeWave, routeSlope);
+                EvaluateWave(
+                    routePhase * 1.83 + 0.2706,
+                    routeDetailWave,
+                    routeDetailSlope);
+
                 half horizontalSurface =
                     smoothstep(0.42h, 0.90h, abs(geometricNormal.y));
-                half cascadeHint = saturate(input.color.b);
+                half poolMask;
+                half routeMask;
+                half cascadeMask;
+                EvaluateWaterMasks(
+                    input.uv,
+                    input.color,
+                    abs(geometricNormal.y),
+                    poolMask,
+                    routeMask,
+                    cascadeMask);
                 half horizontalDisplacement =
-                    (sin(displacementPhaseA) * 0.62h +
-                     sin(displacementPhaseB) * 0.38h) *
+                    (waveA * 0.62h + waveB * 0.38h) *
                     _DisplacementStrength;
-                half cascadeDisplacement =
-                    (sin(cascadePhase) * 0.72h +
-                     sin(cascadePhase * 1.83h + 1.7h) * 0.28h) *
+                half routeDisplacement =
+                    (routeWave * 0.72h +
+                     routeDetailWave * 0.28h) *
                     _DisplacementStrength *
-                    0.42h;
+                    lerp(0.70h, 0.42h, cascadeMask);
                 half displacement =
                     lerp(
                         horizontalDisplacement *
                             lerp(0.42h, 1.0h, horizontalSurface),
-                        cascadeDisplacement,
-                        cascadeHint);
+                        routeDisplacement,
+                        routeMask);
                 positionWS += geometricNormal * displacement;
 
-                VertexPositionInputs positionInputs =
-                    GetVertexPositionInputs(
-                        TransformWorldToObject(positionWS));
-                output.positionCS = positionInputs.positionCS;
-                output.positionWS = positionInputs.positionWS;
+                output.positionCS = TransformWorldToHClip(positionWS);
+                output.positionWS = positionWS;
                 output.normalWS = geometricNormal;
                 output.uv = input.uv;
                 output.fogFactor =
-                    ComputeFogFactor(positionInputs.positionCS.z);
-                output.screenPosition =
-                    ComputeScreenPos(positionInputs.positionCS);
+                    ComputeFogFactor(output.positionCS.z);
                 output.viewDepth =
-                    -TransformWorldToView(positionInputs.positionWS).z;
+                    -TransformWorldToView(positionWS).z;
                 output.color = input.color;
-                output.shadowCoord = GetShadowCoord(positionInputs);
+                output.shadowCoord = TransformWorldToShadowCoord(positionWS);
                 return output;
             }
 
             half4 Frag(Varyings input) : SV_Target
             {
                 UNITY_SETUP_INSTANCE_ID(input);
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
                 half3 geometricNormal =
                     NormalizeNormalPerPixel(input.normalWS);
                 half normalUp = abs(geometricNormal.y);
-                half orientationCascade =
-                    smoothstep(0.14h, 0.72h, 1.0h - normalUp);
-                half cascadeHint = saturate(input.color.b);
-                half cascadeMask =
-                    saturate(max(cascadeHint, orientationCascade));
-                half horizontalMask = 1.0h - cascadeMask;
+                half poolMask;
+                half routeMask;
+                half cascadeMask;
+                EvaluateWaterMasks(
+                    input.uv,
+                    input.color,
+                    normalUp,
+                    poolMask,
+                    routeMask,
+                    cascadeMask);
+                half horizontalSurfaceMask = 1.0h - cascadeMask;
                 float2 worldWaterPosition = input.positionWS.xz;
 
-                // The horizontal surface uses two independently travelling
-                // world-space wave fields. A third, finer field prevents the
-                // normals from reading as one large rolling sine wave.
-                half phaseA =
+                // Pools use compact world-space waves. Converting the legacy
+                // radian scales to cycles preserves authored material speed.
+                float phaseA =
                     dot(worldWaterPosition, half2(0.82h, 0.57h))
-                    * _WaveScaleA +
-                    _Time.y * _WaveSpeedA;
-                half phaseB =
+                    * _WaveScaleA * 0.15915494 +
+                    _Time.y * _WaveSpeedA * 0.15915494;
+                float phaseB =
                     dot(worldWaterPosition, half2(-0.42h, 0.91h))
-                    * _WaveScaleB -
-                    _Time.y * _WaveSpeedB;
-                half phaseC =
+                    * _WaveScaleB * 0.15915494 -
+                    _Time.y * _WaveSpeedB * 0.15915494;
+                float detailPhase =
                     dot(worldWaterPosition, half2(0.31h, -0.95h))
-                    * _NormalDetailScale +
-                    _Time.y * _NormalDetailSpeed;
-                half phaseD =
-                    dot(worldWaterPosition, half2(-0.93h, -0.36h))
-                    * (_NormalDetailScale * 1.37h) -
-                    _Time.y * (_NormalDetailSpeed * 0.73h);
-                half waveA = sin(phaseA);
-                half waveB = sin(phaseB);
+                    * _NormalDetailScale * 0.15915494 +
+                    _Time.y * _NormalDetailSpeed * 0.15915494;
+                half waveA;
+                half slopeA;
+                half waveB;
+                half slopeB;
+                half detailWave;
+                half detailSlope;
+                EvaluateWave(phaseA, waveA, slopeA);
+                EvaluateWave(phaseB, waveB, slopeB);
+                EvaluateWave(detailPhase, detailWave, detailSlope);
 
-                // Waterfalls and steep creek sections use their ribbon UVs:
-                // V advances down the route while U moves across its width.
-                // This keeps their animation flowing downward instead of
-                // sliding sideways with the world-space pool waves.
-                half cascadeAlongPhase =
-                    input.uv.y * _FlowScale * 6.2831853h -
-                    _Time.y * _FlowSpeed +
-                    sin(input.uv.x * 12.5663706h) * 0.34h;
-                half cascadeAcrossPhase =
-                    input.uv.x * 18.8495559h +
-                    input.uv.y * 0.82h +
-                    _Time.y * (_FlowSpeed * 0.24h);
-                half cascadeDetailPhase =
-                    input.uv.y * (_FlowScale * 10.681415h) -
-                    _Time.y * (_FlowSpeed * 1.63h) -
-                    input.uv.x * 31.4159265h;
-                half crossFlow = sin(cascadeAcrossPhase);
+                // Route V is authored from travelled distance, so these
+                // waves move along creeks and down waterfalls without world-
+                // space sliding. Vertex blue still forces waterfall mode.
+                float flowAcrossPhase =
+                    input.uv.x * 3.0 +
+                    input.uv.y * 0.1305 +
+                    _Time.y * _FlowSpeed * 0.0382;
+                half flowAcross;
+                half flowAcrossSlope;
+                EvaluateWave(
+                    flowAcrossPhase,
+                    flowAcross,
+                    flowAcrossSlope);
+                float flowAlongPhase =
+                    input.uv.y * _FlowScale -
+                    _Time.y * _FlowSpeed * 0.15915494 +
+                    flowAcross * 0.054h;
+                float flowDetailPhase =
+                    input.uv.y * (_FlowScale * 1.70h) -
+                    _Time.y * (_FlowSpeed * 0.2594h) -
+                    input.uv.x * 5.0h;
+                half flowAlong;
+                half flowAlongSlope;
+                half flowDetail;
+                half flowDetailSlope;
+                EvaluateWave(
+                    flowAlongPhase,
+                    flowAlong,
+                    flowAlongSlope);
+                EvaluateWave(
+                    flowDetailPhase,
+                    flowDetail,
+                    flowDetailSlope);
+
                 half broadFlow =
                     smoothstep(
-                        0.10h,
-                        0.88h,
-                        sin(cascadeAlongPhase) * 0.55h +
-                        crossFlow * 0.20h +
-                        0.52h);
+                        -0.48h,
+                        0.48h,
+                        flowAlong * 0.70h +
+                        flowAcross * 0.30h);
                 half narrowFlow =
                     smoothstep(
-                        0.76h,
-                        0.96h,
-                        sin(cascadeDetailPhase) * 0.54h +
-                        crossFlow * 0.22h +
-                        0.50h);
+                        0.28h,
+                        0.72h,
+                        flowDetail * 0.72h +
+                        flowAcross * 0.28h);
                 half longitudinalStreak =
                     smoothstep(
-                        0.70h,
-                        0.88h,
-                        0.50h +
-                        sin(
-                            input.uv.x * 29.0h +
-                            input.uv.y * 1.3h +
-                            sin(cascadeAlongPhase) * 0.7h) * 0.26h +
-                        sin(
-                            input.uv.x * 47.0h -
-                            input.uv.y * 0.9h +
-                            sin(cascadeDetailPhase)) * 0.15h +
-                        sin(
-                            input.uv.x * 13.0h +
-                            input.uv.y * 2.2h) * 0.09h);
+                        0.18h,
+                        0.72h,
+                        flowAcross * 0.62h +
+                        flowAlong * 0.22h +
+                        flowDetail * 0.16h);
                 half streakBreakup =
                     smoothstep(
-                        0.18h,
-                        0.82h,
-                        0.5h +
-                        0.5h *
-                        sin(
-                            input.uv.y * 7.5h -
-                            _Time.y * _FlowSpeed * 1.2h +
-                            sin(cascadeAcrossPhase)));
+                        -0.55h,
+                        0.42h,
+                        flowDetail * 0.72h -
+                        flowAlong * 0.28h);
                 half cascadeFoam =
                     cascadeMask *
-                    longitudinalStreak *
-                    lerp(0.36h, 1.0h, streakBreakup) *
-                    lerp(0.72h, 1.0h, saturate(input.color.g)) *
+                    saturate(
+                        longitudinalStreak * 0.68h +
+                        narrowFlow * 0.32h) *
+                    lerp(0.55h, 1.0h, streakBreakup) *
+                    lerp(0.70h, 1.0h, saturate(input.color.g)) *
                     min(_CascadeFoamStrength, 1.5h) *
-                    0.46h;
+                    0.52h;
 
                 half3 tangentWS = normalize(
                     normalUp > 0.96h
@@ -294,55 +392,92 @@ Shader "CML/Environment/Starter Island Stylized Water"
                 half3 bitangentWS =
                     normalize(cross(geometricNormal, tangentWS));
 
-                // Analytic normal waves. The first pair gives each pool a
-                // large moving surface; the second pair contributes fine,
-                // faster ripples. Cascades swap to a UV-aligned normal field
-                // with a visibly different downward cadence.
-                half horizontalSlopeTangent =
-                    (cos(phaseA) * 0.66h -
-                     cos(phaseB) * 0.34h) *
-                    _WaveStrength +
-                    (cos(phaseC) * 0.58h -
-                     cos(phaseD) * 0.42h) *
-                    _NormalDetailStrength;
-                half horizontalSlopeBitangent =
-                    (cos(phaseB) * 0.64h +
-                     cos(phaseA) * 0.36h) *
-                    _WaveStrength +
-                    (cos(phaseD) * 0.61h +
-                     cos(phaseC) * 0.39h) *
-                    _NormalDetailStrength;
-                half cascadeSlopeTangent =
-                    (cos(cascadeAcrossPhase) * 0.62h +
-                     cos(cascadeDetailPhase) * 0.38h) *
-                    _CascadeNormalStrength;
-                half cascadeSlopeBitangent =
-                    (cos(cascadeAlongPhase) * 0.67h +
-                     cos(cascadeDetailPhase * 0.73h) * 0.33h) *
-                    _CascadeNormalStrength;
-                half slopeTangent =
-                    lerp(
-                        horizontalSlopeTangent,
-                        cascadeSlopeTangent,
-                        cascadeMask);
-                half slopeBitangent =
-                    lerp(
-                        horizontalSlopeBitangent,
-                        cascadeSlopeBitangent,
-                        cascadeMask);
-                half3 rippleNormal = normalize(
+                half2 poolSlope =
+                    (half2(0.82h, 0.57h) * slopeA * 0.62h +
+                     half2(-0.42h, 0.91h) * slopeB * 0.38h) *
+                        _WaveStrength +
+                    half2(0.31h, -0.95h) *
+                        detailSlope * _NormalDetailStrength;
+                half3 poolRippleNormal = normalize(
                     geometricNormal +
-                    tangentWS * slopeTangent +
-                    bitangentWS * slopeBitangent);
+                    half3(-poolSlope.x, 0.0h, -poolSlope.y));
+
+                half routeNormalStrength =
+                    lerp(
+                        _WaveStrength * 0.72h,
+                        _CascadeNormalStrength,
+                        cascadeMask);
+                half routeSlopeAcross =
+                    (flowAcrossSlope * 0.64h +
+                     flowDetailSlope * 0.36h) *
+                    routeNormalStrength;
+                half routeSlopeAlong =
+                    (flowAlongSlope * 0.70h +
+                     flowDetailSlope * 0.30h) *
+                    routeNormalStrength;
+                half3 routeRippleNormal = normalize(
+                    geometricNormal +
+                    tangentWS * routeSlopeAcross +
+                    bitangentWS * routeSlopeAlong);
+                half3 rippleNormal = normalize(
+                    lerp(poolRippleNormal, routeRippleNormal, routeMask));
 
                 float2 screenUv =
-                    input.screenPosition.xy /
-                    max(input.screenPosition.w, 0.0001);
+                    GetNormalizedScreenSpaceUV(input.positionCS);
 
-                // Offset the opaque scene in view space so distortion follows
-                // the camera correctly on both pools and waterfalls. The two
-                // samples add a subtle chromatic separation without requiring
-                // a normal texture.
+                // The unoffset depth controls all depth colour and shoreline
+                // decisions. This avoids foam swimming when refraction moves.
+                float rawSceneDepth = SampleSceneDepth(screenUv);
+                float sceneEyeDepth =
+                    LinearEyeDepth(rawSceneDepth, _ZBufferParams);
+                half sceneDepthValid;
+                #if UNITY_REVERSED_Z
+                    sceneDepthValid = step(0.00001, rawSceneDepth);
+                #else
+                    sceneDepthValid = step(rawSceneDepth, 0.99999);
+                #endif
+                float waterDepth =
+                    max(0.0, sceneEyeDepth - input.viewDepth);
+                waterDepth = lerp(
+                    max((float)_DepthRange, 0.001) * 1.5,
+                    waterDepth,
+                    sceneDepthValid);
+                half depthLinear =
+                    saturate(waterDepth / max(_DepthRange, 0.001h));
+                half depthBlend =
+                    depthLinear * depthLinear *
+                    (3.0h - 2.0h * depthLinear);
+
+                half depthDerivative = (half)fwidth(waterDepth);
+                half stableFoamFeather =
+                    max(_FoamFeather, depthDerivative * 1.5h);
+                half foamEdge =
+                    (1.0h - smoothstep(
+                        _FoamDistance,
+                        _FoamDistance + stableFoamFeather,
+                        waterDepth)) *
+                    sceneDepthValid;
+                half foamBreakup =
+                    smoothstep(
+                        -0.45h,
+                        0.45h,
+                        waveA * 0.50h +
+                        waveB * 0.20h +
+                        detailWave * 0.30h);
+                half bankDistance =
+                    abs(input.uv.x * 2.0h - 1.0h);
+                half bankMask =
+                    smoothstep(0.56h, 0.94h, bankDistance);
+                half foamDomain =
+                    lerp(1.0h, bankMask, routeMask);
+                half shoreFoam =
+                    foamEdge *
+                    lerp(0.62h, 1.0h, foamBreakup) *
+                    horizontalSurfaceMask *
+                    foamDomain;
+
+                // One opaque-colour sample is the complete refraction path.
+                // Shore damping prevents pulling dry terrain under the water.
                 half3 rippleNormalVS =
                     TransformWorldToViewDir(rippleNormal, true);
                 half3 geometricNormalVS =
@@ -352,131 +487,74 @@ Shader "CML/Environment/Starter Island Stylized Water"
                 refractionVector +=
                     lerp(
                         half2(waveA, waveB),
-                        half2(
-                            sin(cascadeAcrossPhase),
-                            sin(cascadeAlongPhase)),
-                        cascadeMask) *
+                        half2(flowAcross, flowAlong),
+                        routeMask) *
                     _WaveStrength *
-                    0.10h;
+                    0.08h;
+                half refractionDepthDamping =
+                    smoothstep(
+                        0.0h,
+                        max(
+                            _FoamDistance + _FoamFeather,
+                            0.01h),
+                        (half)waterDepth) *
+                    sceneDepthValid;
                 half2 refractionOffset =
                     refractionVector *
                     _RefractionStrength *
-                    lerp(1.0h, 0.78h, cascadeMask);
+                    lerp(1.0h, 0.76h, cascadeMask) *
+                    refractionDepthDamping;
                 float2 refractedUv = clamp(
                     screenUv + refractionOffset,
                     float2(0.002, 0.002),
                     float2(0.998, 0.998));
-                float2 refractedUvSecondary = clamp(
-                    screenUv - refractionOffset * 0.38h,
-                    float2(0.002, 0.002),
-                    float2(0.998, 0.998));
-                half3 refractedPrimary =
-                    SampleSceneColor(refractedUv);
-                half3 refractedSecondary =
-                    SampleSceneColor(refractedUvSecondary);
                 half3 refractedScene =
-                    half3(
-                        refractedPrimary.r,
-                        (refractedPrimary.g +
-                         refractedSecondary.g) * 0.5h,
-                        refractedSecondary.b);
-
-                float rawSceneDepth = SampleSceneDepth(screenUv);
-                float sceneEyeDepth =
-                    LinearEyeDepth(rawSceneDepth, _ZBufferParams);
-                float waterDepth =
-                    max(0.0, sceneEyeDepth - input.viewDepth);
-                half depthBlend =
-                    saturate(waterDepth / max(_DepthRange, 0.001h));
-                half foamEdge =
-                    1.0h - smoothstep(
-                        _FoamDistance,
-                        _FoamDistance + _FoamFeather,
-                        waterDepth);
-                half foamBreakup =
-                    smoothstep(
-                        0.38h,
-                        0.70h,
-                        0.50h +
-                        waveA * 0.10h +
-                        waveB * 0.07h +
-                        sin(
-                            dot(
-                                worldWaterPosition,
-                                half2(0.71h, -0.49h)) *
-                            0.86h -
-                            _Time.y * 0.34h) *
-                        0.13h);
-
-                half ribbonHint =
-                    smoothstep(1.05h, 1.75h, abs(input.uv.y));
-                half bankDistance =
-                    abs(input.uv.x * 2.0h - 1.0h);
-                half bankMask =
-                    smoothstep(0.56h, 0.94h, bankDistance);
-                half foamDomain =
-                    lerp(1.0h, bankMask, ribbonHint);
-                half shoreFoam =
-                    foamEdge *
-                    foamBreakup *
-                    horizontalMask *
-                    foamDomain;
+                    SampleSceneColor(refractedUv);
+                half opaqueTextureAvailable = smoothstep(
+                    0.001h,
+                    0.02h,
+                    dot(
+                        abs(refractedScene),
+                        half3(0.2126h, 0.7152h, 0.0722h)));
 
                 half3 viewDirection =
                     SafeNormalize(GetWorldSpaceViewDir(input.positionWS));
                 half fresnel = pow(
                     1.0h - saturate(dot(rippleNormal, viewDirection)),
                     _FresnelPower);
-                half3 waterColor =
+                half3 waterAlbedo =
                     lerp(_ShallowColor.rgb, _DeepColor.rgb, depthBlend);
 
-                half3 refractedTint =
-                    lerp(
-                        refractedScene,
-                        refractedScene *
-                            lerp(
-                                _ShallowColor.rgb * 1.42h,
-                                half3(0.92h, 1.02h, 1.06h),
-                                depthBlend),
-                        0.26h);
-                half sceneLuminance =
-                    dot(
-                        abs(refractedScene),
-                        half3(0.2126h, 0.7152h, 0.0722h));
-                half sceneTextureAvailable =
-                    smoothstep(0.001h, 0.025h, sceneLuminance);
-                half refractionMix =
-                    lerp(0.46h, 0.10h, depthBlend) *
-                    lerp(1.0h, 0.74h, cascadeMask) *
-                    sceneTextureAvailable;
-                half3 color =
-                    lerp(waterColor, refractedTint, refractionMix);
-                color = lerp(
-                    color,
-                    _ShallowColor.rgb * 1.03h,
-                    cascadeMask * 0.28h);
-
                 half flowHighlight =
-                    cascadeMask *
+                    routeMask *
                     saturate(
-                        broadFlow * 0.25h +
-                        narrowFlow * 0.18h +
-                        longitudinalStreak * 0.16h) *
-                    0.38h;
-                color = lerp(
-                    color,
-                    _ShallowColor.rgb * 1.12h,
+                        broadFlow * 0.22h +
+                        narrowFlow * 0.17h +
+                        longitudinalStreak * 0.13h) *
+                    lerp(0.20h, 0.34h, cascadeMask);
+                waterAlbedo = lerp(
+                    waterAlbedo,
+                    _ShallowColor.rgb,
                     flowHighlight);
+                waterAlbedo = saturate(waterAlbedo * _ColorBoost);
 
                 Light mainLight = GetMainLight(input.shadowCoord);
-                half mainShadow =
+                half mainAttenuation =
                     mainLight.shadowAttenuation *
                     mainLight.distanceAttenuation;
-                half nDotL =
-                    saturate(dot(rippleNormal, mainLight.direction));
-                half directLight =
-                    nDotL * mainShadow;
-                color *= lerp(0.70h, 1.04h, directLight);
+                half halfLambert = saturate(
+                    dot(rippleNormal, mainLight.direction) * 0.5h +
+                    0.5h);
+                half3 ambientLighting =
+                    max(SampleSH(rippleNormal), 0.0h) *
+                    _AmbientStrength;
+                half3 directLighting =
+                    mainLight.color *
+                    halfLambert *
+                    mainAttenuation;
+                half3 surfaceColor =
+                    waterAlbedo *
+                    (ambientLighting + directLighting);
 
                 half3 reflectionDirection =
                     reflect(-viewDirection, rippleNormal);
@@ -491,74 +569,87 @@ Shader "CML/Environment/Starter Island Stylized Water"
                         screenUv);
                 half reflectionMask =
                     saturate(
-                        (lerp(0.025h, 0.075h, _Smoothness) +
+                        (lerp(0.018h, 0.040h, _Smoothness) +
                          fresnel * _FresnelStrength) *
                         _ReflectionStrength *
                         lerp(1.0h, 0.76h, cascadeMask));
-                color =
-                    lerp(
-                        color,
-                        environmentReflection,
-                        reflectionMask);
+                surfaceColor = lerp(
+                    surfaceColor,
+                    environmentReflection,
+                    reflectionMask);
 
-                half3 fresnelColor =
-                    lerp(
-                        _ShallowColor.rgb,
-                        half3(0.64h, 0.90h, 0.94h),
-                        0.55h);
-                color = lerp(
-                    color,
-                    fresnelColor,
-                    fresnel * _FresnelStrength * 0.16h);
-
-                half surfaceRipple =
-                    smoothstep(
-                        0.74h,
-                        0.94h,
-                        0.50h +
-                        sin(phaseA * 1.55h + phaseC * 0.42h) *
-                            0.20h +
-                        sin(phaseB * 1.18h - phaseD * 0.31h) *
-                            0.16h);
-                color = lerp(
-                    color,
-                    _FoamColor.rgb,
-                    surfaceRipple *
-                    horizontalMask *
-                    lerp(0.10h, 0.035h, depthBlend));
-
-                half foamMask =
-                    saturate(shoreFoam + cascadeFoam);
-                color = lerp(
-                    color,
-                    _FoamColor.rgb,
-                    foamMask * 0.62h);
+                half crestSignal =
+                    waveA * 0.52h +
+                    waveB * 0.30h +
+                    detailWave * 0.18h;
+                half crestFoam =
+                    smoothstep(0.40h, 0.78h, crestSignal) *
+                    _CrestStrength *
+                    poolMask *
+                    lerp(0.22h, 0.07h, depthBlend);
+                half foamMask = saturate(
+                    (shoreFoam + cascadeFoam + crestFoam) *
+                    _FoamIntensity);
+                half foamHalfLambert = saturate(
+                    dot(geometricNormal, mainLight.direction) * 0.5h +
+                    0.5h);
+                half3 foamLighting =
+                    ambientLighting +
+                    mainLight.color *
+                        foamHalfLambert *
+                        mainAttenuation;
+                half3 foamColor =
+                    saturate(_FoamColor.rgb * _ColorBoost) *
+                    foamLighting;
+                surfaceColor = lerp(
+                    surfaceColor,
+                    foamColor,
+                    foamMask);
 
                 half3 halfVector =
                     SafeNormalize(mainLight.direction + viewDirection);
                 half glint = pow(
                     saturate(dot(rippleNormal, halfVector)),
                     max(8.0h, _GlintPower));
-                color +=
-                    lerp(mainLight.color, _FoamColor.rgb, 0.30h) *
+                surfaceColor +=
+                    mainLight.color *
                     glint *
                     _GlintStrength *
-                    mainShadow *
-                    lerp(0.42h, 1.0h, _Smoothness);
-                color *= _ColorBoost;
-                color = MixFog(color, input.fogFactor);
+                    mainAttenuation *
+                    lerp(0.42h, 1.0h, _Smoothness) *
+                    (1.0h - foamMask * 0.65h);
+                surfaceColor = MixFog(surfaceColor, input.fogFactor);
 
-                half bodyAlpha =
-                    lerp(0.48h, 0.82h, depthBlend) *
-                    saturate(_Opacity) +
-                    cascadeMask * 0.13h;
-                half alpha =
-                    saturate(
-                        bodyAlpha +
-                        shoreFoam * 0.24h +
-                        cascadeFoam * 0.18h +
-                        reflectionMask * 0.10h);
-                return half4(color, alpha);
+                // The pass replaces the framebuffer, so transmission is
+                // resolved here exactly once. Alpha remains one and cannot
+                // trigger a second hardware blend with the same scene.
+                half bodyCoverage = saturate(
+                    saturate(_Opacity) *
+                        lerp(0.36h, 0.86h, depthBlend) +
+                    routeMask * 0.03h +
+                    cascadeMask * 0.06h);
+                half transmission =
+                    saturate(_TransmissionStrength) *
+                    opaqueTextureAvailable *
+                    (1.0h - bodyCoverage) *
+                    (1.0h - foamMask * 0.94h) *
+                    (1.0h - reflectionMask * 0.85h);
+                half3 shallowTransmissionTint = lerp(
+                    half3(1.0h, 1.0h, 1.0h),
+                    saturate(_ShallowColor.rgb * 1.18h),
+                    0.12h);
+                half3 deepTransmissionTint = lerp(
+                    shallowTransmissionTint,
+                    saturate(_DeepColor.rgb * 1.35h),
+                    0.46h);
+                half3 transmissionTint = lerp(
+                    shallowTransmissionTint,
+                    deepTransmissionTint,
+                    depthBlend);
+                half3 color =
+                    refractedScene * transmissionTint * transmission +
+                    surfaceColor * (1.0h - transmission);
+                return half4(color, 1.0h);
             }
             ENDHLSL
         }

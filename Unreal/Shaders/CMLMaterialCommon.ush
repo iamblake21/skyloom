@@ -1,0 +1,129 @@
+// Shared helpers for the Unity -> Unreal shader port.
+//
+// The Unity shaders were authored against URP in a Y-up, metre-scaled world.
+// Unreal is Z-up and centimetre-scaled, so every world-space expression in the
+// ported HLSL is evaluated in *Unity space* and only the final vectors are
+// converted back. Keeping the conversion in one place is what makes the ported
+// bodies line-for-line comparable with the Unity originals.
+//
+// Axis convention (the standard Unity/Unreal asset-pipeline mapping):
+//     Unreal.X = Unity.z     Unreal.Y = Unity.x     Unreal.Z = Unity.y
+// Scale: 1 Unity metre = 100 Unreal units.
+
+#pragma once
+
+#define CML_UNITY_METRES_PER_UNREAL_UNIT 0.01f
+#define CML_UNREAL_UNITS_PER_UNITY_METRE 100.0f
+
+/** Unreal absolute world position (cm) -> Unity world position (m). */
+float3 CMLToUnityPosition(float3 UnrealPositionWS)
+{
+    return float3(UnrealPositionWS.y, UnrealPositionWS.z, UnrealPositionWS.x)
+        * CML_UNITY_METRES_PER_UNREAL_UNIT;
+}
+
+/** Unreal direction -> Unity direction (unit length preserved). */
+float3 CMLToUnityDirection(float3 UnrealDirection)
+{
+    return float3(UnrealDirection.y, UnrealDirection.z, UnrealDirection.x);
+}
+
+/** Unity direction -> Unreal direction. */
+float3 CMLToUnrealDirection(float3 UnityDirection)
+{
+    return float3(UnityDirection.z, UnityDirection.x, UnityDirection.y);
+}
+
+/** Unity offset in metres -> Unreal offset in centimetres. */
+float3 CMLToUnrealOffset(float3 UnityOffset)
+{
+    return CMLToUnrealDirection(UnityOffset) * CML_UNREAL_UNITS_PER_UNITY_METRE;
+}
+
+/** Unity's smoothstep-style 0..1 shaper. */
+float CMLSmooth01(float Value)
+{
+    Value = saturate(Value);
+    return Value * Value * (3.0f - 2.0f * Value);
+}
+
+/**
+ * Stable object-independent value noise, transcribed from
+ * StarterIslandStylizedSurface.shader. Rock meshes carry no authored UVs and
+ * differently scaled instances must not reveal a repeated bitmap pattern.
+ */
+float CMLHash31(float3 SamplePosition)
+{
+    SamplePosition = frac(SamplePosition * 0.1031f);
+    SamplePosition += dot(SamplePosition, SamplePosition.yzx + 33.33f);
+    return frac((SamplePosition.x + SamplePosition.y) * SamplePosition.z);
+}
+
+float CMLValueNoise(float3 SamplePosition)
+{
+    float3 Cell = floor(SamplePosition);
+    float3 Local = frac(SamplePosition);
+    float3 Blend = Local * Local * (3.0f - 2.0f * Local);
+
+    float X00 = lerp(CMLHash31(Cell + float3(0.0f, 0.0f, 0.0f)),
+                     CMLHash31(Cell + float3(1.0f, 0.0f, 0.0f)), Blend.x);
+    float X10 = lerp(CMLHash31(Cell + float3(0.0f, 1.0f, 0.0f)),
+                     CMLHash31(Cell + float3(1.0f, 1.0f, 0.0f)), Blend.x);
+    float X01 = lerp(CMLHash31(Cell + float3(0.0f, 0.0f, 1.0f)),
+                     CMLHash31(Cell + float3(1.0f, 0.0f, 1.0f)), Blend.x);
+    float X11 = lerp(CMLHash31(Cell + float3(0.0f, 1.0f, 1.0f)),
+                     CMLHash31(Cell + float3(1.0f, 1.0f, 1.0f)), Blend.x);
+
+    return lerp(lerp(X00, X10, Blend.y), lerp(X01, X11, Blend.y), Blend.z);
+}
+
+/**
+ * Unity's UnpackNormalScale, applied to an already-decoded tangent normal.
+ * Unreal's normal sampler returns the unpacked vector, so only the XY scaling
+ * and the Z reconstruction remain.
+ */
+float3 CMLScaleTangentNormal(float3 TangentNormal, float Scale)
+{
+    float2 XY = TangentNormal.xy * Scale;
+    return float3(XY, sqrt(saturate(1.0f - dot(XY, XY))));
+}
+
+/**
+ * 2D hash, transcribed exactly from the Unity shaders. Every project shader
+ * that needs 2D value noise (vertical rock auto-grass, the clean-room cliff and
+ * grass) uses this identical pair, so the generated pattern must match
+ * bit-for-bit or the breakup masks land in different places.
+ */
+float CMLHash21(float2 SamplePosition)
+{
+    SamplePosition = frac(SamplePosition * float2(123.34f, 345.45f));
+    SamplePosition += dot(SamplePosition, SamplePosition + 34.345f);
+    return frac(SamplePosition.x * SamplePosition.y);
+}
+
+float CMLValueNoise2D(float2 SamplePosition)
+{
+    float2 Cell = floor(SamplePosition);
+    float2 Local = frac(SamplePosition);
+    float2 Blend = Local * Local * (3.0f - 2.0f * Local);
+    float A = CMLHash21(Cell);
+    float B = CMLHash21(Cell + float2(1.0f, 0.0f));
+    float C = CMLHash21(Cell + float2(0.0f, 1.0f));
+    float D = CMLHash21(Cell + float2(1.0f, 1.0f));
+    return lerp(lerp(A, B, Blend.x), lerp(C, D, Blend.x), Blend.y);
+}
+
+float CMLFbm2D(float2 SamplePosition, int Octaves, float Lacunarity, float Gain)
+{
+    float Sum = 0.0f;
+    float Amplitude = 0.5f;
+    float2 Position = SamplePosition;
+    [unroll(6)]
+    for (int Index = 0; Index < Octaves; ++Index)
+    {
+        Sum += CMLValueNoise2D(Position) * Amplitude;
+        Position *= Lacunarity;
+        Amplitude *= Gain;
+    }
+    return Sum;
+}

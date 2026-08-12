@@ -1,0 +1,305 @@
+// Port of Assets/_Project/Art/Environment/StarterIsland/Shaders/
+// StarterIslandAtmosphericSky.shader
+//
+// A fully procedural unlit sky: the decoded source-material algebra (hue-rotated
+// sky base, radial density, cloud mask), the four display phases (noon, dawn,
+// early dusk, late dusk), the sun disc, the projected cloud layer and the fog
+// term. The constants below are the decoded source values and must not be
+// "tidied" - each one is a measured parameter of the original material.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+#include "/CML/CMLCinematics.ush"  // CMLCinValueNoise: this shader's hash variant
+
+static const float KSkyHue0 = 0.653451272f;
+static const float KSkyGain0 = 0.4f;
+static const float KSkyRadial0 = 5.434782609f;
+static const float KLitToUnlitRecovery = 0.82f;
+static const float3 KLitSkyDayShift = float3(0.12f, 0.02f, 0.095f);
+static const float KSnowDesaturation = 0.2f;
+static const float KSkyHue1 = 0.552920307f;
+static const float KBroadGain = 0.754065f;
+static const float KBroadDayGain = 0.343001f;
+static const float KCloudRadial1 = 1.926158777f;
+static const float KDetailThreshold = 0.2f;
+static const float KSunCenter = 1.0f;
+static const float KSunWidthDay = 0.001f;
+static const float KSunWidthNight = 0.0008f;
+static const float KSunIntensity = 400.0f;
+static const float KSunCloudOcclusion = 11.276255f;
+static const float KCloudHue = -0.251327412f;
+static const float KCloudHueGain = 1.724835f;
+static const float KCloudDesaturation = 0.056f;
+static const float KCloudDetailGain = 1.773676f;
+static const float KCloudBlendGain = 0.1f;
+static const float KScatterLobeScale = 0.984247125f;
+static const float3 KCloudBaseColor = float3(0.6626222f, 0.95006424f, 1.0f);
+static const float3 KScatterTeal = float3(0.07277211f, 0.16666667f, 0.16169062f);
+static const float3 KScatterGreen = float3(0.030110676f, 0.19270833f, 0.059503365f);
+static const float3 KScatterWarm = float3(1.0f, 0.7891488f, 0.24101162f);
+static const float3 KLuminance = float3(0.2126f, 0.7152f, 0.0722f);
+
+float CMLSkyCloudNoise(float2 UV)
+{
+    float Value = CMLCinValueNoise(UV) * 0.56f;
+    UV = UV * 2.03f + float2(13.7f, -8.2f);
+    Value += CMLCinValueNoise(UV) * 0.2912f;
+    UV = UV * 2.11f + float2(-4.1f, 17.3f);
+    Value += CMLCinValueNoise(UV) * 0.1456f;
+    return saturate(Value * 1.00321f);
+}
+
+float3 CMLSkyHueRotateGrayAxis(float3 Color, float Angle)
+{
+    const float3 Axis = float3(0.577350269f, 0.577350269f, 0.577350269f);
+    float SineValue;
+    float CosineValue;
+    sincos(Angle, SineValue, CosineValue);
+    return Color * CosineValue + cross(Axis, Color) * SineValue
+        + Axis * dot(Axis, Color) * (1.0f - CosineValue);
+}
+
+float CMLSkySourceDensity(float U)
+{
+    if (U < 0.0f || abs(U) <= 0.00001f)
+    {
+        return 0.0f;
+    }
+    float Scaled = 2.333f * U;
+    return 1.0f - exp2(-1.442695f * Scaled * Scaled);
+}
+
+float2 CMLSkySourceUv(float3 Direction, out float Radius)
+{
+    if (Direction.y >= 0.0f)
+    {
+        float2 Q = Direction.xz / max(1.0f + Direction.y, 0.00001f);
+        const float CosineAngle = 0.9168383f;
+        const float SineAngle = 0.3992586f;
+        float2 Chart = float2(
+            CosineAngle * Q.x + SineAngle * Q.y,
+            SineAngle * Q.x - CosineAngle * Q.y);
+        float2 UV = float2(0.5f, 0.5f) + Chart * 0.5f;
+        Radius = length(UV - float2(0.5f, 0.5f));
+        return UV;
+    }
+    const float2 LowerCapUv = float2(0.9872f, 0.9886f);
+    Radius = length(LowerCapUv - float2(0.5f, 0.5f));
+    return LowerCapUv;
+}
+
+float CMLSkyFogAmount(float Density)
+{
+    return 1.0f - exp2(-1.442695f * max(Density, 0.0f));
+}
+
+struct CMLSkyPhaseInputs
+{
+    float Day01;
+    float NoonPhase;
+    float DawnPhase;
+    float EarlyDuskPhase;
+    float LateDuskPhase;
+    float RainFade;
+    float SnowHailClouds;
+};
+
+struct CMLSkyCloudInputs
+{
+    float CloudAmount;
+    float CloudScale;
+    float CloudCoverage;
+    float CloudSoftness;
+    float CloudSpeed;
+    float CloudOpacity;
+    float3 CloudColor;
+    float3 CloudShadowColor;
+    float3 CloudTopColorLinear;
+    float3 CloudBottomColorLinear;
+};
+
+float3 CMLAtmosphericSky(
+    float3 UnityViewDirection,
+    float3 UnitySunDirection,
+    float TimeSeconds,
+    float3 SkyTopColorLinear,
+    float3 SunDiscColorLinear,
+    float3 FogInscatteringColorLinear,
+    float3 FogDirectionalColorLinear,
+    float FogDensity,
+    float SubsurfaceToUnlitScale,
+    float Exposure,
+    CMLSkyPhaseInputs Phase,
+    CMLSkyCloudInputs Cloud)
+{
+    float3 ViewDirection = normalize(UnityViewDirection);
+    float3 SunDirection = normalize(UnitySunDirection);
+    float Day = saturate(Phase.Day01);
+    float Rain = saturate(Phase.RainFade);
+    float Snow = saturate(Phase.SnowHailClouds);
+
+    float3 SourceSkyTop = max(SkyTopColorLinear, 0.0f);
+    float SourceSkyTopLuminance = dot(SourceSkyTop, KLuminance);
+
+    float NoonPhase = saturate(Phase.NoonPhase);
+    float DawnPhase = saturate(Phase.DawnPhase);
+    float EarlyDuskPhase = saturate(Phase.EarlyDuskPhase);
+    float LateDuskPhase = saturate(Phase.LateDuskPhase);
+    float Twilight = saturate(DawnPhase + EarlyDuskPhase + LateDuskPhase);
+    float DisplayPhaseCoverage = saturate(NoonPhase + DawnPhase + EarlyDuskPhase + LateDuskPhase);
+    float DisplayPhaseSum = max(NoonPhase + DawnPhase + EarlyDuskPhase + LateDuskPhase, 0.0001f);
+    float4 W = float4(NoonPhase, DawnPhase, EarlyDuskPhase, LateDuskPhase) / DisplayPhaseSum;
+
+    float Radius;
+    float2 SkyUv = CMLSkySourceUv(ViewDirection, Radius);
+
+    float3 TopA = CMLSkyHueRotateGrayAxis(SourceSkyTop, KSkyHue0) * KSkyGain0;
+    float SkyDensity = CMLSkySourceDensity(1.0f - Radius * KSkyRadial0);
+    float3 SourceBase = lerp(SourceSkyTop, TopA, SkyDensity);
+    SourceBase = lerp(SourceBase, dot(SourceBase, KLuminance).xxx, Snow * KSnowDesaturation);
+
+    float MaskScale = max(Cloud.CloudScale / 0.46f, 0.05f);
+    float2 SourceMaskUv = SkyUv * 2.0f * MaskScale;
+    float2 CloudScroll = float2(TimeSeconds * Cloud.CloudSpeed, 0.0f);
+    float2 DetailUv = SourceMaskUv * 2.73f + float2(31.4f, -12.8f);
+
+    float BroadCloud = 0.0f;
+    float DetailCloudA = 0.0f;
+    float DetailCloudB = 0.0f;
+    if (DisplayPhaseCoverage < 0.999f)
+    {
+        BroadCloud = CMLSkyCloudNoise(SourceMaskUv * 0.82f + CloudScroll);
+        DetailCloudA = CMLSkyCloudNoise(DetailUv + CloudScroll);
+        DetailCloudB = CMLSkyCloudNoise(DetailUv - CloudScroll);
+    }
+
+    float TotalCloudAmount = max(0.0f, Cloud.CloudAmount + Snow);
+    float3 Broad = saturate(BroadCloud.xxx * Day * KBroadDayGain);
+    float DetailMask = saturate((DetailCloudA * TotalCloudAmount) * (DetailCloudB * TotalCloudAmount));
+    float3 Detail = DetailMask.xxx;
+    float SourceCloud = CMLSkySourceDensity(1.0f - Radius * KCloudRadial1)
+        * step(KDetailThreshold, DetailMask);
+
+    float3 BroadTone = CMLSkyHueRotateGrayAxis(SourceSkyTop, KSkyHue1) * KBroadGain;
+    float3 PreSunBase = lerp(SourceBase, BroadTone, Broad * (1.0f - SourceCloud));
+
+    float LitSkyDayWeight = smoothstep(0.28f, 0.46f, SourceSkyTopLuminance) * Day;
+    float3 LitBridgeTarget = SourceSkyTop + KLitSkyDayShift * LitSkyDayWeight;
+    float3 RecoveredBase = lerp(PreSunBase, LitBridgeTarget, KLitToUnlitRecovery);
+
+    float SunDot = dot(ViewDirection, SunDirection);
+    float SunWidth = lerp(KSunWidthNight, KSunWidthDay, Day);
+    float SunDelta = SunDot - KSunCenter;
+    float SunDiscDistance = SunWidth - abs(SunDelta);
+    float SunAntialias = max(fwidth(SunDot) * 1.5f, 0.000001f);
+    float SunMask = smoothstep(-SunAntialias, SunAntialias, SunDiscDistance);
+    SunMask *= 1.0f - saturate(SourceCloud * KSunCloudOcclusion) * (1.0f - DisplayPhaseCoverage);
+
+    float3 DisplaySunColor =
+        float3(1.000000f, 0.887923f, 0.450786f) * W.x +
+        float3(1.000000f, 0.720000f, 0.155000f) * W.y +
+        float3(1.000000f, 0.610000f, 0.105000f) * W.z +
+        float3(1.000000f, 0.255000f, 0.060000f) * W.w;
+    DisplaySunColor = lerp(max(SunDiscColorLinear, 0.0f), DisplaySunColor, DisplayPhaseCoverage);
+
+    float3 SunHdr = SunMask * DisplaySunColor * KSunIntensity * (1.0f - Rain);
+    float CalibratedSunScale = W.x + W.y * 0.0016f + W.z * 0.0018f + W.w * 0.0014f;
+    SunHdr *= lerp(1.0f, CalibratedSunScale, DisplayPhaseCoverage);
+    float TwilightSunPhase = saturate(DawnPhase + EarlyDuskPhase + LateDuskPhase);
+
+    float3 RotatedCloud = CMLSkyHueRotateGrayAxis(SourceSkyTop, KCloudHue) * KCloudHueGain;
+    RotatedCloud = lerp(RotatedCloud, dot(RotatedCloud, KLuminance).xxx, KCloudDesaturation);
+    float3 DetailWeight = saturate(Detail * KCloudDetailGain);
+    float3 SourceCloudTone = lerp(KCloudBaseColor, RotatedCloud, DetailWeight);
+    float SourceCloudBlend = saturate(clamp(Day, 0.1f, 1.0f) * SourceCloud * KCloudBlendGain);
+    float3 Sky = lerp(RecoveredBase, SourceCloudTone, SourceCloudBlend);
+
+    float3 DaylightScatter = lerp(KScatterGreen, KScatterTeal, Day);
+    float3 ScatterPalette = lerp(KScatterWarm, DaylightScatter, DetailWeight);
+    float ScatterLobe = pow(saturate(1.0f - abs(SunDot - KSunCenter) * KScatterLobeScale), 10.0f);
+    Sky += saturate(ScatterPalette * SourceCloud * ScatterLobe) * SubsurfaceToUnlitScale;
+
+    float2 ViewAzimuth = ViewDirection.xz / max(length(ViewDirection.xz), 0.0001f);
+    float2 SunAzimuth = SunDirection.xz / max(length(SunDirection.xz), 0.0001f);
+    float HorizontalSun = pow(saturate(dot(ViewAzimuth, SunAzimuth)), 2.0f);
+
+    float3 PhaseZenith =
+        float3(0.119500f, 0.462100f, 0.651400f) * W.x +
+        float3(0.018000f, 0.165000f, 0.300000f) * W.y +
+        float3(0.012000f, 0.145000f, 0.165000f) * W.z +
+        float3(0.010000f, 0.125000f, 0.145000f) * W.w;
+    float3 PhaseHorizon =
+        float3(0.376300f, 0.723100f, 0.822800f) * W.x +
+        float3(0.650000f, 0.300000f, 0.150000f) * W.y +
+        float3(0.450000f, 0.200000f, 0.120000f) * W.z +
+        float3(0.300000f, 0.100000f, 0.070000f) * W.w;
+    float3 PhaseCloudBottom =
+        float3(0.242300f, 0.521000f, 0.686700f) * W.x +
+        float3(0.180000f, 0.300000f, 0.350000f) * W.y +
+        float3(0.120000f, 0.220000f, 0.180000f) * W.z +
+        float3(0.100000f, 0.180000f, 0.160000f) * W.w;
+    float3 PhaseCoolHorizon = lerp(PhaseZenith, PhaseCloudBottom, 0.55f);
+
+    float DomeHeight = smoothstep(-0.05f, 0.65f, ViewDirection.y);
+    float3 PhaseSkyTarget = lerp(PhaseCoolHorizon, PhaseZenith, DomeHeight);
+    float HorizonVertical = exp2(-8.0f * abs(ViewDirection.y));
+    float HorizonFacing = lerp(0.18f, 1.0f, HorizontalSun);
+    float3 CalibratedSky = lerp(PhaseSkyTarget, PhaseHorizon, saturate(HorizonVertical * HorizonFacing));
+    Sky = lerp(Sky, CalibratedSky, DisplayPhaseCoverage);
+
+    float SunwardHaze = TwilightSunPhase * pow(saturate(SunDot), 8.0f) * 0.10f;
+    float3 SunwardHazeColor = lerp(PhaseHorizon, DisplaySunColor, 0.28f);
+    Sky = lerp(Sky, SunwardHazeColor, SunwardHaze);
+    Sky += SunHdr;
+
+    // Visible projected cloud layer, independent of the decoded source mask.
+    float CloudProjectionHeight = max(ViewDirection.y + 0.26f, 0.18f);
+    float2 ProjectedCloudUv = ViewDirection.xz / CloudProjectionHeight * (Cloud.CloudScale * 2.55f);
+    ProjectedCloudUv += float2(TimeSeconds * Cloud.CloudSpeed, -TimeSeconds * Cloud.CloudSpeed * 0.62f);
+
+    float VisibleBroadCloud = CMLSkyCloudNoise(ProjectedCloudUv * 0.82f);
+    float VisibleDetailCloud = CMLSkyCloudNoise(ProjectedCloudUv * 2.73f + float2(31.4f, -12.8f));
+    float CloudField = VisibleBroadCloud * 0.79f + VisibleDetailCloud * 0.34f - 0.065f;
+    float CoverageThreshold = lerp(0.70f, 0.40f, Cloud.CloudCoverage);
+    float EdgeWidth = max(0.025f, Cloud.CloudSoftness * 0.72f);
+    float CloudShape = smoothstep(CoverageThreshold - EdgeWidth, CoverageThreshold + EdgeWidth, CloudField);
+    float CloudCore = smoothstep(
+        CoverageThreshold + EdgeWidth * 0.18f, CoverageThreshold + EdgeWidth * 1.65f, CloudField);
+    float CloudHorizonFade = smoothstep(-0.10f, 0.12f, ViewDirection.y);
+    float CloudAmount01 = saturate((Cloud.CloudAmount - 0.3f) / 4.7f);
+    float CloudAmountVisibility = lerp(0.78f, 1.0f, CloudAmount01);
+    CloudShape *= CloudHorizonFade * Cloud.CloudOpacity * CloudAmountVisibility
+        * lerp(0.72f, 1.0f, VisibleDetailCloud);
+    float CloudRelief = max(DawnPhase, max(EarlyDuskPhase, LateDuskPhase));
+    CloudShape *= lerp(1.0f, 0.86f, CloudRelief);
+
+    float3 SourceCloudLight = lerp(
+        Cloud.CloudColor, max(Cloud.CloudTopColorLinear, 0.0f), lerp(0.34f, 0.62f, Twilight));
+    float3 SourceCloudShadow = lerp(
+        Cloud.CloudShadowColor, max(Cloud.CloudBottomColorLinear, 0.0f), lerp(0.38f, 0.74f, Twilight));
+    SourceCloudLight *= lerp(0.22f, 1.0f, Day);
+    SourceCloudShadow *= lerp(0.28f, 1.0f, Day);
+
+    float3 PhaseCloudLight =
+        float3(0.296100f, 0.630800f, 0.775800f) * W.x +
+        float3(0.700000f, 0.550000f, 0.380000f) * W.y +
+        float3(0.650000f, 0.450000f, 0.250000f) * W.z +
+        float3(0.500000f, 0.300000f, 0.180000f) * W.w;
+
+    float3 CloudLight = lerp(SourceCloudLight, PhaseCloudLight, DisplayPhaseCoverage);
+    float3 CloudShadow = lerp(SourceCloudShadow, PhaseCloudBottom, DisplayPhaseCoverage);
+    float3 CloudTone = lerp(
+        CloudShadow, CloudLight, saturate(0.18f + CloudCore * 0.72f + saturate(SunDot) * 0.10f));
+    float CloudEdge = saturate((CloudShape - CloudCore * Cloud.CloudOpacity) * 3.0f);
+    CloudTone += PhaseCloudLight * CloudEdge * TwilightSunPhase * pow(saturate(SunDot), 6.0f) * 0.10f;
+    Sky = lerp(Sky, CloudTone, CloudShape);
+
+    float FogAmount = CMLSkyFogAmount(FogDensity) * 0.22f;
+    float DirectionalFog = pow(saturate(dot(ViewDirection, SunDirection)), 5.0f);
+    float3 FogColor = lerp(
+        max(FogInscatteringColorLinear, 0.0f), max(FogDirectionalColorLinear, 0.0f), DirectionalFog);
+    Sky = lerp(Sky, FogColor, FogAmount);
+
+    return max(0.0f, Sky * Exposure);
+}

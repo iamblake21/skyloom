@@ -1,0 +1,331 @@
+// Ports of the smaller Starter Island environment shaders.
+//
+// Each function is the transcribed body of one Unity fragment/vertex stage.
+// World-space maths runs in Unity space (Y-up, metres); the callers convert.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+#include "/CML/CMLCinematics.ush"  // CMLCinValueNoise: the hash the reference-match terrain declared
+
+// --------------------------------------------------------------------------
+// CML/Environment/Starter Island Foliage
+// --------------------------------------------------------------------------
+
+/**
+ * Vertex sway driven entirely by the painted vertex colour: R*B is the wind
+ * weight, G is a per-blade phase. Returned as a Unity-space displacement.
+ */
+float3 CMLFoliageWindOffset(
+    float3 UnityPositionWS,
+    float4 VertexColor,
+    float TimeSeconds,
+    float WindStrength,
+    float WindSpeed)
+{
+    float WindWeight = saturate(VertexColor.r) * saturate(VertexColor.b);
+    float Phase = VertexColor.g * 6.2831853f;
+    float Sway = sin(
+        TimeSeconds * WindSpeed + Phase +
+        UnityPositionWS.x * 0.075f + UnityPositionWS.z * 0.051f);
+    float CrossSway = sin(
+        TimeSeconds * (WindSpeed * 0.71f) - Phase * 0.63f + UnityPositionWS.z * 0.093f);
+
+    float3 Offset = float3(0.0f, 0.0f, 0.0f);
+    Offset.x += Sway * WindWeight * WindStrength;
+    Offset.z += CrossSway * WindWeight * WindStrength * 0.58f;
+    return Offset;
+}
+
+/** Palette atlas times tint, lifted slightly by the surface mask's green. */
+float3 CMLFoliageAlbedo(float3 Palette, float3 Tint, float MaskGreen)
+{
+    float RoughnessLift = lerp(0.94f, 1.03f, MaskGreen);
+    return Palette * Tint * RoughnessLift;
+}
+
+// --------------------------------------------------------------------------
+// CML/Environment/Starter Island Underbody Terrain Rock
+// --------------------------------------------------------------------------
+
+/**
+ * Signed triplanar projection of the Terrain cliff texture. The sign flips keep
+ * the projection continuous across opposing faces instead of mirroring it.
+ */
+float3 CMLUnderbodyRockUVX(float3 UnityPositionWS, float3 UnityNormalWS, float TileScale)
+{
+    float SignX = step(0.0f, UnityNormalWS.x) * 2.0f - 1.0f;
+    float2 UV = float2(UnityPositionWS.z, -UnityPositionWS.y * SignX) * TileScale;
+    return float3(UV.x, -UV.y, 0.0f);
+}
+
+float3 CMLUnderbodyRockUVY(float3 UnityPositionWS, float3 UnityNormalWS, float TileScale)
+{
+    float SignY = step(0.0f, UnityNormalWS.y) * 2.0f - 1.0f;
+    float2 UV = float2(UnityPositionWS.x, -UnityPositionWS.z * SignY) * TileScale;
+    return float3(UV.x, -UV.y, 0.0f);
+}
+
+float3 CMLUnderbodyRockUVZ(float3 UnityPositionWS, float3 UnityNormalWS, float TileScale)
+{
+    float SignZ = step(0.0f, UnityNormalWS.z) * 2.0f - 1.0f;
+    float2 UV = float2(UnityPositionWS.x, UnityPositionWS.y * SignZ) * TileScale;
+    return float3(UV.x, -UV.y, 0.0f);
+}
+
+// --------------------------------------------------------------------------
+// CML/Environment/Starter Island Ground Cover
+// --------------------------------------------------------------------------
+
+/**
+ * Per-blade wind. The painted vertex colour carries everything: R is the height
+ * weight, G the phase, B a colour variation and A the flower/stiffness flag.
+ */
+float3 CMLGroundCoverWindOffset(
+    float3 UnityPositionWS,
+    float4 VertexData,
+    float TimeSeconds,
+    float WindStrength,
+    float WindSpeed,
+    float GustScale)
+{
+    float HeightWeight = pow(saturate(VertexData.r), 1.35f);
+    float Phase = VertexData.g * 6.2831853f;
+
+    float Gust = sin(
+        TimeSeconds * (WindSpeed * 0.43f) +
+        UnityPositionWS.x * GustScale +
+        UnityPositionWS.z * (GustScale * 0.79f));
+    Gust = lerp(0.48f, 1.0f, Gust * 0.5f + 0.5f);
+
+    float Primary = sin(
+        TimeSeconds * WindSpeed + Phase +
+        UnityPositionWS.x * 0.081f + UnityPositionWS.z * 0.057f);
+    float Secondary = sin(
+        TimeSeconds * (WindSpeed * 1.61f) - Phase * 0.73f + UnityPositionWS.z * 0.117f);
+
+    float FlowerStiffness = lerp(1.0f, 0.72f, VertexData.a);
+    float Bend = HeightWeight * Gust * FlowerStiffness * WindStrength;
+
+    float3 Offset = float3(0.0f, 0.0f, 0.0f);
+    Offset.x += (Primary * 0.86f + Secondary * 0.14f) * Bend;
+    Offset.z += (Primary * 0.34f - Secondary * 0.22f) * Bend;
+    Offset.y -= abs(Primary) * Bend * 0.055f;
+    return Offset;
+}
+
+float3 CMLGroundCoverAlbedo(
+    float4 VertexData,
+    float3 Atlas,
+    float MaskGreen,
+    float3 BaseTint,
+    float3 RootTint,
+    float3 TipTint)
+{
+    float FlowerFactor = saturate(VertexData.a);
+    float HeightWeight = saturate(VertexData.r);
+    float3 GrassTint = lerp(RootTint, TipTint, smoothstep(0.05f, 0.92f, HeightWeight));
+    float Variation = lerp(0.88f, 1.10f, VertexData.b);
+    float3 GrassColor = GrassTint * BaseTint;
+    float3 FlowerColor = Atlas * BaseTint;
+    float3 BaseColor = lerp(GrassColor, FlowerColor, FlowerFactor) * Variation;
+    return BaseColor * lerp(0.96f, 1.04f, MaskGreen);
+}
+
+// --------------------------------------------------------------------------
+// CML/Environment/Starter Island Terrain Reference Match
+// --------------------------------------------------------------------------
+
+/**
+ * Cliff projection derived from the Terrain size rather than a free tile scale,
+ * and stabilised to a purely horizontal normal so vertical walls never swim.
+ */
+float CMLReferenceMatchCliffTileScale(float2 TerrainSizeXZ, float2 Splat3ScaleOffset)
+{
+    float2 TerrainSize = max(TerrainSizeXZ, float2(1.0f, 1.0f));
+    float2 InverseTile = abs(Splat3ScaleOffset) / TerrainSize;
+    return max(0.001f, (InverseTile.x + InverseTile.y) * 0.5f);
+}
+
+float2 CMLReferenceMatchCliffUVX(float3 UnityPositionWS, float3 UnityNormalWS, float TileScale)
+{
+    float SignX = step(0.0f, UnityNormalWS.x) * 2.0f - 1.0f;
+    float2 UV = float2(UnityPositionWS.z, -UnityPositionWS.y * SignX) * TileScale;
+    return float2(UV.x, -UV.y);
+}
+
+float2 CMLReferenceMatchCliffUVZ(float3 UnityPositionWS, float3 UnityNormalWS, float TileScale)
+{
+    float SignZ = step(0.0f, UnityNormalWS.z) * 2.0f - 1.0f;
+    float2 UV = float2(UnityPositionWS.x, UnityPositionWS.y * SignZ) * TileScale;
+    return float2(UV.x, -UV.y);
+}
+
+float3 CMLReferenceMatchCliff(
+    float3 UnityNormalWS,
+    float3 AlongX,
+    float3 AlongZ,
+    float ProjectionSharpness,
+    float3 DiffuseRemapScale3,
+    float3 CliffTint,
+    float CliffBrightness)
+{
+    float2 HorizontalNormal = UnityNormalWS.xz;
+    float HorizontalLength = max(length(HorizontalNormal), 0.0001f);
+    float3 StableNormal = normalize(float3(
+        HorizontalNormal.x / HorizontalLength, 0.08f, HorizontalNormal.y / HorizontalLength));
+    float2 Weights = pow(max(abs(StableNormal.xz), float2(0.0001f, 0.0001f)), ProjectionSharpness);
+    Weights /= max(Weights.x + Weights.y, 0.0001f);
+    return (AlongX * Weights.x + AlongZ * Weights.y)
+        * DiffuseRemapScale3 * CliffTint * CliffBrightness;
+}
+
+float3 CMLReferenceMatchAlbedo(
+    float3 UnityPositionWS,
+    float3 UnityNormalWS,
+    float4 Control,
+    float3 GrassSun,
+    float3 GrassDeep,
+    float3 Dirt,
+    float3 Cliff,
+    float CliffSlopeStart,
+    float CliffSlopeEnd,
+    float3 LipColor,
+    float LipStrength)
+{
+    float NonCliffWeight = max(Control.r + Control.g + Control.b, 0.0001f);
+    float3 NonCliff = (GrassSun * Control.r + GrassDeep * Control.g + Dirt * Control.b)
+        / NonCliffWeight;
+
+    // Uses the cinematic hash variant, which is what this shader declared.
+    float EdgeNoise =
+        (CMLCinValueNoise(UnityPositionWS.xz * 0.045f + float2(17.3f, 91.7f)) - 0.5f) * 0.035f;
+    float Slope = 1.0f - saturate(UnityNormalWS.y);
+    float AutoCliff = smoothstep(CliffSlopeStart, CliffSlopeEnd, Slope + EdgeNoise);
+    float CliffWeight = max(Control.a, AutoCliff);
+    float3 Albedo = lerp(NonCliff, Cliff, CliffWeight);
+
+    float LipOuter = smoothstep(
+        CliffSlopeStart - 0.035f, CliffSlopeStart + 0.018f, Slope + EdgeNoise);
+    float LipInner = 1.0f - smoothstep(
+        CliffSlopeStart + 0.018f, CliffSlopeStart + 0.095f, Slope + EdgeNoise);
+    float Lip = LipOuter * LipInner * (1.0f - Control.a);
+    return lerp(Albedo, LipColor, Lip * LipStrength);
+}
+
+// --------------------------------------------------------------------------
+// CML/Environment/Vertical Rock Auto Grass
+// --------------------------------------------------------------------------
+
+/** Triplanar blend weights, shared by the albedo and normal reconstruction. */
+float3 CMLTriplanarWeights(float3 UnityNormalWS, float Sharpness)
+{
+    float3 Weights = pow(max(abs(UnityNormalWS), 0.0001f), Sharpness);
+    return Weights / max(Weights.x + Weights.y + Weights.z, 0.0001f);
+}
+
+float3 CMLTriplanarAlbedo(float3 CX, float3 CY, float3 CZ, float3 Weights)
+{
+    return CX * Weights.x + CY * Weights.y + CZ * Weights.z;
+}
+
+/** Swizzle each projected tangent normal back into world space, sign-aware. */
+float3 CMLTriplanarNormal(
+    float3 UnityNormalWS,
+    float3 TangentX,
+    float3 TangentY,
+    float3 TangentZ,
+    float3 Weights,
+    float NormalStrength)
+{
+    float3 AxisSign = step(0.0f, UnityNormalWS) * 2.0f - 1.0f;
+    float3 TX = CMLScaleTangentNormal(TangentX, NormalStrength);
+    float3 TY = CMLScaleTangentNormal(TangentY, NormalStrength);
+    float3 TZ = CMLScaleTangentNormal(TangentZ, NormalStrength);
+    float3 NX = float3(AxisSign.x * TX.z, -AxisSign.x * TX.y, TX.x);
+    float3 NY = float3(TY.x, AxisSign.y * TY.z, -AxisSign.y * TY.y);
+    float3 NZ = float3(TZ.x, AxisSign.z * TZ.y, AxisSign.z * TZ.z);
+    return normalize(NX * Weights.x + NY * Weights.y + NZ * Weights.z);
+}
+
+/** Three-stop luminance palette remap, blended in by _PaletteStrength. */
+float3 CMLRockPalette(
+    float3 Source,
+    float3 ShadowColor,
+    float3 BaseColor,
+    float3 HighlightColor,
+    float PaletteStrength)
+{
+    float L = dot(Source, float3(0.2126f, 0.7152f, 0.0722f));
+    float T = smoothstep(0.055f, 0.42f, L);
+    float3 Palette = T < 0.5f
+        ? lerp(ShadowColor, BaseColor, T * 2.0f)
+        : lerp(BaseColor, HighlightColor, (T - 0.5f) * 2.0f);
+    return lerp(Source, Palette, PaletteStrength);
+}
+
+/**
+ * Slope-driven grass mask. `MacroNormalWS` comes from an authored per-vertex
+ * channel in Unity; when it is absent Unity's own validity gate falls back to
+ * the geometric normal, so passing zero here reproduces that exactly.
+ */
+float CMLAutoGrassMask(
+    float3 UnityPositionWS,
+    float3 UnityGeometricNormalWS,
+    float3 MacroNormalWS,
+    float SlopeStart,
+    float SlopeEnd,
+    float NoiseScale,
+    float NoiseStrength)
+{
+    float MacroNormalValid = step(0.01f, dot(MacroNormalWS, MacroNormalWS));
+    float3 Macro = normalize(lerp(UnityGeometricNormalWS, MacroNormalWS, MacroNormalValid));
+
+    float LowNoiseA = CMLValueNoise2D(UnityPositionWS.xz * NoiseScale + float2(31.7f, 9.2f));
+    float LowNoiseB = CMLValueNoise2D(UnityPositionWS.xz * (NoiseScale * 0.43f) + float2(8.4f, 41.1f));
+    float LowNoise = LowNoiseA * 0.68f + LowNoiseB * 0.32f;
+    float Slope = Macro.y + (LowNoise - 0.5f) * NoiseStrength;
+    float GrassMask = smoothstep(SlopeStart, SlopeEnd, Slope);
+    // A macro-up region may cross a sharp overhang boundary. This broad support
+    // gate prevents undersides without reintroducing one-triangle green islands
+    // from the faceted render normal.
+    return GrassMask * smoothstep(0.08f, 0.42f, UnityGeometricNormalWS.y);
+}
+
+/**
+ * Large-scale tone blocks that reinforce the authored rock planes. Kept
+ * independent from the triplanar micro texture so the geometric hierarchy stays
+ * readable at distance.
+ */
+float3 CMLAutoGrassRockPlaneTone(
+    float3 RockAlbedo,
+    float3 UnityGeometricNormalWS,
+    float3 ShadowColor,
+    float3 BaseColor,
+    float3 HighlightColor,
+    float PlaneToneStrength)
+{
+    float PlaneFacing = saturate(
+        dot(UnityGeometricNormalWS, normalize(float3(0.42f, 0.34f, 0.84f))) * 0.5f + 0.5f);
+    float3 BroadRock = PlaneFacing < 0.5f
+        ? lerp(ShadowColor, BaseColor, PlaneFacing * 2.0f)
+        : lerp(BaseColor, HighlightColor, (PlaneFacing - 0.5f) * 2.0f);
+    float RockLuma = dot(RockAlbedo, float3(0.2126f, 0.7152f, 0.0722f));
+    BroadRock *= lerp(0.88f, 1.08f, saturate(RockLuma * 1.35f));
+    return lerp(RockAlbedo, BroadRock, PlaneToneStrength);
+}
+
+float3 CMLUnderbodyRockAlbedo(
+    float3 UnityNormalWS,
+    float3 AlongX,
+    float3 AlongY,
+    float3 AlongZ,
+    float ProjectionSharpness,
+    float3 CliffTint,
+    float CliffBrightness)
+{
+    float3 Weights = pow(max(abs(UnityNormalWS), 0.0001f), ProjectionSharpness);
+    Weights /= max(Weights.x + Weights.y + Weights.z, 0.0001f);
+    return (AlongX * Weights.x + AlongY * Weights.y + AlongZ * Weights.z)
+        * CliffTint * CliffBrightness;
+}

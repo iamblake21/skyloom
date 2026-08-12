@@ -147,6 +147,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.62352943, g: 0.6392157, b: 0.61960787, a: 1}
+    - _CMLHitOffsetWS: {r: 0, g: 0, b: 0, a: 0}
     - _ClayColor: {r: 0.54999995, g: 0.47999996, b: 0.42999998, a: 1}
     - _Color: {r: 0.57254905, g: 0.5960784, b: 0.5803921, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -57,7 +57,9 @@ namespace CML.Unity.Bootstrap
                 yield break;
             }
 
-            var isSmokeTest = Array.IndexOf(Environment.GetCommandLineArgs(), SmokeArgument) >= 0;
+            var isSmokeTest = Array.IndexOf(
+                System.Environment.GetCommandLineArgs(),
+                SmokeArgument) >= 0;
             var smokeDeadline = isSmokeTest
                 ? Time.realtimeSinceStartup + SmokeTimeoutSeconds
                 : float.PositiveInfinity;

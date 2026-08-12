@@ -1,0 +1,300 @@
+// Port of Assets/_Project/Art/Environment/StarterIsland/Shaders/
+// StarterIslandStylizedWater.shader
+//
+// The Unity pass composites its own final pixel: it samples scene colour and
+// depth, applies its own lighting, reflection, foam and transmission, and
+// returns alpha 1. The Unreal port therefore stays unlit and writes the same
+// composed value to Emissive; the sun direction/colour and the environment
+// reflection come from the sky-atmosphere and sky-light nodes rather than from
+// URP's Light struct. Shadow attenuation has no unlit-material equivalent and
+// is treated as fully lit, which the port reports on the asset.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+
+/** Unity's triangle-based wave: continuous height plus its analytic slope. */
+void CMLWaterEvaluateWave(float Phase, out float Height, out float Slope)
+{
+    float Cycle = frac(Phase);
+    float TriangleWave = 1.0f - abs(Cycle * 2.0f - 1.0f);
+    float SmoothTriangle = TriangleWave * TriangleWave * (3.0f - 2.0f * TriangleWave);
+    Height = SmoothTriangle * 2.0f - 1.0f;
+    float Direction = Cycle < 0.5f ? 1.0f : -1.0f;
+    Slope = Direction * (4.0f * TriangleWave * (1.0f - TriangleWave));
+}
+
+/**
+ * Pools encode radial distance in vertex red and radial UVs; route meshes break
+ * that relationship deliberately, and their V keeps increasing with travelled
+ * distance. That difference is the whole classifier.
+ */
+void CMLWaterEvaluateMasks(
+    float2 UV,
+    float4 VertexColor,
+    float NormalUp,
+    out float PoolMask,
+    out float RouteMask,
+    out float CascadeMask)
+{
+    float OrientationCascade = smoothstep(0.14f, 0.72f, 1.0f - NormalUp);
+    CascadeMask = saturate(max(saturate(VertexColor.b), OrientationCascade));
+
+    float PoolUvRadius = length(UV - float2(0.5f, 0.5f)) * 2.0f;
+    float RadialError = abs(PoolUvRadius - saturate(VertexColor.r));
+    float PoolSignature = 1.0f - smoothstep(0.10f, 0.24f, RadialError);
+    float RouteUvHint = smoothstep(1.02f, 1.42f, abs(UV.y));
+
+    RouteMask = saturate(max(CascadeMask, max(1.0f - PoolSignature, RouteUvHint)));
+    PoolMask = 1.0f - RouteMask;
+}
+
+/** Vertex displacement along the geometric normal. */
+float3 CMLWaterDisplacement(
+    float3 UnityPositionWS,
+    float3 UnityNormalWS,
+    float2 UV,
+    float4 VertexColor,
+    float TimeSeconds,
+    float WaveScaleA,
+    float WaveScaleB,
+    float WaveSpeedA,
+    float WaveSpeedB,
+    float FlowScale,
+    float FlowSpeed,
+    float DisplacementStrength)
+{
+    float2 Horizontal = UnityPositionWS.xz;
+    float PhaseA = dot(Horizontal, float2(0.82f, 0.57f)) * WaveScaleA * 0.15915494f
+        + TimeSeconds * WaveSpeedA * 0.15915494f;
+    float PhaseB = dot(Horizontal, float2(-0.42f, 0.91f)) * WaveScaleB * 0.15915494f
+        - TimeSeconds * WaveSpeedB * 0.15915494f;
+
+    float WaveA, SlopeA, WaveB, SlopeB;
+    CMLWaterEvaluateWave(PhaseA, WaveA, SlopeA);
+    CMLWaterEvaluateWave(PhaseB, WaveB, SlopeB);
+
+    float LateralFlow, LateralSlope;
+    CMLWaterEvaluateWave(UV.x * 2.0f, LateralFlow, LateralSlope);
+
+    float RoutePhase = UV.y * FlowScale - TimeSeconds * FlowSpeed * 0.15915494f
+        + LateralFlow * 0.045f;
+    float RouteWave, RouteSlope, RouteDetailWave, RouteDetailSlope;
+    CMLWaterEvaluateWave(RoutePhase, RouteWave, RouteSlope);
+    CMLWaterEvaluateWave(RoutePhase * 1.83f + 0.2706f, RouteDetailWave, RouteDetailSlope);
+
+    float HorizontalSurface = smoothstep(0.42f, 0.90f, abs(UnityNormalWS.y));
+    float PoolMask, RouteMask, CascadeMask;
+    CMLWaterEvaluateMasks(UV, VertexColor, abs(UnityNormalWS.y), PoolMask, RouteMask, CascadeMask);
+
+    float HorizontalDisplacement = (WaveA * 0.62f + WaveB * 0.38f) * DisplacementStrength;
+    float RouteDisplacement = (RouteWave * 0.72f + RouteDetailWave * 0.28f)
+        * DisplacementStrength * lerp(0.70f, 0.42f, CascadeMask);
+    float Displacement = lerp(
+        HorizontalDisplacement * lerp(0.42f, 1.0f, HorizontalSurface),
+        RouteDisplacement,
+        RouteMask);
+    return UnityNormalWS * Displacement;
+}
+
+struct CMLWaterSurface
+{
+    float3 RippleNormalWS;
+    float2 RefractionVector;
+    float PoolMask;
+    float RouteMask;
+    float CascadeMask;
+    float CascadeFoam;
+    float WaveA;
+    float WaveB;
+    float DetailWave;
+    float BroadFlow;
+    float NarrowFlow;
+    float LongitudinalStreak;
+};
+
+/** Everything derived from the wave fields, independent of scene depth/colour. */
+CMLWaterSurface CMLWaterEvaluateSurface(
+    float3 UnityPositionWS,
+    float3 UnityNormalWS,
+    float2 UV,
+    float4 VertexColor,
+    float TimeSeconds,
+    float WaveScaleA,
+    float WaveScaleB,
+    float WaveSpeedA,
+    float WaveSpeedB,
+    float WaveStrength,
+    float NormalDetailScale,
+    float NormalDetailSpeed,
+    float NormalDetailStrength,
+    float CascadeNormalStrength,
+    float FlowScale,
+    float FlowSpeed,
+    float CascadeFoamStrength)
+{
+    CMLWaterSurface Surface = (CMLWaterSurface)0;
+    float3 GeometricNormal = normalize(UnityNormalWS);
+    float NormalUp = abs(GeometricNormal.y);
+    CMLWaterEvaluateMasks(
+        UV, VertexColor, NormalUp, Surface.PoolMask, Surface.RouteMask, Surface.CascadeMask);
+
+    float2 World = UnityPositionWS.xz;
+    float PhaseA = dot(World, float2(0.82f, 0.57f)) * WaveScaleA * 0.15915494f
+        + TimeSeconds * WaveSpeedA * 0.15915494f;
+    float PhaseB = dot(World, float2(-0.42f, 0.91f)) * WaveScaleB * 0.15915494f
+        - TimeSeconds * WaveSpeedB * 0.15915494f;
+    float DetailPhase = dot(World, float2(0.31f, -0.95f)) * NormalDetailScale * 0.15915494f
+        + TimeSeconds * NormalDetailSpeed * 0.15915494f;
+
+    float SlopeA, SlopeB, DetailSlope;
+    CMLWaterEvaluateWave(PhaseA, Surface.WaveA, SlopeA);
+    CMLWaterEvaluateWave(PhaseB, Surface.WaveB, SlopeB);
+    CMLWaterEvaluateWave(DetailPhase, Surface.DetailWave, DetailSlope);
+
+    float FlowAcrossPhase = UV.x * 3.0f + UV.y * 0.1305f + TimeSeconds * FlowSpeed * 0.0382f;
+    float FlowAcross, FlowAcrossSlope;
+    CMLWaterEvaluateWave(FlowAcrossPhase, FlowAcross, FlowAcrossSlope);
+
+    float FlowAlongPhase = UV.y * FlowScale - TimeSeconds * FlowSpeed * 0.15915494f
+        + FlowAcross * 0.054f;
+    float FlowDetailPhase = UV.y * (FlowScale * 1.70f) - TimeSeconds * (FlowSpeed * 0.2594f)
+        - UV.x * 5.0f;
+    float FlowAlong, FlowAlongSlope, FlowDetail, FlowDetailSlope;
+    CMLWaterEvaluateWave(FlowAlongPhase, FlowAlong, FlowAlongSlope);
+    CMLWaterEvaluateWave(FlowDetailPhase, FlowDetail, FlowDetailSlope);
+
+    Surface.BroadFlow = smoothstep(-0.48f, 0.48f, FlowAlong * 0.70f + FlowAcross * 0.30f);
+    Surface.NarrowFlow = smoothstep(0.28f, 0.72f, FlowDetail * 0.72f + FlowAcross * 0.28f);
+    Surface.LongitudinalStreak = smoothstep(
+        0.18f, 0.72f, FlowAcross * 0.62f + FlowAlong * 0.22f + FlowDetail * 0.16f);
+    float StreakBreakup = smoothstep(-0.55f, 0.42f, FlowDetail * 0.72f - FlowAlong * 0.28f);
+
+    Surface.CascadeFoam = Surface.CascadeMask
+        * saturate(Surface.LongitudinalStreak * 0.68f + Surface.NarrowFlow * 0.32f)
+        * lerp(0.55f, 1.0f, StreakBreakup)
+        * lerp(0.70f, 1.0f, saturate(VertexColor.g))
+        * min(CascadeFoamStrength, 1.5f) * 0.52f;
+
+    float3 TangentWS = normalize(
+        NormalUp > 0.96f ? float3(1.0f, 0.0f, 0.0f)
+                         : cross(float3(0.0f, 1.0f, 0.0f), GeometricNormal));
+    float3 BitangentWS = normalize(cross(GeometricNormal, TangentWS));
+
+    float2 PoolSlope =
+        (float2(0.82f, 0.57f) * SlopeA * 0.62f + float2(-0.42f, 0.91f) * SlopeB * 0.38f)
+            * WaveStrength
+        + float2(0.31f, -0.95f) * DetailSlope * NormalDetailStrength;
+    float3 PoolRippleNormal = normalize(
+        GeometricNormal + float3(-PoolSlope.x, 0.0f, -PoolSlope.y));
+
+    float RouteNormalStrength = lerp(WaveStrength * 0.72f, CascadeNormalStrength, Surface.CascadeMask);
+    float RouteSlopeAcross = (FlowAcrossSlope * 0.64f + FlowDetailSlope * 0.36f) * RouteNormalStrength;
+    float RouteSlopeAlong = (FlowAlongSlope * 0.70f + FlowDetailSlope * 0.30f) * RouteNormalStrength;
+    float3 RouteRippleNormal = normalize(
+        GeometricNormal + TangentWS * RouteSlopeAcross + BitangentWS * RouteSlopeAlong);
+
+    Surface.RippleNormalWS = normalize(lerp(PoolRippleNormal, RouteRippleNormal, Surface.RouteMask));
+    Surface.RefractionVector = lerp(
+        float2(Surface.WaveA, Surface.WaveB),
+        float2(FlowAcross, FlowAlong),
+        Surface.RouteMask) * WaveStrength * 0.08f;
+    return Surface;
+}
+
+/** Final composition: albedo, lighting, reflection, foam, glint, transmission. */
+float3 CMLWaterCompose(
+    CMLWaterSurface Surface,
+    float3 UnityViewDirection,
+    float3 UnityLightDirection,
+    float3 LightColor,
+    float3 AmbientColor,
+    float3 EnvironmentReflection,
+    float3 RefractedScene,
+    float WaterDepth,
+    float SceneDepthValid,
+    float4 ShallowColor,
+    float4 DeepColor,
+    float3 FoamColorIn,
+    float DepthRange,
+    float FoamDistance,
+    float FoamFeather,
+    float FoamIntensity,
+    float CrestStrength,
+    float FresnelPower,
+    float FresnelStrength,
+    float ReflectionStrength,
+    float Smoothness,
+    float GlintPower,
+    float GlintStrength,
+    float AmbientStrength,
+    float TransmissionStrength,
+    float ColorBoost,
+    float Opacity,
+    float2 UV)
+{
+    float DepthLinear = saturate(WaterDepth / max(DepthRange, 0.001f));
+    float DepthBlend = DepthLinear * DepthLinear * (3.0f - 2.0f * DepthLinear);
+
+    float StableFoamFeather = max(FoamFeather, fwidth(WaterDepth) * 1.5f);
+    float FoamEdge = (1.0f - smoothstep(FoamDistance, FoamDistance + StableFoamFeather, WaterDepth))
+        * SceneDepthValid;
+    float FoamBreakup = smoothstep(
+        -0.45f, 0.45f, Surface.WaveA * 0.50f + Surface.WaveB * 0.20f + Surface.DetailWave * 0.30f);
+    float BankDistance = abs(UV.x * 2.0f - 1.0f);
+    float BankMask = smoothstep(0.56f, 0.94f, BankDistance);
+    float FoamDomain = lerp(1.0f, BankMask, Surface.RouteMask);
+    float HorizontalSurfaceMask = 1.0f - Surface.CascadeMask;
+    float ShoreFoam = FoamEdge * lerp(0.62f, 1.0f, FoamBreakup) * HorizontalSurfaceMask * FoamDomain;
+
+    float Fresnel = pow(1.0f - saturate(dot(Surface.RippleNormalWS, UnityViewDirection)), FresnelPower);
+
+    float3 WaterAlbedo = lerp(ShallowColor.rgb, DeepColor.rgb, DepthBlend);
+    float FlowHighlight = Surface.RouteMask
+        * saturate(Surface.BroadFlow * 0.22f + Surface.NarrowFlow * 0.17f
+            + Surface.LongitudinalStreak * 0.13f)
+        * lerp(0.20f, 0.34f, Surface.CascadeMask);
+    WaterAlbedo = lerp(WaterAlbedo, ShallowColor.rgb, FlowHighlight);
+    WaterAlbedo = saturate(WaterAlbedo * ColorBoost);
+
+    float HalfLambert = saturate(dot(Surface.RippleNormalWS, UnityLightDirection) * 0.5f + 0.5f);
+    float3 AmbientLighting = max(AmbientColor, 0.0f) * AmbientStrength;
+    float3 DirectLighting = LightColor * HalfLambert;
+    float3 SurfaceColor = WaterAlbedo * (AmbientLighting + DirectLighting);
+
+    float ReflectionMask = saturate(
+        (lerp(0.018f, 0.040f, Smoothness) + Fresnel * FresnelStrength)
+        * ReflectionStrength * lerp(1.0f, 0.76f, Surface.CascadeMask));
+    SurfaceColor = lerp(SurfaceColor, EnvironmentReflection, ReflectionMask);
+
+    float CrestSignal = Surface.WaveA * 0.52f + Surface.WaveB * 0.30f + Surface.DetailWave * 0.18f;
+    float CrestFoam = smoothstep(0.40f, 0.78f, CrestSignal) * CrestStrength * Surface.PoolMask
+        * lerp(0.22f, 0.07f, DepthBlend);
+    float FoamMask = saturate((ShoreFoam + Surface.CascadeFoam + CrestFoam) * FoamIntensity);
+
+    float FoamHalfLambert = saturate(dot(Surface.RippleNormalWS, UnityLightDirection) * 0.5f + 0.5f);
+    float3 FoamLighting = AmbientLighting + LightColor * FoamHalfLambert;
+    float3 FoamColor = saturate(FoamColorIn * ColorBoost) * FoamLighting;
+    SurfaceColor = lerp(SurfaceColor, FoamColor, FoamMask);
+
+    float3 HalfVector = normalize(UnityLightDirection + UnityViewDirection);
+    float Glint = pow(saturate(dot(Surface.RippleNormalWS, HalfVector)), max(8.0f, GlintPower));
+    SurfaceColor += LightColor * Glint * GlintStrength
+        * lerp(0.42f, 1.0f, Smoothness) * (1.0f - FoamMask * 0.65f);
+
+    float OpaqueTextureAvailable = smoothstep(
+        0.001f, 0.02f, dot(abs(RefractedScene), float3(0.2126f, 0.7152f, 0.0722f)));
+    float BodyCoverage = saturate(
+        saturate(Opacity) * lerp(0.36f, 0.86f, DepthBlend)
+        + Surface.RouteMask * 0.03f + Surface.CascadeMask * 0.06f);
+    float Transmission = saturate(TransmissionStrength) * OpaqueTextureAvailable
+        * (1.0f - BodyCoverage) * (1.0f - FoamMask * 0.94f) * (1.0f - ReflectionMask * 0.85f);
+
+    float3 ShallowTransmissionTint = lerp(
+        float3(1.0f, 1.0f, 1.0f), saturate(ShallowColor.rgb * 1.18f), 0.12f);
+    float3 DeepTransmissionTint = lerp(
+        ShallowTransmissionTint, saturate(DeepColor.rgb * 1.35f), 0.46f);
+    float3 TransmissionTint = lerp(ShallowTransmissionTint, DeepTransmissionTint, DepthBlend);
+
+    return RefractedScene * TransmissionTint * Transmission + SurfaceColor * (1.0f - Transmission);
+}

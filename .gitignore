@@ -12,6 +12,10 @@
 /Game/Assets/[Ss]treamingAssets/aa.meta
 /Game/Assets/[Ss]treamingAssets/aa/
 
+# Local-only third-party geometry used for private A/B reference study.
+# Never ship or commit these extracted diagnostic assets.
+/Game/Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/
+
 # Player builds and build artifacts
 /Artifacts/
 /Game/[Bb]uild/
@@ -83,3 +87,17 @@ Desktop.ini
 /.agents/
 /.claude/
 /.codex-tmp/
+
+# Unreal Engine migration project. Keep source/config/content, ignore generated state.
+/Unreal/.vs/
+/Unreal/Binaries/
+/Unreal/DerivedDataCache/
+/Unreal/Intermediate/
+/Unreal/Saved/
+/Unreal/Build/Windows/FileOpenOrder/
+/Unreal/*.sln
+/Unreal/*.suo
+/Unreal/*.opensdf
+/Unreal/*.sdf
+/Unreal/*.VC.db
+/Unreal/*.VC.opendb

@@ -1,0 +1,5456 @@
+{
+  "schema": 1,
+  "requested": 109,
+  "converted": 109,
+  "failed": 0,
+  "nativePorts": 48,
+  "specializedPortsRequired": 2,
+  "masters": {
+    "lit-opaque": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+    "lit-masked": "/Game/Migration/Masters/M_CML_UnityLit_Masked.M_CML_UnityLit_Masked",
+    "lit-translucent": "/Game/Migration/Masters/M_CML_UnityLit_Translucent.M_CML_UnityLit_Translucent",
+    "unlit-opaque": "/Game/Migration/Masters/M_CML_UnityUnlit_Opaque.M_CML_UnityUnlit_Opaque",
+    "unlit-masked": "/Game/Migration/Masters/M_CML_UnityUnlit_Masked.M_CML_UnityUnlit_Masked",
+    "unlit-translucent": "/Game/Migration/Masters/M_CML_UnityUnlit_Translucent.M_CML_UnityUnlit_Translucent"
+  },
+  "portedMasters": {
+    "CML/Cinematics/Deep Space": "/Game/Migration/Masters/M_CML_Cin_DeepSpace.M_CML_Cin_DeepSpace",
+    "CML/Cinematics/Portal Veil": "/Game/Migration/Masters/M_CML_Cin_PortalVeil.M_CML_Cin_PortalVeil",
+    "CML/Cinematics/Rift": "/Game/Migration/Masters/M_CML_Cin_Rift.M_CML_Cin_Rift",
+    "CML/Cinematics/Star Streak": "/Game/Migration/Masters/M_CML_Cin_StarStreak.M_CML_Cin_StarStreak",
+    "CML/Cinematics/Warp Tunnel": "/Game/Migration/Masters/M_CML_Cin_WarpTunnel.M_CML_Cin_WarpTunnel",
+    "CML/Clean Room/Measured Cliff": "/Game/Migration/Masters/M_CML_CleanRoom_Cliff.M_CML_CleanRoom_Cliff",
+    "CML/Clean Room/Measured Geometric Cloud": "/Game/Migration/Masters/M_CML_CleanRoom_GeometricCloud.M_CML_CleanRoom_GeometricCloud",
+    "CML/Clean Room/Measured Grass Wind": "/Game/Migration/Masters/M_CML_CleanRoom_GrassWind.M_CML_CleanRoom_GrassWind",
+    "CML/Environment/Original Cliff Mass": "/Game/Migration/Masters/M_CML_Env_OriginalCliffMass.M_CML_Env_OriginalCliffMass",
+    "CML/Environment/Starter Island Atmospheric Sky": "/Game/Migration/Masters/M_CML_Env_AtmosphericSky.M_CML_Env_AtmosphericSky",
+    "CML/Environment/Starter Island CloudTall Tree": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+    "CML/Environment/Starter Island Foliage": "/Game/Migration/Masters/M_CML_Env_Foliage.M_CML_Env_Foliage",
+    "CML/Environment/Starter Island Ground Cover": "/Game/Migration/Masters/M_CML_Env_GroundCover.M_CML_Env_GroundCover",
+    "CML/Environment/Starter Island Ground Detail": "/Game/Migration/Masters/M_CML_Env_GroundDetail.M_CML_Env_GroundDetail",
+    "CML/Environment/Starter Island Stylized Surface": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+    "CML/Environment/Starter Island Stylized Water": "/Game/Migration/Masters/M_CML_Env_StylizedWater.M_CML_Env_StylizedWater",
+    "CML/Environment/Starter Island Terrain Reference Match": "/Game/Migration/Masters/M_CML_Env_TerrainReferenceMatch.M_CML_Env_TerrainReferenceMatch",
+    "CML/Environment/Starter Island Terrain Splat": "/Game/Migration/Masters/M_CML_Env_TerrainSplat.M_CML_Env_TerrainSplat",
+    "CML/Environment/Starter Island Underbody Terrain Rock": "/Game/Migration/Masters/M_CML_Env_UnderbodyTerrainRock.M_CML_Env_UnderbodyTerrainRock",
+    "CML/Environment/Starter Island V4 Tree Leaves": "/Game/Migration/Masters/M_CML_Env_V4TreeLeaves.M_CML_Env_V4TreeLeaves",
+    "CML/Environment/Vertical Rock Auto Grass": "/Game/Migration/Masters/M_CML_Env_VerticalRockAutoGrass.M_CML_Env_VerticalRockAutoGrass"
+  },
+  "results": [
+    {
+      "source": "Assets/_Project/Art/Characters/FirstPersonHands/Materials/M_FP_Cuffs.mat",
+      "guid": "985c0222beffc7c409c8d278d9dbe105",
+      "sha256": "a4aad9ffde21c5338bbec90d254d9ce01740a074c1474b67265fad99169d4361",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Characters/FirstPersonHands/Materials/M_FP_Cuffs.M_FP_Cuffs",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.27,
+          0.37,
+          0.4,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Characters/FirstPersonHands/Materials/M_FP_Nails.mat",
+      "guid": "4608ba93fa2ce674488c4938ad8a2937",
+      "sha256": "f267980002887df3ba711280bc1e93d5834139b5b160c2de770e9e7dee0b477f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Characters/FirstPersonHands/Materials/M_FP_Nails.M_FP_Nails",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.94,
+          0.72,
+          0.61,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.6799999999999999,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Characters/FirstPersonHands/Materials/M_FP_Skin.mat",
+      "guid": "c7e6b613d444e754abf30036a79d65a2",
+      "sha256": "fb8cda5430e2384cd19e4f0bcb5e569a3aac22ac5e65f54b3c37e09a44e48679",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Characters/FirstPersonHands/Materials/M_FP_Skin.M_FP_Skin",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.86,
+          0.57,
+          0.43,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8200000000000001,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Characters/FirstPersonHands/Materials/M_FP_Sleeves.mat",
+      "guid": "54d7b4ec5e8ba2a4f9296fe009112ea2",
+      "sha256": "168a01fff9f7dd97fab1eed8a854a99eef4b6cc3ba306e00f96258abcaf5ad95",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Characters/FirstPersonHands/Materials/M_FP_Sleeves.M_FP_Sleeves",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.58,
+          0.68,
+          0.71,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.9,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_Asteroid.mat",
+      "guid": "3098bd33b40f1be42bc2697419c1c1f4",
+      "sha256": "95c0bf319f821bb26a77b5046ee7d41e43c8664d9430e209410d3f6564184c8d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_Asteroid.M_CIN_Asteroid",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.52,
+          0.46,
+          0.42,
+          1.0
+        ],
+        "emissionColor": [
+          0.09,
+          0.08,
+          0.1,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.88,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_DeepSpace.mat",
+      "guid": "81d13a8c1e09ca44cb7ccbfa307badf0",
+      "sha256": "09d7d557de5fa7ea252aa6985e96b96e6ef5adb0157c85a99fb5c50edb183b0e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_DeepSpace.M_CIN_DeepSpace",
+      "shaderGuid": "f1f3e7eee4c3a9a438f37aad7356b014",
+      "shaderName": "CML/Cinematics/Deep Space",
+      "classification": "unlit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Cin_DeepSpace.M_CML_Cin_DeepSpace",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Exposure": 1.0,
+          "_GalaxyIntensity": 1.7,
+          "_GalaxyWidth": 0.26,
+          "_NebulaContrast": 3.4,
+          "_NebulaCoverage": 0.42,
+          "_NebulaIntensity": 0.95,
+          "_NebulaScale": 1.05,
+          "_StarBrightness": 8.5,
+          "_StarDensity": 0.085,
+          "_StarSharpness": 3.2,
+          "_TwinkleSpeed": 1.4,
+          "_WarpBlend": 0.0,
+          "_WarpStretch": 0.42,
+          "_GalaxyAxis": [
+            0.34,
+            0.88,
+            -0.33,
+            0.0
+          ],
+          "_GalaxyColor": [
+            0.6,
+            0.66,
+            0.9,
+            1.0
+          ],
+          "_NebulaColorA": [
+            0.16,
+            0.07,
+            0.38,
+            1.0
+          ],
+          "_NebulaColorB": [
+            0.03,
+            0.3,
+            0.52,
+            1.0
+          ],
+          "_NebulaColorC": [
+            0.78,
+            0.24,
+            0.44,
+            1.0
+          ],
+          "_SpaceColor": [
+            0.003,
+            0.004,
+            0.012,
+            1.0
+          ],
+          "_WarpAxis": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_HyperspaceStar.mat",
+      "guid": "4ec315bfa6a26a841b21b89ff9e058ec",
+      "sha256": "1081fe35ba58ff32853c06311ce91831eb4a87e26dcc20439a2dd3811fc5478f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_HyperspaceStar.M_CIN_HyperspaceStar",
+      "shaderGuid": "650dd9526735d5b46b79224bc6e94025",
+      "shaderName": "Unknown/650dd9526735d5b46b79224bc6e94025",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": true,
+      "parameters": {
+        "baseColor": [
+          0.38,
+          0.86,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "metallic": 0.0,
+        "roughness": 0.7,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_PortalVeil.mat",
+      "guid": "675394eed37829847bda8b24e9017367",
+      "sha256": "3c0105e5ce694bd27ddf1e37286be44f745bca1ab9497e26809197fcaf41da42",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_PortalVeil.M_CIN_PortalVeil",
+      "shaderGuid": "7331658f7c8f33642adeba0c78de6ee2",
+      "shaderName": "CML/Cinematics/Portal Veil",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Cin_PortalVeil.M_CML_Cin_PortalVeil",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Charge": 0.0,
+          "_Intensity": 1.6,
+          "_Refraction": 0.09,
+          "_RimWidth": 0.14,
+          "_SwirlScale": 3.8,
+          "_SwirlSpeed": 1.25,
+          "_InnerColor": [
+            0.74,
+            0.95,
+            1.0,
+            1.0
+          ],
+          "_OuterColor": [
+            0.16,
+            0.4,
+            0.94,
+            1.0
+          ],
+          "_RimColor": [
+            0.96,
+            0.86,
+            0.52,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_Rift.mat",
+      "guid": "90c419f7cbf76384b87e7b4487ee5247",
+      "sha256": "c118517f829815425c58668a5922896dc0aad99cc95d578a17a3f3d08c9a42f5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_Rift.M_CIN_Rift",
+      "shaderGuid": "b7cac85d948146b409f7989534cdd552",
+      "shaderName": "CML/Cinematics/Rift",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Cin_Rift.M_CML_Cin_Rift",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_EdgeSoftness": 0.035,
+          "_EdgeTurbulence": 0.55,
+          "_FilamentIntensity": 1.45,
+          "_Intensity": 0.62,
+          "_Openness": 0.0,
+          "_Refraction": 0.16,
+          "_SwirlIntensity": 1.15,
+          "_SwirlSpeed": 1.4,
+          "_TurbulenceScale": 11.0,
+          "_TurbulenceSpeed": 1.9,
+          "_Width": 0.19,
+          "_CoreColor": [
+            1.0,
+            0.97,
+            0.9,
+            1.0
+          ],
+          "_EnergyColor": [
+            0.32,
+            0.78,
+            1.0,
+            1.0
+          ],
+          "_RimColor": [
+            0.66,
+            0.24,
+            1.0,
+            1.0
+          ],
+          "_VoidColor": [
+            0.03,
+            0.02,
+            0.09,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_StarStreak.mat",
+      "guid": "785b034500f42ec47a822984321fe66f",
+      "sha256": "568288bff505c4bab12a4b6c2f38b7bcfde5fb471ee894b5b3dbf7ee1ea104bc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_StarStreak.M_CIN_StarStreak",
+      "shaderGuid": "44b02fc8a57d6204db348699f795634e",
+      "shaderName": "CML/Cinematics/Star Streak",
+      "classification": "unlit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Cin_StarStreak.M_CML_Cin_StarStreak",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_CoreBoost": 2.4,
+          "_Softness": 5.5,
+          "_Color": [
+            0.72,
+            0.88,
+            1.0,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_TransitPortal.mat",
+      "guid": "da530eef6b4817d4fb0888414e6aacfe",
+      "sha256": "4bee3c046f83cf8610e1b5e0ee77dd04edba21e61a8d02d3d368493fb0f35674",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_TransitPortal.M_CIN_TransitPortal",
+      "shaderGuid": "650dd9526735d5b46b79224bc6e94025",
+      "shaderName": "Unknown/650dd9526735d5b46b79224bc6e94025",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": true,
+      "parameters": {
+        "baseColor": [
+          0.35,
+          0.96,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "metallic": 0.0,
+        "roughness": 0.7,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Materials/M_CIN_WarpTunnel.mat",
+      "guid": "ecb03302d881a8c43a24b89d887fecfe",
+      "sha256": "e30bc769313c8e830dbb4f335cac9d4515e6e06f592d9df56118204dd8044d8a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Cinematics/Materials/M_CIN_WarpTunnel.M_CIN_WarpTunnel",
+      "shaderGuid": "565375494c63c9142b5030371d89f346",
+      "shaderName": "CML/Cinematics/Warp Tunnel",
+      "classification": "unlit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Cin_WarpTunnel.M_CML_Cin_WarpTunnel",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ChromaticSplit": 0.006,
+          "_CoreGlow": 0.85,
+          "_EndFade": 0.16,
+          "_Intensity": 0.0,
+          "_Speed": 3.4,
+          "_StreakDensity": 240.0,
+          "_StreakLength": 1.5,
+          "_Turbulence": 0.38,
+          "_Twist": 0.22,
+          "_CoreColor": [
+            1.0,
+            0.99,
+            0.96,
+            1.0
+          ],
+          "_EdgeColor": [
+            0.2,
+            0.1,
+            0.52,
+            1.0
+          ],
+          "_MidColor": [
+            0.34,
+            0.68,
+            1.0,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_Cliff.mat",
+      "guid": "c680b788c2f441747921ab31ec95fd10",
+      "sha256": "813b9699ef5c5de46a129414cba4fba0335f49e267f7217529ccf41cb19ee27c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_Cliff.M_CR_Cliff",
+      "shaderGuid": "e70c9ed6c26516d47920e0c7ee63eacd",
+      "shaderName": "CML/Clean Room/Measured Cliff",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_CleanRoom_Cliff.M_CML_CleanRoom_Cliff",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_GrassBreakup": 0.12,
+          "_GrassSlopeEnd": 0.84,
+          "_GrassSlopeStart": 0.52,
+          "_MacroScale": 0.026,
+          "_StrataScale": 0.082,
+          "_StrataStrength": 0.14,
+          "_GrassBase": [
+            0.3,
+            0.46,
+            0.075,
+            1.0
+          ],
+          "_GrassDark": [
+            0.13,
+            0.24,
+            0.045,
+            1.0
+          ],
+          "_GrassLight": [
+            0.5,
+            0.65,
+            0.12,
+            1.0
+          ],
+          "_RockBase": [
+            0.72,
+            0.34,
+            0.14,
+            1.0
+          ],
+          "_RockDark": [
+            0.5,
+            0.22,
+            0.09,
+            1.0
+          ],
+          "_RockLight": [
+            0.88,
+            0.54,
+            0.3,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_DirectStrength",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_Cloud.mat",
+      "guid": "d2351b99a4e1cd04e9c44d10b289f26d",
+      "sha256": "82f11039a245f76527485ecbf5fcb6ab7c069da7ba8cc3cf087345f02a07f7dc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_Cloud.M_CR_Cloud",
+      "shaderGuid": "60a31e6596cb23242b7782dccaf8cbe6",
+      "shaderName": "CML/Clean Room/Measured Geometric Cloud",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_CleanRoom_GeometricCloud.M_CML_CleanRoom_GeometricCloud",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.035,
+          "_EdgeNoise": 0.18,
+          "_EdgeNoiseScale": 0.0025,
+          "_LightResponse": 0.34,
+          "_Opacity": 1.0,
+          "_BottomColor": [
+            0.52,
+            0.68,
+            0.74,
+            1.0
+          ],
+          "_LayerColor": [
+            0.76,
+            0.86,
+            0.87,
+            1.0
+          ],
+          "_TopColor": [
+            1.0,
+            0.97,
+            0.88,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.035
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_GrassWind.mat",
+      "guid": "5ffbe1a5a2b52e3429c4e84484bf0649",
+      "sha256": "d394b7b34b32ca12e6b4885aeb058286afd595b27f113773612762da923297ed",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_GrassWind.M_CR_GrassWind",
+      "shaderGuid": "df3ad6eabedc4b74ca84a385b9d94e97",
+      "shaderName": "CML/Clean Room/Measured Grass Wind",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_CleanRoom_GrassWind.M_CML_CleanRoom_GrassWind",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_AlphaCutoff": 0.32,
+          "_WindIntensity": 5.0,
+          "_WindSpeed": 1.0,
+          "_WindWeight": 0.25,
+          "_BottomColor": [
+            0.12,
+            0.25,
+            0.035,
+            1.0
+          ],
+          "_DryColor": [
+            0.62,
+            0.58,
+            0.12,
+            1.0
+          ],
+          "_TopColor": [
+            0.48,
+            0.68,
+            0.1,
+            1.0
+          ],
+          "_WindDirection": [
+            0.0,
+            0.0,
+            -1.0,
+            0.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_DirectStrength",
+          "_PreviewTime",
+          "_UsePreviewTime"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_Ground.mat",
+      "guid": "c99b5f8c709dfde4cb59c51c9caad69c",
+      "sha256": "f264b4a45f76d5c8c593e687914573b597e2f758e70275f4ea44b829e8c56294",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Materials/M_CR_Ground.M_CR_Ground",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.2,
+          0.35,
+          0.055,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 1.0,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Autumn_Mass.mat",
+      "guid": "3d05f6b64235f964cb54e33057a47d04",
+      "sha256": "20a86a63c89d2a9fe800a853824029ebcea54fd6f355b070e520f36fd7c1f5b2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Autumn_Mass.M_ENV_Bush_CloudBush_Autumn_Mass",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 0.12,
+          "_WindFlutterStrength": 0.03,
+          "_WindGustStrength": 0.34,
+          "_WindHeight": 1.1,
+          "_WindSpeed": 0.9,
+          "_WindStrength": 0.08,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Textures/T_ENV_Bush_CloudBush_MassGrain.T_ENV_Bush_CloudBush_MassGrain",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Autumn_Sprigs.mat",
+      "guid": "8ae9185936475f24c853b1bac43cada2",
+      "sha256": "58e28ddc5d7902abf9818ca0305680a534f0bb25d24fc9768d54144cb2761944",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Autumn_Sprigs.M_ENV_Bush_CloudBush_Autumn_Sprigs",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 0.12,
+          "_WindFlutterStrength": 0.03,
+          "_WindGustStrength": 0.34,
+          "_WindHeight": 1.1,
+          "_WindSpeed": 0.9,
+          "_WindStrength": 0.14,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Textures/T_ENV_Bush_CloudBush_SprigAtlas.T_ENV_Bush_CloudBush_SprigAtlas",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Summer_Mass.mat",
+      "guid": "89cd296b2793fa94f8992b182342d48a",
+      "sha256": "93cfebfa246f230f5cceb553dc2560305f34b6fc17963cc7ea8169d5847d7575",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Summer_Mass.M_ENV_Bush_CloudBush_Summer_Mass",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 0.12,
+          "_WindFlutterStrength": 0.03,
+          "_WindGustStrength": 0.34,
+          "_WindHeight": 1.1,
+          "_WindSpeed": 0.9,
+          "_WindStrength": 0.08,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Textures/T_ENV_Bush_CloudBush_MassGrain.T_ENV_Bush_CloudBush_MassGrain",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Summer_Sprigs.mat",
+      "guid": "7ee3f9884fa53914199de5228d31c5a1",
+      "sha256": "b4dfb33030350523f8ea867b05e1378317843e7303cf7cba35f3e1795a9eac3e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Materials/M_ENV_Bush_CloudBush_Summer_Sprigs.M_ENV_Bush_CloudBush_Summer_Sprigs",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 0.12,
+          "_WindFlutterStrength": 0.03,
+          "_WindGustStrength": 0.34,
+          "_WindHeight": 1.1,
+          "_WindSpeed": 0.9,
+          "_WindStrength": 0.14,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Textures/T_ENV_Bush_CloudBush_SprigAtlas.T_ENV_Bush_CloudBush_SprigAtlas",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Materials/M_ENV_FiberBundle.mat",
+      "guid": "1384c2f08681816489be62a5f006e8dd",
+      "sha256": "07b02facfd15fc2937f6d2bb8b45e52c2dbb0fc5d5e63d00885e9eb7123622dc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Materials/M_ENV_FiberBundle.M_ENV_FiberBundle",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.06,
+          "_WindBaseHeight": 0.0,
+          "_WindFlutterStrength": 0.0,
+          "_WindGustStrength": 0.0,
+          "_WindHeight": 1.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.0,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Textures/T_ENV_FiberBundle.T_ENV_FiberBundle",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Materials/M_ENV_FiberPlant_Leaves.mat",
+      "guid": "7341f8834cb50f644a33befe5112f986",
+      "sha256": "ad220a6908ae9cf2c2435aeefc2d3f1c8bdb474654e60e508a4a591a11b631c5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Materials/M_ENV_FiberPlant_Leaves.M_ENV_FiberPlant_Leaves",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 0.06,
+          "_WindFlutterStrength": 0.018,
+          "_WindGustStrength": 0.42,
+          "_WindHeight": 0.85,
+          "_WindSpeed": 1.15,
+          "_WindStrength": 0.075,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Textures/T_ENV_FiberPlant_LeafAtlas.T_ENV_FiberPlant_LeafAtlas",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Materials/M_ENV_PlantFiber_Item.mat",
+      "guid": "4009afb9de33b7d4f809b7efe752459c",
+      "sha256": "7afc384f0258818ea59d9c1a7cfc52008620eae1015cb4776583499f0cd79a8c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Materials/M_ENV_PlantFiber_Item.M_ENV_PlantFiber_Item",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.06,
+          "_WindBaseHeight": 0.0,
+          "_WindFlutterStrength": 0.0,
+          "_WindGustStrength": 0.0,
+          "_WindHeight": 1.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.0,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Textures/T_ENV_PlantFiber_Palette.T_ENV_PlantFiber_Palette",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Models/Materials/M_ENV_PlantFiber_Item.mat",
+      "guid": "05a2c46bd6bf9d6489667137171e3ebb",
+      "sha256": "ae9046eda14c4c7a4feeb0edc1f30084aa621686b138d5074fc380358b3aa33f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Models/Materials/M_ENV_PlantFiber_Item.M_ENV_PlantFiber_Item",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.4665779,
+          0.80000746,
+          0.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.5,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/Sticks/Materials/M_ENV_Stick_Bark.mat",
+      "guid": "361feb3dacccee64c97f44c5958146f4",
+      "sha256": "745dd4710cbc53389226d3a66a205cd441e0943084d1c7910b00c496a7574509",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/Sticks/Materials/M_ENV_Stick_Bark.M_ENV_Stick_Bark",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.05,
+          "_WindBaseHeight": 0.0,
+          "_WindFlutterStrength": 0.0,
+          "_WindGustStrength": 0.0,
+          "_WindHeight": 1.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.0,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/Clutter/Sticks/Textures/T_ENV_Stick_Bark.T_ENV_Stick_Bark",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Copper.mat",
+      "guid": "e4f87b200f74e2e44b9d736915789bac",
+      "sha256": "99d91a2704681354f5a14cafa7e6fcba32fd9b4360615fcf6953903f16e78b0f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Copper.M_OreDeposit_Copper",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.025,
+          "_RockContactBlend": 0.74,
+          "_RockContactFeather": 0.2,
+          "_RockContactHeight": 0.24,
+          "_RockContactNoise": 0.14,
+          "_RockDetail": 1.0,
+          "_RockGrainScale": 4.6,
+          "_RockGrainStrength": 0.045,
+          "_RockMacroScale": 0.48,
+          "_RockMacroStrength": 0.105,
+          "_RockTopStrength": 0.68,
+          "_RockUnderStrength": 0.34,
+          "_VertexBlend": 0.0,
+          "_BaseColor": [
+            0.7411765,
+            0.45882353,
+            0.2784314,
+            1.0
+          ],
+          "_RockContactCliffColor": [
+            0.5294118,
+            0.3137255,
+            0.24705882,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.19215687,
+            0.29803923,
+            0.16862746,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.7176471,
+            0.56078434,
+            0.3764706,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.28627452,
+            0.41568628,
+            0.20784314,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.87058824,
+            0.61960787,
+            0.42352942,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.5176471,
+            0.30588236,
+            0.18431373,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.7411765,
+            0.45882353,
+            0.2784314,
+            1.0
+          ],
+          "_WetColor": [
+            0.5176471,
+            0.30588236,
+            0.18431373,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.5
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_AmbientStrength",
+          "_BaseMap",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_BumpScale",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_Cutoff",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_MainTex",
+          "_Metallic",
+          "_MetallicGlossMap",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_ShadowFloor",
+          "_Smoothness",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Iron.mat",
+      "guid": "000f3d2f8355b91478002b1253ee5e02",
+      "sha256": "b26dd1d3a579a17828deaf5da5df883b9f447c16d29328eb1d43e2f914dba0eb",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Iron.M_OreDeposit_Iron",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.025,
+          "_RockContactBlend": 0.74,
+          "_RockContactFeather": 0.2,
+          "_RockContactHeight": 0.24,
+          "_RockContactNoise": 0.14,
+          "_RockDetail": 1.0,
+          "_RockGrainScale": 4.6,
+          "_RockGrainStrength": 0.045,
+          "_RockMacroScale": 0.48,
+          "_RockMacroStrength": 0.105,
+          "_RockTopStrength": 0.68,
+          "_RockUnderStrength": 0.34,
+          "_VertexBlend": 0.0,
+          "_BaseColor": [
+            0.56078434,
+            0.34901962,
+            0.28627452,
+            1.0
+          ],
+          "_RockContactCliffColor": [
+            0.5294118,
+            0.3137255,
+            0.24705882,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.19215687,
+            0.29803923,
+            0.16862746,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.7176471,
+            0.56078434,
+            0.3764706,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.28627452,
+            0.41568628,
+            0.20784314,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.72156864,
+            0.5058824,
+            0.4117647,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.38431373,
+            0.23529412,
+            0.19215687,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.56078434,
+            0.34901962,
+            0.28627452,
+            1.0
+          ],
+          "_WetColor": [
+            0.38431373,
+            0.23529412,
+            0.19215687,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.5
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_AmbientStrength",
+          "_BaseMap",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_BumpScale",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_Cutoff",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_MainTex",
+          "_Metallic",
+          "_MetallicGlossMap",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_ShadowFloor",
+          "_Smoothness",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Rock.mat",
+      "guid": "2b35631d9191ca04fac376deba1497fa",
+      "sha256": "e6d8df52ec6bfdaaf55691715505ab7cfcf522ee72b187edfbc1ba4ae4ca7b55",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Rock.M_OreDeposit_Rock",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.025,
+          "_RockContactBlend": 0.74,
+          "_RockContactFeather": 0.2,
+          "_RockContactHeight": 0.24,
+          "_RockContactNoise": 0.14,
+          "_RockDetail": 1.0,
+          "_RockGrainScale": 4.6,
+          "_RockGrainStrength": 0.045,
+          "_RockMacroScale": 0.48,
+          "_RockMacroStrength": 0.105,
+          "_RockTopStrength": 0.68,
+          "_RockUnderStrength": 0.34,
+          "_VertexBlend": 0.0,
+          "_BaseColor": [
+            0.62352943,
+            0.6392157,
+            0.61960787,
+            1.0
+          ],
+          "_RockContactCliffColor": [
+            0.5294118,
+            0.3137255,
+            0.24705882,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.19215687,
+            0.29803923,
+            0.16862746,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.7176471,
+            0.56078434,
+            0.3764706,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.28627452,
+            0.41568628,
+            0.20784314,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.84313726,
+            0.7921569,
+            0.73333335,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.44705883,
+            0.48235294,
+            0.45490196,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.62352943,
+            0.6392157,
+            0.61960787,
+            1.0
+          ],
+          "_WetColor": [
+            0.44705883,
+            0.48235294,
+            0.45490196,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.5
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_AmbientStrength",
+          "_BaseMap",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_BumpScale",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_Cutoff",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_MainTex",
+          "_Metallic",
+          "_MetallicGlossMap",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_ShadowFloor",
+          "_Smoothness",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Tin.mat",
+      "guid": "8a2bccd036a3feb49a872271255db1d1",
+      "sha256": "51a84d7ddae6d6750c3f521bacddb77d3e1239cda39c7b44340cb0d5f060f389",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Materials/M_OreDeposit_Tin.M_OreDeposit_Tin",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.025,
+          "_RockContactBlend": 0.74,
+          "_RockContactFeather": 0.2,
+          "_RockContactHeight": 0.24,
+          "_RockContactNoise": 0.14,
+          "_RockDetail": 1.0,
+          "_RockGrainScale": 4.6,
+          "_RockGrainStrength": 0.045,
+          "_RockMacroScale": 0.48,
+          "_RockMacroStrength": 0.105,
+          "_RockTopStrength": 0.68,
+          "_RockUnderStrength": 0.34,
+          "_VertexBlend": 0.0,
+          "_BaseColor": [
+            0.654902,
+            0.69411767,
+            0.7137255,
+            1.0
+          ],
+          "_RockContactCliffColor": [
+            0.5294118,
+            0.3137255,
+            0.24705882,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.19215687,
+            0.29803923,
+            0.16862746,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.7176471,
+            0.56078434,
+            0.3764706,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.28627452,
+            0.41568628,
+            0.20784314,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.81960785,
+            0.8509804,
+            0.85490197,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.43137255,
+            0.48235294,
+            0.5058824,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.654902,
+            0.69411767,
+            0.7137255,
+            1.0
+          ],
+          "_WetColor": [
+            0.43137255,
+            0.48235294,
+            0.5058824,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.5
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_AmbientStrength",
+          "_BaseMap",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_BumpScale",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_Cutoff",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_MainTex",
+          "_Metallic",
+          "_MetallicGlossMap",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_ShadowFloor",
+          "_Smoothness",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Materials/M_OriginalCliffMass.mat",
+      "guid": "fd995c67c7566af4da5e14335270fdcf",
+      "sha256": "954533a8cb11482b9556165f400086da47c0642decd4ec26830bb06804ac39d4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Materials/M_OriginalCliffMass.M_OriginalCliffMass",
+      "shaderGuid": "de9eb9b02896e4746849f15b355cadf6",
+      "shaderName": "CML/Environment/Original Cliff Mass",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_OriginalCliffMass.M_CML_Env_OriginalCliffMass",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_LandmassColorSlopeHardness": 2.953668,
+          "_LandmassColorSlopeOffset": -0.499157,
+          "_LandmassGrassAmount": 1.0,
+          "_LandmassGrassDetailStrength": 0.82,
+          "_LandmassGrassDetailWorldSize": 4.0,
+          "_LandmassNormalStrength": 1.3,
+          "_LandmassRockTintStrength": 0.3,
+          "_LandmassSlopeHardness": 10.0,
+          "_LandmassSlopeOffset": -0.6,
+          "_LandmassVariationWorldSizeA": 35.0,
+          "_LandmassVariationWorldSizeB": 40.96,
+          "_LandmassWorldSize": 30.0,
+          "_Smoothness": 0.0,
+          "_LandmassGrassColor1": [
+            0.03529412,
+            0.09019608,
+            0.0,
+            1.0
+          ],
+          "_LandmassGrassColor2": [
+            0.15294118,
+            0.18039216,
+            0.003921569,
+            1.0
+          ],
+          "_LandmassRockTintColor": [
+            0.473531,
+            0.198069,
+            0.0865,
+            1.0
+          ],
+          "_LandmassCliffAlbedo": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Albedo.T_CML_LandmassCliff_Albedo",
+          "_LandmassCliffNormal": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Normal.T_CML_LandmassCliff_Normal",
+          "_LandmassVariationMask": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassGrassVariation.T_CML_LandmassGrassVariation",
+          "_LandmassGrassDetail": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun"
+        },
+        "unmappedUnityProperties": [
+          "_LandmassIndirectScale"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Materials/M_OriginalCliffMass_NoGrass.mat",
+      "guid": "357c95e6d7284602bc04b2fcad9c91ad",
+      "sha256": "232f5d657c634d79173c3e825f02dbd3ff452645c16139632e8fb05568e8b3fc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Materials/M_OriginalCliffMass_NoGrass.M_OriginalCliffMass_NoGrass",
+      "shaderGuid": "de9eb9b02896e4746849f15b355cadf6",
+      "shaderName": "CML/Environment/Original Cliff Mass",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_OriginalCliffMass.M_CML_Env_OriginalCliffMass",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_LandmassColorSlopeHardness": 2.953668,
+          "_LandmassColorSlopeOffset": -0.499157,
+          "_LandmassGrassAmount": 0.0,
+          "_LandmassGrassDetailStrength": 0.82,
+          "_LandmassGrassDetailWorldSize": 4.0,
+          "_LandmassNormalStrength": 1.3,
+          "_LandmassRockTintStrength": 0.3,
+          "_LandmassSlopeHardness": 10.0,
+          "_LandmassSlopeOffset": -0.6,
+          "_LandmassVariationWorldSizeA": 35.0,
+          "_LandmassVariationWorldSizeB": 40.96,
+          "_LandmassWorldSize": 30.0,
+          "_Smoothness": 0.0,
+          "_LandmassGrassColor1": [
+            0.03529412,
+            0.09019608,
+            0.0,
+            1.0
+          ],
+          "_LandmassGrassColor2": [
+            0.15294118,
+            0.18039216,
+            0.003921569,
+            1.0
+          ],
+          "_LandmassRockTintColor": [
+            0.473531,
+            0.198069,
+            0.0865,
+            1.0
+          ],
+          "_LandmassCliffAlbedo": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Albedo.T_CML_LandmassCliff_Albedo",
+          "_LandmassCliffNormal": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Normal.T_CML_LandmassCliff_Normal",
+          "_LandmassVariationMask": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassGrassVariation.T_CML_LandmassGrassVariation",
+          "_LandmassGrassDetail": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun"
+        },
+        "unmappedUnityProperties": [
+          "_LandmassIndirectScale"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_GuideMass_A.mat",
+      "guid": "e3c3dd98b5021f046bbd2e235f85870e",
+      "sha256": "a1d8d15c11d6b4d61d5f1619f004b46d33d0cb0cf9d6f37b3c56fd52ded23d2b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_GuideMass_A.M_REF_GuideMass_A",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.58,
+          0.31,
+          0.17,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.92,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_GuideMass_B.mat",
+      "guid": "d1af0f95f511e25429cdc3667e4261c0",
+      "sha256": "e4e16edd1f3a2debddd9805b83831489f8b91b8110fd7ecf0c443912b04a8a4c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_GuideMass_B.M_REF_GuideMass_B",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.78,
+          0.47,
+          0.25,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.92,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_GuideShelf.mat",
+      "guid": "e810f977ef57f334484f6ce8312f200c",
+      "sha256": "8b186331e4225184ad3e6f6867b87195227b3bdd2c803d868a0359fec3f9ba20",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_GuideShelf.M_REF_GuideShelf",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.72,
+          0.61,
+          0.24,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.92,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_NeutralGeometry.mat",
+      "guid": "115055024d1872b4587e21de9d87c2ab",
+      "sha256": "4260b3650810f60248902b11e9fb5a5b8ea1d13e21428a16cd6db43212831323",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_NeutralGeometry.M_REF_NeutralGeometry",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.46,
+          0.43,
+          0.39,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.88,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_NeutralGround.mat",
+      "guid": "190aedfb6e2a51f448518d64b004053c",
+      "sha256": "32b443385e2d909f9cb6c8bda92eb1e11ce9c28631cc598c14404d26744db6a9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Materials/M_REF_NeutralGround.M_REF_NeutralGround",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.16,
+          0.17,
+          0.18,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 1.0,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/CliffRockKit/Materials/M_StarterIsland_CliffRockKit.mat",
+      "guid": "d030010480829404597b4267815c73da",
+      "sha256": "31555eb6b483503ecdac36f8170827082a0c5fa09ec4c8dbc0f48c10c57202b5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/CliffRockKit/Materials/M_StarterIsland_CliffRockKit.M_StarterIsland_CliffRockKit",
+      "shaderGuid": "de9eb9b02896e4746849f15b355cadf6",
+      "shaderName": "CML/Environment/Original Cliff Mass",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_OriginalCliffMass.M_CML_Env_OriginalCliffMass",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_LandmassColorSlopeHardness": 2.953668,
+          "_LandmassColorSlopeOffset": -0.499157,
+          "_LandmassGrassAmount": 1.0,
+          "_LandmassGrassDetailStrength": 0.82,
+          "_LandmassGrassDetailWorldSize": 4.0,
+          "_LandmassNormalStrength": 1.3,
+          "_LandmassRockTintStrength": 0.3,
+          "_LandmassSlopeHardness": 10.0,
+          "_LandmassSlopeOffset": -0.6,
+          "_LandmassVariationWorldSizeA": 35.0,
+          "_LandmassVariationWorldSizeB": 40.96,
+          "_LandmassWorldSize": 30.0,
+          "_Smoothness": 0.0,
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_LandmassGrassColor1": [
+            0.03529412,
+            0.09019608,
+            0.0,
+            1.0
+          ],
+          "_LandmassGrassColor2": [
+            0.15294118,
+            0.18039216,
+            0.003921569,
+            1.0
+          ],
+          "_LandmassRockTintColor": [
+            0.473531,
+            0.198069,
+            0.0865,
+            1.0
+          ],
+          "_LandmassCliffAlbedo": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Albedo.T_CML_LandmassCliff_Albedo",
+          "_LandmassCliffNormal": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Normal.T_CML_LandmassCliff_Normal",
+          "_LandmassVariationMask": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassGrassVariation.T_CML_LandmassGrassVariation",
+          "_LandmassGrassDetail": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun"
+        },
+        "unmappedUnityProperties": [
+          "_LandmassIndirectScale"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Materials/M_StarterIsland_FoliageAtlas.mat",
+      "guid": "71d5ca1342fc74b47ba55962242df29b",
+      "sha256": "28dffeb326db4d68abe1499c21ec6039b08b10327b5ea7439e9dd3a98801d6a5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Materials/M_StarterIsland_FoliageAtlas.M_StarterIsland_FoliageAtlas",
+      "shaderGuid": "c70f9cecc235d6d46b2939fa2cc0009d",
+      "shaderName": "CML/Environment/Starter Island Foliage",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_Foliage.M_CML_Env_Foliage",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_WindSpeed": 0.92,
+          "_WindStrength": 0.16,
+          "_BaseColor": [
+            0.94509804,
+            0.95686275,
+            0.84313726,
+            1.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Textures/T_StarterIsland_Foliage_BaseColor.T_StarterIsland_Foliage_BaseColor",
+          "_MaskMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Textures/T_StarterIsland_Foliage_Mask.T_StarterIsland_Foliage_Mask"
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_MainTex",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Portal/Materials/M_ENV_AncientStonePortal_Stone.mat",
+      "guid": "132d3f828c06f1b4aa840ad7b65cc7b9",
+      "sha256": "21c841a8c8ba82cf45f0e9a1297ce8892d495787c8b519898ed5176b195bb52e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Portal/Materials/M_ENV_AncientStonePortal_Stone.M_ENV_AncientStonePortal_Stone",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8200000000000001,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/Portal/Textures/T_ENV_AncientStonePortal_BaseColor.T_ENV_AncientStonePortal_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/Portal/Textures/T_ENV_AncientStonePortal_Normal.T_ENV_AncientStonePortal_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_DetailRock.mat",
+      "guid": "6bb651dcd22ad7f4e9417e42b9b5eb19",
+      "sha256": "7d9b8de71b9906397d5276ae9f99d01c65815fdb381488d4adca39627e35f3a9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_DetailRock.M_StarterIsland_DetailRock",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.025,
+          "_RockContactBlend": 0.74,
+          "_RockContactFeather": 0.2,
+          "_RockContactHeight": 0.24,
+          "_RockContactNoise": 0.14,
+          "_RockDetail": 1.0,
+          "_RockGrainScale": 4.6,
+          "_RockGrainStrength": 0.045,
+          "_RockMacroScale": 0.48,
+          "_RockMacroStrength": 0.105,
+          "_RockTopStrength": 0.68,
+          "_RockUnderStrength": 0.34,
+          "_VertexBlend": 0.0,
+          "_BaseColor": [
+            0.62352943,
+            0.6392157,
+            0.61960787,
+            1.0
+          ],
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_RockContactCliffColor": [
+            0.5294118,
+            0.3137255,
+            0.24705882,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.19215687,
+            0.29803923,
+            0.16862746,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.7176471,
+            0.56078434,
+            0.3764706,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.28627452,
+            0.41568628,
+            0.20784314,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.84313726,
+            0.7921569,
+            0.73333335,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.44705883,
+            0.48235294,
+            0.45490196,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.70980394,
+            0.72156864,
+            0.69411767,
+            1.0
+          ],
+          "_WetColor": [
+            0.45490196,
+            0.49019608,
+            0.47058824,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.5
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_AmbientStrength",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_BumpScale",
+          "_ClayColor",
+          "_ClayMode",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_Cutoff",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_Metallic",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_RockSpecularPower",
+          "_RockSpecularStrength",
+          "_ShadowFloor",
+          "_Smoothness",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_GroundCover.mat",
+      "guid": "ddcec685f3f55074b9399d6b59c293ce",
+      "sha256": "943bbf3c5a4ba430dbcf6cb5f4d2ad911ffd0ca41c1b5f14a5f35fcb206069fc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_GroundCover.M_StarterIsland_GroundCover",
+      "shaderGuid": "8d4f6733a26e7954184c28fffc7a88fa",
+      "shaderName": "CML/Environment/Starter Island Ground Cover",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_GroundCover.M_CML_Env_GroundCover",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_GustScale": 0.02,
+          "_WindSpeed": 1.15,
+          "_WindStrength": 0.22,
+          "_BaseColor": [
+            0.90588236,
+            0.9137255,
+            0.84705883,
+            1.0
+          ],
+          "_RootTint": [
+            0.30980393,
+            0.44313726,
+            0.22352941,
+            1.0
+          ],
+          "_TipTint": [
+            0.47058824,
+            0.5803922,
+            0.27450982,
+            1.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Textures/T_StarterIsland_Foliage_BaseColor.T_StarterIsland_Foliage_BaseColor",
+          "_MaskMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Textures/T_StarterIsland_Foliage_Mask.T_StarterIsland_Foliage_Mask"
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_GroundDetail.mat",
+      "guid": "82348f16deec6774fb44a6c63adf2706",
+      "sha256": "d1d3e2b825ed8f4ed4cf01bb5d28a44b6917eb8f45f0f6ccd2693b00c4fb53e3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_GroundDetail.M_StarterIsland_GroundDetail",
+      "shaderGuid": "32936efa7e620b4448da89ff65618f41",
+      "shaderName": "CML/Environment/Starter Island Ground Detail",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_GroundDetail.M_CML_Env_GroundDetail",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.38,
+          "_FarMatchEnd": 54.0,
+          "_FarMatchStart": 24.0,
+          "_GustStrength": 0.46,
+          "_RootBrightness": 0.96,
+          "_TerrainMacroVariation": 0.13,
+          "_TipBrightness": 1.025,
+          "_WindSpeed": 1.62,
+          "_WindStrength": 0.04,
+          "_FallbackColor": [
+            0.29,
+            0.48,
+            0.2,
+            1.0
+          ],
+          "OpacityMaskClipValue": 0.38
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_BaseColor",
+          "_BladeMask",
+          "_MainTex",
+          "_ShadowAttenuationFloor",
+          "_ShadowColor",
+          "_ShadowFloor",
+          "_TipColor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_PathPebble.mat",
+      "guid": "5290e27aae6c9714cb78094e961da938",
+      "sha256": "6e549579eed66487f63f42aafc3b62ea38fdf4a0bbba44680f3a4b74be45b631",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_PathPebble.M_StarterIsland_PathPebble",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.02,
+          "_RockContactBlend": 0.62,
+          "_RockContactFeather": 0.24,
+          "_RockContactHeight": 0.28,
+          "_RockContactNoise": 0.12,
+          "_RockDetail": 0.72,
+          "_RockGrainScale": 5.8,
+          "_RockGrainStrength": 0.035,
+          "_RockMacroScale": 0.72,
+          "_RockMacroStrength": 0.075,
+          "_RockTopStrength": 0.46,
+          "_RockUnderStrength": 0.28,
+          "_VertexBlend": 0.0,
+          "_BaseColor": [
+            0.52156866,
+            0.5411765,
+            0.5372549,
+            1.0
+          ],
+          "_RockContactCliffColor": [
+            0.5294118,
+            0.3137255,
+            0.24705882,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.19215687,
+            0.29803923,
+            0.16862746,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.7176471,
+            0.56078434,
+            0.3764706,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.28627452,
+            0.41568628,
+            0.20784314,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.77254903,
+            0.73333335,
+            0.68235296,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.4,
+            0.43529412,
+            0.41568628,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.6039216,
+            0.61960787,
+            0.6117647,
+            1.0
+          ],
+          "_WetColor": [
+            0.38431373,
+            0.40392157,
+            0.4,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_ClayColor",
+          "_ClayMode",
+          "_RockSpecularPower",
+          "_RockSpecularStrength",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Skybox.mat",
+      "guid": "a7c87f8d2b8de8a4d9de0aa38d6a8a7a",
+      "sha256": "435f2f52ca2c3ded26550b699c6e9ad671e9ce16915edc2aa80f021072eb6ae1",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Skybox.M_StarterIsland_Skybox",
+      "shaderGuid": "cded1d12b024c324aaa997ac3665a9e6",
+      "shaderName": "CML/Environment/Starter Island Atmospheric Sky",
+      "classification": "unlit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_AtmosphericSky.M_CML_Env_AtmosphericSky",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_CloudAmount": 5.0,
+          "_CloudCoverage": 0.51,
+          "_CloudOpacity": 0.62,
+          "_CloudScale": 0.46,
+          "_CloudSoftness": 0.065,
+          "_CloudSpeed": 0.015,
+          "_Day01": 1.0,
+          "_DawnPhase": 0.0,
+          "_EarlyDuskPhase": 0.0,
+          "_Exposure": 0.98,
+          "_FogDensity": 0.12,
+          "_FogFalloff": 0.12,
+          "_LateDuskPhase": 0.0,
+          "_NoonPhase": 1.0,
+          "_RainFade1Sunny0": 0.0,
+          "_SnowHailClouds": 0.0,
+          "_SubsurfaceToUnlitScale": 0.1,
+          "_CloudBottomColorLinear": [
+            0.0,
+            0.5686275,
+            1.0,
+            1.0
+          ],
+          "_CloudColor": [
+            0.78431374,
+            0.85490197,
+            0.84313726,
+            1.0
+          ],
+          "_CloudShadowColor": [
+            0.52156866,
+            0.654902,
+            0.69803923,
+            1.0
+          ],
+          "_CloudTopColorLinear": [
+            0.1367188,
+            0.724438,
+            0.875,
+            1.0
+          ],
+          "_FogDirectionalColorLinear": [
+            0.10224173,
+            0.3515326,
+            0.47353148,
+            1.0
+          ],
+          "_FogInscatteringColorLinear": [
+            0.07058824,
+            0.6117647,
+            0.62352943,
+            1.0
+          ],
+          "_HorizonColorLinear": [
+            0.16862746,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_SkyTopColorLinear": [
+            0.08021982,
+            0.59720176,
+            0.61049557,
+            1.0
+          ],
+          "_SunDirectionWS": [
+            0.41556126,
+            0.6691306,
+            -0.616095,
+            0.0
+          ],
+          "_SunDiscColorLinear": [
+            1.0,
+            0.59607846,
+            0.0,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Terrain.mat",
+      "guid": "bd51c00f356b05648b1da518267787a5",
+      "sha256": "435e93964c1d4f49ddb5e6a5a371be4196cb9e3e7a1b1ed5832834792b6b8ef7",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Terrain.M_StarterIsland_Terrain",
+      "shaderGuid": "eb6192c76e312f84cad6fbf9854e7dda",
+      "shaderName": "CML/Environment/Starter Island Terrain Splat",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_TerrainSplat.M_CML_Env_TerrainSplat",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ClayMode": 0.0,
+          "_LandmassNormalStrength": 1.3,
+          "_LandmassSlopeHardness": 10.0,
+          "_LandmassSlopeOffset": -0.6,
+          "_LandmassWorldSize": 30.0,
+          "_ClayColor": [
+            0.54999995,
+            0.47999996,
+            0.42999998,
+            1.0
+          ],
+          "_LandmassCliffAlbedo": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Albedo.T_CML_LandmassCliff_Albedo",
+          "_LandmassCliffNormal": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Normal.T_CML_LandmassCliff_Normal",
+          "_Splat0_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat1_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat2_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_BaseColor",
+          "_EnableHeightBlend",
+          "_EnableInstancedPerPixelNormal",
+          "_HeightTransition",
+          "_LandmassColorSlopeHardness",
+          "_LandmassColorSlopeOffset",
+          "_LandmassGrassAmount",
+          "_LandmassGrassColor1",
+          "_LandmassGrassColor2",
+          "_LandmassIndirectScale",
+          "_LandmassRockTintColor",
+          "_LandmassRockTintStrength",
+          "_LandmassVariationMask",
+          "_LandmassVariationWorldSizeA",
+          "_LandmassVariationWorldSizeB",
+          "_Metallic0",
+          "_Metallic1",
+          "_Metallic2",
+          "_Metallic3",
+          "_NumLayersCount",
+          "_Smoothness0",
+          "_Smoothness1",
+          "_Smoothness2",
+          "_Smoothness3"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_TerrainWater.mat",
+      "guid": "3d334340949c69143bab5eb2d0bbc1c4",
+      "sha256": "c549fe02d50cd1c5adcc2d47bf08aeaabd412f30dd70461afd9dd701bcfd1675",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_TerrainWater.M_StarterIsland_TerrainWater",
+      "shaderGuid": "6a00527bb0eefa04bb938497a2f9bd3c",
+      "shaderName": "CML/Environment/Starter Island Stylized Water",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedWater.M_CML_Env_StylizedWater",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_AmbientStrength": 1.08,
+          "_CascadeFoamStrength": 0.94,
+          "_CascadeNormalStrength": 0.22,
+          "_ColorBoost": 1.04,
+          "_CrestStrength": 0.32,
+          "_DepthRange": 4.8,
+          "_DisplacementStrength": 0.045,
+          "_FlowScale": 1.95,
+          "_FlowSpeed": 1.52,
+          "_FoamDistance": 0.24,
+          "_FoamFeather": 0.18,
+          "_FoamIntensity": 1.0,
+          "_FresnelPower": 3.0,
+          "_FresnelStrength": 0.36,
+          "_GlintPower": 74.0,
+          "_GlintStrength": 0.46,
+          "_NormalDetailScale": 0.76,
+          "_NormalDetailSpeed": 1.82,
+          "_NormalDetailStrength": 0.09,
+          "_Opacity": 0.78,
+          "_ReflectionStrength": 0.74,
+          "_RefractionStrength": 0.03,
+          "_Smoothness": 0.9,
+          "_TransmissionStrength": 0.78,
+          "_WaveScaleA": 0.095,
+          "_WaveScaleB": 0.31,
+          "_WaveSpeedA": 0.58,
+          "_WaveSpeedB": 1.34,
+          "_WaveStrength": 0.16,
+          "_DeepColor": [
+            0.03137255,
+            0.4627451,
+            0.63529414,
+            1.0
+          ],
+          "_FoamColor": [
+            0.8627451,
+            0.99215686,
+            0.95686275,
+            1.0
+          ],
+          "_ShallowColor": [
+            0.27058825,
+            0.8156863,
+            0.80784315,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_Cull",
+          "_DstBlend",
+          "_SrcBlend",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_AutumnAmber.mat",
+      "guid": "60cd605a2c013cc42a685a6a7c8ce5d1",
+      "sha256": "4ff8d7e0088012ef17bb3289206ac422c35f3ecd3d529b2a1fd2f364396adb26",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_AutumnAmber.M_StarterIsland_Tree_AutumnAmber",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Masked.M_CML_UnityLit_Masked",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.96,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_Autumn_A_LeafAtlas_Amber_BaseColor.T_ENV_Tree_Autumn_A_LeafAtlas_Amber_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_AutumnOrange.mat",
+      "guid": "0fd56945dbcf38947bc61026d9eee362",
+      "sha256": "8a8691ec20e215f830778e068da2698349bc18e460f929d0c727931e3a5770f9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_AutumnOrange.M_StarterIsland_Tree_AutumnOrange",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Masked.M_CML_UnityLit_Masked",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.96,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_Autumn_A_LeafAtlas_Orange_BaseColor.T_ENV_Tree_Autumn_A_LeafAtlas_Orange_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_AutumnRed.mat",
+      "guid": "aad829e09d8afa7469988763b87e1408",
+      "sha256": "1edf085a3a0f35d03ce0833c9172efde5750dc9ca39c25db6cd0e7714f9ef97d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_AutumnRed.M_StarterIsland_Tree_AutumnRed",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Masked.M_CML_UnityLit_Masked",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.96,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_Autumn_A_LeafAtlas_Red_BaseColor.T_ENV_Tree_Autumn_A_LeafAtlas_Red_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_Bark.mat",
+      "guid": "146ace13b4c973a48b59464dc4191501",
+      "sha256": "179c9a28a2aa42d4b6346fd79b150aef9d31d559aaff05b93ae8ccd0789a294e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_Bark.M_StarterIsland_Tree_Bark",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.92,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_Bark_BaseColor.T_ENV_Tree_CommonTall_A_Bark_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_Bark_Normal.T_ENV_Tree_CommonTall_A_Bark_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_CommonLeaves.mat",
+      "guid": "59ae07d2545d34848bcdbc3462926920",
+      "sha256": "42812010ee3c7f2a09c0b96f9fc3e36e5284969bed502335269003e132456342",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_Tree_CommonLeaves.M_StarterIsland_Tree_CommonLeaves",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Masked.M_CML_UnityLit_Masked",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.96,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_BaseColor.T_ENV_Tree_CommonTall_A_LeafAtlas_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_UnderbodyCliff.mat",
+      "guid": "2189be942ad83e84182908048cd8ebe9",
+      "sha256": "488a53e4bb0d587ed1c210c4761fa0c68c5685e412d263098e451e733aefe801",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_UnderbodyCliff.M_StarterIsland_UnderbodyCliff",
+      "shaderGuid": "3e16e57c06c145289e5061ada98548a6",
+      "shaderName": "CML/Environment/Starter Island Underbody Terrain Rock",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_UnderbodyTerrainRock.M_CML_Env_UnderbodyTerrainRock",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_CliffBrightness": 0.98,
+          "_ProjectionSharpness": 3.4,
+          "_RockTileScale": 0.0454545,
+          "_CliffTint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_RockMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/T_StarterIsland_CliffPeach_ReferenceMatch_v1.T_StarterIsland_CliffPeach_ReferenceMatch_v1"
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_BaseColor",
+          "_CliffProjectionSharpness",
+          "_CliffSlopeEnd",
+          "_CliffSlopeStart",
+          "_DirectStrength",
+          "_LipColor",
+          "_LipStrength",
+          "_ShadowFloor",
+          "_TerrainSizeXZ"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/M_StarterIsland_Terrain_ReferenceMatch_v1.mat",
+      "guid": "419508fe62a800c4590801ff22623e40",
+      "sha256": "767fb6a612c46cf1295a4bb5af0cff31f8c8a8ab3634991f81d71562d0fbe5e8",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/M_StarterIsland_Terrain_ReferenceMatch_v1.M_StarterIsland_Terrain_ReferenceMatch_v1",
+      "shaderGuid": "73da5a8fea871644097bff55d2e2b882",
+      "shaderName": "CML/Environment/Starter Island Terrain Reference Match",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_TerrainReferenceMatch.M_CML_Env_TerrainReferenceMatch",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_CliffBrightness": 0.97,
+          "_CliffProjectionSharpness": 3.5,
+          "_CliffSlopeEnd": 0.43,
+          "_CliffSlopeStart": 0.22,
+          "_LipStrength": 0.13,
+          "_CliffTint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_LipColor": [
+            0.32,
+            0.35,
+            0.075,
+            1.0
+          ],
+          "_TerrainSizeXZ": [
+            650.0,
+            500.0,
+            0.0,
+            0.0
+          ],
+          "_Splat0_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat1_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat2_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat3_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_BaseColor",
+          "_DirectStrength",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/M_StarterIsland_Terrain_ReferenceMatch_v2_OriginalShader.mat",
+      "guid": "54da5b5503176fa43ae3ff897fe38379",
+      "sha256": "aad40b19bcbf2ddf9bf71c90883aa69d82dab52aa86714192244c6aec6733bd1",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/M_StarterIsland_Terrain_ReferenceMatch_v2_OriginalShader.M_StarterIsland_Terrain_ReferenceMatch_v2_OriginalShader",
+      "shaderGuid": "eb6192c76e312f84cad6fbf9854e7dda",
+      "shaderName": "CML/Environment/Starter Island Terrain Splat",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_TerrainSplat.M_CML_Env_TerrainSplat",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ClayMode": 0.0,
+          "_ClayColor": [
+            0.54999995,
+            0.47999996,
+            0.42999998,
+            1.0
+          ],
+          "_Splat0_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat1_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat2_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_BaseColor",
+          "_CliffAmbientReduction",
+          "_CliffBaseColor",
+          "_CliffBrightness",
+          "_CliffCavityColor",
+          "_CliffCavityStrength",
+          "_CliffHighlightColor",
+          "_CliffLichenColor",
+          "_CliffLichenScale",
+          "_CliffLichenStrength",
+          "_CliffLightingContrast",
+          "_CliffMacroVariation",
+          "_CliffMicroNormalStrength",
+          "_CliffNormalFadeEnd",
+          "_CliffNormalFadeStart",
+          "_CliffNormalStrength",
+          "_CliffPaletteStrength",
+          "_CliffReliefNormalStrength",
+          "_CliffRunoffVariation",
+          "_CliffShadowColor",
+          "_CliffSoilColor",
+          "_CliffSoilStrength",
+          "_CliffSpecularStrength",
+          "_CliffStrataColor",
+          "_CliffStrataScale",
+          "_CliffStrataStrength",
+          "_CliffTriplanarSharpness",
+          "_EnableHeightBlend",
+          "_EnableInstancedPerPixelNormal",
+          "_HeightTransition",
+          "_MacroVariation",
+          "_Metallic0",
+          "_Metallic1",
+          "_Metallic2",
+          "_Metallic3",
+          "_NumLayersCount",
+          "_ShadowFloor",
+          "_Smoothness0",
+          "_Smoothness1",
+          "_Smoothness2",
+          "_Smoothness3",
+          "_TerrainSizeXZ"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/M_StarterIsland_Terrain_ReferenceMatch_v3_MainIsland.mat",
+      "guid": "7427e427b136ae74d992266a3d9978a8",
+      "sha256": "f6bc1928eb4b48136bf201e0deb794ec9e224cc29832f0262b46f3fc3f66fdde",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/ReferenceMatch/M_StarterIsland_Terrain_ReferenceMatch_v3_MainIsland.M_StarterIsland_Terrain_ReferenceMatch_v3_MainIsland",
+      "shaderGuid": "eb6192c76e312f84cad6fbf9854e7dda",
+      "shaderName": "CML/Environment/Starter Island Terrain Splat",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_TerrainSplat.M_CML_Env_TerrainSplat",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ClayMode": 0.0,
+          "_LandmassNormalStrength": 1.3,
+          "_LandmassSlopeHardness": 10.0,
+          "_LandmassSlopeOffset": -0.6,
+          "_LandmassWorldSize": 30.0,
+          "_ClayColor": [
+            0.54999995,
+            0.47999996,
+            0.42999998,
+            1.0
+          ],
+          "_LandmassCliffAlbedo": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Albedo.T_CML_LandmassCliff_Albedo",
+          "_LandmassCliffNormal": "/Game/Migrated/Project/Art/Environment/StarterIsland/Landmass/Textures/T_CML_LandmassCliff_Normal.T_CML_LandmassCliff_Normal",
+          "_Splat0_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat1_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_Splat2_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_BaseColor",
+          "_EnableHeightBlend",
+          "_EnableInstancedPerPixelNormal",
+          "_HeightTransition",
+          "_LandmassColorSlopeHardness",
+          "_LandmassColorSlopeOffset",
+          "_LandmassGrassAmount",
+          "_LandmassGrassColor1",
+          "_LandmassGrassColor2",
+          "_LandmassIndirectScale",
+          "_LandmassRockTintColor",
+          "_LandmassRockTintStrength",
+          "_LandmassVariationMask",
+          "_LandmassVariationWorldSizeA",
+          "_LandmassVariationWorldSizeB",
+          "_Metallic0",
+          "_Metallic1",
+          "_Metallic2",
+          "_Metallic3",
+          "_NumLayersCount",
+          "_Smoothness0",
+          "_Smoothness1",
+          "_Smoothness2",
+          "_Smoothness3"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Bark.mat",
+      "guid": "2770ddc9f221eb540bb0e8252e9e6921",
+      "sha256": "8fdab5e8854a222854ede6ce52daf4c1cf065dd69b3bb0caefea34364df16450",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Bark.M_ENV_Tree_Autumn_A_Bark",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.84,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_Bark_BaseColor.T_ENV_Tree_CommonTall_A_Bark_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_Bark_Normal.T_ENV_Tree_CommonTall_A_Bark_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Leaves_Amber.mat",
+      "guid": "31c8cb37df9471a459775b35f518d8cb",
+      "sha256": "b407f9f650d935a4cb845cc595aa9fa7602675aac668ced80105be3649addb67",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Leaves_Amber.M_ENV_Tree_Autumn_A_Leaves_Amber",
+      "shaderGuid": "6fed990ccc13a8449a83aa20a9b947e1",
+      "shaderName": "CML/Environment/Starter Island V4 Tree Leaves",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_V4TreeLeaves.M_CML_Env_V4TreeLeaves",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_BumpScale": 0.65,
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.18,
+          "_WindBaseHeight": 0.75,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 9.5,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_Autumn_A_LeafAtlas_Amber_BaseColor.T_ENV_Tree_Autumn_A_LeafAtlas_Amber_BaseColor",
+          "_BumpMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Leaves_Orange.mat",
+      "guid": "046d6dc075bc5e4468419390467fc426",
+      "sha256": "9034a24670350ad2b73f344ca8064c0a70a52db8c4624b168cd63a39e3cd2962",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Leaves_Orange.M_ENV_Tree_Autumn_A_Leaves_Orange",
+      "shaderGuid": "6fed990ccc13a8449a83aa20a9b947e1",
+      "shaderName": "CML/Environment/Starter Island V4 Tree Leaves",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_V4TreeLeaves.M_CML_Env_V4TreeLeaves",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_BumpScale": 0.65,
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.18,
+          "_WindBaseHeight": 0.75,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 9.5,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_Autumn_A_LeafAtlas_Orange_BaseColor.T_ENV_Tree_Autumn_A_LeafAtlas_Orange_BaseColor",
+          "_BumpMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Leaves_Red.mat",
+      "guid": "d3bbdc4b4b5b4f148849a9cf69d8357a",
+      "sha256": "529f256e8c4c43ce94e789425f456de8abf98adb17cfca8e69d68b88dfd5b227",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_Autumn_A_Leaves_Red.M_ENV_Tree_Autumn_A_Leaves_Red",
+      "shaderGuid": "6fed990ccc13a8449a83aa20a9b947e1",
+      "shaderName": "CML/Environment/Starter Island V4 Tree Leaves",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_V4TreeLeaves.M_CML_Env_V4TreeLeaves",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_BumpScale": 0.65,
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.18,
+          "_WindBaseHeight": 0.75,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 9.5,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_Autumn_A_LeafAtlas_Red_BaseColor.T_ENV_Tree_Autumn_A_LeafAtlas_Red_BaseColor",
+          "_BumpMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Bark.mat",
+      "guid": "22ea8cf312ec09c40beedc6ad8eed0f7",
+      "sha256": "1f40f6fa80d16290351563ddcba6de99b4ee63ae1854def5109994cd31d25091",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Bark.M_ENV_Tree_CloudTall_Autumn_Bark",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 2.0,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 8.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.03,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CloudTall_Bark.T_ENV_Tree_CloudTall_Bark",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Canopy.mat",
+      "guid": "6ab3931f010bea34bb633b2352d1ed61",
+      "sha256": "506fc92f9c5ddeb32a644d2127fe74802f0d98c895f75217aa602a1a5c87399d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Canopy.M_ENV_Tree_CloudTall_Autumn_Canopy",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 2.0,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 8.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CloudTall_CanopyGrain.T_ENV_Tree_CloudTall_CanopyGrain",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Fringe.mat",
+      "guid": "4a4eb9ac7286d4846910a0ad8da9b4b9",
+      "sha256": "afb8a0d6bae9680f555b5b76a5de5e5e1691c7a705cd0fcf9f31665c92793980",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Fringe.M_ENV_Tree_CloudTall_Autumn_Fringe",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 2.0,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 8.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CloudTall_TuftAtlas.T_ENV_Tree_CloudTall_TuftAtlas",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.mat",
+      "guid": "6c781e951725e7949860094cd4847e1a",
+      "sha256": "1bb444ce88ecef9fba68684f055b64ca899ba75a2ace7de5b64dad20e7bbd68d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 2.0,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 8.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.03,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CloudTall_Bark.T_ENV_Tree_CloudTall_Bark",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.mat",
+      "guid": "30ea3644878bfbf409458a9f72fea4ab",
+      "sha256": "df48d73d1a59f7973e7054ada89a6d264085937b858a862076da72f53983222f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.02,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 2.0,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 8.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CloudTall_CanopyGrain.T_ENV_Tree_CloudTall_CanopyGrain",
+          "OpacityMaskClipValue": 0.02
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.mat",
+      "guid": "e7bedc40fddf50b458d1b108d0ea9823",
+      "sha256": "9c6a2447fbd64627e57894d02ebabb495345c9ddb4b1904b7aad03d3af641500",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+      "shaderGuid": "73c348f6392d268488085147761fddac",
+      "shaderName": "CML/Environment/Starter Island CloudTall Tree",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_CloudTallTree.M_CML_Env_CloudTallTree",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.04,
+          "_WindBaseHeight": 2.0,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 8.0,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CloudTall_TuftAtlas.T_ENV_Tree_CloudTall_TuftAtlas",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_Blend",
+          "_Cull",
+          "_DstBlend",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SrcBlend",
+          "_Surface",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CommonTall_A_Bark.mat",
+      "guid": "39719053873971e48ad713e960e692dd",
+      "sha256": "a71685b10d6287bf31cdbd366b501c77bc3d5cfb12cf01be208b2578204a7380",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CommonTall_A_Bark.M_ENV_Tree_CommonTall_A_Bark",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.84,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_Bark_BaseColor.T_ENV_Tree_CommonTall_A_Bark_BaseColor",
+          "NormalTexture": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_Bark_Normal.T_ENV_Tree_CommonTall_A_Bark_Normal"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CommonTall_A_Leaves.mat",
+      "guid": "eb840e41c05b8c24a900921fc4f6e4f6",
+      "sha256": "69e0e40c5b103545257aaae776f8b63cec4efb749624dd585c744ff3434ded76",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CommonTall_A_Leaves.M_ENV_Tree_CommonTall_A_Leaves",
+      "shaderGuid": "6fed990ccc13a8449a83aa20a9b947e1",
+      "shaderName": "CML/Environment/Starter Island V4 Tree Leaves",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_V4TreeLeaves.M_CML_Env_V4TreeLeaves",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_BumpScale": 0.65,
+          "_Cutoff": 0.45,
+          "_Metallic": 0.0,
+          "_Smoothness": 0.18,
+          "_WindBaseHeight": 0.75,
+          "_WindFlutterStrength": 0.045,
+          "_WindGustStrength": 0.38,
+          "_WindHeight": 9.5,
+          "_WindSpeed": 0.82,
+          "_WindStrength": 0.24,
+          "_BaseColor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_WindDirection": [
+            0.82,
+            0.0,
+            0.57,
+            0.0
+          ],
+          "_BaseMap_ST": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "_BaseMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_BaseColor.T_ENV_Tree_CommonTall_A_LeafAtlas_BaseColor",
+          "_BumpMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Textures/T_ENV_Tree_CommonTall_A_LeafAtlas_Normal.T_ENV_Tree_CommonTall_A_LeafAtlas_Normal",
+          "OpacityMaskClipValue": 0.45
+        },
+        "unmappedUnityProperties": [
+          "_AddPrecomputedVelocity",
+          "_AlphaClip",
+          "_AlphaToMask",
+          "_Blend",
+          "_BlendModePreserveSpecular",
+          "_ClearCoatMask",
+          "_ClearCoatSmoothness",
+          "_Color",
+          "_Cull",
+          "_DetailAlbedoMapScale",
+          "_DetailNormalMapScale",
+          "_DstBlend",
+          "_DstBlendAlpha",
+          "_EmissionColor",
+          "_EnvironmentReflections",
+          "_GlossMapScale",
+          "_Glossiness",
+          "_GlossyReflections",
+          "_OcclusionStrength",
+          "_Parallax",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_SmoothnessTextureChannel",
+          "_SpecColor",
+          "_SpecularHighlights",
+          "_SrcBlend",
+          "_SrcBlendAlpha",
+          "_Surface",
+          "_WorkflowMode",
+          "_XRMotionVectorsPass",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_AutoGrass.mat",
+      "guid": "b6813ca865c972e4ebdf6f12c93fd483",
+      "sha256": "f8af79b9fda48b0ad48840f06610390ed19acf563584d449be683bbdc039dc7b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_AutoGrass.M_VRKS_AutoGrass",
+      "shaderGuid": "2ccbfeec6affded4b8c706276e1f754a",
+      "shaderName": "CML/Environment/Vertical Rock Auto Grass",
+      "classification": "lit-masked",
+      "parent": "/Game/Migration/Masters/M_CML_Env_VerticalRockAutoGrass.M_CML_Env_VerticalRockAutoGrass",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_GrassNoiseScale": 0.24,
+          "_GrassNoiseStrength": 0.07,
+          "_GrassNormalStrength": 0.1,
+          "_GrassSlopeEnd": 0.9,
+          "_GrassSlopeStart": 0.74,
+          "_GrassTileScale": 0.15,
+          "_MacroVariation": 0.035,
+          "_PaletteStrength": 0.86,
+          "_PlaneToneStrength": 0.47,
+          "_RockNormalStrength": 0.2,
+          "_RockTileScale": 0.115,
+          "_SpecularStrength": 0.042,
+          "_SurfaceRoughness": 0.88,
+          "_TriplanarSharpness": 4.2,
+          "_GrassBaseColor": [
+            0.44313726,
+            0.5176471,
+            0.23137255,
+            1.0
+          ],
+          "_GrassHighlightColor": [
+            0.61960787,
+            0.67058825,
+            0.32941177,
+            1.0
+          ],
+          "_GrassShadowColor": [
+            0.20784314,
+            0.27058825,
+            0.16470589,
+            1.0
+          ],
+          "_GrassTint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_RockBaseColor": [
+            0.72156864,
+            0.45882353,
+            0.34117648,
+            1.0
+          ],
+          "_RockHighlightColor": [
+            0.87058824,
+            0.6313726,
+            0.45490196,
+            1.0
+          ],
+          "_RockShadowColor": [
+            0.44313726,
+            0.27450982,
+            0.22745098,
+            1.0
+          ],
+          "_RockTint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_GrassMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun",
+          "_GrassNormalMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun_Normal.T_StarterIsland_GrassSun_Normal",
+          "_RockMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm.T_StarterIsland_CliffWarm",
+          "_RockNormalMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm_Normal.T_StarterIsland_CliffWarm_Normal",
+          "OpacityMaskClipValue": 0.0
+        },
+        "unmappedUnityProperties": [
+          "_AlphaClip",
+          "_AmbientStrength",
+          "_BaseColor",
+          "_Blend",
+          "_Brightness",
+          "_BumpScale",
+          "_CliffBaseColor",
+          "_CliffCavityColor",
+          "_CliffCavityStrength",
+          "_CliffHighlightColor",
+          "_CliffPaletteStrength",
+          "_CliffReliefNormalStrength",
+          "_CliffShadowColor",
+          "_Color",
+          "_Cull",
+          "_Cutoff",
+          "_DebugGrassMask",
+          "_DstBlend",
+          "_Metallic",
+          "_NormalStrength",
+          "_QueueOffset",
+          "_ReceiveShadows",
+          "_RunoffVariation",
+          "_ShadowFloor",
+          "_Smoothness",
+          "_SrcBlend",
+          "_Surface",
+          "_TileScale",
+          "_Tint",
+          "_WindBaseHeight",
+          "_WindDirection",
+          "_WindFlutterStrength",
+          "_WindGustStrength",
+          "_WindHeight",
+          "_WindSpeed",
+          "_WindStrength",
+          "_ZWrite"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_DebugGrassMask.mat",
+      "guid": "ba0565e78a4517644ba6400b9f5895b5",
+      "sha256": "95abf54a6936e0550cd07d3a294ef39b49a76758f8f8adca935cbc276d85254d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_DebugGrassMask.M_VRKS_DebugGrassMask",
+      "shaderGuid": "2ccbfeec6affded4b8c706276e1f754a",
+      "shaderName": "CML/Environment/Vertical Rock Auto Grass",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_VerticalRockAutoGrass.M_CML_Env_VerticalRockAutoGrass",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_GrassNoiseScale": 0.24,
+          "_GrassNoiseStrength": 0.07,
+          "_GrassNormalStrength": 0.1,
+          "_GrassSlopeEnd": 0.9,
+          "_GrassSlopeStart": 0.74,
+          "_GrassTileScale": 0.15,
+          "_MacroVariation": 0.035,
+          "_PaletteStrength": 0.86,
+          "_PlaneToneStrength": 0.47,
+          "_RockNormalStrength": 0.2,
+          "_RockTileScale": 0.115,
+          "_SpecularStrength": 0.042,
+          "_SurfaceRoughness": 0.88,
+          "_TriplanarSharpness": 4.2,
+          "_GrassBaseColor": [
+            0.44313726,
+            0.5176471,
+            0.23137255,
+            1.0
+          ],
+          "_GrassHighlightColor": [
+            0.61960787,
+            0.67058825,
+            0.32941177,
+            1.0
+          ],
+          "_GrassShadowColor": [
+            0.20784314,
+            0.27058825,
+            0.16470589,
+            1.0
+          ],
+          "_GrassTint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_RockBaseColor": [
+            0.72156864,
+            0.45882353,
+            0.34117648,
+            1.0
+          ],
+          "_RockHighlightColor": [
+            0.87058824,
+            0.6313726,
+            0.45490196,
+            1.0
+          ],
+          "_RockShadowColor": [
+            0.44313726,
+            0.27450982,
+            0.22745098,
+            1.0
+          ],
+          "_RockTint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "_GrassMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun",
+          "_GrassNormalMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun_Normal.T_StarterIsland_GrassSun_Normal",
+          "_RockMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm.T_StarterIsland_CliffWarm",
+          "_RockNormalMap": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_CliffWarm_Normal.T_StarterIsland_CliffWarm_Normal",
+          "OpacityMaskClipValue": 0.0
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_BaseColor",
+          "_Cutoff",
+          "_DebugGrassMask",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_PreviewClay.mat",
+      "guid": "95d3dba2cae7aab498fb76ff8ec80263",
+      "sha256": "6222df7f3162e9d0219ccabae14a622cad54f0a618d2590a2fdd490a7e23b450",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_PreviewClay.M_VRKS_PreviewClay",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.65882355,
+          0.6666667,
+          0.6509804,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.98,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_PreviewGround.mat",
+      "guid": "2bf232473b5758f4f8c97fcb93cdbf0c",
+      "sha256": "8afd62ad114884d8c5539cc80fa3064f8e458d35a0539660798c49cc010d986c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Materials/M_VRKS_PreviewGround.M_VRKS_PreviewGround",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.29803923,
+          0.34509805,
+          0.22352941,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.98,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Materials/M_ReferenceFacetedRock.mat",
+      "guid": "f91fb5f5a1f123f42896357b292557ba",
+      "sha256": "4d284f0cb8fce83085fd5083e17b0aedb306528f2b8d4720c3f9e821f4a341ec",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Materials/M_ReferenceFacetedRock.M_ReferenceFacetedRock",
+      "shaderGuid": "a6072bca01fe23c42becd48dc9d87ac8",
+      "shaderName": "CML/Environment/Starter Island Stylized Surface",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_Env_StylizedSurface.M_CML_Env_StylizedSurface",
+      "portKind": "native-port",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "applied": {
+          "_ColorVariation": 0.012,
+          "_RockContactBlend": 0.0,
+          "_RockContactFeather": 0.18,
+          "_RockContactHeight": 0.22,
+          "_RockContactNoise": 0.12,
+          "_RockDetail": 1.0,
+          "_RockGrainScale": 3.2,
+          "_RockGrainStrength": 0.012,
+          "_RockMacroScale": 0.31,
+          "_RockMacroStrength": 0.035,
+          "_RockTopStrength": 0.34,
+          "_RockUnderStrength": 0.25,
+          "_VertexBlend": 1.0,
+          "_BaseColor": [
+            0.58,
+            0.66,
+            0.7,
+            1.0
+          ],
+          "_CMLHitOffsetWS": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "_RockContactCliffColor": [
+            0.53,
+            0.29999998,
+            0.22999996,
+            1.0
+          ],
+          "_RockContactDeepGrassColor": [
+            0.15999997,
+            0.28999996,
+            0.14999998,
+            1.0
+          ],
+          "_RockContactDirtColor": [
+            0.65999997,
+            0.49,
+            0.30999997,
+            1.0
+          ],
+          "_RockContactGrassColor": [
+            0.24999997,
+            0.38999996,
+            0.17999998,
+            1.0
+          ],
+          "_RockTopColor": [
+            0.66,
+            0.71,
+            0.72,
+            1.0
+          ],
+          "_RockUnderColor": [
+            0.3,
+            0.38,
+            0.45,
+            1.0
+          ],
+          "_SecondaryColor": [
+            0.36,
+            0.46,
+            0.53,
+            1.0
+          ],
+          "_WetColor": [
+            0.29,
+            0.38,
+            0.45,
+            1.0
+          ]
+        },
+        "unmappedUnityProperties": [
+          "_AmbientStrength",
+          "_ShadowFloor"
+        ],
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/FactoryTest/Materials/M_M04B_BuildPad.mat",
+      "guid": "390505d82138164418925fdcc93f278e",
+      "sha256": "db9023af2dee209273091613aa2876aeef05d77e8ab09003942b81d28ec89cf7",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/FactoryTest/Materials/M_M04B_BuildPad.M_M04B_BuildPad",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.2,
+          0.38,
+          0.4,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.08,
+        "roughness": 0.76,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/FactoryTest/Materials/M_M04B_HologramInvalid.mat",
+      "guid": "e0ea3a99262eabd4fbe2100b9a85b7f2",
+      "sha256": "1122e2cdbbd8a16703198058c34db1c3a15a053a6307a73e18655d0690ac9c0a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/FactoryTest/Materials/M_M04B_HologramInvalid.M_M04B_HologramInvalid",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-translucent",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Translucent.M_CML_UnityLit_Translucent",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          0.16,
+          0.1,
+          0.46
+        ],
+        "emissionColor": [
+          0.45,
+          0.072,
+          0.044999998,
+          0.207
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8200000000000001,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/FactoryTest/Materials/M_M04B_HologramValid.mat",
+      "guid": "6c75691a55f2f324b81efaddff48a4d8",
+      "sha256": "717f282615c10b9bce2548c67d12decb1f67c8266edcfa929ef9b22f23900db4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/FactoryTest/Materials/M_M04B_HologramValid.M_M04B_HologramValid",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-translucent",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Translucent.M_CML_UnityLit_Translucent",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.14,
+          0.95,
+          0.49,
+          0.42
+        ],
+        "emissionColor": [
+          0.063,
+          0.42749998,
+          0.22049999,
+          0.189
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8200000000000001,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/FactoryTest/Materials/M_M04B_RotationalBelt.mat",
+      "guid": "a006516dbbe0a6a46a3b588248aace91",
+      "sha256": "7b310ff0708a6ac75761f643c7c6be9af7ce2c61ba1d3cb11ba29e9803599cab",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/FactoryTest/Materials/M_M04B_RotationalBelt.M_M04B_RotationalBelt",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.055,
+          0.045,
+          0.035,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/FactoryTest/Materials/M_M04B_Station.mat",
+      "guid": "5b9310ad53a9a3141bbbd752a1a54859",
+      "sha256": "45616e2b87bd750b283f43d14f69c55ccca70c80953a63ff8c6a040cf3ff3b74",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/FactoryTest/Materials/M_M04B_Station.M_M04B_Station",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.16,
+          0.2,
+          0.19,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.18,
+        "roughness": 0.7,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/FactoryTest/Materials/M_M04B_Yard.mat",
+      "guid": "fa98100ffe682ee4a949a7c878ad357b",
+      "sha256": "d2062890605b5aafa52b1fb0d64a69ad60240f3707978bb1e42d9586e35cd2d0",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/FactoryTest/Materials/M_M04B_Yard.M_M04B_Yard",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.38,
+          0.44,
+          0.36,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.84,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Arrow.mat",
+      "guid": "8240ccaf8b8c9d84aa8aec02d53a7c46",
+      "sha256": "b6964bf2eedd67485bb12fe681ccba91196b89a83e53219a18ec35a41241a080",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Arrow.M_BeltKit_Arrow",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.86,
+          0.68,
+          0.2,
+          1.0
+        ],
+        "emissionColor": [
+          1.8920001,
+          1.496,
+          0.44000003,
+          2.2
+        ],
+        "metallic": 0.0,
+        "roughness": 0.4,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Canvas.mat",
+      "guid": "f226a90198e42c442bf72d5cde2d1e70",
+      "sha256": "67dff631746c9f27f4719a6df4ec4ebb66fb4d204b42434c34eb39dd0a05f7ea",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Canvas.M_BeltKit_Canvas",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.80000001,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Logistics/BeltKit/Textures/T_BeltKit_Canvas_BaseColor.T_BeltKit_Canvas_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Cream.mat",
+      "guid": "e73d3877d75bf3e46be8136eef7732c4",
+      "sha256": "a8e0face1439c696f2f0e55c36e735f32a4ff24c4d695b5a45ec1b80bacbfafa",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Cream.M_BeltKit_Cream",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.04,
+        "roughness": 0.62,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Logistics/BeltKit/Textures/T_BeltKit_Cream_BaseColor.T_BeltKit_Cream_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Iron.mat",
+      "guid": "2b0a5fffb69f26d4fad4b7ab351bc048",
+      "sha256": "ec9675ad3eb617127d2b00f3ecc259aa20c4b78dad1552132009a022177e77f9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Iron.M_BeltKit_Iron",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.3,
+        "roughness": 0.41999995999999995,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Logistics/BeltKit/Textures/T_BeltKit_Iron_BaseColor.T_BeltKit_Iron_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Wood.mat",
+      "guid": "26a2d62110d004349bff724478d3bcc1",
+      "sha256": "09836d282078d273df3f87151ab3f31cebb942956e0aae4e20351452c363ccf2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Materials/M_BeltKit_Wood.M_BeltKit_Wood",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.7,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Logistics/BeltKit/Textures/T_BeltKit_Wood_BaseColor.T_BeltKit_Wood_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Wood/Materials/M_Item_WoodLog_Cut.mat",
+      "guid": "3a8cda7796abb414d9b551b2da180a50",
+      "sha256": "aa1db1ce7bbdb157ed66665c4ec24932df9e09b057ef2fbd9c49f92aebc385d2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Wood/Materials/M_Item_WoodLog_Cut.M_Item_WoodLog_Cut",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.68,
+          0.43,
+          0.2,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8200000000000001,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Bronze.mat",
+      "guid": "588232b1ca898c64886804fc61c556f2",
+      "sha256": "33f70b490ab1f747f846e5a700113eb32310b027044fb85c308d15e65af9377b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Bronze.M_MechanicalDrill_Bronze",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.34000003,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalDrill_Bronze_BaseColor.T_MechanicalDrill_Bronze_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Iron.mat",
+      "guid": "40efbd7c6abc19c429a0aeaac2bf86d3",
+      "sha256": "4f3589ea172be1ca4b603466146d018d04fa8a19aaf5fe2606b61ad7d643ba0f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Iron.M_MechanicalDrill_Iron",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.4,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalDrill_Iron_BaseColor.T_MechanicalDrill_Iron_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalDrill_IronDark.mat",
+      "guid": "0f3b0e594d6600243adf06686d660fb5",
+      "sha256": "84e4677417fc3324b66555e8889938bc0a4b43e2e62ca75f105cfac752ed1f87",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalDrill_IronDark.M_MechanicalDrill_IronDark",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.5199999799999999,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalDrill_IronDark_BaseColor.T_MechanicalDrill_IronDark_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Shell.mat",
+      "guid": "0cf80357bd333994ea61a1bb1f4b6b1a",
+      "sha256": "d4139f5e9aec6a7c71908a7725f66b31032d3e68d1a83e621d8e3dd8ed0825b4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Shell.M_MechanicalDrill_Shell",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.46000004000000005,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalDrill_Shell_BaseColor.T_MechanicalDrill_Shell_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Steel.mat",
+      "guid": "3c70cd3a7d5ebad43bbd015423b7c665",
+      "sha256": "13210b20eb1d4eb6b145c2bc93bc5138a04469e7db86d6766e54364a932af680",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Steel.M_MechanicalDrill_Steel",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.30000000000000004,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalDrill_Steel_BaseColor.T_MechanicalDrill_Steel_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Wood.mat",
+      "guid": "06ff1a0269b7ece48b11a4cbf472b1ed",
+      "sha256": "4e1063c66064bae188eae7a644c9d7aea49787a958a648a89959ad00318042e9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalDrill_Wood.M_MechanicalDrill_Wood",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.62,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalDrill_Wood_BaseColor.T_MechanicalDrill_Wood_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalPress_Bronze.mat",
+      "guid": "0294b8ee26fa5c9498ddb2e6c2efe5d8",
+      "sha256": "8d9feaea4c0a7fb246f8bf937c8a357be7d2563c6ad84a6e047fce06203ff946",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalPress_Bronze.M_MechanicalPress_Bronze",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.31999999999999995,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalPress_Bronze_BaseColor.T_MechanicalPress_Bronze_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalPress_Iron.mat",
+      "guid": "0ccede669795d28438e5d766a98ab8ad",
+      "sha256": "244c9c51fd5ed5103666d5729596b3c86bc7dc65147f03cd12863779d494f2fc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalPress_Iron.M_MechanicalPress_Iron",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.38,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalPress_Iron_BaseColor.T_MechanicalPress_Iron_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Materials/M_MechanicalPress_Wood.mat",
+      "guid": "83513a78fb12d1048b3672151668be19",
+      "sha256": "a0e8f03eebc92d8a4de0d1552b4a710cc2d037b682b18e7ef1fab165e0a0aa40",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Materials/M_MechanicalPress_Wood.M_MechanicalPress_Wood",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.56,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/Textures/T_MechanicalPress_Wood_BaseColor.T_MechanicalPress_Wood_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Materials/M_RotationalBelt.mat",
+      "guid": "cb60a1d95c27bac4da3d6f1dfd163ab1",
+      "sha256": "137a247319e590c68214084474b253e12ceeed3034b23fd263c693a918abbcc5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Materials/M_RotationalBelt.M_RotationalBelt",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.74,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Textures/T_RotationalBelt.T_RotationalBelt"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Bronze.mat",
+      "guid": "7a112035569932042a08442241415704",
+      "sha256": "5779429dac2ac74cac8b9443c95f0c6e37e744ee94be7db5965a3abcf2cc2ba4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Bronze.M_WindRotor_Bronze",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.48,
+        "roughness": 0.43000000000000005,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Textures/T_WindRotor_Bronze.T_WindRotor_Bronze"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Canvas.mat",
+      "guid": "45e5bc8bf82c5c9479b5bf9f0364bc73",
+      "sha256": "aa1490be9b2ecdd79bfd14249824513323c5bda3afd437213710acb11c4b38cb",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Canvas.M_WindRotor_Canvas",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.8200000000000001,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Textures/T_WindRotor_Canvas.T_WindRotor_Canvas"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Cream.mat",
+      "guid": "d6b224e83b2605940a379d109275eb09",
+      "sha256": "5080eab887973ffa239fb6783c732dc4363299e8b7a1eaf29372b20dc13d8d38",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Cream.M_WindRotor_Cream",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.04,
+        "roughness": 0.62,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Textures/T_WindRotor_Cream.T_WindRotor_Cream"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Iron.mat",
+      "guid": "723ec36e2c86c7d4ea8dd01b48395988",
+      "sha256": "13a42e83d191670e133961be4ceb74e93d030b81410000e16ded904093a9b619",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Iron.M_WindRotor_Iron",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.32,
+        "roughness": 0.52,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Textures/T_WindRotor_Iron.T_WindRotor_Iron"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Wood.mat",
+      "guid": "8b459e007ecd2204591692bb292b9590",
+      "sha256": "13f5d1402975edc7bd42401b92d8bc0f575d83d7a3c8185991a8c2364b928485",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Materials/M_WindRotor_Wood.M_WindRotor_Wood",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.7,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Textures/T_WindRotor_Wood.T_WindRotor_Wood"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Shared/ManualEra/Materials/M_ManualEra_FireEmissive.mat",
+      "guid": "872ddb39afd8b7e4fa976541deae5066",
+      "sha256": "8ea7d6e9c5a6705643a9659387ed98409bbd84d27a34422c2a8ef671f34e7fad",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Shared/ManualEra/Materials/M_ManualEra_FireEmissive.M_ManualEra_FireEmissive",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          2.4,
+          2.4,
+          2.4,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.88,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Shared/ManualEra/Textures/T_ManualEra_BaseColor.T_ManualEra_BaseColor",
+          "EmissionTexture": "/Game/Migrated/Project/Art/Shared/ManualEra/Textures/T_ManualEra_BaseColor.T_ManualEra_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Shared/ManualEra/Materials/M_ManualEra_OpaqueAtlas.mat",
+      "guid": "33dd73ae21e8dbd42854be9dc77ac20e",
+      "sha256": "a9de0a1ed89d6042e26419bb3601a8a81eb4e31c05e2db3d98c2dd6f2ccab4cc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Shared/ManualEra/Materials/M_ManualEra_OpaqueAtlas.M_ManualEra_OpaqueAtlas",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 1.0,
+        "roughness": 0.0,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Shared/ManualEra/Textures/T_ManualEra_BaseColor.T_ManualEra_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/Airship/Materials/M_Airship_EmissionAtlas.mat",
+      "guid": "f9d432053f00edf48a294d731889a1da",
+      "sha256": "ea3700d0cf69bf29a28615609ba33770467babd0c63c546f07d7fec5522914b3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/Airship/Materials/M_Airship_EmissionAtlas.M_Airship_EmissionAtlas",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          4.0,
+          4.0,
+          4.0,
+          4.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.65,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Vehicles/Airship/Textures/T_Airship_Emission.T_Airship_Emission",
+          "EmissionTexture": "/Game/Migrated/Project/Art/Vehicles/Airship/Textures/T_Airship_Emission.T_Airship_Emission"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/Airship/Materials/M_Airship_Glass.mat",
+      "guid": "99dc616ef50c5c14ab57a4c3bae368aa",
+      "sha256": "ac3f84608f8121538d237a4eee6dab52fb9c602dc401f730f7aa6e6e5ec0ab74",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/Airship/Materials/M_Airship_Glass.M_Airship_Glass",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-translucent",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Translucent.M_CML_UnityLit_Translucent",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.035,
+          0.24,
+          0.52,
+          0.54
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.28,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/Airship/Materials/M_Airship_OpaqueAtlas.mat",
+      "guid": "7c2c985560eee044294eef1acbbd6840",
+      "sha256": "03a9457954e856719131fd34e11e9ee29dbc7f29b2ac7aae2954662ea85323db",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/Airship/Materials/M_Airship_OpaqueAtlas.M_Airship_OpaqueAtlas",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 1.0,
+        "roughness": 0.0,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Vehicles/Airship/Textures/T_Airship_BaseColor.T_Airship_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/Airship/Materials/M_Airship_Wood.mat",
+      "guid": "3a24f9ca68c9d774e86f2c5dba84b0ce",
+      "sha256": "dd821bbf355f7e4c2d82ce45295c0d65cbc1a6d577be0917e498461c7e838f37",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/Airship/Materials/M_Airship_Wood.M_Airship_Wood",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 1.0,
+        "roughness": 0.0,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Vehicles/Airship/Textures/T_Airship_Wood_BaseColor.T_Airship_Wood_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Emission.mat",
+      "guid": "c00fd58fe91bbd340b88682eabd5cb43",
+      "sha256": "f1704d4287b089547ef4aa1d1de906b1860f0a6f8a96ff7bda5c88515c2158a5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Emission.M_Airship_R17_Emission",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          1.4,
+          1.15,
+          0.48,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.76,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Textures/T_Airship_Emission.T_Airship_Emission",
+          "EmissionTexture": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Textures/T_Airship_Emission.T_Airship_Emission"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Glass.mat",
+      "guid": "4addd162bf1121443a7139589961eb9f",
+      "sha256": "2a966d38cf08756b3ac06b5eafafe0a91e6eb4557b8f5f5a4402cd374fb72fb3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Glass.M_Airship_R17_Glass",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-translucent",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Translucent.M_CML_UnityLit_Translucent",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          0.035,
+          0.24,
+          0.52,
+          0.54
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.28,
+        "resolvedTextures": {},
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Opaque.mat",
+      "guid": "0a6abd3b92c052d4680f86262a618d57",
+      "sha256": "1a0cce6acd5b4f92c3c22430373fcf525a13c98bd327ff03f6fc28508453c946",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Opaque.M_Airship_R17_Opaque",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.6599999999999999,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Textures/T_Airship_BaseColor.T_Airship_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Wood.mat",
+      "guid": "e4f67b68f72537841845ced57abe19ab",
+      "sha256": "45af8b4f5e11f401027c6525bfea0d37454f3b755274e85855f4b9bd8adbe7b4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Materials/M_Airship_R17_Wood.M_Airship_R17_Wood",
+      "shaderGuid": "933532a4fcc9baf4fa0491de14d08ed7",
+      "shaderName": "Universal Render Pipeline/Lit",
+      "classification": "lit-opaque",
+      "parent": "/Game/Migration/Masters/M_CML_UnityLit_Opaque.M_CML_UnityLit_Opaque",
+      "portKind": "fallback-pbr",
+      "requiresSpecializedShaderPort": false,
+      "parameters": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallic": 0.0,
+        "roughness": 0.5800000000000001,
+        "resolvedTextures": {
+          "BaseTexture": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Textures/T_Airship_Wood_BaseColor.T_Airship_Wood_BaseColor"
+        },
+        "unresolvedTextures": {}
+      }
+    }
+  ]
+}

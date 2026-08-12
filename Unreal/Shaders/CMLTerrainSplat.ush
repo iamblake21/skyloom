@@ -1,0 +1,150 @@
+// Clean-room reconstruction of the clear-weather M_Landscape_Solarpunk base
+// pass decoded from its cooked FLandscapeVertexFactory shader permutation.
+//
+// This is intentionally not the landmass mesh material: Landscape uses only
+// the two vertical cliff projections; the painted grass/dirt surface owns the
+// top. The cap and normal transition are the decoded (-0.6, 10) slope mask.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+#include "/CML/CMLLandmassSurface.ush"
+
+struct CMLTerrainTopWeights
+{
+    float Grass;
+    float Dirt;
+};
+
+/**
+ * Source height-style grass/dirt blend. Unity control R/G are the two grass
+ * layers and B is the authored dirt/path layer. The clean-room blend texture
+ * substitutes only T_NoiseRough; the algebra and 0.8 amplitude are decoded.
+ */
+CMLTerrainTopWeights CMLTerrainSourceTopWeights(float4 Control, float BlendNoise)
+{
+    float GrassWeight = saturate(Control.r + Control.g);
+    float DirtWeight = saturate(Control.b);
+    float EffectiveDirt = clamp(DirtWeight * 2.0f - 1.0f + saturate(BlendNoise) * 0.8f,
+        0.0001f, 1.0f);
+    float WeightSum = max(GrassWeight + EffectiveDirt, 0.0001f);
+
+    CMLTerrainTopWeights Result;
+    Result.Grass = GrassWeight / WeightSum;
+    Result.Dirt = EffectiveDirt / WeightSum;
+    return Result;
+}
+
+float3 CMLTerrainSourceAlbedo(
+    float4 Control,
+    float BlendNoise,
+    float Variation,
+    float3 GrassColor1,
+    float3 GrassColor2,
+    float3 GrassSunAlbedo,
+    float3 GrassDeepAlbedo,
+    float GrassTextureStrength,
+    float GrassTextureLumaMatch,
+    float3 DirtAlbedo,
+    float3 DirtTint,
+    float3 SlopeAlbedo,
+    float3 UnityGeometricNormalWS,
+    float SlopeOffset,
+    float SlopeHardness)
+{
+    CMLTerrainTopWeights Weights = CMLTerrainSourceTopWeights(Control, BlendNoise);
+    float3 GrassPalette = CMLLandmassGrassColor(Variation, GrassColor1, GrassColor2);
+
+    // The source landscape uses the seasonal palette as its macro colour.  The
+    // migrated project also owns useful, hand-authored grass albedos; preserve
+    // their local fibres without allowing their average luminance to replace
+    // (and fluoresce over) the decoded palette.
+    float PaintedGrassWeight = max(Control.r + Control.g, 0.0001f);
+    float3 GrassTexture =
+        (GrassSunAlbedo * Control.r + GrassDeepAlbedo * Control.g) /
+        PaintedGrassWeight;
+    float PaletteLuma = max(dot(GrassPalette, float3(0.212639f, 0.715169f, 0.072192f)), 0.01f);
+    float TextureLuma = max(dot(GrassTexture, float3(0.212639f, 0.715169f, 0.072192f)), 0.01f);
+    float3 LumaMatchedTexture = GrassTexture * (PaletteLuma / TextureLuma);
+    float3 BoundedTexture = lerp(GrassTexture, LumaMatchedTexture, saturate(GrassTextureLumaMatch));
+    BoundedTexture = clamp(BoundedTexture, GrassPalette * 0.42f, GrassPalette * 1.85f);
+    float3 Grass = lerp(GrassPalette, BoundedTexture, saturate(GrassTextureStrength));
+    float3 Dirt = DirtAlbedo * DirtTint;
+    float3 Top = Grass * Weights.Grass + Dirt * Weights.Dirt;
+    float TopMask = CMLTerrainTopMask(UnityGeometricNormalWS, SlopeOffset, SlopeHardness);
+    return saturate(lerp(SlopeAlbedo, Top, TopMask));
+}
+
+/**
+ * The decoded Landscape top normal is flat grass plus a dirt normal flattened
+ * halfway toward the geometric normal. The slope normal uses the two vertical
+ * cliff projections with the soft abs(N.x) weight decoded from DXBC.
+ */
+float3 CMLTerrainSourceNormal(
+    float4 Control,
+    float BlendNoise,
+    float3 GrassSunNormalWS,
+    float3 GrassDeepNormalWS,
+    float GrassNormalStrength,
+    float3 DirtNormalWS,
+    float3 SlopeNormalWS,
+    float3 UnityGeometricNormalWS,
+    float SlopeOffset,
+    float SlopeHardness)
+{
+    float3 GeometricNormal = normalize(UnityGeometricNormalWS);
+    CMLTerrainTopWeights Weights = CMLTerrainSourceTopWeights(Control, BlendNoise);
+    float PaintedGrassWeight = max(Control.r + Control.g, 0.0001f);
+    float3 TexturedGrassNormal = normalize(
+        (GrassSunNormalWS * Control.r + GrassDeepNormalWS * Control.g) /
+        PaintedGrassWeight);
+    float3 GrassNormal = normalize(lerp(
+        GeometricNormal, TexturedGrassNormal, saturate(GrassNormalStrength)));
+    float3 FlattenedDirt = normalize(lerp(DirtNormalWS, GeometricNormal, 0.5f));
+    float3 TopNormal = normalize(
+        GrassNormal * Weights.Grass + FlattenedDirt * Weights.Dirt);
+    float TopMask = CMLTerrainTopMask(GeometricNormal, SlopeOffset, SlopeHardness);
+    return normalize(lerp(SlopeNormalWS, TopNormal, TopMask));
+}
+
+/** Density written to LandscapeGrassOutput: painted grass only, no dirt/path or cliffs. */
+float CMLTerrainGrassDensity(
+    float4 Control,
+    float3 UnityGeometricNormalWS,
+    float SlopeOffset,
+    float SlopeHardness)
+{
+    float PaintedGrass = saturate(Control.r + Control.g);
+    float DirtSuppression = 1.0f - saturate(Control.b * 1.35f);
+    float TopMask = CMLTerrainTopMask(UnityGeometricNormalWS, SlopeOffset, SlopeHardness);
+    return saturate(PaintedGrass * DirtSuppression * TopMask);
+}
+
+/** UE Default Lit Specular: 0.5 on rock/grass and 0.1 on dirt. */
+float CMLTerrainSourceSpecular(
+    float4 Control,
+    float BlendNoise,
+    float3 UnityGeometricNormalWS,
+    float SlopeOffset,
+    float SlopeHardness)
+{
+    CMLTerrainTopWeights Weights = CMLTerrainSourceTopWeights(Control, BlendNoise);
+    float TopSpecular = Weights.Grass * 0.5f + Weights.Dirt * 0.1f;
+    float TopMask = CMLTerrainTopMask(UnityGeometricNormalWS, SlopeOffset, SlopeHardness);
+    return lerp(0.5f, TopSpecular, TopMask);
+}
+
+/** Convert a tangent-space dirt normal using the Landscape geometric frame. */
+float3 CMLTerrainTangentNormalToWorld(float3 TangentNormal, float3 UnityGeometricNormalWS)
+{
+    float3 N = normalize(UnityGeometricNormalWS);
+    float3 TangentReference = abs(N.y) > 0.95f
+        ? float3(0.0f, 0.0f, 1.0f)
+        : float3(0.0f, 1.0f, 0.0f);
+    float3 TangentWS = normalize(cross(TangentReference, N));
+    float3 BitangentWS = normalize(cross(N, TangentWS));
+    return normalize(
+        TangentWS * TangentNormal.x +
+        BitangentWS * TangentNormal.y +
+        N * TangentNormal.z);
+}

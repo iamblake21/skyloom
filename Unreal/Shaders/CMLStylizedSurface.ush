@@ -1,0 +1,106 @@
+// Port of Assets/_Project/Art/Environment/StarterIsland/Shaders/
+// StarterIslandStylizedSurface.shader (fragment albedo).
+//
+// The Unity pass hand-rolled its own lighting term on top of this albedo
+// (_AmbientStrength / _ShadowFloor wrap). Unreal evaluates lighting outside the
+// material, so this port reproduces the full procedural *albedo* — vertex
+// blend, world colour variation, rock top/underside tinting, two-band world
+// noise and the Terrain contact transfer — and leaves the light response to the
+// scene rig. Roughness 1 / Specular 0 matches the Unity surface exactly.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+
+/** Alphamap UV in the Unity Terrain's own space; z/w carry 1/size. */
+float2 CMLStylizedTerrainUV(float3 UnityPositionWS, float4 TerrainOriginInvSize)
+{
+    return (UnityPositionWS.xz - TerrainOriginInvSize.xy) * TerrainOriginInvSize.zw;
+}
+
+float3 CMLStylizedSurfaceAlbedo(
+    float3 UnityPositionWS,
+    float3 UnityNormalWS,
+    float LocalHeight,
+    float4 VertexColor,
+    float3 BaseColorIn,
+    float3 SecondaryColor,
+    float3 WetColor,
+    float VertexBlend,
+    float ColorVariation,
+    float RockDetail,
+    float3 RockTopColor,
+    float3 RockUnderColor,
+    float RockTopStrength,
+    float RockUnderStrength,
+    float RockMacroScale,
+    float RockMacroStrength,
+    float RockGrainScale,
+    float RockGrainStrength,
+    float RockContactBlend,
+    float RockContactHeight,
+    float RockContactFeather,
+    float RockContactNoise,
+    float3 ContactGrassColor,
+    float3 ContactDeepGrassColor,
+    float3 ContactDirtColor,
+    float3 ContactCliffColor,
+    float4 TerrainWeights,
+    float2 TerrainUV,
+    float TerrainBlendEnabled)
+{
+    float3 NormalWS = normalize(UnityNormalWS);
+
+    float GrassWeight = saturate(VertexColor.r);
+    float WetWeight = saturate(VertexColor.a);
+    float3 AuthoredBlend = lerp(SecondaryColor, BaseColorIn, GrassWeight);
+    float3 BaseColor = lerp(BaseColorIn, AuthoredBlend, VertexBlend);
+    BaseColor = lerp(BaseColor, WetColor, WetWeight * VertexBlend * 0.46f);
+
+    float Variation =
+        sin(UnityPositionWS.x * 0.087f + UnityPositionWS.z * 0.061f) *
+        sin(UnityPositionWS.x * 0.031f - UnityPositionWS.z * 0.109f);
+    BaseColor *= 1.0f + Variation * ColorVariation;
+
+    // The reference stone is neutral grey. Warm bright areas come from
+    // upward-facing facets, downward facets retain a cooler ground bounce, and
+    // two world-space noise bands break the flat fill without turning the
+    // low-poly surface into photographic stone.
+    float TopWeight = smoothstep(0.18f, 0.88f, saturate(NormalWS.y));
+    float UnderWeight = smoothstep(0.05f, 0.76f, saturate(-NormalWS.y));
+    float MacroNoise = CMLValueNoise(UnityPositionWS * RockMacroScale);
+    float GrainNoise = CMLValueNoise(UnityPositionWS * RockGrainScale + float3(17.2f, 5.7f, 11.9f));
+    float RockVariation =
+        (MacroNoise * 2.0f - 1.0f) * RockMacroStrength +
+        (GrainNoise * 2.0f - 1.0f) * RockGrainStrength;
+
+    float3 RockColor = BaseColor * (1.0f + RockVariation);
+    RockColor = lerp(
+        RockColor, RockTopColor * (1.0f + RockVariation * 0.35f), TopWeight * RockTopStrength);
+    RockColor = lerp(
+        RockColor, RockUnderColor * (1.0f + RockVariation * 0.22f), UnderWeight * RockUnderStrength);
+
+    // Read the very same RGBA alphamap used by the Terrain: R/G are the two
+    // grass layers, B is path/dirt and A is cliff. Local mesh height limits the
+    // transfer to the buried base; world noise makes the boundary organic.
+    float TerrainBounds =
+        step(0.0f, TerrainUV.x) * step(TerrainUV.x, 1.0f) *
+        step(0.0f, TerrainUV.y) * step(TerrainUV.y, 1.0f);
+    float4 Weights = TerrainWeights / max(dot(TerrainWeights, float4(1.0f, 1.0f, 1.0f, 1.0f)), 0.0001f);
+    float3 TerrainContactColor =
+        ContactGrassColor * Weights.r +
+        ContactDeepGrassColor * Weights.g +
+        ContactDirtColor * Weights.b +
+        ContactCliffColor * Weights.a;
+
+    float ContactEdgeNoise =
+        (CMLValueNoise(UnityPositionWS * 1.37f + float3(4.1f, 23.7f, 8.9f)) - 0.5f) * RockContactNoise;
+    float ContactMask = 1.0f - smoothstep(
+        RockContactHeight - RockContactFeather,
+        RockContactHeight + RockContactFeather,
+        LocalHeight + ContactEdgeNoise);
+    ContactMask *= TerrainBounds * saturate(TerrainBlendEnabled) * RockContactBlend;
+
+    RockColor = lerp(RockColor, TerrainContactColor * (0.93f + MacroNoise * 0.14f), ContactMask);
+    return lerp(BaseColor, RockColor, RockDetail);
+}

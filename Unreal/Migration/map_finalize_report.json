@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "backup": "C:\\Users\\slicc\\Documents\\Changing My Life\\Unreal\\Saved\\MigrationBackups\\MapFinalize-20260811-061821",
+  "assetDefaults": {
+    "changedAssets": 0,
+    "changedSlots": 0,
+    "unresolved": [
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Medium_Autumn_LOD0/GEO_ENV_Bush_CloudBush_Medium_Autumn_LOD0_Mass.GEO_ENV_Bush_CloudBush_Medium_Autumn_LOD0_Mass: unresolved default slot 0 (M_ENV_Bush_CloudBush_Medium_Autumn_LOD0_Mass)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Medium_Autumn_LOD0/GEO_ENV_Bush_CloudBush_Medium_Autumn_LOD0_Sprigs.GEO_ENV_Bush_CloudBush_Medium_Autumn_LOD0_Sprigs: unresolved default slot 0 (M_ENV_Bush_CloudBush_Medium_Autumn_LOD0_Sprigs)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Medium_LOD0/GEO_ENV_Bush_CloudBush_Medium_LOD0_Mass.GEO_ENV_Bush_CloudBush_Medium_LOD0_Mass: unresolved default slot 0 (M_ENV_Bush_CloudBush_Medium_LOD0_Mass)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Medium_LOD0/GEO_ENV_Bush_CloudBush_Medium_LOD0_Sprigs.GEO_ENV_Bush_CloudBush_Medium_LOD0_Sprigs: unresolved default slot 0 (M_ENV_Bush_CloudBush_Medium_LOD0_Sprigs)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Small_Autumn_LOD0/GEO_ENV_Bush_CloudBush_Small_Autumn_LOD0_Mass.GEO_ENV_Bush_CloudBush_Small_Autumn_LOD0_Mass: unresolved default slot 0 (M_ENV_Bush_CloudBush_Small_Autumn_LOD0_Mass)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Small_Autumn_LOD0/GEO_ENV_Bush_CloudBush_Small_Autumn_LOD0_Sprigs.GEO_ENV_Bush_CloudBush_Small_Autumn_LOD0_Sprigs: unresolved default slot 0 (M_ENV_Bush_CloudBush_Small_Autumn_LOD0_Sprigs)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Small_LOD0/GEO_ENV_Bush_CloudBush_Small_LOD0_Mass.GEO_ENV_Bush_CloudBush_Small_LOD0_Mass: unresolved default slot 0 (M_ENV_Bush_CloudBush_Small_LOD0_Mass)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Small_LOD0/GEO_ENV_Bush_CloudBush_Small_LOD0_Sprigs.GEO_ENV_Bush_CloudBush_Small_LOD0_Sprigs: unresolved default slot 0 (M_ENV_Bush_CloudBush_Small_LOD0_Sprigs)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Wide_Autumn_LOD0/GEO_ENV_Bush_CloudBush_Wide_Autumn_LOD0_Mass.GEO_ENV_Bush_CloudBush_Wide_Autumn_LOD0_Mass: unresolved default slot 0 (M_ENV_Bush_CloudBush_Wide_Autumn_LOD0_Mass)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Wide_Autumn_LOD0/GEO_ENV_Bush_CloudBush_Wide_Autumn_LOD0_Sprigs.GEO_ENV_Bush_CloudBush_Wide_Autumn_LOD0_Sprigs: unresolved default slot 0 (M_ENV_Bush_CloudBush_Wide_Autumn_LOD0_Sprigs)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Wide_LOD0/GEO_ENV_Bush_CloudBush_Wide_LOD0_Mass.GEO_ENV_Bush_CloudBush_Wide_LOD0_Mass: unresolved default slot 0 (M_ENV_Bush_CloudBush_Wide_LOD0_Mass)",
+      "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Models/ENV_Bush_CloudBush_Wide_LOD0/GEO_ENV_Bush_CloudBush_Wide_LOD0_Sprigs.GEO_ENV_Bush_CloudBush_Wide_LOD0_Sprigs: unresolved default slot 0 (M_ENV_Bush_CloudBush_Wide_LOD0_Sprigs)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Amber_A/CLU_Bush_Amber_A_Leaves.CLU_Bush_Amber_A_Leaves: unresolved default slot 0 (M_CLU_Bush_Leaves_Amber)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Amber_A/CLU_Bush_Amber_A_Twigs.CLU_Bush_Amber_A_Twigs: unresolved default slot 0 (M_CLU_Bush_Twigs)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Autumn_A/CLU_Bush_Autumn_A_Leaves.CLU_Bush_Autumn_A_Leaves: unresolved default slot 0 (M_CLU_Bush_Leaves_Autumn)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Autumn_A/CLU_Bush_Autumn_A_Twigs.CLU_Bush_Autumn_A_Twigs: unresolved default slot 0 (M_CLU_Bush_Twigs)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Medium_A/CLU_Bush_Medium_A_Leaves.CLU_Bush_Medium_A_Leaves: unresolved default slot 0 (M_CLU_Bush_Leaves)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Medium_A/CLU_Bush_Medium_A_Twigs.CLU_Bush_Medium_A_Twigs: unresolved default slot 0 (M_CLU_Bush_Twigs)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Small_A/CLU_Bush_Small_A_Leaves.CLU_Bush_Small_A_Leaves: unresolved default slot 0 (M_CLU_Bush_Leaves)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Small_A/CLU_Bush_Small_A_Twigs.CLU_Bush_Small_A_Twigs: unresolved default slot 0 (M_CLU_Bush_Twigs)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Wide_A/CLU_Bush_Wide_A_Leaves.CLU_Bush_Wide_A_Leaves: unresolved default slot 0 (M_CLU_Bush_Leaves)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Models/CLU_Bush_Wide_A/CLU_Bush_Wide_A_Twigs.CLU_Bush_Wide_A_Twigs: unresolved default slot 0 (M_CLU_Bush_Twigs)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudRound_C_LOD0/GEO_Tree_CloudRound_C_Branches.GEO_Tree_CloudRound_C_Branches: unresolved default slot 0 (M_ENV_Tree_CloudRound_C_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudRound_C_LOD0/GEO_Tree_CloudRound_C_CanopyLower.GEO_Tree_CloudRound_C_CanopyLower: unresolved default slot 0 (M_ENV_Tree_CloudRound_C_Leaves)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudRound_C_LOD0/GEO_Tree_CloudRound_C_CanopySide.GEO_Tree_CloudRound_C_CanopySide: unresolved default slot 0 (M_ENV_Tree_CloudRound_C_Leaves)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudRound_C_LOD0/GEO_Tree_CloudRound_C_CanopyUpper.GEO_Tree_CloudRound_C_CanopyUpper: unresolved default slot 0 (M_ENV_Tree_CloudRound_C_Leaves)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudRound_C_LOD0/GEO_Tree_CloudRound_C_TuftShell.GEO_Tree_CloudRound_C_TuftShell: unresolved default slot 0 (M_ENV_Tree_CloudRound_C_Tufts)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_A_Autumn_LOD0/GEO_ENV_Tree_CloudTall_A_Autumn_LOD0_Canopy.GEO_ENV_Tree_CloudTall_A_Autumn_LOD0_Canopy: unresolved default slot 0 (M_ENV_Tree_CloudTall_A_Autumn_LOD0_Canopy)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_A_Autumn_LOD0/GEO_ENV_Tree_CloudTall_A_Autumn_LOD0_Fringe.GEO_ENV_Tree_CloudTall_A_Autumn_LOD0_Fringe: unresolved default slot 0 (M_ENV_Tree_CloudTall_A_Autumn_LOD0_Fringe)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_A_Autumn_LOD0/GEO_ENV_Tree_CloudTall_A_Autumn_LOD0_Trunk.GEO_ENV_Tree_CloudTall_A_Autumn_LOD0_Trunk: unresolved default slot 0 (M_ENV_Tree_CloudTall_A_Autumn_LOD0_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_A_LOD0/GEO_ENV_Tree_CloudTall_A_LOD0_Canopy.GEO_ENV_Tree_CloudTall_A_LOD0_Canopy: unresolved default slot 0 (M_ENV_Tree_CloudTall_A_LOD0_Canopy)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_A_LOD0/GEO_ENV_Tree_CloudTall_A_LOD0_Fringe.GEO_ENV_Tree_CloudTall_A_LOD0_Fringe: unresolved default slot 0 (M_ENV_Tree_CloudTall_A_LOD0_Fringe)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_A_LOD0/GEO_ENV_Tree_CloudTall_A_LOD0_Trunk.GEO_ENV_Tree_CloudTall_A_LOD0_Trunk: unresolved default slot 0 (M_ENV_Tree_CloudTall_A_LOD0_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_B_Autumn_LOD0/GEO_ENV_Tree_CloudTall_B_Autumn_LOD0_Canopy.GEO_ENV_Tree_CloudTall_B_Autumn_LOD0_Canopy: unresolved default slot 0 (M_ENV_Tree_CloudTall_B_Autumn_LOD0_Canopy)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_B_Autumn_LOD0/GEO_ENV_Tree_CloudTall_B_Autumn_LOD0_Fringe.GEO_ENV_Tree_CloudTall_B_Autumn_LOD0_Fringe: unresolved default slot 0 (M_ENV_Tree_CloudTall_B_Autumn_LOD0_Fringe)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_B_Autumn_LOD0/GEO_ENV_Tree_CloudTall_B_Autumn_LOD0_Trunk.GEO_ENV_Tree_CloudTall_B_Autumn_LOD0_Trunk: unresolved default slot 0 (M_ENV_Tree_CloudTall_B_Autumn_LOD0_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_B_LOD0/GEO_ENV_Tree_CloudTall_B_LOD0_Canopy.GEO_ENV_Tree_CloudTall_B_LOD0_Canopy: unresolved default slot 0 (M_ENV_Tree_CloudTall_B_LOD0_Canopy)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_B_LOD0/GEO_ENV_Tree_CloudTall_B_LOD0_Fringe.GEO_ENV_Tree_CloudTall_B_LOD0_Fringe: unresolved default slot 0 (M_ENV_Tree_CloudTall_B_LOD0_Fringe)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_B_LOD0/GEO_ENV_Tree_CloudTall_B_LOD0_Trunk.GEO_ENV_Tree_CloudTall_B_LOD0_Trunk: unresolved default slot 0 (M_ENV_Tree_CloudTall_B_LOD0_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_C_Autumn_LOD0/GEO_ENV_Tree_CloudTall_C_Autumn_LOD0_Canopy.GEO_ENV_Tree_CloudTall_C_Autumn_LOD0_Canopy: unresolved default slot 0 (M_ENV_Tree_CloudTall_C_Autumn_LOD0_Canopy)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_C_Autumn_LOD0/GEO_ENV_Tree_CloudTall_C_Autumn_LOD0_Fringe.GEO_ENV_Tree_CloudTall_C_Autumn_LOD0_Fringe: unresolved default slot 0 (M_ENV_Tree_CloudTall_C_Autumn_LOD0_Fringe)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_C_Autumn_LOD0/GEO_ENV_Tree_CloudTall_C_Autumn_LOD0_Trunk.GEO_ENV_Tree_CloudTall_C_Autumn_LOD0_Trunk: unresolved default slot 0 (M_ENV_Tree_CloudTall_C_Autumn_LOD0_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_C_LOD0/GEO_ENV_Tree_CloudTall_C_LOD0_Canopy.GEO_ENV_Tree_CloudTall_C_LOD0_Canopy: unresolved default slot 0 (M_ENV_Tree_CloudTall_C_LOD0_Canopy)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_C_LOD0/GEO_ENV_Tree_CloudTall_C_LOD0_Fringe.GEO_ENV_Tree_CloudTall_C_LOD0_Fringe: unresolved default slot 0 (M_ENV_Tree_CloudTall_C_LOD0_Fringe)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Models/ENV_Tree_CloudTall_C_LOD0/GEO_ENV_Tree_CloudTall_C_LOD0_Trunk.GEO_ENV_Tree_CloudTall_C_LOD0_Trunk: unresolved default slot 0 (M_ENV_Tree_CloudTall_C_LOD0_Bark)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_ClaudeV1/Models/SM_VRKC1_Arch_A/SM_VRKC1_Arch_A.SM_VRKC1_Arch_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_ClaudeV1/Models/SM_VRKC1_Overhang_A/SM_VRKC1_Overhang_A.SM_VRKC1_Overhang_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_ClaudeV1/Models/SM_VRKC1_Stone_B/SM_VRKC1_Stone_B.SM_VRKC1_Stone_B: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migrated/Project/Art/ManualEra/Wood/Models/MESH_Item_WoodLog/MESH_Item_WoodLog.MESH_Item_WoodLog: unresolved default slot 0 (M_Item_WoodLog_Bark)",
+      "/Game/Migration/EmbeddedMeshes/SM_MD_Water_Pond_Main.SM_MD_Water_Pond_Main: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Corner_A.SM_MESH_VRKS_Corner_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Corner_B.SM_MESH_VRKS_Corner_B: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_End_A.SM_MESH_VRKS_End_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_End_B.SM_MESH_VRKS_End_B: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Ledge_A.SM_MESH_VRKS_Ledge_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Straight_A.SM_MESH_VRKS_Straight_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Straight_B.SM_MESH_VRKS_Straight_B: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Transition_A.SM_MESH_VRKS_Transition_A: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_00.SM_MSH_CIN_Asteroid_00: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_01.SM_MSH_CIN_Asteroid_01: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_02.SM_MSH_CIN_Asteroid_02: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_03.SM_MSH_CIN_Asteroid_03: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_04.SM_MSH_CIN_Asteroid_04: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_05.SM_MSH_CIN_Asteroid_05: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_06.SM_MSH_CIN_Asteroid_06: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_07.SM_MSH_CIN_Asteroid_07: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_08.SM_MSH_CIN_Asteroid_08: unresolved default slot 0 (WorldGridMaterial)",
+      "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_WarpTunnel.SM_MSH_CIN_WarpTunnel: unresolved default slot 0 (WorldGridMaterial)"
+    ]
+  },
+  "maps": [
+    {
+      "map": "/Game/Maps/A_10_StarterIsland_MigrationPreview",
+      "removedSourceArtifacts": [],
+      "components": {
+        "changedComponents": 0,
+        "changedSlots": 0,
+        "missingSlotsBefore": 0,
+        "missingSlotsAfter": 0,
+        "unresolved": []
+      },
+      "lighting": {
+        "changed": [
+          {
+            "actor": "ENV_Sun",
+            "intensity": 10.0,
+            "sourceAngle": 1.2
+          },
+          {
+            "actor": "CML_SkyLight",
+            "intensity": 1.25,
+            "realTimeCapture": true
+          }
+        ]
+      }
+    }
+  ]
+}

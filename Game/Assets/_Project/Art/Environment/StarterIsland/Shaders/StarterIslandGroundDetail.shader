@@ -113,6 +113,20 @@ Shader "CML/Environment/Starter Island Ground Detail"
                 : _Time.y;
         }
 
+        half MeasuredBladeAlpha(float2 uv)
+        {
+            // The production Terrain grass now uses authored ribbon geometry.
+            // Shape the thin outer edge procedurally instead of stamping the
+            // old third-party card mask over the imported silhouette.
+            half edgeDistance = 1.0h - abs(uv.x * 2.0h - 1.0h);
+            half serration = (half)Hash21(
+                floor(uv * float2(12.0, 24.0)) + 7.0);
+            return smoothstep(
+                0.025h,
+                0.135h + serration * 0.025h,
+                edgeDistance);
+        }
+
         float3 DeformGrassVertex(
             float3 positionOS,
             half4 vertexColor,
@@ -324,10 +338,7 @@ Shader "CML/Environment/Starter Island Ground Detail"
                 Varyings input,
                 bool isFrontFace : SV_IsFrontFace) : SV_Target
             {
-                half bladeAlpha = SAMPLE_TEXTURE2D(
-                    _BladeMask,
-                    sampler_BladeMask,
-                    input.uv).a;
+                half bladeAlpha = MeasuredBladeAlpha(input.uv);
                 clip(bladeAlpha - _Cutoff);
 
                 half3 terrainAlbedo = SampleTerrainAlbedo(input.anchorWS.xz);
@@ -416,10 +427,7 @@ Shader "CML/Environment/Starter Island Ground Detail"
 
             half4 DepthFrag(DepthVaryings input) : SV_Target
             {
-                half bladeAlpha = SAMPLE_TEXTURE2D(
-                    _BladeMask,
-                    sampler_BladeMask,
-                    input.uv).a;
+                half bladeAlpha = MeasuredBladeAlpha(input.uv);
                 clip(bladeAlpha - _Cutoff);
                 return 0;
             }

@@ -1,0 +1,1331 @@
+{
+  "schema": 1,
+  "map": "/Game/Maps/A_10_StarterIsland_AxisPreview",
+  "landscapeCount": 1,
+  "landscapes": [
+    {
+      "label": "TerrainTop",
+      "origin": [
+        0.0,
+        0.0,
+        4734.480864310566
+      ],
+      "extent": [
+        25000.0,
+        33000.0,
+        3480.7422328022953
+      ],
+      "material": "/Game/_Project/Art/Environment/SoStylized/Environment/Landscape/Materials/MI_LandscapeVol1.MI_LandscapeVol1"
+    }
+  ],
+  "landscapeUnion": {
+    "origin": [
+      0.0,
+      0.0,
+      4734.480864310566
+    ],
+    "extent": [
+      25000.0,
+      33000.0,
+      3480.742232802295
+    ]
+  },
+  "playerStartCount": 1,
+  "playerStarts": [
+    {
+      "label": "CML_PlayerStart",
+      "location": [
+        -19531.25,
+        -24750.0,
+        2765.0
+      ],
+      "rotation": [
+        0.0,
+        47.00000000000002,
+        -0.0
+      ],
+      "insideLandscapeXY": true
+    }
+  ],
+  "cameras": [
+    {
+      "label": "Main_Camera",
+      "location": [
+        -19345.0,
+        -27645.0,
+        2830.3992
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "insideLandscapeXY": true
+    }
+  ],
+  "captures": [
+    "C:\\Users\\slicc\\Documents\\Changing My Life\\Unreal\\Saved\\SoStylizedValidation\\starter_island_overview",
+    "C:\\Users\\slicc\\Documents\\Changing My Life\\Unreal\\Saved\\SoStylizedValidation\\starter_island_overview_base_color",
+    "C:\\Users\\slicc\\Documents\\Changing My Life\\Unreal\\Saved\\SoStylizedValidation\\starter_island_player",
+    "C:\\Users\\slicc\\Documents\\Changing My Life\\Unreal\\Saved\\SoStylizedValidation\\starter_island_water"
+  ],
+  "captureHiddenActorLabels": [],
+  "actorCount": 1662,
+  "staticMeshComponentCount": 2935,
+  "emptyStaticMeshComponents": 6,
+  "placeholderStaticMeshComponents": [
+    {
+      "actor": "DEC_CliffRock_11_CliffPillarTall",
+      "component": "PF_CliffPillarTall",
+      "actorClass": "BP_PF_CliffPillarTall_C"
+    },
+    {
+      "actor": "DEC_CliffRock_05_CliffPillarTall",
+      "component": "PF_CliffPillarTall",
+      "actorClass": "BP_PF_CliffPillarTall_C"
+    },
+    {
+      "actor": "PF_StarterIsland_Terrain",
+      "component": "TerrainUnderbody",
+      "actorClass": "BP_PF_StarterIsland_Terrain_C"
+    },
+    {
+      "actor": "DEC_CliffRock_06_CliffBaseMass",
+      "component": "PF_CliffBaseMass",
+      "actorClass": "BP_PF_CliffBaseMass_C"
+    },
+    {
+      "actor": "DEC_CliffRock_14_CliffBaseMass",
+      "component": "PF_CliffBaseMass",
+      "actorClass": "BP_PF_CliffBaseMass_C"
+    },
+    {
+      "actor": "ENV_SoStylized_Water_Pond",
+      "component": "SM_OceanExtension",
+      "actorClass": "BP_Classic_Water_C"
+    }
+  ],
+  "renderableActorCount": 1647,
+  "renderableActorInsideLandscapeXYCount": 1647,
+  "renderableActorOutsideLandscapeXYCount": 0,
+  "renderableBounds": {
+    "min": [
+      -9872305600.000004,
+      -9872304000.000004,
+      -9429298400.0
+    ],
+    "max": [
+      9872310400.000004,
+      9872308000.000004,
+      9975768000.0
+    ],
+    "origin": [
+      2400.0,
+      2000.0,
+      273234800.0
+    ],
+    "extent": [
+      9872308000.000004,
+      9872306000.000004,
+      9702533200.0
+    ]
+  },
+  "renderableActorSamples": [
+    {
+      "label": "DEC_PathPebble_173",
+      "class": "StaticMeshActor",
+      "location": [
+        -10118.1335,
+        16897.379,
+        4296.4684
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_142",
+      "class": "StaticMeshActor",
+      "location": [
+        9849.015,
+        12042.3,
+        4993.1606
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_180",
+      "class": "StaticMeshActor",
+      "location": [
+        -12242.0815,
+        19335.414,
+        4295.858
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_295",
+      "class": "StaticMeshActor",
+      "location": [
+        14147.746000000001,
+        -21582.147,
+        8186.436999999999
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_029",
+      "class": "StaticMeshActor",
+      "location": [
+        -11951.367,
+        -14488.829000000002,
+        2351.7696
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Amber_018",
+      "class": "BP_PF_ENV_Bush_CloudBush_Wide_Autumn_LOD0_C",
+      "location": [
+        18967.726,
+        14427.936,
+        1439.0167
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_143",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        8366.399,
+        12445.305999999999,
+        4998.874699999999
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_140",
+      "class": "StaticMeshActor",
+      "location": [
+        13286.521999999999,
+        -19318.260000000002,
+        7951.884
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_224",
+      "class": "StaticMeshActor",
+      "location": [
+        3633.5194,
+        9852.6276,
+        3839.0705
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_411",
+      "class": "StaticMeshActor",
+      "location": [
+        -20465.878,
+        -16289.964,
+        2611.4168
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Medium_092",
+      "class": "BP_PF_ENV_Bush_CloudBush_Medium_LOD0_C",
+      "location": [
+        -6374.115400000001,
+        18748.412,
+        4294.6957
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_290",
+      "class": "StaticMeshActor",
+      "location": [
+        -12544.897500000001,
+        18097.506999999998,
+        4281.3957
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_253",
+      "class": "StaticMeshActor",
+      "location": [
+        2192.4335,
+        11418.231,
+        3700.0
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Wide_090",
+      "class": "BP_PF_ENV_Bush_CloudBush_Wide_LOD0_C",
+      "location": [
+        -13996.864,
+        17540.970999999998,
+        4297.8397
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Wide_005",
+      "class": "BP_PF_ENV_Bush_CloudBush_Wide_LOD0_C",
+      "location": [
+        16914.514,
+        13859.169,
+        1435.6345
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Medium_082",
+      "class": "BP_PF_ENV_Bush_CloudBush_Medium_LOD0_C",
+      "location": [
+        14568.738,
+        -11277.72,
+        4989.303199999999
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_347",
+      "class": "StaticMeshActor",
+      "location": [
+        -16404.8,
+        -24148.8,
+        2672.2000000000003
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_251",
+      "class": "StaticMeshActor",
+      "location": [
+        -13953.630000000001,
+        -20079.486,
+        2609.9993
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_143",
+      "class": "StaticMeshActor",
+      "location": [
+        13669.06,
+        -19846.558999999997,
+        8101.179999999999
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_159",
+      "class": "StaticMeshActor",
+      "location": [
+        18626.24,
+        -13121.277,
+        1398.9178000000002
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Autumn_001",
+      "class": "BP_PF_ENV_Bush_CloudBush_Medium_Autumn_LOD0_C",
+      "location": [
+        15414.903,
+        11936.952,
+        1448.1514
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_156",
+      "class": "StaticMeshActor",
+      "location": [
+        5434.6449999999995,
+        24360.074,
+        6180.293000000001
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_427",
+      "class": "StaticMeshActor",
+      "location": [
+        -3051.4107,
+        -25563.5,
+        2980.1779
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_128",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        17583.49,
+        14864.608999999999,
+        1433.42085
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_084",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        12627.217,
+        10495.6345,
+        1451.7773
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_097",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        9584.8145,
+        9955.154400000001,
+        5001.429
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_100",
+      "class": "StaticMeshActor",
+      "location": [
+        11373.4764,
+        22063.428,
+        7996.035000000001
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Medium_119",
+      "class": "BP_PF_ENV_Bush_CloudBush_Medium_LOD0_C",
+      "location": [
+        8684.3094,
+        -12007.8186,
+        5002.5616
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (8)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "location": [
+        11800.0,
+        26800.0,
+        4100.0
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "GATHER_fiber_04",
+      "class": "BP_PF_ENV_FiberPlant_Wild_A_C",
+      "location": [
+        -18549.09,
+        -24885.14,
+        2620.568
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_044",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        -5486.5734,
+        26755.57,
+        1402.3084000000001
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_076",
+      "class": "StaticMeshActor",
+      "location": [
+        6168.963,
+        -18101.184,
+        4983.7673
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_019",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        10141.5924,
+        -9141.789,
+        5002.3193
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_013",
+      "class": "StaticMeshActor",
+      "location": [
+        -17493.549,
+        -22770.169,
+        2616.0679999999998
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "GATHER_fiber_05",
+      "class": "BP_PF_ENV_FiberPlant_Wild_A_C",
+      "location": [
+        -16945.157,
+        -25034.07,
+        2619.9577
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_129",
+      "class": "StaticMeshActor",
+      "location": [
+        17827.681,
+        -12703.373000000001,
+        1403.4181
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_PathPebble_166",
+      "class": "StaticMeshActor",
+      "location": [
+        -5761.560399999999,
+        9855.402,
+        3530.4302
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Shrub_Small_120",
+      "class": "BP_PF_ENV_Bush_CloudBush_Small_LOD0_C",
+      "location": [
+        10147.211,
+        -6431.697,
+        1370.08095
+      ],
+      "validStaticMeshes": 2,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_091",
+      "class": "StaticMeshActor",
+      "location": [
+        9198.416000000001,
+        -18779.523,
+        7086.1115
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    },
+    {
+      "label": "DEC_Rock_016",
+      "class": "StaticMeshActor",
+      "location": [
+        -10086.633,
+        -14526.222000000002,
+        2957.2481
+      ],
+      "validStaticMeshes": 1,
+      "insideLandscapeXY": true
+    }
+  ],
+  "largestRenderableActors": [
+    {
+      "label": "ENV_SoStylized_Sky_Classic",
+      "class": "BP_StylizedSky_Classic_C",
+      "origin": [
+        2400.0,
+        2000.0,
+        273234800.0
+      ],
+      "extent": [
+        9872308000.000004,
+        9872306000.000004,
+        9702533200.0
+      ],
+      "xyArea": 3.898497820089923e+20,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Sky/Materials/Presets/MI_StylizedSky_Classic.MI_StylizedSky_Classic",
+        "/Game/Maps/A_10_StarterIsland_AxisPreview.A_10_StarterIsland_AxisPreview:PersistentLevel.BP_StylizedSky_Classic_C_0.MID_MI_StylizedClouds_Classic_0",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Sky/Materials/Presets/MI_Moon_Classic.MI_Moon_Classic",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Sky/Materials/Presets/MI_Sun_Classic.MI_Sun_Classic",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Sky/Materials/MI_PlanetRing_Inst.MI_PlanetRing_Inst"
+      ]
+    },
+    {
+      "label": "TerrainTop",
+      "class": "Landscape",
+      "origin": [
+        -65.40502166748047,
+        -70.88487243652344,
+        4107.6115485564305
+      ],
+      "extent": [
+        25065.40502166748,
+        33070.88487243652,
+        4107.6115485564305
+      ],
+      "xyArea": 3315740495.01023,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/MI_Grass_NoRVT.MI_Grass_NoRVT",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/LODs/MI_Grass_NoRVT_LOD1.MI_Grass_NoRVT_LOD1",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/LODs/MI_Grass_NoRVT_LOD2.MI_Grass_NoRVT_LOD2",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/MI_FlowersIce.MI_FlowersIce",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/MI_DesertGrass.MI_DesertGrass",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/MI_DesertGrass_LOD1.MI_DesertGrass_LOD1",
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Foliage/Materials/MI_DesertGrass_LOD2.MI_DesertGrass_LOD2"
+      ]
+    },
+    {
+      "label": "TerrainUnderbody",
+      "class": "StaticMeshActor",
+      "origin": [
+        -1196.2890625,
+        0.0,
+        -11470.73583984375
+      ],
+      "extent": [
+        23803.7109375,
+        33000.0,
+        14832.04345703125
+      ],
+      "xyArea": 3142089843.75,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Materials/M_StarterIsland_UnderbodyCliff.M_StarterIsland_UnderbodyCliff"
+      ]
+    },
+    {
+      "label": "ENV_SoStylized_Water_Pond",
+      "class": "BP_Classic_Water_C",
+      "origin": [
+        -7332.625732421875,
+        17754.23974609375,
+        400.5
+      ],
+      "extent": [
+        6000.0,
+        6000.0,
+        4900.0
+      ],
+      "xyArea": 144000000.0,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Water/Materials/Presets/Classic/MI_Water_Classic_Stencil.MI_Water_Classic_Stencil",
+        "/Game/Maps/A_10_StarterIsland_AxisPreview.A_10_StarterIsland_AxisPreview:PersistentLevel.BP_Classic_Water_C_0.MID_MI_Water_Classic_0"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (5)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        6750.460670461787,
+        29454.967265510903,
+        2085.6720373535154
+      ],
+      "extent": [
+        4475.381070242918,
+        2327.698181791795,
+        3957.6847692871106
+      ],
+      "xyArea": 41669345.52011943,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (4)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        10045.701310760893,
+        29594.479724460467,
+        2085.672037353516
+      ],
+      "extent": [
+        2801.479608354188,
+        2666.7356143666548,
+        3957.6847692871106
+      ],
+      "xyArea": 29883221.77808024,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (8)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        12254.967590332031,
+        26775.905010986327,
+        4085.672037353516
+      ],
+      "extent": [
+        2327.6693725585956,
+        2137.1130187988274,
+        3957.6847692871106
+      ],
+      "xyArea": 19897970.07821709,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (9)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        10054.967590332031,
+        28975.905010986327,
+        3185.672037353516
+      ],
+      "extent": [
+        2327.6693725585956,
+        2137.1130187988274,
+        3957.6847692871106
+      ],
+      "xyArea": 19897970.07821709,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (3)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        12554.967590332031,
+        28075.905010986327,
+        3285.672037353516
+      ],
+      "extent": [
+        2327.6693725585956,
+        2137.1130187988274,
+        3957.6847692871106
+      ],
+      "xyArea": 19897970.07821709,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (6)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        14354.967590332031,
+        26375.905010986327,
+        4080.6616455078124
+      ],
+      "extent": [
+        2327.6693725585947,
+        2137.1130187988274,
+        5341.66042480469
+      ],
+      "xyArea": 19897970.07821708,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (1)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        14454.967590332031,
+        19075.905010986327,
+        5085.672037353515
+      ],
+      "extent": [
+        2327.6693725585947,
+        2137.1130187988274,
+        3957.6847692871106
+      ],
+      "xyArea": 19897970.07821708,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        15654.967590332031,
+        20675.905010986327,
+        5085.672037353515
+      ],
+      "extent": [
+        2327.6693725585947,
+        2137.1130187988274,
+        3957.6847692871106
+      ],
+      "xyArea": 19897970.07821708,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (2)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        14354.967590332031,
+        26375.905010986327,
+        3285.672037353516
+      ],
+      "extent": [
+        2327.6693725585947,
+        2137.1130187988274,
+        3957.6847692871106
+      ],
+      "xyArea": 19897970.07821708,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (7)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        14354.967590332031,
+        24275.905010986327,
+        4080.485842285156
+      ],
+      "extent": [
+        2327.6693725585947,
+        2137.1130187988274,
+        5390.220974121096
+      ],
+      "xyArea": 19897970.07821708,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic1 (11)",
+      "class": "BP_PF_REF_SM_CliffClassic1_C",
+      "origin": [
+        12159.805297851562,
+        28850.224565429686,
+        -918.276784667969
+      ],
+      "extent": [
+        2327.6539306640643,
+        1865.9928369140616,
+        4588.719501953126
+      ],
+      "xyArea": 17373542.245736014,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic1 (10)",
+      "class": "BP_PF_REF_SM_CliffClassic1_C",
+      "origin": [
+        15559.805297851562,
+        25850.224565429686,
+        -918.276784667969
+      ],
+      "extent": [
+        2327.6539306640634,
+        1865.9928369140616,
+        4588.719501953126
+      ],
+      "xyArea": 17373542.24573601,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic1 (13)",
+      "class": "BP_PF_REF_SM_CliffClassic1_C",
+      "origin": [
+        17659.805297851562,
+        21950.224565429686,
+        -918.276784667969
+      ],
+      "extent": [
+        2327.6539306640634,
+        1865.9928369140616,
+        4588.719501953126
+      ],
+      "xyArea": 17373542.24573601,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic1 (7)",
+      "class": "BP_PF_REF_SM_CliffClassic1_C",
+      "origin": [
+        16659.805297851562,
+        20550.224565429686,
+        481.72321533203103
+      ],
+      "extent": [
+        2327.6539306640634,
+        1865.9928369140616,
+        4588.719501953126
+      ],
+      "xyArea": 17373542.24573601,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic1 (12)",
+      "class": "BP_PF_REF_SM_CliffClassic1_C",
+      "origin": [
+        14459.805297851562,
+        27950.224565429686,
+        581.7232153320315
+      ],
+      "extent": [
+        2327.6539306640634,
+        1865.9928369140616,
+        4588.719501953126
+      ],
+      "xyArea": 17373542.24573601,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic1 (9)",
+      "class": "BP_PF_REF_SM_CliffClassic1_C",
+      "origin": [
+        16659.805297851562,
+        23850.224565429686,
+        2381.7232153320315
+      ],
+      "extent": [
+        2327.6539306640634,
+        1865.9928369140616,
+        4588.719501953126
+      ],
+      "xyArea": 17373542.24573601,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_CliffClassic2 (12)",
+      "class": "BP_PF_REF_SM_CliffClassic2_C",
+      "origin": [
+        15622.852233423127,
+        13977.605833740234,
+        2286.683422745264
+      ],
+      "extent": [
+        2163.363311524474,
+        1986.2579821777344,
+        3678.3188427027853
+      ],
+      "xyArea": 17187990.583463773,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Cliff.MI_RockClassic_Cliff"
+      ]
+    },
+    {
+      "label": "ENV_AncientStonePortal",
+      "class": "BP_PF_AncientStonePortal_C",
+      "origin": [
+        11499.999885586447,
+        21950.000073166364,
+        9050.535020212721
+      ],
+      "extent": [
+        1638.080408378457,
+        1650.36165854922,
+        1108.0000202127212
+      ],
+      "xyArea": 10813700.398433816,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Portal/Materials/M_ENV_AncientStonePortal_Stone.M_ENV_AncientStonePortal_Stone"
+      ]
+    },
+    {
+      "label": "DEC_Rock_064",
+      "class": "StaticMeshActor",
+      "origin": [
+        10308.273569956746,
+        -18823.651685680237,
+        7475.385454309913
+      ],
+      "extent": [
+        956.8632399164762,
+        990.3551401961558,
+        504.6932493288332
+      ],
+      "xyArea": 3790537.712464119,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Models/ENV_Rock_BoulderLarge_A/ENV_Rock_BoulderLarge_A/Materials/M_StarterIsland_RockAtlas.M_StarterIsland_RockAtlas"
+      ]
+    },
+    {
+      "label": "DEC_Rock_275",
+      "class": "StaticMeshActor",
+      "origin": [
+        -16131.979343514668,
+        -23747.666655144847,
+        3049.118484085713
+      ],
+      "extent": [
+        927.3791512612734,
+        940.230184050437,
+        536.0772637764394
+      ],
+      "xyArea": 3487799.4802997,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Models/ENV_Rock_BoulderLarge_A/ENV_Rock_BoulderLarge_A/Materials/M_StarterIsland_RockAtlas.M_StarterIsland_RockAtlas"
+      ]
+    },
+    {
+      "label": "DEC_Rock_185",
+      "class": "StaticMeshActor",
+      "origin": [
+        13841.999500759244,
+        -9480.715762505923,
+        1869.5191688416596
+      ],
+      "extent": [
+        826.9298775133357,
+        946.4263377194893,
+        579.4320669601755
+      ],
+      "xyArea": 3130512.8621030888,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Models/ENV_Rock_BoulderLarge_A/ENV_Rock_BoulderLarge_A/Materials/M_StarterIsland_RockAtlas.M_StarterIsland_RockAtlas"
+      ]
+    },
+    {
+      "label": "PF_REF_SM_ShelfClassic2 (1)",
+      "class": "BP_PF_REF_SM_ShelfClassic2_C",
+      "origin": [
+        4640.499114990234,
+        -11378.216613769531,
+        4188.861312866211
+      ],
+      "extent": [
+        815.4159240722656,
+        917.8742065429688,
+        414.28965759277344
+      ],
+      "xyArea": 2993796.97724133,
+      "materials": [
+        "/Game/_Project/Art/Environment/SoStylized/Environment/Rocks/Materials/Classic/MI_RockClassic_Shelves.MI_RockClassic_Shelves"
+      ]
+    },
+    {
+      "label": "DEC_Rock_477",
+      "class": "StaticMeshActor",
+      "origin": [
+        9811.248485838418,
+        -27947.376101837403,
+        5416.837094276017
+      ],
+      "extent": [
+        915.0040160597564,
+        808.0192014836502,
+        482.4771117605487
+      ],
+      "xyArea": 2957363.25764375,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Models/ENV_Rock_BoulderLarge_A/ENV_Rock_BoulderLarge_A/Materials/M_StarterIsland_RockAtlas.M_StarterIsland_RockAtlas"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Autumn_031",
+      "class": "BP_PF_ENV_Tree_CloudTall_B_Autumn_LOD0_C",
+      "origin": [
+        9411.09557908434,
+        24711.071330299383,
+        8020.756788514388
+      ],
+      "extent": [
+        721.1102496056465,
+        992.0286697006177,
+        535.0521803163983
+      ],
+      "xyArea": 2861448.166495079,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Bark.M_ENV_Tree_CloudTall_Autumn_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Canopy.M_ENV_Tree_CloudTall_Autumn_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Autumn_Fringe.M_ENV_Tree_CloudTall_Autumn_Fringe"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_023",
+      "class": "BP_PF_ENV_Tree_CloudTall_C_LOD0_C",
+      "origin": [
+        11832.29415706275,
+        -7125.651541697171,
+        2504.36394166388
+      ],
+      "extent": [
+        842.4129129458015,
+        845.2790859354382,
+        1144.6906416638794
+      ],
+      "xyArea": 2848296.0681401477,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark"
+      ]
+    },
+    {
+      "label": "DEC_Rock_100",
+      "class": "StaticMeshActor",
+      "origin": [
+        5229.860122130176,
+        22591.05293133123,
+        6660.963373143709
+      ],
+      "extent": [
+        781.7383750958907,
+        877.1859665953561,
+        534.1978546441514
+      ],
+      "xyArea": 2742919.728732688,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Models/ENV_Rock_BoulderLarge_A/ENV_Rock_BoulderLarge_A/Materials/M_StarterIsland_RockAtlas.M_StarterIsland_RockAtlas"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_250",
+      "class": "BP_PF_ENV_Tree_CloudTall_A_LOD0_C",
+      "origin": [
+        -6089.5931016519335,
+        -23784.404852006654,
+        4092.1830973876404
+      ],
+      "extent": [
+        820.0569159362385,
+        819.974893481638,
+        1117.2002973876404
+      ],
+      "xyArea": 2689704.329174791,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_161",
+      "class": "BP_PF_ENV_Tree_CloudTall_B_LOD0_C",
+      "origin": [
+        -2188.13339979689,
+        -21520.915812921383,
+        4083.658973328518
+      ],
+      "extent": [
+        805.1148807628069,
+        796.3276545113767,
+        1098.3772733285184
+      ],
+      "xyArea": 2564540.978440211,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_154",
+      "class": "BP_PF_ENV_Tree_CloudTall_B_LOD0_C",
+      "origin": [
+        -14371.359367925004,
+        -28770.754191392207,
+        3741.00485551376
+      ],
+      "extent": [
+        815.5628119100984,
+        778.5887239355179,
+        1140.6710555137604
+      ],
+      "xyArea": 2539952.036057385,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_106",
+      "class": "BP_PF_ENV_Tree_CloudTall_B_LOD0_C",
+      "origin": [
+        15300.698517519953,
+        -15670.456282987128,
+        8183.358737086194
+      ],
+      "extent": [
+        797.0756459071636,
+        776.5499164422326,
+        1092.500737086194
+      ],
+      "xyArea": 2475876.104909386,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Open_065",
+      "class": "BP_PF_ENV_Tree_CloudTall_C_LOD0_C",
+      "origin": [
+        -15869.584491844076,
+        -8747.579304063524,
+        3300.6121096627194
+      ],
+      "extent": [
+        780.1334256990212,
+        785.4461784114574,
+        1063.0566096627197
+      ],
+      "xyArea": 2451011.271465339,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_129",
+      "class": "BP_PF_ENV_Tree_CloudTall_B_LOD0_C",
+      "origin": [
+        8917.730763618354,
+        13740.390281074082,
+        7251.066804927771
+      ],
+      "extent": [
+        779.3220088973922,
+        781.759770175533,
+        1068.3173049277711
+      ],
+      "xyArea": 2436970.37827344,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_241",
+      "class": "BP_PF_ENV_Tree_CloudTall_A_LOD0_C",
+      "origin": [
+        -14899.996924836838,
+        -26770.49880707071,
+        3673.9700468495785
+      ],
+      "extent": [
+        781.9752767658229,
+        778.3446128430478,
+        1063.8304468495787
+      ],
+      "xyArea": 2434584.976188518,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Common_150",
+      "class": "BP_PF_ENV_Tree_CloudTall_C_LOD0_C",
+      "origin": [
+        -5013.365525959659,
+        29077.168575411393,
+        2479.318843001245
+      ],
+      "extent": [
+        768.9216883361196,
+        790.3782440667965,
+        1071.2817430012453
+      ],
+      "xyArea": 2430955.895407915,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark"
+      ]
+    },
+    {
+      "label": "DEC_Rock_024",
+      "class": "StaticMeshActor",
+      "origin": [
+        -5416.088592845862,
+        -14042.163041871952,
+        3044.8015200565524
+      ],
+      "extent": [
+        696.5690857840937,
+        866.6344717554148,
+        543.8718028344947
+      ],
+      "xyArea": 2414683.126798601,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Models/ENV_Rock_BoulderLarge_A/ENV_Rock_BoulderLarge_A/Materials/M_StarterIsland_RockAtlas.M_StarterIsland_RockAtlas"
+      ]
+    },
+    {
+      "label": "DEC_Tree_Open_056",
+      "class": "BP_PF_ENV_Tree_CloudTall_A_LOD0_C",
+      "origin": [
+        19352.11058342541,
+        -3247.306356039367,
+        2448.1434678153073
+      ],
+      "extent": [
+        773.6028876685741,
+        779.621013015586,
+        1059.9842678153075
+      ],
+      "xyArea": 2412468.267823825,
+      "materials": [
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Bark.M_ENV_Tree_CloudTall_Summer_Bark",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Canopy.M_ENV_Tree_CloudTall_Summer_Canopy",
+        "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Materials/M_ENV_Tree_CloudTall_Summer_Fringe.M_ENV_Tree_CloudTall_Summer_Fringe"
+      ]
+    }
+  ],
+  "invalid": []
+}

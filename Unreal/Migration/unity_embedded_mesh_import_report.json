@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "requested": 20,
+  "imported": 20,
+  "failed": 0,
+  "results": [
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/MD_Water_Pond_Main.asset",
+      "guid": "ae760d8f42a9da94e82d2edc4b06f7d5",
+      "name": "MD_Water_Pond_Main",
+      "obj": "Migration/UnityEmbeddedMeshes/ae760d8f42a9da94e82d2edc4b06f7d5/MD_Water_Pond_Main.obj",
+      "vertices": 649,
+      "indices": 3672,
+      "submeshes": 1,
+      "sha256": "fe7afc2ef0312bc7067e859b13873016eeb90aa5323c510bcd0bde94eb8ea6a1",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MD_Water_Pond_Main.SM_MD_Water_Pond_Main"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/MESH_StarterIsland_Underbody_Exact.asset",
+      "guid": "b583bf43f466baf479be38393415c3ac",
+      "name": "MESH_StarterIsland_Underbody_Exact",
+      "obj": "Migration/UnityEmbeddedMeshes/b583bf43f466baf479be38393415c3ac/MESH_StarterIsland_Underbody_Exact.obj",
+      "vertices": 208153,
+      "indices": 1236168,
+      "submeshes": 1,
+      "sha256": "75fee46c50fdb8b73f25bd3e6a1a58896c802d080e65263e461da16fcf7ada4a",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_StarterIsland_Underbody_Exact.SM_MESH_StarterIsland_Underbody_Exact"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_Transition_A.asset",
+      "guid": "09728d0252b8ce648bd53a5b543fcdf1",
+      "name": "MESH_VRKS_Transition_A",
+      "obj": "Migration/UnityEmbeddedMeshes/09728d0252b8ce648bd53a5b543fcdf1/MESH_VRKS_Transition_A.obj",
+      "vertices": 2999,
+      "indices": 3108,
+      "submeshes": 1,
+      "sha256": "a53079f7a57a1cd23a2101a740cb7256b72f6f82ef532e452a91207f2b0be863",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Transition_A.SM_MESH_VRKS_Transition_A"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_Ledge_A.asset",
+      "guid": "6d6b656e98110ee4195ed6e25785c8a2",
+      "name": "MESH_VRKS_Ledge_A",
+      "obj": "Migration/UnityEmbeddedMeshes/6d6b656e98110ee4195ed6e25785c8a2/MESH_VRKS_Ledge_A.obj",
+      "vertices": 5110,
+      "indices": 5244,
+      "submeshes": 1,
+      "sha256": "7ef41e0b8996eb763ff03f326098f9954433a399882c9cc599412fbaaf94243d",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Ledge_A.SM_MESH_VRKS_Ledge_A"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_Corner_A.asset",
+      "guid": "df39c174d1b5a094a818f96ac166a4b0",
+      "name": "MESH_VRKS_Corner_A",
+      "obj": "Migration/UnityEmbeddedMeshes/df39c174d1b5a094a818f96ac166a4b0/MESH_VRKS_Corner_A.obj",
+      "vertices": 3684,
+      "indices": 3762,
+      "submeshes": 1,
+      "sha256": "615ed838e54819d6845b75d176ebe47646cb3d642a324ab69945f7669f4bf03f",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Corner_A.SM_MESH_VRKS_Corner_A"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_Straight_B.asset",
+      "guid": "efabd68bfe90d2341bd2e857c67a97b9",
+      "name": "MESH_VRKS_Straight_B",
+      "obj": "Migration/UnityEmbeddedMeshes/efabd68bfe90d2341bd2e857c67a97b9/MESH_VRKS_Straight_B.obj",
+      "vertices": 3001,
+      "indices": 3108,
+      "submeshes": 1,
+      "sha256": "161041ad7115849e074c9ad59bcc1af3267bc22f443999ae08122b6eaf29d27b",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Straight_B.SM_MESH_VRKS_Straight_B"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_End_A.asset",
+      "guid": "203d2b59805bdc842beea8781bcac183",
+      "name": "MESH_VRKS_End_A",
+      "obj": "Migration/UnityEmbeddedMeshes/203d2b59805bdc842beea8781bcac183/MESH_VRKS_End_A.obj",
+      "vertices": 2728,
+      "indices": 2820,
+      "submeshes": 1,
+      "sha256": "f2aec40cd3b30e1d33ab0b9197b564e023d6cade83bdb4cc73efd1e45bcecbff",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_End_A.SM_MESH_VRKS_End_A"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_Corner_B.asset",
+      "guid": "aa979a232c57bd341afb7488fc7a0749",
+      "name": "MESH_VRKS_Corner_B",
+      "obj": "Migration/UnityEmbeddedMeshes/aa979a232c57bd341afb7488fc7a0749/MESH_VRKS_Corner_B.obj",
+      "vertices": 2727,
+      "indices": 2820,
+      "submeshes": 1,
+      "sha256": "e8a75253582caece53210282ceca52f79921c95a29979b26aa26519ba543948f",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Corner_B.SM_MESH_VRKS_Corner_B"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_Straight_A.asset",
+      "guid": "6ce8c079961ecd44ba9e4742d0f53794",
+      "name": "MESH_VRKS_Straight_A",
+      "obj": "Migration/UnityEmbeddedMeshes/6ce8c079961ecd44ba9e4742d0f53794/MESH_VRKS_Straight_A.obj",
+      "vertices": 2684,
+      "indices": 2814,
+      "submeshes": 1,
+      "sha256": "09eb65c2b972f4bca0e91ad87ce2d5c4c6a52fd7150e59063ee18037744a2210",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_Straight_A.SM_MESH_VRKS_Straight_A"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Meshes/MESH_VRKS_End_B.asset",
+      "guid": "5d52f67a71de2c5468cfc44ce66dc19d",
+      "name": "MESH_VRKS_End_B",
+      "obj": "Migration/UnityEmbeddedMeshes/5d52f67a71de2c5468cfc44ce66dc19d/MESH_VRKS_End_B.obj",
+      "vertices": 3679,
+      "indices": 3762,
+      "submeshes": 1,
+      "sha256": "91f4f15e6edbbcbc26e834c31d293835555d52f261b1b73f56f2dbf846ce3987",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MESH_VRKS_End_B.SM_MESH_VRKS_End_B"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_WarpTunnel.asset",
+      "guid": "d2912594a1f378f4eb057e7fbaf94ca8",
+      "name": "MSH_CIN_WarpTunnel",
+      "obj": "Migration/UnityEmbeddedMeshes/d2912594a1f378f4eb057e7fbaf94ca8/MSH_CIN_WarpTunnel.obj",
+      "vertices": 1261,
+      "indices": 6912,
+      "submeshes": 1,
+      "sha256": "7a0a914dd6a7e6d13a782b808ac26d0b48f5d7b475d54648c6c466adb6062dd5",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_WarpTunnel.SM_MSH_CIN_WarpTunnel"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_00.asset",
+      "guid": "34a53deb3c84627408322bd62df503e8",
+      "name": "MSH_CIN_Asteroid_00",
+      "obj": "Migration/UnityEmbeddedMeshes/34a53deb3c84627408322bd62df503e8/MSH_CIN_Asteroid_00.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "d0ca7064e9e79343ecc4699ce76d35e18f8f2dcdf18373d5efc60e8b0f14f6f7",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_00.SM_MSH_CIN_Asteroid_00"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_01.asset",
+      "guid": "1ff8838ea26fe5f45843dddee24d51ad",
+      "name": "MSH_CIN_Asteroid_01",
+      "obj": "Migration/UnityEmbeddedMeshes/1ff8838ea26fe5f45843dddee24d51ad/MSH_CIN_Asteroid_01.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "d425a667c2117a5554649493666e71a193bb0f2bcbbdb868049ab030fdaebd9a",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_01.SM_MSH_CIN_Asteroid_01"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_02.asset",
+      "guid": "1a6edfa642cc7cf4a8c7496ad8601ace",
+      "name": "MSH_CIN_Asteroid_02",
+      "obj": "Migration/UnityEmbeddedMeshes/1a6edfa642cc7cf4a8c7496ad8601ace/MSH_CIN_Asteroid_02.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "73dc691a5f24ec052a1ddc511300a2417f03d1af9fa709cbc44feb249216b0cc",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_02.SM_MSH_CIN_Asteroid_02"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_03.asset",
+      "guid": "5fc0031486fee6b47a57979c91de260c",
+      "name": "MSH_CIN_Asteroid_03",
+      "obj": "Migration/UnityEmbeddedMeshes/5fc0031486fee6b47a57979c91de260c/MSH_CIN_Asteroid_03.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "e8723fdf45ae2caf3e3a3479ccd61a6b5976430f357cb117ce8f7326940b8c8b",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_03.SM_MSH_CIN_Asteroid_03"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_04.asset",
+      "guid": "5a60363a539ead6408db5a42e3fd57e2",
+      "name": "MSH_CIN_Asteroid_04",
+      "obj": "Migration/UnityEmbeddedMeshes/5a60363a539ead6408db5a42e3fd57e2/MSH_CIN_Asteroid_04.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "caefa8d36bf6e449fcbabae11266d7d4fa5515021dbb6a974c012185b52e073b",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_04.SM_MSH_CIN_Asteroid_04"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_05.asset",
+      "guid": "32cfc069b6cb73c428517d71ec9fecfd",
+      "name": "MSH_CIN_Asteroid_05",
+      "obj": "Migration/UnityEmbeddedMeshes/32cfc069b6cb73c428517d71ec9fecfd/MSH_CIN_Asteroid_05.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "0856327afc5dd0921a6c7aca5ea03f44dee26a119b099de41bb60535073b6b73",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_05.SM_MSH_CIN_Asteroid_05"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_06.asset",
+      "guid": "f58b731d35f14904f9acc9432bb63fd5",
+      "name": "MSH_CIN_Asteroid_06",
+      "obj": "Migration/UnityEmbeddedMeshes/f58b731d35f14904f9acc9432bb63fd5/MSH_CIN_Asteroid_06.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "1a747a86582105815c245d522768c11da05175650316200479722cd11c81ce71",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_06.SM_MSH_CIN_Asteroid_06"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_07.asset",
+      "guid": "ba21f25b8690ae74da5462a47d241445",
+      "name": "MSH_CIN_Asteroid_07",
+      "obj": "Migration/UnityEmbeddedMeshes/ba21f25b8690ae74da5462a47d241445/MSH_CIN_Asteroid_07.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "f63dfb897f1dc10b92328f2fef0bc03af42364835673d1e47cc433cb1851c936",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_07.SM_MSH_CIN_Asteroid_07"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Cinematics/Meshes/MSH_CIN_Asteroid_08.asset",
+      "guid": "c4cfc9dd317017746a80244a3ad01dbe",
+      "name": "MSH_CIN_Asteroid_08",
+      "obj": "Migration/UnityEmbeddedMeshes/c4cfc9dd317017746a80244a3ad01dbe/MSH_CIN_Asteroid_08.obj",
+      "vertices": 1512,
+      "indices": 1512,
+      "submeshes": 1,
+      "sha256": "76fd56523938f0e01f8781f15eb7d629c2c8c83055b250ff1f9ad647aa920ce7",
+      "status": "imported",
+      "objects": [
+        "/Game/Migration/EmbeddedMeshes/SM_MSH_CIN_Asteroid_08.SM_MSH_CIN_Asteroid_08"
+      ]
+    }
+  ]
+}

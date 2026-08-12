@@ -26,25 +26,33 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _AtmosphereThickness: 0.72
+    - _CloudAmount: 5
     - _CloudCoverage: 0.51
     - _CloudOpacity: 0.62
     - _CloudScale: 0.46
     - _CloudSoftness: 0.065
     - _CloudSpeed: 0.015
+    - _Day01: 1
+    - _DawnPhase: 0
+    - _EarlyDuskPhase: 0
     - _Exposure: 0.98
-    - _SunDisk: 2
-    - _SunSize: 0.0045
-    - _SunSizeConvergence: 4.5
+    - _FogDensity: 0.12
+    - _FogFalloff: 0.12
+    - _LateDuskPhase: 0
+    - _NoonPhase: 1
+    - _RainFade1Sunny0: 0
+    - _SnowHailClouds: 0
+    - _SubsurfaceToUnlitScale: 0.1
     m_Colors:
+    - _CloudBottomColorLinear: {r: 0, g: 0.5686275, b: 1, a: 1}
     - _CloudColor: {r: 0.78431374, g: 0.85490197, b: 0.84313726, a: 1}
     - _CloudShadowColor: {r: 0.52156866, g: 0.654902, b: 0.69803923, a: 1}
-    - _GroundColor: {r: 0.6862745, g: 0.79607844, b: 0.7254902, a: 1}
-    - _HorizonColor: {r: 0.6431373, g: 0.8666667, b: 0.91764706, a: 1}
-    - _LowerColor: {r: 0.72156864, g: 0.8039216, b: 0.7058824, a: 1}
-    - _SkyTint: {r: 0.56078434, g: 0.8509804, b: 0.92156863, a: 1}
-    - _SunColor: {r: 0.96862745, g: 0.79607844, b: 0.50980395, a: 1}
-    - _SunDirection: {r: 0.41556126, g: 0.6691306, b: -0.616095, a: 0}
-    - _ZenithColor: {r: 0.16862746, g: 0.5137255, b: 0.8235294, a: 1}
+    - _CloudTopColorLinear: {r: 0.1367188, g: 0.724438, b: 0.875, a: 1}
+    - _FogDirectionalColorLinear: {r: 0.10224173, g: 0.3515326, b: 0.47353148, a: 1}
+    - _FogInscatteringColorLinear: {r: 0.07058824, g: 0.6117647, b: 0.62352943, a: 1}
+    - _HorizonColorLinear: {r: 0.16862746, g: 1, b: 1, a: 1}
+    - _SkyTopColorLinear: {r: 0.08021982, g: 0.59720176, b: 0.61049557, a: 1}
+    - _SunDirectionWS: {r: 0.41556126, g: 0.6691306, b: -0.616095, a: 0}
+    - _SunDiscColorLinear: {r: 1, g: 0.59607846, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

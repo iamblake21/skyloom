@@ -1,0 +1,1498 @@
+{
+  "schema": 1,
+  "requested": 176,
+  "converted": 176,
+  "failed": 0,
+  "withIssues": 34,
+  "monoBehaviourScriptGuids": [
+    "5130bfcf37d6ec04db061b17b5b78e84",
+    "5534e1db4aef72b4d91cefa485ca9124",
+    "940736be9f4639d46bad612168429e83",
+    "a31ae8e06eb13c34a852cb1c1dac2aca",
+    "badae65699da9fb44853a9dfcc5a53a6",
+    "bafaf0cc0517744479cc39e8bbafc3c3",
+    "bbb42480eb61a2f499fc67623c0b9c3f",
+    "c347f188544dfcc4ba1ef92f5d8ce7ce",
+    "c3f7f9747d81e73489981d976b6f51d9",
+    "d7d9e44b2dd0a884386aef0bb9603358",
+    "eac07dab019f7d14ebff32f1483ce003"
+  ],
+  "results": [
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffMass_A.prefab",
+      "guid": "c903dba57f940e040a9e5bb0c996bc8f",
+      "sha256": "41ad4cc417e6b2e11074aeecb79649b3708020a0deca6b9b1d8103d694fa6e31",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffMass_A.BP_PF_CR_CliffMass_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffMass_B.prefab",
+      "guid": "a4aef4c7066f1ed4988ae6d7d8099d67",
+      "sha256": "80dffd2ab5827587af1e629d4f3ac0af63d2a709d5ed41ea3ca4f9a0369cc339",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffMass_B.BP_PF_CR_CliffMass_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffMass_C.prefab",
+      "guid": "a546a223ae861ed4cb1f54480ea313c1",
+      "sha256": "ce2993f845d4268b03c5803144df1263a58549043f874bdab4b5eaf356fa23e2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffMass_C.BP_PF_CR_CliffMass_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffMass_D.prefab",
+      "guid": "a02dc5823a1332145a100f2049703477",
+      "sha256": "6201575502dc7f44101a644abebf494a606d519f33319502a54e30bde84e68e1",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffMass_D.BP_PF_CR_CliffMass_D",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffShelf_A.prefab",
+      "guid": "b5f08b5bb4b9a064c834d8d0cfcaba0c",
+      "sha256": "c952a8149d757bf05b6791d75a223adddc6460b581e733b93c34a4d4c3067a1a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffShelf_A.BP_PF_CR_CliffShelf_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffShelf_B.prefab",
+      "guid": "1715f2d297d13e34690f859a01e4bff7",
+      "sha256": "c07fed89b99aa17c5b0caa9f9791c1a94049dece844f1de2a50c2f558e5b2175",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffShelf_B.BP_PF_CR_CliffShelf_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffShelf_C.prefab",
+      "guid": "3e1c43d1d6d55aa418f7e29ccb171262",
+      "sha256": "03a0d58e3be153200af3cb6b58dcee60b875cf83c9ac2464d68d16aa51510f2a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffShelf_C.BP_PF_CR_CliffShelf_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CliffShelf_D.prefab",
+      "guid": "987fb5a9db08d954181a8a4d817f4ded",
+      "sha256": "bc4ce06edfb689ea66d026e646c8a7c721dcdaa2b2381d18d99e0742cfbc631d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CliffShelf_D.BP_PF_CR_CliffShelf_D",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_CloudComplex_A.prefab",
+      "guid": "4ff0cfcb14737aa479311831b967e470",
+      "sha256": "9d2ad48f4238d7610b07d6cca4558d6b45ab2cbfa80bee7869644ec9b11fdf8e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_CloudComplex_A.BP_PF_CR_CloudComplex_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Prefabs/PF_CR_GrassClump_A.prefab",
+      "guid": "93c8a5a6e58f8f843943c2103ff2a48c",
+      "sha256": "d50f40fef74cd27774df7e7414d6155ef6f7d20a64349f83abde36de14945f18",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/CleanRoomVisualTests/Prefabs/BP_PF_CR_GrassClump_A.BP_PF_CR_GrassClump_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Prefabs/PF_ENV_Bush_CloudBush_Medium_Autumn_LOD0.prefab",
+      "guid": "ada2ebb0fb4f94a4da991ee24feb2af8",
+      "sha256": "defe70e0d85577ca3fb569f6f9430dd5549d84b925565b40aa8d68b8b84f3fb5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Prefabs/BP_PF_ENV_Bush_CloudBush_Medium_Autumn_LOD0.BP_PF_ENV_Bush_CloudBush_Medium_Autumn_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Prefabs/PF_ENV_Bush_CloudBush_Medium_LOD0.prefab",
+      "guid": "c5289e148656b4f4aa949bfc147e6246",
+      "sha256": "7fb8c02fa6af48650bfa982c60a9b2340d222913bf70ea7c7ba6b4fa09a856ce",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Prefabs/BP_PF_ENV_Bush_CloudBush_Medium_LOD0.BP_PF_ENV_Bush_CloudBush_Medium_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Prefabs/PF_ENV_Bush_CloudBush_Small_Autumn_LOD0.prefab",
+      "guid": "c8375adb8e266f54eb0e7264c61c1112",
+      "sha256": "a5df7591691a8985ea02b7f72cb2a796e0fb2dd5f746228e9fd552419399e1f2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Prefabs/BP_PF_ENV_Bush_CloudBush_Small_Autumn_LOD0.BP_PF_ENV_Bush_CloudBush_Small_Autumn_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Prefabs/PF_ENV_Bush_CloudBush_Small_LOD0.prefab",
+      "guid": "a0c1e83f879a280439746e28e09f7868",
+      "sha256": "f8acc3a59c5be4567163c1c828ccdb56f2599936028ad5a304bf5517803c138c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Prefabs/BP_PF_ENV_Bush_CloudBush_Small_LOD0.BP_PF_ENV_Bush_CloudBush_Small_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Prefabs/PF_ENV_Bush_CloudBush_Wide_Autumn_LOD0.prefab",
+      "guid": "a7bb9c92c3a3b4040b29d829151c03de",
+      "sha256": "9a8a577993ec4a0d605907f7ef0ce11f1770311ac36e3c1ee31869815164dbd4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Prefabs/BP_PF_ENV_Bush_CloudBush_Wide_Autumn_LOD0.BP_PF_ENV_Bush_CloudBush_Wide_Autumn_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/CloudBush/Prefabs/PF_ENV_Bush_CloudBush_Wide_LOD0.prefab",
+      "guid": "054dac607a434e948a68e582e8e45ff6",
+      "sha256": "82fdee315aecaf9e4393d27c0638246e0d3dccea33edb44c69905c6241fab9f4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/CloudBush/Prefabs/BP_PF_ENV_Bush_CloudBush_Wide_LOD0.BP_PF_ENV_Bush_CloudBush_Wide_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Prefabs/PF_ENV_FiberPlant_Wild_A.prefab",
+      "guid": "0c01086404a4e8c46a8aedf743c511f3",
+      "sha256": "81c2b1fd1c4b8e2019f78455475be27f643900ab9dd6c09b92bce063d9b1ab89",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Prefabs/BP_PF_ENV_FiberPlant_Wild_A.BP_PF_ENV_FiberPlant_Wild_A",
+      "issues": [
+        "PF_ENV_FiberPlant_Wild_A: capsule collider needs an explicit Unreal shape"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Prefabs/PF_ENV_FiberPlant_Wild_B.prefab",
+      "guid": "7d0b5ed6dd56b41419f4c0b88df8aa3f",
+      "sha256": "c5a78d6b70374facffdbdfd8d3bdc79b2c8677534bfbbe2411729e766267dc2b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Prefabs/BP_PF_ENV_FiberPlant_Wild_B.BP_PF_ENV_FiberPlant_Wild_B",
+      "issues": [
+        "PF_ENV_FiberPlant_Wild_B: capsule collider needs an explicit Unreal shape"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/FiberPlant/Prefabs/PF_Item_PlantFiber.prefab",
+      "guid": "9e046c2889acdc549b21f5da9872c617",
+      "sha256": "36335f316f4e919bac7df8f05174cae997ed1f18c8c50ddc8dec25c35c0b9518",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/FiberPlant/Prefabs/BP_PF_Item_PlantFiber.BP_PF_Item_PlantFiber",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/Sticks/Prefabs/PF_ENV_FallenSticks_A.prefab",
+      "guid": "5453ed50fd9c9e541a6496879e2653bc",
+      "sha256": "345d2b7cf320dcbec996f9a8233f829643c07fead0001020cc327eae59d7d40e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/Sticks/Prefabs/BP_PF_ENV_FallenSticks_A.BP_PF_ENV_FallenSticks_A",
+      "issues": [
+        "PF_ENV_FallenSticks_A: box collider needs an explicit Unreal shape"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/Sticks/Prefabs/PF_ENV_FallenSticks_B.prefab",
+      "guid": "df83cc049614b6142b1dde3c01cd581b",
+      "sha256": "f979a4b6551c68bcbc578b3ef4852f4b85db91e450d97b577c1a78c88937d59d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/Sticks/Prefabs/BP_PF_ENV_FallenSticks_B.BP_PF_ENV_FallenSticks_B",
+      "issues": [
+        "PF_ENV_FallenSticks_B: box collider needs an explicit Unreal shape"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/Clutter/Sticks/Prefabs/PF_Item_Stick.prefab",
+      "guid": "6d666152b9aee2d4c948d00f5ed37709",
+      "sha256": "bcf3b8237429522effd129c0b075dcdc257385350a15f68dc28a17e04c592afe",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/Clutter/Sticks/Prefabs/BP_PF_Item_Stick.BP_PF_Item_Stick",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_G01_LongPlate.prefab",
+      "guid": "fd509547cf420e44d8d1f5fc628b2958",
+      "sha256": "ad02a75fdd729e4a7d4247f2f6c86e57f321d3ee04fc878ac032e21767d240d8",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_G01_LongPlate.BP_PF_OreModule_G01_LongPlate",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_G02_RoundPlate.prefab",
+      "guid": "1b58b6c30fead8440ae36158ec91e4d6",
+      "sha256": "5ba9f32352b7af95cedb2684783fd1d421a17bfd508946441a4c50b500b8ec6b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_G02_RoundPlate.BP_PF_OreModule_G02_RoundPlate",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_G03_SplitPlate.prefab",
+      "guid": "ca25bb404d5bb8e42aa6cc30900f4b8b",
+      "sha256": "a13298ee905b1f991b92f9263fb7862e6443bafe4eec8aac24f7d338792e20b9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_G03_SplitPlate.BP_PF_OreModule_G03_SplitPlate",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_L01_LandmarkWedge.prefab",
+      "guid": "1b835ec37640f4a44b6bc83c92a0d089",
+      "sha256": "61aa003950f64dd3a17d40bf56699d64082ca6a155a8abd0d125a6ba799583f3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_L01_LandmarkWedge.BP_PF_OreModule_L01_LandmarkWedge",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_M01_TallWedge.prefab",
+      "guid": "5f1977fac7ed7e641870ea79c83d645b",
+      "sha256": "07048d3896279b320cc2007d4956d568610ee2f2f19fd0414fa29bb415469939",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_M01_TallWedge.BP_PF_OreModule_M01_TallWedge",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_M02_BroadSteps.prefab",
+      "guid": "ad0e06f062409af4cb2c8da59ce265f1",
+      "sha256": "f8538ea96471f93a1502484f4f234c16ad94d4d5f3ab2361a92a6af325f05a1e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_M02_BroadSteps.BP_PF_OreModule_M02_BroadSteps",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_M03_TwinSpire.prefab",
+      "guid": "ebc51a904982eac49891400c836a0379",
+      "sha256": "66b6ca6b655eeacd1ea737f5b501e542b569f06e8ad882ed4dd76daf52565b90",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_M03_TwinSpire.BP_PF_OreModule_M03_TwinSpire",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_R01_LargeRubble.prefab",
+      "guid": "f3d177a2e7841954fb323f9427477c19",
+      "sha256": "b1185f6232831d9d1821613df0260cd8ec7e46a1d18648deb0786a61bbecba52",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_R01_LargeRubble.BP_PF_OreModule_R01_LargeRubble",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_R02_SmallRubble.prefab",
+      "guid": "47229b5077e3d064faf70868599a6d20",
+      "sha256": "6a083f9d9ed44a2ee1ffdcd3bac00ef6a5f80a7ce618f2e768dab7d424f8a5fd",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_R02_SmallRubble.BP_PF_OreModule_R02_SmallRubble",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_S01_LowBlade.prefab",
+      "guid": "df83dcdd0505e464fac1b9fc4e1501de",
+      "sha256": "34d460c9aff7dd85fa36ac2235eb3ff0ff0cd9a463c7b1cc6e029c47ed61b46c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_S01_LowBlade.BP_PF_OreModule_S01_LowBlade",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_S02_FracturedBlock.prefab",
+      "guid": "f91a8a48126b8d046a8560222d243fb2",
+      "sha256": "420ae09af0d4e94cfb85e2abd583d9ef55f0a4fcfdef09ae754e46735dafe2d2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_S02_FracturedBlock.BP_PF_OreModule_S02_FracturedBlock",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_S03_RockPair.prefab",
+      "guid": "c676084a41ada4246b859c35ee6aec78",
+      "sha256": "e58c5eda4543fbe75f676fef2cfb2d506a690697c8854bac9bbdfa07455ba71a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_S03_RockPair.BP_PF_OreModule_S03_RockPair",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_S04_OreShelf.prefab",
+      "guid": "9c9c87355ee3e25439c5842c9ed6be21",
+      "sha256": "3c9e86a6b4d52eb6e807ebc6fd520305fb462a32196567a373132194323484bf",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_S04_OreShelf.BP_PF_OreModule_S04_OreShelf",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/Modules/PF_OreModule_S05_CompactNode.prefab",
+      "guid": "c652eeced3946034c9a52231778c01b7",
+      "sha256": "4edd491a05004a99c453fb67999caab5afb6a5becaf039a7666ef1a7b689bfae",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/Modules/BP_PF_OreModule_S05_CompactNode.BP_PF_OreModule_S05_CompactNode",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Copper_A.prefab",
+      "guid": "fdec034d7af00464e801bf17ef584143",
+      "sha256": "5aa2c547662b158accd2278bad727a8782ed3f4f3a4a70747ce3560800f9b6f9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Copper_A.BP_PF_OreDeposit_Copper_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Copper_B.prefab",
+      "guid": "6538d0ebc9d65244c8efacbebb2093f5",
+      "sha256": "6d0b92ab38d684364d2772bb7610b271876ced654fad2c8fc073faeb32db53ed",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Copper_B.BP_PF_OreDeposit_Copper_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Copper_C.prefab",
+      "guid": "ada6291a596ad1e499a2ffa95e8296a1",
+      "sha256": "076475f8a07c94847165f2f566d19d46efd398f2ad98fd00606d84c9c890a464",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Copper_C.BP_PF_OreDeposit_Copper_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Iron_A.prefab",
+      "guid": "3cee7f014bb27af49bc6ef095f86851e",
+      "sha256": "6dbd6dfea394278ed6cc5ebb195cb1ea1f0a368958b662d99cd3620f7155cf46",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Iron_A.BP_PF_OreDeposit_Iron_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Iron_B.prefab",
+      "guid": "811dc8004b8920d4092d22ea4f15a376",
+      "sha256": "48c57d2502d560cd3380ce64545a8cb1297766a9e560b0f5b21ce50171b8a227",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Iron_B.BP_PF_OreDeposit_Iron_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Iron_C.prefab",
+      "guid": "7bf96411158e2b9438771cf3ab288538",
+      "sha256": "16b48111e23bc70b552ff8aed2f00d25a54981f46d7badf180fa02ea491f0528",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Iron_C.BP_PF_OreDeposit_Iron_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Tin_A.prefab",
+      "guid": "1ab875893a5c1dc44b541ab0ee1d4fe0",
+      "sha256": "ba9d0d9d2110aace120add457c7575ce2fa032055104d36b25b6c4decd5595df",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Tin_A.BP_PF_OreDeposit_Tin_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Tin_B.prefab",
+      "guid": "ef1504793bb382345811ddae24ba855e",
+      "sha256": "78adcb83667102c21cbbb681f20b6678abd47c97a6fb150f6b6da0f2484217df",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Tin_B.BP_PF_OreDeposit_Tin_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OreDeposit/Prefabs/PF_OreDeposit_Tin_C.prefab",
+      "guid": "705ff814a65bdcb46851f64015e803f1",
+      "sha256": "d8e7ed7a5e0f64d468583efa0eefc42577b627faff5db215019a7c8389a8e1e8",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OreDeposit/Prefabs/BP_PF_OreDeposit_Tin_C.BP_PF_OreDeposit_Tin_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffMass_A.prefab",
+      "guid": "d6ee30c29d1bb1a4f9f9e53375d12910",
+      "sha256": "bbaaed0488ead14ad49e4fcb8315bff683302b9670adb4472d5164a9973b9233",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffMass_A.BP_PF_ENV_CliffMass_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffMass_B.prefab",
+      "guid": "951c56c3dbf2635468a2d0194f395ecf",
+      "sha256": "f517bab397bad7bf2d8df653b386f7d0d2ae7b2e69b1a42d1e6ee2de9769d106",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffMass_B.BP_PF_ENV_CliffMass_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffMass_C.prefab",
+      "guid": "aca4afe4ff93a144f9fd5f9ad189607c",
+      "sha256": "ee79919da387f776ad336e4f0c85b2b88fd409dc3877358c125967952e35a6ca",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffMass_C.BP_PF_ENV_CliffMass_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffMass_D.prefab",
+      "guid": "689e438e0d0547740af63da0b106a307",
+      "sha256": "2f4ede80eb29958a81f8ad47c24e2e5344d29f48cb8401c549f1e9aa581cef96",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffMass_D.BP_PF_ENV_CliffMass_D",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffShelf_A.prefab",
+      "guid": "c17876428e4c44341a6c6c6dd1cb1d87",
+      "sha256": "2ec968c549da7bf52cfe491201b2432bca234a5e1256afbcd47d6f0045928dbf",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffShelf_A.BP_PF_ENV_CliffShelf_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffShelf_B.prefab",
+      "guid": "5f94a5492733c314a9d3fa67cf51830a",
+      "sha256": "34657105f323d11d460cbf29cec6cba3c6cf26b72914381576c1001425d8783d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffShelf_B.BP_PF_ENV_CliffShelf_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffShelf_C.prefab",
+      "guid": "248e5ff60f776f64eb15031d8ed13c11",
+      "sha256": "32d4d82522c864b27d5371b6ab5dfa947116af0282b27d9768e9050e6bc1e04a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffShelf_C.BP_PF_ENV_CliffShelf_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Prefabs/PF_ENV_CliffShelf_D.prefab",
+      "guid": "239d876bdb42c304e9d930a2b7899fec",
+      "sha256": "e8117d5ce87479b5bd97d4862282ebe7fe0a9508ef4599e0defe7108c6a72bb6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/Prefabs/BP_PF_ENV_CliffShelf_D.BP_PF_ENV_CliffShelf_D",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_CliffClassic1.prefab",
+      "guid": "e992ce918fde3e944bcf1f31988ad48e",
+      "sha256": "b2653441c8390dfa6e0cbdbaf34e9583b8026db7da433f70b1e99852a6f23573",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_CliffClassic1.BP_PF_REF_SM_CliffClassic1",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_CliffClassic2.prefab",
+      "guid": "d8dc8bd60abe8ad4a863956e3ea64279",
+      "sha256": "2b0e5191e0640ecb729de56a9ec5caf6894d6798456b9b5a7e427d8a7307d17e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_CliffClassic2.BP_PF_REF_SM_CliffClassic2",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_CliffClassic3.prefab",
+      "guid": "052b7aa77b950494c8c9d046c6094997",
+      "sha256": "a20e53520dfb6c3e5e870c6e8f055b062966219d8baf8fd60488e682f92398da",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_CliffClassic3.BP_PF_REF_SM_CliffClassic3",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_CliffClassic4.prefab",
+      "guid": "cf599064f700e024c997013d46c324c4",
+      "sha256": "4ebf0502291c67907ef9612ff0ee32289527e4ef6073e394f5fb797361995178",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_CliffClassic4.BP_PF_REF_SM_CliffClassic4",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_ShelfClassic1.prefab",
+      "guid": "15199303c04eb864491325ac779e95fd",
+      "sha256": "fe7867e671d9630e53ca9022ba2734e8d3be99a4e88a0d34026430d32af81d0f",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_ShelfClassic1.BP_PF_REF_SM_ShelfClassic1",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_ShelfClassic2.prefab",
+      "guid": "01328f7f33e5ebe479ab23ab4ab615c6",
+      "sha256": "c2a8b2ea3062f755ae24d71f8c588bdc55f72a51faccd5ce3511135ed43c38e5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_ShelfClassic2.BP_PF_REF_SM_ShelfClassic2",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_ShelfClassic3.prefab",
+      "guid": "b4d3e04b856f0af40889be4cc9d1ee1a",
+      "sha256": "3a8567a609f7bb1c844882a16748f9df8f8036f2a8c8a22e19e40df492aa0819",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_ShelfClassic3.BP_PF_REF_SM_ShelfClassic3",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/PF_REF_SM_ShelfClassic4.prefab",
+      "guid": "d88f6e59232a3f544946c80c26801050",
+      "sha256": "0a475b04f03bef93eb278d68b44717dfa83411e95fef4b49653243986344d64a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Prefabs/BP_PF_REF_SM_ShelfClassic4.BP_PF_REF_SM_ShelfClassic4",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/PF_CliffBaseMass.prefab",
+      "guid": "c26f3f7229be43741a9532e39220ed07",
+      "sha256": "689d4a7a4172272f0a4fda9a4382857e120c1a56a17322b2c93419e76c401be6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/BP_PF_CliffBaseMass.BP_PF_CliffBaseMass",
+      "issues": [
+        "PF_CliffBaseMass: mesh c86d6fc893e1ab747a61cf9ed46e59d4 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/PF_CliffBulgeWide.prefab",
+      "guid": "0af63d3bb6532804c8dced61276f8ae3",
+      "sha256": "846f84e27371bc48af3cfb64abda22beb47a6235dd6ae2fa9680565ae3332870",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/BP_PF_CliffBulgeWide.BP_PF_CliffBulgeWide",
+      "issues": [
+        "PF_CliffBulgeWide: mesh 4765b65a11370924e918515993c76638 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/PF_CliffLipWide.prefab",
+      "guid": "3bcb6dbde2794a84abf901a8437b9617",
+      "sha256": "9b48cb2506314419e05ab3544fd859df0c03fc152b97d6ebfbf55f7f0e06fb4e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/BP_PF_CliffLipWide.BP_PF_CliffLipWide",
+      "issues": [
+        "PF_CliffLipWide: mesh 8b35a2ff1f22ec348ac9c768a321ba13 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/PF_CliffPillarTall.prefab",
+      "guid": "4b935c53b030aa64490eb40a952a15ae",
+      "sha256": "4f2a10545e2bffccf905becf7dd421f0a2c1b3896b7984c3c6d977531991c47e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/BP_PF_CliffPillarTall.BP_PF_CliffPillarTall",
+      "issues": [
+        "PF_CliffPillarTall: mesh b60165e335a06bf449ff3b3d474e4af4 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/PF_CliffShoulder.prefab",
+      "guid": "a05142833930c5d49bc8d57ee8dd2794",
+      "sha256": "03f5fbad5672902115d0f385c64168140c024470f41a15b4fcd678bfb36e8c38",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/CliffRockKit/Prefabs/BP_PF_CliffShoulder.BP_PF_CliffShoulder",
+      "issues": [
+        "PF_CliffShoulder: mesh e1b9a4402b523144892e7df85b4f5447 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Flower_Orange_B.prefab",
+      "guid": "d3fb1c12befe5a046a9a53a520ea6453",
+      "sha256": "be5ab6b5cfa700ca79d51246099f08da511684d0b956978c6f82d87173fd24b5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Flower_Orange_B.BP_PF_Flower_Orange_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Flower_White_A.prefab",
+      "guid": "5f6d27c2861110f439fd0c1a0eb5ba47",
+      "sha256": "072aa7c3154e4e1e0f3a8a4fca7a9245f95dbbec802fb66c8f002609f3094e80",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Flower_White_A.BP_PF_Flower_White_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Grass_Clump_A.prefab",
+      "guid": "1e4fcad7bbb155343b1c1c7aca065656",
+      "sha256": "b2ca039a896fb687ff6273da6e27f03721bfd838f5c031ca2a2d35023398cbac",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Grass_Clump_A.BP_PF_Grass_Clump_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Grass_Clump_B.prefab",
+      "guid": "7ec763f509ae74c4c897c68b4dceba95",
+      "sha256": "d43e748ee1c5f0b311e3564fbbf1e00ca0607054e61e72d3db0cc66227411df3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Grass_Clump_B.BP_PF_Grass_Clump_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Shrub_Low_B.prefab",
+      "guid": "19a3cd6c5f24bcc43b182cb9f8ce805a",
+      "sha256": "930cb777beaf636a109490e2e7341f665591605d47f03d3c36096d6d5c5b589b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Shrub_Low_B.BP_PF_Shrub_Low_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Shrub_Round_A.prefab",
+      "guid": "0204f581bedbab24881d295a0f2a7f06",
+      "sha256": "215c3f2b3d008b8981143caadb50ba66430e8263f2b8c76aa52b40dcb9e11e22",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Shrub_Round_A.BP_PF_Shrub_Round_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Tree_CommonBroad_B.prefab",
+      "guid": "b491d4a16648e2940b1d7077267f3469",
+      "sha256": "8ca6433411bb52070a4e1588110436850bcfc6315849e17eeaf4f55ad71f1321",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Tree_CommonBroad_B.BP_PF_Tree_CommonBroad_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Tree_CommonTall_A.prefab",
+      "guid": "e0cdee92ab6bef148babb012b9d9be12",
+      "sha256": "af517e8fd8a1fbb903175616cc9896cf2843ec8881af0441cadc7cbdda10f646",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Tree_CommonTall_A.BP_PF_Tree_CommonTall_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/PF_Tree_CommonYoung_C.prefab",
+      "guid": "ed2c19ae2f9ad1c4689bbfc65f7c6a9d",
+      "sha256": "ea00ac8dadd0533ff22b69301833919822c11899650f9f07b2b0144a9da53419",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/BP_PF_Tree_CommonYoung_C.BP_PF_Tree_CommonYoung_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/PF_TerrainDetail_Flower_Orange.prefab",
+      "guid": "6cc72ca941061af41a10b0d3014611f7",
+      "sha256": "4bc8bd3461f3e05561f5224600a6a8fd25f9bbb725c51a077d754151480748ab",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/BP_PF_TerrainDetail_Flower_Orange.BP_PF_TerrainDetail_Flower_Orange",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/PF_TerrainDetail_Flower_White.prefab",
+      "guid": "b4cf88057f80f804caad78f7d2490bfd",
+      "sha256": "c278d5f593c3f18b3f2fc491f574c94748de08b63ac518959a352b4b2fb6bfb4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/BP_PF_TerrainDetail_Flower_White.BP_PF_TerrainDetail_Flower_White",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/PF_TerrainDetail_Grass_A.prefab",
+      "guid": "92990bbad77508849a93046a4e721991",
+      "sha256": "769dfe614f01b9bda49aff508881ee5c8091934e81ef0eb50fa6e19bee1c8a12",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/BP_PF_TerrainDetail_Grass_A.BP_PF_TerrainDetail_Grass_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/PF_TerrainDetail_Grass_B.prefab",
+      "guid": "53d0147710f4a284a80cf9c1163a69fd",
+      "sha256": "fea9e11b6d9e4de132c52a33f9fcee156dd44b8ec69791ed74123cb932e50f8c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Foliage/Prefabs/TerrainDetails/BP_PF_TerrainDetail_Grass_B.BP_PF_TerrainDetail_Grass_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_BoulderLarge_A.prefab",
+      "guid": "ed4a75639d5aa7b4890094dfcd4cd204",
+      "sha256": "3e1baf9d2fa0c79f8768abf3c03ce42a41853236aaaf13a9413c3f78c48698cf",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_BoulderLarge_A.BP_PF_ENV_Rock_BoulderLarge_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_BoulderMedium_A.prefab",
+      "guid": "ae3023cbe0d33c141a9b96c16745623a",
+      "sha256": "034c934aa08d614b14e968a727aed728289099f04c1d36d9567e4d30dd2b0de5",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_BoulderMedium_A.BP_PF_ENV_Rock_BoulderMedium_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_BoulderMedium_B.prefab",
+      "guid": "470017bc001340f4698676edbf484778",
+      "sha256": "be5f6793fd130063ce1c3806096ad84c4495828bcc48205d3fd98b8eacd092c3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_BoulderMedium_B.BP_PF_ENV_Rock_BoulderMedium_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_BoulderSmall_A.prefab",
+      "guid": "0e489607aea97f842af998c2b53ffee6",
+      "sha256": "ac297c8fb92cf12d94022826b7e3c5a60b481abe078f5adfa1738e1cacd5f2dd",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_BoulderSmall_A.BP_PF_ENV_Rock_BoulderSmall_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_BoulderSmall_B.prefab",
+      "guid": "64a11f5e2f8ca4d40b2a57abdb02054c",
+      "sha256": "4139b5dd02a38e3db795745cd32ccb6f280e9f6989e1f613638761f060166e10",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_BoulderSmall_B.BP_PF_ENV_Rock_BoulderSmall_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_ShoreFlat_A.prefab",
+      "guid": "2268df14b1df7174aa62a51012ba05e3",
+      "sha256": "44074167bbe489efd9ba1739e6422f6628e780d9b7dcc5d7d5300fb218f78c1d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_ShoreFlat_A.BP_PF_ENV_Rock_ShoreFlat_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Rocks/Prefabs/PF_ENV_Rock_ShoreFlat_B.prefab",
+      "guid": "c3162430d50ff1c478a6bd8741f1d263",
+      "sha256": "881bb5cb64528b10858d26b3ecc6784df91e0074dd461bff2e51465d63a02fe3",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Rocks/Prefabs/BP_PF_ENV_Rock_ShoreFlat_B.BP_PF_ENV_Rock_ShoreFlat_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/PF_TerrainDetail_AdaptiveGrass_A.prefab",
+      "guid": "c988fcc87d1723e4fb41939dc631a310",
+      "sha256": "b85eec63e4676053c84988a84d49502085905faf1f736659e7778fdb1735f188",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/BP_PF_TerrainDetail_AdaptiveGrass_A.BP_PF_TerrainDetail_AdaptiveGrass_A",
+      "issues": [
+        "PF_TerrainDetail_AdaptiveGrass_A: mesh d1809914d1657794ea75f6ea9cb03b8b unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/PF_TerrainDetail_AdaptiveGrass_B.prefab",
+      "guid": "2df1705045ef4b74c97cc18843e3bdfe",
+      "sha256": "0017ef5a180f7fd60ee6040cebf4beef6ac32d4d119c67f628d931f6cba58e28",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/BP_PF_TerrainDetail_AdaptiveGrass_B.BP_PF_TerrainDetail_AdaptiveGrass_B",
+      "issues": [
+        "PF_TerrainDetail_AdaptiveGrass_B: mesh dfeea61186995c143bf8e8cc377306ff unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/PF_TerrainDetail_UprightFlower_Orange.prefab",
+      "guid": "3c0b3d580f6cec94ab821571d9911035",
+      "sha256": "5f0d190a1317b1fb60d4dfa35e7ecaedc12289b1d50d52ef8981d64f8ececa29",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/BP_PF_TerrainDetail_UprightFlower_Orange.BP_PF_TerrainDetail_UprightFlower_Orange",
+      "issues": [
+        "PF_TerrainDetail_UprightFlower_Orange: mesh 1295233fe683ac64187c6b43a6711ba6 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/PF_TerrainDetail_UprightFlower_White.prefab",
+      "guid": "204abd3039c45da468e186507322ddc2",
+      "sha256": "35cf8332dc7fe43160b789162bf8930d800cbb947e0577a94c6649af1bd921e6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/AdaptiveGrass/Prefabs/BP_PF_TerrainDetail_UprightFlower_White.BP_PF_TerrainDetail_UprightFlower_White",
+      "issues": [
+        "PF_TerrainDetail_UprightFlower_White: mesh 6cb6c0b66767e0d43aeacc973affab72 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Prefabs/PF_StarterIsland_Terrain.prefab",
+      "guid": "79ab307238cd6e243880807d05f3777d",
+      "sha256": "ab355e47982c77fc4e30331e7f0f925a33b9e3e41e81f07456f2da735321a993",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Prefabs/BP_PF_StarterIsland_Terrain.BP_PF_StarterIsland_Terrain",
+      "issues": [
+        "TerrainUnderbody: mesh b3c460404e572514d90f27a873b4e993 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/PF_CLU_Bush_Amber_A.prefab",
+      "guid": "4a05e32e7fa91fd4cb492e744bdccfb9",
+      "sha256": "a38daf7733613afaff0f8bceacb2e413d9af4ccadc292d7e2a5432b82cc632a6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/BP_PF_CLU_Bush_Amber_A.BP_PF_CLU_Bush_Amber_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/PF_CLU_Bush_Autumn_A.prefab",
+      "guid": "2bc2e9e6c66af2748849ceff90bf1d55",
+      "sha256": "7ed29ecf14aa7c41cf782fcaf71a649347a16b6c1ad1e6fa3c5a8a3c64d087e1",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/BP_PF_CLU_Bush_Autumn_A.BP_PF_CLU_Bush_Autumn_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/PF_CLU_Bush_Medium_A.prefab",
+      "guid": "f22f65047176c81498c6a3a1b331141c",
+      "sha256": "b5fd09b052b9cc6f60e1c06118712ebe8b3e5071d4bf23909623ea3b134c13b4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/BP_PF_CLU_Bush_Medium_A.BP_PF_CLU_Bush_Medium_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/PF_CLU_Bush_Small_A.prefab",
+      "guid": "99068d5b48815964dbdd0e9870c3672b",
+      "sha256": "bc6534deb9714f5a374bf64b65ab41c9f81eaf45838bc60016a7a7cc90eb8ab9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/BP_PF_CLU_Bush_Small_A.BP_PF_CLU_Bush_Small_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/PF_CLU_Bush_Wide_A.prefab",
+      "guid": "f73cc60cecb67134caa2efc70b826804",
+      "sha256": "ec4063e4a63343c053f51939627d7b1a6076fbcaf3ce6e602f20a9e970f8e614",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Bushes/Prefabs/BP_PF_CLU_Bush_Wide_A.BP_PF_CLU_Bush_Wide_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_Corner_A.prefab",
+      "guid": "28427bfb00d75b044920d158f145df30",
+      "sha256": "6856da81fc77c0fd2806224ee16a5c83cda55158777e5dcda55f336edb706a48",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_Corner_A.BP_PF_VRKS_Corner_A",
+      "issues": [
+        "PF_VRKS_Corner_A: mesh df39c174d1b5a094a818f96ac166a4b0 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_Corner_B.prefab",
+      "guid": "47b55414562be5c4a9ddf68b6ef4a4a1",
+      "sha256": "3ef4d84bd16c8072cd8d302c39f2a836c2dc969e7447da6ded280260eb8c1371",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_Corner_B.BP_PF_VRKS_Corner_B",
+      "issues": [
+        "PF_VRKS_Corner_B: mesh aa979a232c57bd341afb7488fc7a0749 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_End_A.prefab",
+      "guid": "a0fdd9a64a4b530498d51975fc23866a",
+      "sha256": "286116f4cfbc962d8cffe0ca063b9fe09ecd318dbb68ea1a2a57a3aacf307b7a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_End_A.BP_PF_VRKS_End_A",
+      "issues": [
+        "PF_VRKS_End_A: mesh 203d2b59805bdc842beea8781bcac183 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_End_B.prefab",
+      "guid": "b3d910fd644e0ce42b1095b8a2aa3f05",
+      "sha256": "903103aafb7952d657bd51ef84c286ff5c0ea5c4c428ab1c92ec235d49284d8c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_End_B.BP_PF_VRKS_End_B",
+      "issues": [
+        "PF_VRKS_End_B: mesh 5d52f67a71de2c5468cfc44ce66dc19d unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_Ledge_A.prefab",
+      "guid": "036f233fac1165b44b7c06e5764cb6e1",
+      "sha256": "753d97cb1f8d5b1ca0661ce30972d0c26ed432b78278521fe3ec28777f756b8b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_Ledge_A.BP_PF_VRKS_Ledge_A",
+      "issues": [
+        "PF_VRKS_Ledge_A: mesh 6d6b656e98110ee4195ed6e25785c8a2 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_Straight_A.prefab",
+      "guid": "17b96b85f230b0540b1b25fa0f4f1740",
+      "sha256": "c5925a121060236767dd203cdac938670913ac803f42ec73771ef3eb3f5a9d82",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_Straight_A.BP_PF_VRKS_Straight_A",
+      "issues": [
+        "PF_VRKS_Straight_A: mesh 6ce8c079961ecd44ba9e4742d0f53794 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_Straight_B.prefab",
+      "guid": "f2898fc4551fac2488981ca216a46f8d",
+      "sha256": "95bff6cd7298ff8feaadb3144ffc097152cc486885b846c98715f99a96fdf5c6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_Straight_B.BP_PF_VRKS_Straight_B",
+      "issues": [
+        "PF_VRKS_Straight_B: mesh efabd68bfe90d2341bd2e857c67a97b9 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/PF_VRKS_Transition_A.prefab",
+      "guid": "cfea373b7c5f4f849ad1bb94657fb44c",
+      "sha256": "a40edf014e0c609b733741a661ca7d03887c2deabd8b9104137985923aeef8ea",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Prefabs/BP_PF_VRKS_Transition_A.BP_PF_VRKS_Transition_A",
+      "issues": [
+        "PF_VRKS_Transition_A: mesh 09728d0252b8ce648bd53a5b543fcdf1 unresolved (no-imported-mesh)"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceArch_A.prefab",
+      "guid": "ff880f345e5040b4ea79051921124897",
+      "sha256": "03fe0e6e727e70855291d7c61ef6f11928ec460c3344e43b011c2c5be4e4bafa",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceArch_A.BP_PF_ENV_ReferenceArch_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceBoulder_Block_A.prefab",
+      "guid": "33b751f94fe9cbf448cff274b0e860cd",
+      "sha256": "104a1338f95c904dfbd48d4f3db14df98b422e8ad8f9c888f7b7c34d733fbcd0",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceBoulder_Block_A.BP_PF_ENV_ReferenceBoulder_Block_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceBoulder_Block_B.prefab",
+      "guid": "26de9de51fe03b347b55849609f559ae",
+      "sha256": "678fd8414c1ef4b5052755ed171e9c8e6549a409317317b1d65d2c91a4b3c951",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceBoulder_Block_B.BP_PF_ENV_ReferenceBoulder_Block_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceBoulder_TopHeavy_A.prefab",
+      "guid": "6a617a46490511940a13a582521ebf4d",
+      "sha256": "b18233290e900d8d86a30de9cc1511937737536ff3ef7da333e49f2115a87c62",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceBoulder_TopHeavy_A.BP_PF_ENV_ReferenceBoulder_TopHeavy_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceBoulder_Undercut_A.prefab",
+      "guid": "4d7ec9e0f02acbe45b5ff96340a522d8",
+      "sha256": "1b6ffb2aba77bce6338113a72ca115fc808a41c71fd7e787cff9d897787d617b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceBoulder_Undercut_A.BP_PF_ENV_ReferenceBoulder_Undercut_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceCluster_S_A.prefab",
+      "guid": "e0cc130163a912a4c824646ba21f29a1",
+      "sha256": "b8795a579391cb934ffc010b39dc4d7354b6c4f1dcef0e9f7898e3a60a590435",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceCluster_S_A.BP_PF_ENV_ReferenceCluster_S_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceCluster_S_B.prefab",
+      "guid": "a735106418ca01a47a1f2e7b5099c5ca",
+      "sha256": "9dea0baf3e0c2d848b869a50782742042817278db5c48e5e6b733a99962b7690",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceCluster_S_B.BP_PF_ENV_ReferenceCluster_S_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceCluster_S_C.prefab",
+      "guid": "acdd468c7f715e644b067cfecdb42f7b",
+      "sha256": "599f4047094d22b4bb063de1008915b2124ba7232b7e93b00a37542f04eda21c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceCluster_S_C.BP_PF_ENV_ReferenceCluster_S_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceCluster_S_D.prefab",
+      "guid": "cceeb9dae9f653f42ad0cf4aaafe7a74",
+      "sha256": "7c1773bc775f9457b6204c2f6694f4a58f76e56d44fa4743e8e59f72b0d400d2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceCluster_S_D.BP_PF_ENV_ReferenceCluster_S_D",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceFlat_A.prefab",
+      "guid": "39636176ff8ebb744a33b0c314ab16a6",
+      "sha256": "f64cc4943dd0250432f3d2523c7088af7ed0e10f47a77b2c967dd3e4633aff0a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceFlat_A.BP_PF_ENV_ReferenceFlat_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceFlat_B.prefab",
+      "guid": "73cd799b5f2e9b343b444073eacf8361",
+      "sha256": "ec1c0f2d0b4bff92da9dde47dcf69bfe43fb24e8f464ba2806bbce9c05f49abc",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceFlat_B.BP_PF_ENV_ReferenceFlat_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceFlat_C.prefab",
+      "guid": "ed0d75f7478a0ab4d8236efa073029d3",
+      "sha256": "b7fb152b99a9b8c4758d9fdcd2dd192936d10f52da1c1ca4268a7431834a3f23",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceFlat_C.BP_PF_ENV_ReferenceFlat_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceLedge_A.prefab",
+      "guid": "faa190b7b0ca28c448832679dbb17ee9",
+      "sha256": "f3c8e24f4063fbaa4ea403856ec6a202679237d6ec1a52e0dbcb1e042f32d7ec",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceLedge_A.BP_PF_ENV_ReferenceLedge_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceLedge_B.prefab",
+      "guid": "d990dc1a7ad978d4eb0f55accbbf25ae",
+      "sha256": "002f6a11cb6961e0bddd0dc8f7703ce7cd640256020904d510a4cbe9fa7c959a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceLedge_B.BP_PF_ENV_ReferenceLedge_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferencePebble_A.prefab",
+      "guid": "c6cd337dea38d0a40a9647d75859cc7f",
+      "sha256": "121d304b150f7d757f66219fa2e1ea73a6bc5e84f52a28d26de897581b7b89b9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferencePebble_A.BP_PF_ENV_ReferencePebble_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferencePebble_B.prefab",
+      "guid": "7294c7264a7d47547a3c0e6b2acc3f02",
+      "sha256": "ad82f753c69be6bcfc1237f206ce0d39b64cb78d04b900d337f79f7a99e88e74",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferencePebble_B.BP_PF_ENV_ReferencePebble_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferencePillar_Narrow_A.prefab",
+      "guid": "827daeacf44930b4785afe6454e13479",
+      "sha256": "c8d3f8f8499e39e07c49e717d40b6a3a10074beb67a79673e1ef26e1dcae36d4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferencePillar_Narrow_A.BP_PF_ENV_ReferencePillar_Narrow_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferencePillar_Narrow_B.prefab",
+      "guid": "6494380881d738b48b12378eae5147d2",
+      "sha256": "5715765d662f96af10f771fe9a64173dc036e7fa10d3f513357c586db3087d0b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferencePillar_Narrow_B.BP_PF_ENV_ReferencePillar_Narrow_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_Front_A.prefab",
+      "guid": "5ca50db4622d7e146834202b20438de3",
+      "sha256": "39995c9bee1264f5e309f6d8d251a912818f983c5a5830d42f4776285b7dab22",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_Front_A.BP_PF_ENV_ReferenceRock_Front_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_Front_B.prefab",
+      "guid": "bf372b10a8787a540a50eccc07447946",
+      "sha256": "352c11b4c5caa60cb183a2417c2b13a8fe0f237ccefec45aacca49777b2ee6ef",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_Front_B.BP_PF_ENV_ReferenceRock_Front_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_Front_C.prefab",
+      "guid": "4d9536ef2d960164095bdab9f6a85495",
+      "sha256": "89b73299b196547b80ae4e139ba96b2f958de7743c987f5f2f29b523179ba94a",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_Front_C.BP_PF_ENV_ReferenceRock_Front_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_S_A.prefab",
+      "guid": "60c5b68927e4465489c815dce00f0b75",
+      "sha256": "48d7bcad45cf40a904847133d1c7d29196b41d9a97e37fb8a7d2861abcbaafeb",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_S_A.BP_PF_ENV_ReferenceRock_S_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_S_B.prefab",
+      "guid": "2378de7fb5c7a0d4b94da327953253fa",
+      "sha256": "c24f72a6b178b129ca9245b8105c34d7ddc1fa0eebf2976a574d564026ec3280",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_S_B.BP_PF_ENV_ReferenceRock_S_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_S_C.prefab",
+      "guid": "0176181fdb06ff446b0d78a83261d1a1",
+      "sha256": "90777ef05ffba89cdffcc24e91efff1a91642f81ce73ddc0d2c1df471a1720c2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_S_C.BP_PF_ENV_ReferenceRock_S_C",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceRock_S_D.prefab",
+      "guid": "2d4524991388c744fbefca7cda69ecc7",
+      "sha256": "d017cff846a0cc8878c06663c37fe8f7eb6564d2cac42cd8b37831329194a14c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceRock_S_D.BP_PF_ENV_ReferenceRock_S_D",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceSpire_A.prefab",
+      "guid": "02cb1bd042df58543b2eaae9137c3ab4",
+      "sha256": "d9c0ee2a0e114cfd30a8a94925a7f750c1dfced7f1ca841b2db81fe8efef1b0e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceSpire_A.BP_PF_ENV_ReferenceSpire_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceWall_A.prefab",
+      "guid": "5ce7073f3c0d9154caade8a88d20c6ce",
+      "sha256": "c24821a775c9e6d573464799feb3690e233b1fdf166b73ea51dbe63771f77b61",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceWall_A.BP_PF_ENV_ReferenceWall_A",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Prefabs/PF_ENV_ReferenceWall_B.prefab",
+      "guid": "0f1b43227e4993044afa7e9c0777c2ba",
+      "sha256": "2412b6477b375485bb163fd0e4a26d9f59c60a63ddab26101d6e79f0a88e2d78",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StylizedRockWorldKit/Prefabs/BP_PF_ENV_ReferenceWall_B.BP_PF_ENV_ReferenceWall_B",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Prefabs/PF_Crate.prefab",
+      "guid": "582d064462ffe3441a49d3be014fc9f9",
+      "sha256": "9d0b06d0774668aa2c876509d6d9c1c3d790bff7ce7fc93caae838e5125fb929",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Prefabs/BP_PF_Crate.BP_PF_Crate",
+      "issues": [
+        "PF_Crate: ambiguous-2-meshes, used /Game/Migrated/Project/Art/ManualEra/Models/STR_Crate/GEO_CrateBody.GEO_CrateBody"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Prefabs/PF_CrudeFurnace.prefab",
+      "guid": "401a5f0ada0445149956d85d429dbcf9",
+      "sha256": "a0c9948cb7173673a8cc58266255e3abfec38e8b46fac2114d80df1b8c4820c7",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Prefabs/BP_PF_CrudeFurnace.BP_PF_CrudeFurnace",
+      "issues": [
+        "PF_CrudeFurnace: ambiguous-4-meshes, used /Game/Migrated/Project/Art/ManualEra/Models/STR_CrudeFurnace/GEO_CavityLining.GEO_CavityLining"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Prefabs/PF_IronIngot.prefab",
+      "guid": "9d94b04e26588174dbfae79174ce1f0f",
+      "sha256": "d6bf8373d325c76782385fb4d61da4f3ee0565827dde9f048f1e9226a64fbbb4",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Prefabs/BP_PF_IronIngot.BP_PF_IronIngot",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Prefabs/PF_IronPlate.prefab",
+      "guid": "4048681e81999d44fb5094bdfda2719d",
+      "sha256": "38a5dcd08c1f3ff5e0393c7990eb3c67d137547fad7ddb5dffed80acc30d1825",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Prefabs/BP_PF_IronPlate.BP_PF_IronPlate",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Prefabs/PF_Workbench.prefab",
+      "guid": "b85b156b226793240a091898d6fffc28",
+      "sha256": "1f6ecddb78ac724f06dff421198ce94b4b3ed579639e3c59c9908f18da1b9e6e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Prefabs/BP_PF_Workbench.BP_PF_Workbench",
+      "issues": [
+        "PF_Workbench: ambiguous-6-meshes, used /Game/Migrated/Project/Art/ManualEra/Models/STR_Workbench/GEO_Frame.GEO_Frame"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/ManualEra/Wood/Prefabs/PF_Item_WoodLog.prefab",
+      "guid": "e0b4de12ac17ed54b9c365c700d2558d",
+      "sha256": "64fa4371fae01afa6ee8fcd3b07bd6a809b5e33895cb3add620177fa83438045",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/ManualEra/Wood/Prefabs/BP_PF_Item_WoodLog.BP_PF_Item_WoodLog",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/Prefabs/PF_MechanicalPress.prefab",
+      "guid": "8656e3c2a0de3cb49bc22f82dae58c00",
+      "sha256": "e80a7e6c528ef5f07cb2f7797e57b8b1f69e4cca4600b7277972174fee6de337",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/Prefabs/BP_PF_MechanicalPress.BP_PF_MechanicalPress",
+      "issues": [
+        "PF_MechanicalPress: ambiguous-70-meshes, used /Game/Migrated/Project/Art/MechanicalEra/Models/MEC_MechanicalPress/GEO_BedSupport_Front.GEO_BedSupport_Front"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Prefabs/PF_RotationalIdler.prefab",
+      "guid": "968242f84a3a23341904156f2d3d0245",
+      "sha256": "fe9bd4a2f9444b50580c40f85bae0d349b3cc714b83da74795eebb401d4f3226",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Prefabs/BP_PF_RotationalIdler.BP_PF_RotationalIdler",
+      "issues": [
+        "PF_RotationalIdler: ambiguous-5-meshes, used /Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Models/MEC_RotationalIdler/ANM_TelescopicIdlerPost.ANM_TelescopicIdlerPost"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Prefabs/PF_RotationalPulley.prefab",
+      "guid": "955e0302b7f2d724a87475a462807465",
+      "sha256": "c8d3ec2ef139975f8e47f213f9dff908f17c8b4b6ffe14ef2f0cb9578016e768",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Prefabs/BP_PF_RotationalPulley.BP_PF_RotationalPulley",
+      "issues": [
+        "PF_RotationalPulley: ambiguous-6-meshes, used /Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Models/MEC_RotationalPulley/ANM_DrivePulley_Core_001.ANM_DrivePulley_Core_001"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/MechanicalEra/RotationalPower/Prefabs/PF_WindRotor.prefab",
+      "guid": "c66791e7e041b9742b2bc609f8177797",
+      "sha256": "7d80e4212b5c9304468f2b5703d8209fc4085593716d66fd6099d1e4bd506639",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Prefabs/BP_PF_WindRotor.BP_PF_WindRotor",
+      "issues": [
+        "PF_WindRotor: ambiguous-70-meshes, used /Game/Migrated/Project/Art/MechanicalEra/RotationalPower/Models/MEC_WindRotor/ANM_DrivePulley_Core.ANM_DrivePulley_Core"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Tools/Pickaxe/Prefabs/PF_PickaxeCrude.prefab",
+      "guid": "d0a99cc587e3a4c4aa5d82a96e176304",
+      "sha256": "0d93760246bca90f512f07fa2df8cc905cb34cc023437e321396c85ddbec5711",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Tools/Pickaxe/Prefabs/BP_PF_PickaxeCrude.BP_PF_PickaxeCrude",
+      "issues": [
+        "PF_PickaxeCrude: ambiguous-5-meshes, used /Game/Migrated/Project/Art/Tools/Pickaxe/Models/TOOL_PickaxeCrude/GEO_Binding_Grip.GEO_Binding_Grip"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/UI/Chest/PF_ChestHUD.prefab",
+      "guid": "c6a5cda9f772fd94f8cec4d3719c2faf",
+      "sha256": "8737393b7ff36dada884ad6a895e29d2d91e306c2d043735bb1f1e4652010bc1",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/UI/Chest/BP_PF_ChestHUD.BP_PF_ChestHUD",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/UI/Crafting/PF_WorkbenchHUD.prefab",
+      "guid": "b66ad11937031d748a35e0e37065ea93",
+      "sha256": "49c53ae8e76feba5fbb343a64db2a4dae6f1e814fc860663a20a4bcd0f03ab70",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/UI/Crafting/BP_PF_WorkbenchHUD.BP_PF_WorkbenchHUD",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/UI/Inventory/PF_InventoryHUD.prefab",
+      "guid": "4e346028e1d6b644ab36f36a320567e0",
+      "sha256": "84fe030103958b06de544035f0ce9e660fe2690830107b714c221e699cf512b2",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/UI/Inventory/BP_PF_InventoryHUD.BP_PF_InventoryHUD",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/UI/Machine/PF_MachineHUD.prefab",
+      "guid": "ee1d7584d891e9f4d867ce5b28cd5907",
+      "sha256": "b9dac22905828ef14df982b269acbeb5ae9de8679fbe950110bb8004dfbcd3f9",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/UI/Machine/BP_PF_MachineHUD.BP_PF_MachineHUD",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/Airship/Prefabs/PF_Airship.prefab",
+      "guid": "1b907c9714693e545b5a086ab4144c17",
+      "sha256": "621286df82708b96ff3ce3c25284d276042a0858407b3031ec12cc9b010df7b6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/Airship/Prefabs/BP_PF_Airship.BP_PF_Airship",
+      "issues": [
+        "PF_Airship: ambiguous-281-meshes, used /Game/Migrated/Project/Art/Vehicles/Airship/Models/AIR_Airship/COLMESH_PLAYER_AccessDoorPanel.COLMESH_PLAYER_AccessDoorPanel"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Art/Vehicles/AirshipCandidate/R17/Prefabs/PF_Airship_R17_Review.prefab",
+      "guid": "3a19a45cb907a8a4baf7582a070f2fa8",
+      "sha256": "0f75e7b0f656f1cab947dc58d18efe0b193c6e1b2a6b4b4a7b046844207c1c79",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Prefabs/BP_PF_Airship_R17_Review.BP_PF_Airship_R17_Review",
+      "issues": [
+        "PF_Airship_R17_Review: ambiguous-234-meshes, used /Game/Migrated/Project/Art/Vehicles/AirshipCandidate/R17/Models/AIR_Airship_R17/COLMESH_PLAYER_CockpitCeilingLiner.COLMESH_PLAYER_CockpitCeilingLiner"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Resources/Equipment/PF_PickaxeCrudeView.prefab",
+      "guid": "3e04e1a464674772b11094f74b8ab9b4",
+      "sha256": "688e372eb1459da9e1cf2ea06244e9013194402693c4cc90a2077b687e40c2ad",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Equipment/BP_PF_PickaxeCrudeView.BP_PF_PickaxeCrudeView",
+      "issues": [
+        "PF_PickaxeCrudeView: ambiguous-5-meshes, used /Game/Migrated/Project/Art/Tools/Pickaxe/Models/TOOL_PickaxeCrude/GEO_Binding_Grip.GEO_Binding_Grip"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_PlantFiber.prefab",
+      "guid": "810f6752f1d9cd5458bf88adf4c2776f",
+      "sha256": "6b65b4fcf4daebd77c012022c5836d0628f27ed4463e390462b00096d800d0ef",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_PlantFiber.BP_PF_PlantFiber",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_RawCopper.prefab",
+      "guid": "e19cecde7acc6654c9ea1fd29352f63d",
+      "sha256": "0439625e6b75d7442f5a62356773499bdddffec13288b67cb6858cadda6497da",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_RawCopper.BP_PF_RawCopper",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_RawIron.prefab",
+      "guid": "87046122a20d413408f386c310f80a04",
+      "sha256": "38206fde3282b76ac7372c84659bfc631242ab6a25270591b0d5952d83b7a52c",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_RawIron.BP_PF_RawIron",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_RawTin.prefab",
+      "guid": "bb56ebfd3555bed4a96562dd518abf01",
+      "sha256": "457a165334ebe0497e548d19a8875292dc97aca9b5ceca601a3ba5f9fb89fd9b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_RawTin.BP_PF_RawTin",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_Stick.prefab",
+      "guid": "585ee0f7f80d8a343bea8e849bdc4fcf",
+      "sha256": "c5eeba4c9b638aa5a4679f106ed9de1231f143639dbb2884fd05ede739aed888",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_Stick.BP_PF_Stick",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_Stone.prefab",
+      "guid": "38701b6c166fb614981a573de246b14f",
+      "sha256": "10ec37d733f2d5fb75a0f4de9ab2ee637f5acc46a3128c4f41a6016412a64f82",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_Stone.BP_PF_Stone",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Items/PF_WoodLog.prefab",
+      "guid": "c0f94290fe6a22f44a8c9737ff44aed3",
+      "sha256": "baa7c2a97ffcab8b6c68ca0ec71758d2b79f2b350c5fbdd4f2d7d9a91b2a1be6",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Items/BP_PF_WoodLog.BP_PF_WoodLog",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Resources/Machinery/PF_MechanicalDrill.prefab",
+      "guid": "802791389f68aff4bbd0ee1123376f59",
+      "sha256": "73ddfd22e392612020cb52e954fc41d71a455ff39dfc3beb6804ab7af03497ab",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/Machinery/BP_PF_MechanicalDrill.BP_PF_MechanicalDrill",
+      "issues": [
+        "PF_MechanicalDrill: ambiguous-64-meshes, used /Game/Migrated/Project/Art/MechanicalEra/Models/MEC_MechanicalDrill/GEO_BaseSkidToe_LB.GEO_BaseSkidToe_LB"
+      ]
+    },
+    {
+      "source": "Assets/_Project/Resources/PF_AirshipRepairHUD.prefab",
+      "guid": "5bcefe451b8af3c4dba468be9c341362",
+      "sha256": "8c4ddcc9c657bbd76ff581182c07636082b7bc3fc83501d52b09bddba66c9910",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Resources/BP_PF_AirshipRepairHUD.BP_PF_AirshipRepairHUD",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_Autumn_A_LOD0.prefab",
+      "guid": "280563b594f8b414a8a5c1098d349d97",
+      "sha256": "f54bfd0cfe935957e26a493a5bb80ebc03b3257c4eedbb647e5b31d310750352",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_Autumn_A_LOD0.BP_PF_ENV_Tree_Autumn_A_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CloudTall_A_Autumn_LOD0.prefab",
+      "guid": "364f7d659d6c70445afea6d1ae4fd519",
+      "sha256": "d1abb45924666c8afaa87fc528d350cfcbd9f010138baf145d40b5962e32dfdf",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CloudTall_A_Autumn_LOD0.BP_PF_ENV_Tree_CloudTall_A_Autumn_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CloudTall_A_LOD0.prefab",
+      "guid": "3cfa79049f618104783f2460a8af10d1",
+      "sha256": "47dc1f900c499c3ba66392ff3e9de227ea5d0a6b585a535c125d5213628b9e77",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CloudTall_A_LOD0.BP_PF_ENV_Tree_CloudTall_A_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CloudTall_B_Autumn_LOD0.prefab",
+      "guid": "428aadff752536545b0e9677ee216cdf",
+      "sha256": "efe53cda49d03cd8dd6f7e894ae0f3a4463660faa7ffb7d12dc5b5f69b37826b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CloudTall_B_Autumn_LOD0.BP_PF_ENV_Tree_CloudTall_B_Autumn_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CloudTall_B_LOD0.prefab",
+      "guid": "72176a388eeb847499d6daf7659cec69",
+      "sha256": "6d03ccd650a3d1b74f2c082ef9fbb3170af3443b58ca087f555ca1d5fc072d0e",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CloudTall_B_LOD0.BP_PF_ENV_Tree_CloudTall_B_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CloudTall_C_Autumn_LOD0.prefab",
+      "guid": "9d38683dcc5bbdb45ac6cd7b09eff1b9",
+      "sha256": "9724065d474295e3ba8699eaabbe217f1c6a60653f53d80d99cd13330bb177ed",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CloudTall_C_Autumn_LOD0.BP_PF_ENV_Tree_CloudTall_C_Autumn_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CloudTall_C_LOD0.prefab",
+      "guid": "e6ca0e22276aab949b9b7b9d3d3f04a4",
+      "sha256": "5e3c8c57b7e2b628862007b707617b6d0e597e0872eef3d2658d071b9b4aa0c8",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CloudTall_C_LOD0.BP_PF_ENV_Tree_CloudTall_C_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/PF_ENV_Tree_CommonTall_A_LOD0.prefab",
+      "guid": "d55931aa5093bcc4886f6b254f7a6ce8",
+      "sha256": "8861babb281d42b997c7d4ebdff7260a28796621c51a3bd64f9e2b15f81c1236",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/V4/Trees/Prefabs/BP_PF_ENV_Tree_CommonTall_A_LOD0.BP_PF_ENV_Tree_CommonTall_A_LOD0",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Portal/Prefabs/PF_AncientStonePortal.prefab",
+      "guid": "5ceed13a08b0f5846a25fee9f5bb87a6",
+      "sha256": "73d30b914f5521eb276c0b6cee6f1df0aa843621ae6425e58d651e8f938d7656",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Environment/StarterIsland/Portal/Prefabs/BP_PF_AncientStonePortal.BP_PF_AncientStonePortal",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_Curve.prefab",
+      "guid": "f6e635d7e73f7b1488f9fe0235018f9e",
+      "sha256": "caf3b15f3e930cc0005ed6a1473867ef24b464772a3013c05f32ed1d1d1b0d22",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_Curve.BP_PF_Belt_Curve",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_CurveLeft.prefab",
+      "guid": "d47c4750b7931234abd528029e6b1a87",
+      "sha256": "48352577dec1759631dfe20f2801843b99bb1c18f4315d2280cd806974fbd5ff",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_CurveLeft.BP_PF_Belt_CurveLeft",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_DirectionArrow.prefab",
+      "guid": "85241bb033ad0384da6d852469c8a37b",
+      "sha256": "8ba11c1e243ef47b98199216fecd059689d17a9fa3a17a1253cfe8f6e39f1e56",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_DirectionArrow.BP_PF_Belt_DirectionArrow",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_DriveUnit.prefab",
+      "guid": "5342a70843b83ac489a248de2f1b8c77",
+      "sha256": "8fccb5761819dfd879b1b39b16f9fc9e75ecf66b7b195962c28caef95e2d42ef",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_DriveUnit.BP_PF_Belt_DriveUnit",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_Funnel.prefab",
+      "guid": "a2796c419cdb72542a51b4abf2a63c93",
+      "sha256": "b676f0cb1201172ba444f3b439536cb61756671f06203dadebb30e13c68a904b",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_Funnel.BP_PF_Belt_Funnel",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_Incline.prefab",
+      "guid": "5812cffc7dc06544e98096434490b18e",
+      "sha256": "ef3edf08d7dccc364d246424a314acfcf7056193d9a180794b216b2f936abc3d",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_Incline.BP_PF_Belt_Incline",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_Straight.prefab",
+      "guid": "cb219d27b6858ff4bb5359f73c9f9d67",
+      "sha256": "f87dd211b3e8721fb0aefa5ab06064cd11b95be1eed7784137d3581d939ff4ca",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_Straight.BP_PF_Belt_Straight",
+      "issues": []
+    },
+    {
+      "source": "Assets/_Project/Art/Logistics/BeltKit/Prefabs/PF_Belt_Support.prefab",
+      "guid": "6808d55f76cdb254f86cc01b457eda83",
+      "sha256": "5ddeab055a910c8f9a292b48ff86a052b95ddc02002bd0b289087ce96444ce21",
+      "status": "converted",
+      "object": "/Game/Migrated/Project/Art/Logistics/BeltKit/Prefabs/BP_PF_Belt_Support.BP_PF_Belt_Support",
+      "issues": []
+    }
+  ]
+}

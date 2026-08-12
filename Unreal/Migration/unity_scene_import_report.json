@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "requested": 10,
+  "converted": 0,
+  "failed": 10,
+  "results": [
+    {
+      "source": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Preview/SCN_CleanRoomVisualTests.unity",
+      "guid": "57d5d872ae42db54e8369282abac1839",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_CleanRoomVisualTests"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Preview/SCN_OriginalCliffMassKit_Assembly.unity",
+      "guid": "56e4782a1c5916d45babd3bd0f72270d",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_OriginalCliffMassKit_Assembly"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Preview/SCN_OriginalCliffMassKit_Catalog.unity",
+      "guid": "8c71f19ef2cbe324d80dcc2e8e881393",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_OriginalCliffMassKit_Catalog"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Preview/SCN_REF_SolarpunkCliffAssemblyGuide.unity",
+      "guid": "53c8b3e362a2d904aa4f0be4eb1a23f5",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_REF_SolarpunkCliffAssemblyGuide"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Preview/SCN_REF_SolarpunkOriginalCliffs_AB.unity",
+      "guid": "76a02a5628772a949bb9c981a4a01d3d",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_REF_SolarpunkOriginalCliffs_AB"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Preview/SCN_VRKS_Preview.unity",
+      "guid": "c3fe19df5e06a8a419c894a9873dc408",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_VRKS_Preview"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Preview/SCN_ReferenceRockKit_Catalog.unity",
+      "guid": "715aa0e3606cc4e40a2c9eaa94b6f8bf",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/SCN_ReferenceRockKit_Catalog"
+    },
+    {
+      "source": "Assets/_Project/Scenes/00_Bootstrap.unity",
+      "guid": "96e6da2bc8cd6bd4ba8fd6e47f52c29d",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/A_00_Bootstrap"
+    },
+    {
+      "source": "Assets/_Project/Scenes/01_IntroCinematic.unity",
+      "guid": "10bf5e550dfddc84ab214035cc9c2cb0",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/A_01_IntroCinematic"
+    },
+    {
+      "source": "Assets/_Project/Scenes/91_StarterIsland_Terrain_Review.unity",
+      "guid": "af1f0357f8822b54c97c8e00763a9919",
+      "status": "failed",
+      "error": "Unable to create level /Game/Maps/A_91_StarterIsland_Terrain_Review"
+    }
+  ]
+}

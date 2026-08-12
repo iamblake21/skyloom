@@ -38,6 +38,9 @@ namespace CML.Editor.Art
             MeshRoot + "/MD_TerrainGrass_Carpet_A.asset";
         private const string GrassMeshBPath =
             MeshRoot + "/MD_TerrainGrass_Carpet_B.asset";
+        private const string MeasuredGrassModelPath =
+            "Assets/_Project/Art/Environment/CleanRoomVisualTests/" +
+            "Grass/Models/CR_GrassClump_A.fbx";
         private const string GrassPrefabAPath =
             PrefabRoot + "/PF_TerrainDetail_AdaptiveGrass_A.prefab";
         private const string GrassPrefabBPath =
@@ -162,7 +165,10 @@ namespace CML.Editor.Art
             }
 
             var assets = BuildRequiredAssets();
-            var reseedGrass = forceReseedGrass || assets.RequiresReseed;
+            // Geometry can be upgraded without touching the artist-painted
+            // Terrain detail maps.  Only the explicit reseed command is
+            // allowed to replace those maps.
+            var reseedGrass = forceReseedGrass;
             ConfigureTerrainData(
                 data,
                 assets,
@@ -316,11 +322,92 @@ namespace CML.Editor.Art
             int cardCount,
             out bool requiresReseed)
         {
+            var sourceRoot = AssetDatabase.LoadAssetAtPath<GameObject>(
+                MeasuredGrassModelPath);
+            if (sourceRoot == null)
+            {
+                throw new FileNotFoundException(
+                    "Measured grass source model is missing.",
+                    MeasuredGrassModelPath);
+            }
+
+            var lodName = variant == 0 ? "LOD0" : "LOD1";
+            MeshFilter sourceFilter = null;
+            foreach (var candidate in
+                     sourceRoot.GetComponentsInChildren<MeshFilter>(true))
+            {
+                if (candidate.sharedMesh != null &&
+                    candidate.name.EndsWith(
+                        "_" + lodName,
+                        StringComparison.OrdinalIgnoreCase))
+                {
+                    sourceFilter = candidate;
+                    break;
+                }
+            }
+
+            if (sourceFilter == null || sourceFilter.sharedMesh == null)
+            {
+                throw new InvalidOperationException(
+                    $"Measured grass model has no {lodName} mesh: " +
+                    MeasuredGrassModelPath);
+            }
+
+            var source = sourceFilter.sharedMesh;
+            var sourceVertices = source.vertices;
+            var sourceNormals = source.normals;
+            var sourceColors = source.colors;
+            var sourceUv = source.uv;
+            var sourceTriangles = source.triangles;
+            var sourceToRoot =
+                sourceRoot.transform.worldToLocalMatrix *
+                sourceFilter.transform.localToWorldMatrix;
+            var normalMatrix = sourceToRoot.inverse.transpose;
+
+            var vertices = new Vector3[sourceVertices.Length];
+            var normals = new Vector3[sourceVertices.Length];
+            var colors = new Color[sourceVertices.Length];
+            var uv = new Vector2[sourceVertices.Length];
+            var minimumY = float.PositiveInfinity;
+            for (var index = 0; index < sourceVertices.Length; index++)
+            {
+                vertices[index] = sourceToRoot.MultiplyPoint3x4(
+                    sourceVertices[index]);
+                minimumY = Mathf.Min(minimumY, vertices[index].y);
+                normals[index] = sourceNormals.Length == sourceVertices.Length
+                    ? normalMatrix.MultiplyVector(sourceNormals[index]).normalized
+                    : Vector3.up;
+                uv[index] = sourceUv.Length == sourceVertices.Length
+                    ? sourceUv[index]
+                    : Vector2.zero;
+                colors[index] = sourceColors.Length == sourceVertices.Length
+                    ? sourceColors[index]
+                    : Color.white;
+            }
+
+            // Terrain places detail prototypes at ground height.  Baking the
+            // imported model hierarchy and grounding the mesh avoids the
+            // floating/sideways result that a raw FBX child would produce.
+            for (var index = 0; index < vertices.Length; index++)
+            {
+                vertices[index].y -= minimumY;
+                if (sourceColors.Length != sourceVertices.Length)
+                {
+                    var height = Mathf.InverseLerp(
+                        0f,
+                        Mathf.Max(0.001f, source.bounds.size.y),
+                        vertices[index].y);
+                    colors[index] = new Color(
+                        height,
+                        Mathf.Repeat(index * 0.6180339f, 1f),
+                        0.68f,
+                        1f);
+                }
+            }
+
             var mesh = AssetDatabase.LoadAssetAtPath<Mesh>(assetPath);
             var expectedName = Path.GetFileNameWithoutExtension(assetPath);
-            requiresReseed = mesh == null ||
-                mesh.vertexCount != cardCount * 8 ||
-                mesh.triangles.Length != cardCount * 18;
+            requiresReseed = false;
             if (mesh == null)
             {
                 mesh = new Mesh
@@ -335,36 +422,11 @@ namespace CML.Editor.Art
                 mesh.name = expectedName;
             }
 
-            const int verticesPerCard = 8;
-            const int indicesPerCard = 18;
-            var vertices = new List<Vector3>(
-                cardCount * verticesPerCard);
-            var normals = new List<Vector3>(
-                cardCount * verticesPerCard);
-            var colors = new List<Color>(
-                cardCount * verticesPerCard);
-            var uv = new List<Vector2>(
-                cardCount * verticesPerCard);
-            var indices = new List<int>(
-                cardCount * indicesPerCard);
-            for (var card = 0; card < cardCount; card++)
-            {
-                AppendGrassCard(
-                    variant,
-                    card,
-                    cardCount,
-                    vertices,
-                    normals,
-                    colors,
-                    uv,
-                    indices);
-            }
-
             mesh.SetVertices(vertices);
             mesh.SetNormals(normals);
             mesh.SetColors(colors);
             mesh.SetUVs(0, uv);
-            mesh.SetTriangles(indices, 0, true);
+            mesh.SetTriangles(sourceTriangles, 0, true);
             mesh.RecalculateBounds();
             var bounds = mesh.bounds;
             bounds.Expand(new Vector3(0.12f, 0.04f, 0.12f));
@@ -372,108 +434,6 @@ namespace CML.Editor.Art
             mesh.UploadMeshData(false);
             EditorUtility.SetDirty(mesh);
             return mesh;
-        }
-
-        private static void AppendGrassCard(
-            int variant,
-            int card,
-            int cardCount,
-            ICollection<Vector3> vertices,
-            ICollection<Vector3> normals,
-            ICollection<Color> colors,
-            ICollection<Vector2> uv,
-            ICollection<int> indices)
-        {
-            var hash = Hash01(card, variant, 0x45D9);
-            var secondHash = Hash01(card, variant, 0xA361);
-            var angle = (
-                card * (180f / cardCount) +
-                variant * 19f +
-                (hash - 0.5f) * 16f) * Mathf.Deg2Rad;
-            var widthDirection = new Vector3(
-                Mathf.Cos(angle),
-                0f,
-                Mathf.Sin(angle));
-            var centerAngle = (
-                card * 137.50776f +
-                variant * 47f) * Mathf.Deg2Rad;
-            var centerRadius = Mathf.Lerp(0.008f, 0.045f, secondHash);
-            var center = new Vector3(
-                Mathf.Cos(centerAngle) * centerRadius,
-                0f,
-                Mathf.Sin(centerAngle) * centerRadius);
-            var commonLeanAngle = (variant * 73f + 28f) * Mathf.Deg2Rad;
-            var commonLean = new Vector3(
-                Mathf.Cos(commonLeanAngle),
-                0f,
-                Mathf.Sin(commonLeanAngle));
-            var cardLean = Vector3.Normalize(
-                commonLean * 0.82f +
-                new Vector3(
-                    Mathf.Cos(centerAngle),
-                    0f,
-                    Mathf.Sin(centerAngle)) * 0.18f);
-            var widthRange = variant == 0
-                ? new Vector2(0.29f, 0.37f)
-                : new Vector2(0.24f, 0.32f);
-            var heightRange = variant == 0
-                ? new Vector2(0.115f, 0.165f)
-                : new Vector2(0.078f, 0.125f);
-            var width = Mathf.Lerp(widthRange.x, widthRange.y, hash);
-            var height = Mathf.Lerp(
-                heightRange.x,
-                heightRange.y,
-                Hash01(card, variant, 0x7F4A));
-            var lean = Mathf.Lerp(
-                variant == 0 ? 0.026f : 0.018f,
-                variant == 0 ? 0.048f : 0.038f,
-                Hash01(card, variant, 0xC2B2));
-            var faceNormal = Vector3.Normalize(new Vector3(
-                -widthDirection.z,
-                0.82f,
-                widthDirection.x));
-            var phase = Hash01(card, variant, 0x1656);
-            var flexibility = Mathf.Lerp(
-                0.38f,
-                0.82f,
-                Hash01(card, variant, 0xD3A2));
-            var flipUv = Hash01(card, variant, 0xB529) > 0.5f;
-            var baseIndex = vertices.Count;
-            var levels = new[] { 0f, 0.38f, 0.72f, 1f };
-            for (var levelIndex = 0;
-                 levelIndex < levels.Length;
-                 levelIndex++)
-            {
-                var level = levels[levelIndex];
-                var curve = level * level * (3f - 2f * level);
-                var halfWidth = width * 0.5f *
-                    Mathf.Lerp(1f, 0.94f, level);
-                var levelCenter = center +
-                    cardLean * lean * curve +
-                    Vector3.up * height * level;
-                vertices.Add(
-                    levelCenter - widthDirection * halfWidth);
-                vertices.Add(
-                    levelCenter + widthDirection * halfWidth);
-                normals.Add(faceNormal);
-                normals.Add(faceNormal);
-                colors.Add(new Color(level, phase, flexibility, 1f));
-                colors.Add(new Color(level, phase, flexibility, 1f));
-                uv.Add(new Vector2(flipUv ? 1f : 0f, level));
-                uv.Add(new Vector2(flipUv ? 0f : 1f, level));
-            }
-
-            for (var segment = 0; segment < 3; segment++)
-            {
-                var bottom = baseIndex + segment * 2;
-                var top = bottom + 2;
-                indices.Add(bottom);
-                indices.Add(top);
-                indices.Add(bottom + 1);
-                indices.Add(bottom + 1);
-                indices.Add(top);
-                indices.Add(top + 1);
-            }
         }
 
         private static GameObject BuildGrassPrefab(
@@ -699,17 +659,17 @@ namespace CML.Editor.Art
             var captured = CaptureLayers(data);
             var grassAPrototype = BuildGrassPrototype(
                 assets.GrassA,
-                0.88f,
-                1.18f,
+                0.48f,
                 0.72f,
-                1.28f,
+                0.50f,
+                0.76f,
                 0x1357);
             var grassBPrototype = BuildGrassPrototype(
                 assets.GrassB,
-                0.84f,
-                1.14f,
-                0.78f,
-                1.22f,
+                0.42f,
+                0.66f,
+                0.45f,
+                0.70f,
                 0x2468);
 
             var prototypes = new List<DetailPrototype>

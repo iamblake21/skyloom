@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "note": "Unity ParticleSystem settings recovered for rebuilding as Niagara. The scene converter cannot create these actors, so every system listed here is a shot with nothing in it until its Niagara system is authored and placed under the actor name given.",
+  "scenes": 1,
+  "systems": 3,
+  "results": [
+    {
+      "scene": "Assets/_Project/Scenes/01_IntroCinematic.unity",
+      "systems": [
+        {
+          "actor": "CIN_RiftDebris",
+          "lengthSeconds": 5.0,
+          "looping": true,
+          "playOnAwake": false,
+          "useUnscaledTime": true,
+          "startLifetimeSeconds": 3.2,
+          "startSpeed": 18.0,
+          "startSize": 0.62,
+          "gravityModifier": 0.0,
+          "maxParticles": 900
+        },
+        {
+          "actor": "CIN_CockpitSparks",
+          "lengthSeconds": 5.0,
+          "looping": true,
+          "playOnAwake": true,
+          "useUnscaledTime": true,
+          "startLifetimeSeconds": 0.85,
+          "startSpeed": 4.2,
+          "startSize": 0.035,
+          "gravityModifier": 0.9,
+          "maxParticles": 400
+        },
+        {
+          "actor": "CIN_StarStreaks",
+          "lengthSeconds": 5.0,
+          "looping": true,
+          "playOnAwake": true,
+          "useUnscaledTime": true,
+          "startLifetimeSeconds": 2.2,
+          "startSpeed": 30.0,
+          "startSize": 0.3,
+          "gravityModifier": 0.0,
+          "maxParticles": 2400
+        }
+      ]
+    }
+  ]
+}

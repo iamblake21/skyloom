@@ -1,0 +1,176 @@
+// Clean-room reconstruction of Solarpunk M_Island_Landmass from its cooked
+// shader permutations. Shared by the modular cliff/shelf meshes; Landscape has
+// a deliberately different two-axis slope path in CMLTerrainSplat.ush.
+//
+// Texture sampling stays in Unreal sampler nodes, so these helpers receive the
+// already-sampled values. UV helpers negate V because Unity's texture origin is
+// bottom-left: for the wrapped, world-tiled projections used here, -v selects
+// exactly the texel Unity sampled.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+
+/** A = XY wall, B = ZY wall, C = XZ top; all scaled by -1/_LandmassWorldSize. */
+float2 CMLLandmassUVWallX(float3 UnityPositionWS, float WorldSize)
+{
+    float InverseWorldSize = rcp(max(abs(WorldSize), 0.001f));
+    float2 UV = float2(UnityPositionWS.x, UnityPositionWS.y) * -InverseWorldSize;
+    return float2(UV.x, -UV.y);
+}
+
+float2 CMLLandmassUVWallZ(float3 UnityPositionWS, float WorldSize)
+{
+    float InverseWorldSize = rcp(max(abs(WorldSize), 0.001f));
+    float2 UV = float2(UnityPositionWS.z, UnityPositionWS.y) * -InverseWorldSize;
+    return float2(UV.x, -UV.y);
+}
+
+float2 CMLLandmassUVTop(float3 UnityPositionWS, float WorldSize)
+{
+    float InverseWorldSize = rcp(max(abs(WorldSize), 0.001f));
+    float2 UV = float2(UnityPositionWS.x, UnityPositionWS.z) * -InverseWorldSize;
+    return float2(UV.x, -UV.y);
+}
+
+float2 CMLLandmassUVPlanar(float3 UnityPositionWS, float WorldSize)
+{
+    float2 UV = UnityPositionWS.xz / max(abs(WorldSize), 0.001f);
+    return float2(UV.x, -UV.y);
+}
+
+/** Decoded M_Island_Landmass samples the macro mask twice, at ~35 m and ~40.96 m. */
+float CMLLandmassVariation(float VariationA, float VariationB)
+{
+    return saturate(VariationA + VariationB);
+}
+
+/**
+ * The colour cap uses the wide -0.499157 / 2.953668 pair. The separate
+ * -0.6 / 10 pair controls normal flattening and must not be reused here.
+ */
+float CMLLandmassTopMask(
+    float3 UnityNormalWS,
+    float ColorSlopeOffset,
+    float ColorSlopeHardness,
+    float GrassAmount)
+{
+    return saturate((UnityNormalWS.y + ColorSlopeOffset) * ColorSlopeHardness)
+        * saturate(GrassAmount);
+}
+
+/**
+ * Three-axis rock albedo. Exact decoded order: A=XY wall, B=ZY wall lerped by
+ * abs(N.x), then C=XZ top lerped by abs(N.y), finally the 30% clay tint that
+ * belongs only to the 3-axis path.
+ */
+float3 CMLLandmassRockAlbedo(
+    float3 UnityGeometricNormalWS,
+    float3 AlbedoA,
+    float3 AlbedoB,
+    float3 AlbedoC,
+    float3 RockTintColor,
+    float RockTintStrength)
+{
+    float3 N = normalize(UnityGeometricNormalWS);
+    float WallXWeight = saturate(abs(N.x) * 3.0f - 1.0f);
+    float TopWeight = saturate(abs(N.y) * 3.0f - 1.0f);
+    float3 SideAlbedo = lerp(AlbedoA, AlbedoB, WallXWeight);
+    float3 RockAlbedo = lerp(SideAlbedo, AlbedoC, TopWeight);
+    return lerp(RockAlbedo, RockTintColor, saturate(RockTintStrength));
+}
+
+/**
+ * Treat the normal texture as a tangent-plane perturbation of the real mesh
+ * normal: a flat normal returns the geometric normal exactly, and a projection
+ * plane can never flip a wall normal away from the light at axis transitions.
+ */
+float3 CMLLandmassRockNormal(
+    float3 UnityGeometricNormalWS,
+    float3 TangentNormalA,
+    float3 TangentNormalB,
+    float3 TangentNormalC,
+    float NormalStrength)
+{
+    float3 N = normalize(UnityGeometricNormalWS);
+    float NormalWallXWeight = saturate(abs(N.x));
+    float NormalTopWeight = saturate(abs(N.y));
+
+    float3 PerturbA = float3(-TangentNormalA.x, -TangentNormalA.y, 0.0f);
+    float3 PerturbB = float3(0.0f, -TangentNormalB.y, -TangentNormalB.x);
+    float3 PerturbC = float3(-TangentNormalC.x, 0.0f, -TangentNormalC.y);
+
+    float3 SidePerturbation = lerp(PerturbA, PerturbB, NormalWallXWeight);
+    float3 Perturbation = lerp(SidePerturbation, PerturbC, NormalTopWeight);
+    Perturbation -= N * dot(Perturbation, N);
+    Perturbation *= max(NormalStrength, 0.0f);
+    float PerturbationLength = length(Perturbation);
+    Perturbation *= min(1.0f, 0.5f / max(PerturbationLength, 0.0001f));
+    return normalize(N + Perturbation);
+}
+
+/**
+ * M_Island_Landmass has no top diffuse texture and no vertex-colour mask. Its
+ * grass cap is exactly the two seasonal FLinearColor endpoints modulated by the
+ * two world-space samples of T_Grass_Variation_Mask.
+ */
+float3 CMLLandmassGrassColor(
+    float Variation,
+    float3 GrassColor1,
+    float3 GrassColor2)
+{
+    return lerp(GrassColor2, GrassColor1, saturate(Variation));
+}
+
+/**
+ * Two-axis (side only) rock, used by the Terrain splat pass. The Terrain has
+ * already performed the slope transition, so sampling the complete three-axis
+ * cap there would apply it twice. No clay tint: that belongs to the 3-axis path.
+ */
+float3 CMLLandmassRockSideAlbedo(
+    float3 UnityGeometricNormalWS,
+    float3 AlbedoA,
+    float3 AlbedoB)
+{
+    float3 N = normalize(UnityGeometricNormalWS);
+    float WallXWeight = saturate(abs(N.x) * 3.0f - 1.0f);
+    return lerp(AlbedoA, AlbedoB, WallXWeight);
+}
+
+float3 CMLLandmassRockSideNormal(
+    float3 UnityGeometricNormalWS,
+    float3 TangentNormalA,
+    float3 TangentNormalB,
+    float NormalStrength)
+{
+    float3 N = normalize(UnityGeometricNormalWS);
+    float NormalWallXWeight = saturate(abs(N.x));
+    float3 PerturbA = float3(-TangentNormalA.x, -TangentNormalA.y, 0.0f);
+    float3 PerturbB = float3(0.0f, -TangentNormalB.y, -TangentNormalB.x);
+    float3 Perturbation = lerp(PerturbA, PerturbB, NormalWallXWeight);
+    Perturbation -= N * dot(Perturbation, N);
+    Perturbation *= max(NormalStrength, 0.0f);
+    float PerturbationLength = length(Perturbation);
+    Perturbation *= min(1.0f, 0.5f / max(PerturbationLength, 0.0001f));
+    return normalize(N + Perturbation);
+}
+
+/**
+ * The landscape slope-to-top transition uses the steeper -0.6 / 10 pair,
+ * intentionally separate from the wider organic colour cap.
+ */
+float CMLTerrainTopMask(float3 UnityNormalWS, float SlopeOffset, float SlopeHardness)
+{
+    return saturate((normalize(UnityNormalWS).y + SlopeOffset) * SlopeHardness);
+}
+
+/** Final surface normal: rock perturbation released back to geometry on tops. */
+float3 CMLLandmassSurfaceNormal(
+    float3 UnityGeometricNormalWS,
+    float3 RockNormalWS,
+    float SlopeOffset,
+    float SlopeHardness)
+{
+    float3 N = normalize(UnityGeometricNormalWS);
+    return normalize(lerp(RockNormalWS, N, saturate((N.y + SlopeOffset) * SlopeHardness)));
+}

@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "scenes": 10,
+  "patched": 10,
+  "failed": 0,
+  "results": [
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/CleanRoomVisualTests/Preview/SCN_CleanRoomVisualTests.unity",
+      "map": "/Game/Maps/SCN_CleanRoomVisualTests",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Preview/SCN_OriginalCliffMassKit_Assembly.unity",
+      "map": "/Game/Maps/SCN_OriginalCliffMassKit_Assembly",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/OriginalCliffMassKit/Preview/SCN_OriginalCliffMassKit_Catalog.unity",
+      "map": "/Game/Maps/SCN_OriginalCliffMassKit_Catalog",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Preview/SCN_REF_SolarpunkCliffAssemblyGuide.unity",
+      "map": "/Game/Maps/SCN_REF_SolarpunkCliffAssemblyGuide",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/OriginalCliffMassKit/ReferenceStudy_TEMP/SolarpunkOriginalCliffs/Preview/SCN_REF_SolarpunkOriginalCliffs_AB.unity",
+      "map": "/Game/Maps/SCN_REF_SolarpunkOriginalCliffs_AB",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/StarterIsland/VerticalRockKit_Sculpted/Preview/SCN_VRKS_Preview.unity",
+      "map": "/Game/Maps/SCN_VRKS_Preview",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Art/Environment/StylizedRockWorldKit/Preview/SCN_ReferenceRockKit_Catalog.unity",
+      "map": "/Game/Maps/SCN_ReferenceRockKit_Catalog",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Scenes/00_Bootstrap.unity",
+      "map": "/Game/Maps/A_00_Bootstrap",
+      "added": []
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Scenes/01_IntroCinematic.unity",
+      "map": "/Game/Maps/A_01_IntroCinematic",
+      "added": [
+        "CIN_IntroSequence",
+        "PrefabPainterSceneSettings",
+        "CIN_Asteroids",
+        "CIN_ChaseRig",
+        "CIN_AirshipHeading",
+        "CIN_CockpitShake",
+        "CIN_AirshipAttitude",
+        "CIN_SpaceVisuals"
+      ]
+    },
+    {
+      "status": "patched",
+      "scene": "Assets/_Project/Scenes/91_StarterIsland_Terrain_Review.unity",
+      "map": "/Game/Maps/A_91_StarterIsland_Terrain_Review",
+      "added": []
+    }
+  ]
+}

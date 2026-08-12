@@ -37,14 +37,14 @@ Material:
     - _Cutoff: 0.38
     - _FarMatchEnd: 54
     - _FarMatchStart: 24
-    - _GustStrength: 0.28
+    - _GustStrength: 0.46
     - _RootBrightness: 0.96
     - _ShadowAttenuationFloor: 0.08
     - _ShadowFloor: 0.16
     - _TerrainMacroVariation: 0.13
     - _TipBrightness: 1.025
-    - _WindSpeed: 1.38
-    - _WindStrength: 0.022
+    - _WindSpeed: 1.62
+    - _WindStrength: 0.04
     m_Colors:
     - _BaseColor: {r: 0.24313726, g: 0.46666667, b: 0.23137255, a: 1}
     - _FallbackColor: {r: 0.29, g: 0.48, b: 0.2, a: 1}

@@ -1,0 +1,582 @@
+// Ports of the cinematic effect shaders (intro rift, portal, warp tunnel,
+// star streaks). These are unlit, additively or premultiplied-blended screen
+// effects, so they transfer to Unreal as emissive-only materials.
+//
+// Each shader carried its own hash/fbm variant in Unity. They are kept separate
+// here on purpose: the constants differ, and sharing one would change the shape
+// of every noise field the intro was art-directed against.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+
+// --------------------------------------------------------------------------
+// Shared cinematic noise (Rift + Portal Veil)
+// --------------------------------------------------------------------------
+
+float CMLCinHash21(float2 Value)
+{
+    Value = frac(Value * float2(123.34f, 456.21f));
+    Value += dot(Value, Value + 45.32f);
+    return frac(Value.x * Value.y);
+}
+
+float CMLCinValueNoise(float2 UV)
+{
+    float2 Cell = floor(UV);
+    float2 Local = frac(UV);
+    Local = Local * Local * (3.0f - 2.0f * Local);
+    return lerp(
+        lerp(CMLCinHash21(Cell), CMLCinHash21(Cell + float2(1, 0)), Local.x),
+        lerp(CMLCinHash21(Cell + float2(0, 1)), CMLCinHash21(Cell + float2(1, 1)), Local.x),
+        Local.y);
+}
+
+float CMLCinFbmVeil(float2 UV)
+{
+    float Value = 0.0f;
+    float Amplitude = 0.5f;
+    [unroll]
+    for (int Octave = 0; Octave < 4; ++Octave)
+    {
+        Value += CMLCinValueNoise(UV) * Amplitude;
+        UV = UV * 2.03f + float2(-4.7f, 9.1f);
+        Amplitude *= 0.5f;
+    }
+    return Value * 1.0667f;
+}
+
+float CMLCinFbmRift(float2 UV)
+{
+    float Value = 0.0f;
+    float Amplitude = 0.5f;
+    [unroll]
+    for (int Octave = 0; Octave < 4; ++Octave)
+    {
+        Value += CMLCinValueNoise(UV) * Amplitude;
+        UV = UV * 2.07f + float2(7.3f, -3.9f);
+        Amplitude *= 0.5f;
+    }
+    return Value * 1.0667f;
+}
+
+// --------------------------------------------------------------------------
+// CML/Cinematics/Star Streak
+// --------------------------------------------------------------------------
+
+float3 CMLStarStreak(
+    float2 UV,
+    float4 VertexColor,
+    float4 Tint,
+    float CoreBoost,
+    float Softness)
+{
+    float Along = saturate(UV.x);
+    float Across = abs(UV.y - 0.5f) * 2.0f;
+    float Taper = sin(Along * 3.14159265f);
+    Taper = pow(max(Taper, 0.0f), 0.65f);
+    float Lateral = exp(-(Across * Across) / max(Taper * Taper, 1e-4f) * Softness);
+    float Head = pow(Along, 2.2f);
+    float Energy = Lateral * (0.35f + Head * CoreBoost * 0.35f);
+    return max(Tint.rgb * VertexColor.rgb * Energy * VertexColor.a * Tint.a, 0.0f);
+}
+
+// --------------------------------------------------------------------------
+// CML/Cinematics/Portal Veil
+// --------------------------------------------------------------------------
+
+/** Polar sample coordinate shared by the veil's body, detail and refraction. */
+float2 CMLPortalVeilPolar(float2 UV, float SwirlScale, float SwirlSpeed, float TimeSeconds)
+{
+    float2 Centered = (UV - 0.5f) * 2.0f;
+    float Radius = length(Centered);
+    float Angle = atan2(Centered.y, Centered.x);
+    return float2(
+        Angle / 6.2831853f * SwirlScale + Radius * 1.9f,
+        Radius * SwirlScale - TimeSeconds * SwirlSpeed * 0.35f);
+}
+
+float2 CMLPortalVeilRefractionOffset(float2 Polar, float Refraction, float Charge)
+{
+    float2 Offset = float2(
+        CMLCinFbmVeil(Polar * 1.6f + 11.3f) - 0.5f,
+        CMLCinFbmVeil(Polar * 1.6f - 7.9f) - 0.5f);
+    return Offset * Refraction * Charge * 0.2f;
+}
+
+float4 CMLPortalVeil(
+    float2 UV,
+    float2 Polar,
+    float3 Background,
+    float TimeSeconds,
+    float3 InnerColor,
+    float3 OuterColor,
+    float3 RimColor,
+    float Charge,
+    float RimWidth,
+    float Intensity)
+{
+    Charge = saturate(Charge);
+    if (Charge <= 0.001f)
+    {
+        return float4(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+    float2 Centered = (UV - 0.5f) * 2.0f;
+    float Radius = length(Centered);
+    if (Radius > 1.0f)
+    {
+        return float4(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+
+    float Body = CMLCinFbmVeil(Polar);
+    float Detail = CMLCinFbmVeil(Polar * 2.7f + float2(TimeSeconds * 0.21f, -TimeSeconds * 0.13f));
+    float Field = saturate(Body * 0.75f + Detail * 0.45f - 0.18f);
+    float Rim = 1.0f - smoothstep(1.0f, 1.0f - RimWidth, Radius);
+    float Disc = smoothstep(1.0f, 0.92f, Radius);
+
+    float3 Color = lerp(OuterColor, InnerColor, Field);
+    Color += RimColor * Rim * 2.1f;
+    Color *= (0.35f + Field * 1.5f) * Intensity * Charge;
+
+    float Coverage = saturate((0.42f + Field * 0.75f) * Disc * Charge);
+    float3 Result = Background * Coverage * 0.55f + Color * Disc;
+    return float4(max(Result, 0.0f), Coverage);
+}
+
+// --------------------------------------------------------------------------
+// CML/Cinematics/Rift
+// --------------------------------------------------------------------------
+
+/** Screen-space pull applied to the background; the lensing at the lips. */
+float2 CMLRiftLensOffset(
+    float2 UV,
+    float Openness,
+    float Width,
+    float EdgeSoftness,
+    float EdgeTurbulence,
+    float TurbulenceScale,
+    float TurbulenceSpeed,
+    float Refraction,
+    float TimeSeconds)
+{
+    float2 Centered = (UV - 0.5f) * 2.0f;
+    Openness = saturate(Openness);
+    float HalfHeight = max(Openness, 0.001f);
+    float VerticalFalloff = 1.0f - saturate((Centered.y / HalfHeight) * (Centered.y / HalfHeight));
+    float Profile = sqrt(max(VerticalFalloff, 0.0f));
+    float BoundaryNoise = CMLCinFbmRift(
+        float2(Centered.y * TurbulenceScale, TimeSeconds * TurbulenceSpeed * 0.35f)) - 0.5f;
+    float HalfWidth = Width * Openness * Profile * (1.0f + BoundaryNoise * EdgeTurbulence * 1.35f);
+    float DistanceToEdge = abs(Centered.x) - max(HalfWidth, 0.0f);
+    float Softness = max(EdgeSoftness, 0.002f);
+    float Interior = smoothstep(Softness, -Softness, DistanceToEdge);
+
+    float2 Pull = normalize(float2(Centered.x, Centered.y * 0.35f) + float2(1e-5f, 0.0f));
+    float LensStrength = Refraction * Openness
+        * exp(-max(DistanceToEdge, 0.0f) * 4.5f)
+        * (1.0f - Interior);
+    return -Pull * LensStrength * 0.12f;
+}
+
+float4 CMLRift(
+    float2 UV,
+    float3 Background,
+    float TimeSeconds,
+    float3 CoreColor,
+    float3 EnergyColor,
+    float3 RimColorIn,
+    float3 VoidColor,
+    float Openness,
+    float Width,
+    float EdgeSoftness,
+    float EdgeTurbulence,
+    float TurbulenceScale,
+    float TurbulenceSpeed,
+    float SwirlIntensity,
+    float SwirlSpeed,
+    float FilamentIntensity,
+    float Intensity)
+{
+    float2 Centered = (UV - 0.5f) * 2.0f;
+    Openness = saturate(Openness);
+    if (Openness <= 0.0005f)
+    {
+        return float4(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+
+    // The tear grows as a lens: tall first, then wide, so the rip reads as
+    // space splitting open instead of a circle scaling up.
+    float HalfHeight = max(Openness, 0.001f);
+    float VerticalFalloff = 1.0f - saturate((Centered.y / HalfHeight) * (Centered.y / HalfHeight));
+    float Profile = sqrt(max(VerticalFalloff, 0.0f));
+
+    float BoundaryNoise = CMLCinFbmRift(
+        float2(Centered.y * TurbulenceScale, TimeSeconds * TurbulenceSpeed * 0.35f)) - 0.5f;
+    float HalfWidth = Width * Openness * Profile * (1.0f + BoundaryNoise * EdgeTurbulence * 1.35f);
+
+    float DistanceToEdge = abs(Centered.x) - max(HalfWidth, 0.0f);
+    float Softness = max(EdgeSoftness, 0.002f);
+    float Interior = smoothstep(Softness, -Softness, DistanceToEdge);
+
+    // The lips glow, the interior does not. Measuring from the boundary in both
+    // directions keeps the middle of the tear deep instead of a flat white slab.
+    float EdgeDistance = abs(DistanceToEdge);
+    float Rim = exp(-EdgeDistance / max(Softness * 1.6f, 0.002f));
+    float Halo = exp(-EdgeDistance * 7.0f) * Profile * 0.55f;
+
+    // Filaments arc across the opening and along its lips: the detail that
+    // sells the tear as energy rather than a decal.
+    float FilamentField = CMLCinFbmRift(float2(
+        Centered.x * 9.5f + TimeSeconds * 1.7f,
+        Centered.y * 22.0f - TimeSeconds * 3.1f));
+    float Filaments = pow(saturate(FilamentField * 1.6f - 0.62f), 3.0f)
+        * FilamentIntensity
+        * saturate(Profile * 1.4f)
+        * saturate(1.0f - abs(DistanceToEdge) * 3.2f);
+
+    // Everything outside is dragged inwards along a spiral.
+    float Radius = length(Centered);
+    float Angle = atan2(Centered.y, Centered.x);
+    float Spiral = CMLCinFbmRift(float2(
+        Angle * 2.2f + log(max(Radius, 0.05f)) * 3.1f,
+        TimeSeconds * SwirlSpeed * 0.4f));
+    float Swirl = pow(saturate(Spiral * 1.5f - 0.45f), 2.2f)
+        * SwirlIntensity * exp(-Radius * 2.4f) * Openness;
+
+    // The inside of the rip is not a white slab: it is somewhere else, seen
+    // through turbulence.
+    float InteriorNoise = CMLCinFbmRift(float2(
+        Centered.x * 6.5f - TimeSeconds * 0.55f,
+        Centered.y * 3.1f + TimeSeconds * 0.32f));
+    float Depth = 1.0f - saturate(abs(Centered.x) / max(HalfWidth, 0.001f));
+    float3 InteriorColor = lerp(VoidColor, EnergyColor, saturate(InteriorNoise * 1.7f - 0.22f));
+    InteriorColor = lerp(
+        InteriorColor,
+        CoreColor,
+        pow(saturate(InteriorNoise * 1.3f - 0.58f), 1.8f) * saturate(Depth * 1.4f));
+
+    float3 Emissive =
+        InteriorColor * Interior * (0.55f + Depth * 0.5f)
+        + CoreColor * Rim * 2.1f
+        + EnergyColor * Halo * 1.35f
+        + RimColorIn * (Swirl + Halo * 0.45f)
+        + CoreColor * Filaments * 0.9f;
+
+    float Coverage = saturate(Interior + Rim * 0.35f + Halo * 0.25f);
+    float3 Color = lerp(Background, Background * 0.35f, Coverage * 0.6f) * Coverage
+        + Emissive * Intensity;
+    return float4(max(Color, 0.0f), saturate(Coverage));
+}
+
+// --------------------------------------------------------------------------
+// CML/Cinematics/Deep Space (skybox)
+// --------------------------------------------------------------------------
+
+float CMLDeepHash31(float3 Value)
+{
+    Value = frac(Value * 0.1031f);
+    Value += dot(Value, Value.yzx + 33.33f);
+    return frac((Value.x + Value.y) * Value.z);
+}
+
+float3 CMLDeepHash33(float3 Value)
+{
+    Value = float3(
+        dot(Value, float3(127.1f, 311.7f, 74.7f)),
+        dot(Value, float3(269.5f, 183.3f, 246.1f)),
+        dot(Value, float3(113.5f, 271.9f, 124.6f)));
+    return frac(sin(Value) * 43758.5453f);
+}
+
+float CMLDeepValueNoise3(float3 Position)
+{
+    float3 Cell = floor(Position);
+    float3 Local = frac(Position);
+    Local = Local * Local * (3.0f - 2.0f * Local);
+    float BottomBackLeft = CMLDeepHash31(Cell + float3(0, 0, 0));
+    float BottomBackRight = CMLDeepHash31(Cell + float3(1, 0, 0));
+    float BottomFrontLeft = CMLDeepHash31(Cell + float3(0, 1, 0));
+    float BottomFrontRight = CMLDeepHash31(Cell + float3(1, 1, 0));
+    float TopBackLeft = CMLDeepHash31(Cell + float3(0, 0, 1));
+    float TopBackRight = CMLDeepHash31(Cell + float3(1, 0, 1));
+    float TopFrontLeft = CMLDeepHash31(Cell + float3(0, 1, 1));
+    float TopFrontRight = CMLDeepHash31(Cell + float3(1, 1, 1));
+    float Bottom = lerp(
+        lerp(BottomBackLeft, BottomBackRight, Local.x),
+        lerp(BottomFrontLeft, BottomFrontRight, Local.x), Local.y);
+    float Top = lerp(
+        lerp(TopBackLeft, TopBackRight, Local.x),
+        lerp(TopFrontLeft, TopFrontRight, Local.x), Local.y);
+    return lerp(Bottom, Top, Local.z);
+}
+
+float CMLDeepFbm3(float3 Position)
+{
+    float Value = 0.0f;
+    float Amplitude = 0.5f;
+    [unroll]
+    for (int Octave = 0; Octave < 5; ++Octave)
+    {
+        Value += CMLDeepValueNoise3(Position) * Amplitude;
+        Position = Position * 2.04f + float3(11.3f, -7.9f, 4.6f);
+        Amplitude *= 0.5f;
+    }
+    return Value * 1.0322f;
+}
+
+float3 CMLDeepStarLayer(
+    float3 Direction,
+    float Scale,
+    float Density,
+    float StarSharpness,
+    float TwinkleSpeed,
+    float TimeSeconds)
+{
+    float3 Position = Direction * Scale;
+    float3 Cell = floor(Position);
+    float3 Local = frac(Position) - 0.5f;
+    float3 Random = CMLDeepHash33(Cell);
+    float Present = step(Random.z, Density);
+    float3 Offset = (Random - 0.5f) * 0.72f;
+    float Distance = length(Local - Offset);
+    float Radius = lerp(0.12f, 0.46f, Random.x * Random.x);
+    float Core = saturate(1.0f - Distance / max(Radius, 0.001f));
+    float Star = pow(Core, StarSharpness);
+    float Twinkle = 0.72f + 0.28f * sin(TimeSeconds * TwinkleSpeed + Random.y * 63.7f);
+    float Magnitude = lerp(0.34f, 1.0f, Random.x * Random.x);
+    float3 Warm = float3(1.0f, 0.78f, 0.55f);
+    float3 Cool = float3(0.62f, 0.78f, 1.0f);
+    float3 Tint = lerp(
+        lerp(Cool, float3(1.0f, 1.0f, 1.0f), saturate(Random.y * 1.4f)),
+        Warm,
+        saturate((Random.y - 0.78f) * 4.0f));
+    return Tint * (Star * Present * Magnitude * Twinkle);
+}
+
+float3 CMLDeepStarField(
+    float3 Direction,
+    float BandBoost,
+    float StarDensity,
+    float StarSharpness,
+    float TwinkleSpeed,
+    float TimeSeconds)
+{
+    float3 Stars = 0.0f;
+    Stars += CMLDeepStarLayer(Direction, 168.0f, StarDensity * 1.30f * BandBoost, StarSharpness, TwinkleSpeed, TimeSeconds) * 0.55f;
+    Stars += CMLDeepStarLayer(Direction, 96.0f, StarDensity * 0.85f * BandBoost, StarSharpness, TwinkleSpeed, TimeSeconds) * 0.85f;
+    Stars += CMLDeepStarLayer(Direction, 47.0f, StarDensity * 0.42f * BandBoost, StarSharpness, TwinkleSpeed, TimeSeconds) * 1.55f;
+    return Stars;
+}
+
+float3 CMLDeepSpace(
+    float3 UnityDirection,
+    float TimeSeconds,
+    float3 SpaceColor,
+    float3 NebulaColorA,
+    float3 NebulaColorB,
+    float3 NebulaColorC,
+    float3 GalaxyColor,
+    float3 GalaxyAxis,
+    float3 WarpAxis,
+    float NebulaScale,
+    float NebulaCoverage,
+    float NebulaContrast,
+    float NebulaIntensity,
+    float GalaxyWidth,
+    float GalaxyIntensity,
+    float StarDensity,
+    float StarBrightness,
+    float StarSharpness,
+    float TwinkleSpeed,
+    float WarpBlend,
+    float WarpStretch,
+    float Exposure)
+{
+    float3 Direction = normalize(UnityDirection);
+
+    // Galactic plane: the band both brightens the background and multiplies the
+    // local star count, which separates a photographed sky from a sprinkle.
+    float3 GalaxyPole = normalize(GalaxyAxis);
+    float PoleDot = abs(dot(Direction, GalaxyPole));
+    float Band = 1.0f - smoothstep(0.0f, max(GalaxyWidth, 0.001f), PoleDot);
+    float BandCore = pow(Band, 2.4f);
+
+    float3 NebulaPosition = Direction * NebulaScale * 2.2f;
+    float Warp = CMLDeepFbm3(NebulaPosition * 0.55f + float3(0.0f, 0.0f, 3.1f));
+    float3 WarpedPosition = NebulaPosition + (Warp - 0.5f) * 1.85f;
+    float Clouds = CMLDeepFbm3(WarpedPosition);
+    float Detail = CMLDeepFbm3(WarpedPosition * 3.35f + float3(-5.2f, 8.7f, 1.4f));
+
+    float Coverage = lerp(0.78f, 0.34f, NebulaCoverage);
+    float Density = saturate((Clouds * 0.78f + Detail * 0.32f - Coverage) * NebulaContrast);
+    Density *= lerp(0.35f, 1.0f, 0.35f + BandCore * 0.65f);
+
+    float3 Nebula = lerp(NebulaColorA, NebulaColorB, saturate(Detail * 1.25f));
+    float Rim = saturate(Density * Density * 1.6f - 0.12f);
+    Nebula = lerp(Nebula, NebulaColorC, Rim * 0.62f);
+    Nebula *= Density * NebulaIntensity;
+
+    float3 Color = SpaceColor;
+    Color += GalaxyColor * BandCore * GalaxyIntensity * 0.22f;
+    Color += Nebula;
+
+    float BandBoost = 1.0f + BandCore * 2.6f;
+    float3 Stars = CMLDeepStarField(
+        Direction, BandBoost, StarDensity, StarSharpness, TwinkleSpeed, TimeSeconds);
+
+    if (WarpBlend > 0.001f)
+    {
+        float3 Axis = normalize(WarpAxis);
+        float3 Smeared = 0.0f;
+        float Weight = 0.0f;
+        [unroll]
+        for (int Tap = 1; Tap <= 4; ++Tap)
+        {
+            float Travel = Tap * 0.25f * WarpStretch * WarpBlend;
+            float3 TapDirection = normalize(Direction - Axis * Travel);
+            float TapWeight = 1.0f - Tap * 0.19f;
+            Smeared += CMLDeepStarField(
+                TapDirection, BandBoost, StarDensity, StarSharpness, TwinkleSpeed, TimeSeconds) * TapWeight;
+            Weight += TapWeight;
+        }
+        Smeared /= max(Weight, 0.001f);
+        Stars = lerp(Stars, max(Stars, Smeared) * 1.45f, WarpBlend);
+        Stars *= lerp(1.0f, 2.1f, WarpBlend);
+        Stars *= lerp(float3(1.0f, 1.0f, 1.0f), float3(0.72f, 0.88f, 1.0f), WarpBlend);
+    }
+
+    Color += Stars * StarBrightness;
+    return max(Color * Exposure, 0.0f);
+}
+
+// --------------------------------------------------------------------------
+// CML/Cinematics/Warp Tunnel
+// --------------------------------------------------------------------------
+
+float2 CMLWarpHash21(float Value)
+{
+    float2 Seed = frac(float2(Value * 0.1031f, Value * 0.1030f));
+    Seed += dot(Seed, Seed.yx + 33.33f);
+    return frac(float2((Seed.x + Seed.y) * Seed.x, (Seed.x + Seed.y) * Seed.y));
+}
+
+float CMLWarpHash11(float Value)
+{
+    Value = frac(Value * 0.1031f);
+    Value *= Value + 33.33f;
+    return frac(Value * (Value + Value));
+}
+
+float CMLWarpValueNoise(float2 UV)
+{
+    float2 Cell = floor(UV);
+    float2 Local = frac(UV);
+    Local = Local * Local * (3.0f - 2.0f * Local);
+    float BottomLeft = CMLWarpHash11(Cell.x + Cell.y * 57.0f);
+    float BottomRight = CMLWarpHash11(Cell.x + 1.0f + Cell.y * 57.0f);
+    float TopLeft = CMLWarpHash11(Cell.x + (Cell.y + 1.0f) * 57.0f);
+    float TopRight = CMLWarpHash11(Cell.x + 1.0f + (Cell.y + 1.0f) * 57.0f);
+    return lerp(
+        lerp(BottomLeft, BottomRight, Local.x),
+        lerp(TopLeft, TopRight, Local.x),
+        Local.y);
+}
+
+/** One filament of light: its own width, speed and phase. */
+float CMLWarpStreakLayer(float2 UV, float Density, float Scroll, float Seed, float StreakLength)
+{
+    float Scaled = UV.x * Density + Seed;
+    float Id = floor(Scaled);
+    float Local = frac(Scaled) - 0.5f;
+    float2 Random = CMLWarpHash21(Id + Seed * 31.7f);
+
+    // Thin filaments read as light; wide ones read as painted bars.
+    float Width = lerp(0.045f, 0.16f, Random.x);
+    float Lateral = exp(-(Local * Local) / max(Width * Width, 1e-4f));
+
+    float Speed = lerp(0.55f, 1.85f, Random.y);
+    float Travel = UV.y * StreakLength * lerp(0.7f, 1.6f, Random.x)
+        - Scroll * Speed + Random.y * 7.13f;
+    float Head = frac(Travel);
+
+    // A comet is a soft leading edge and a long tail; fading the first few
+    // percent removes the hard wrap that turns every filament into a rectangle.
+    float Comet = exp(-Head * lerp(3.2f, 11.0f, Random.y)) * smoothstep(0.0f, 0.085f, Head);
+    return Lateral * Comet * lerp(0.28f, 1.0f, Random.x * Random.x);
+}
+
+float CMLWarpTunnelEnergy(
+    float2 UV,
+    float Scroll,
+    float ChromaticOffset,
+    float Twist,
+    float Turbulence,
+    float StreakDensity,
+    float StreakLength)
+{
+    float2 SampleUV = UV;
+    SampleUV.y += ChromaticOffset;
+
+    // A slow twist plus a little turbulence stops the streaks from being
+    // mathematically parallel, which is the single tell of a cheap tunnel.
+    SampleUV.x += SampleUV.y * Twist * 0.08f;
+    SampleUV.x += (CMLWarpValueNoise(
+        float2(SampleUV.x * 18.0f, SampleUV.y * 3.1f - Scroll * 0.35f)) - 0.5f) * Turbulence * 0.02f;
+
+    float Energy = 0.0f;
+    Energy += CMLWarpStreakLayer(SampleUV, StreakDensity, Scroll, 0.0f, StreakLength) * 1.00f;
+    Energy += CMLWarpStreakLayer(SampleUV, StreakDensity * 0.47f, Scroll * 0.82f, 13.7f, StreakLength) * 0.72f;
+    Energy += CMLWarpStreakLayer(SampleUV, StreakDensity * 2.10f, Scroll * 1.31f, 51.3f, StreakLength) * 0.42f;
+    return Energy;
+}
+
+float3 CMLWarpTunnel(
+    float2 UV,
+    float TimeSeconds,
+    float3 CoreColor,
+    float3 MidColor,
+    float3 EdgeColor,
+    float Intensity,
+    float Speed,
+    float StreakDensity,
+    float StreakLength,
+    float Turbulence,
+    float Twist,
+    float ChromaticSplit,
+    float EndFade,
+    float CoreGlow)
+{
+    if (Intensity <= 0.001f)
+    {
+        return float3(0.0f, 0.0f, 0.0f);
+    }
+
+    float Scroll = TimeSeconds * Speed;
+    float Energy = CMLWarpTunnelEnergy(
+        UV, Scroll, 0.0f, Twist, Turbulence, StreakDensity, StreakLength);
+
+    // The colour of a filament comes from how hot it is, not from which channel
+    // happened to sample it: one scalar drives all three.
+    float3 Color = lerp(EdgeColor, MidColor, saturate(Energy * 1.9f));
+    Color = lerp(Color, CoreColor, saturate(pow(Energy, 1.8f) * 2.2f));
+    Color *= Energy;
+
+    if (ChromaticSplit > 0.0001f)
+    {
+        float Warm = CMLWarpTunnelEnergy(
+            UV, Scroll, ChromaticSplit, Twist, Turbulence, StreakDensity, StreakLength);
+        float Cool = CMLWarpTunnelEnergy(
+            UV, Scroll, -ChromaticSplit, Twist, Turbulence, StreakDensity, StreakLength);
+        Color.r += (Warm - Energy) * 0.22f;
+        Color.b += (Cool - Energy) * 0.22f;
+    }
+
+    // Near end: no visible ring where the tube passes the camera. Far end: a
+    // long dissolve, so looking down the axis fades into depth.
+    float Fade = smoothstep(0.0f, EndFade, UV.y) * (1.0f - smoothstep(0.52f, 1.0f, UV.y));
+
+    // A soft axial glow fills the void between filaments so the tunnel has
+    // volume instead of being a wall of lines.
+    Color += MidColor * saturate(Energy) * CoreGlow * 0.14f;
+    return max(Color * Fade * Intensity, 0.0f);
+}

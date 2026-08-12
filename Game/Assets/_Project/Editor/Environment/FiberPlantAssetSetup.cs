@@ -37,12 +37,16 @@ namespace CML.Editor.Art
             "CML/Environment/Starter Island CloudTall Tree";
         private const string LeafAtlasPath =
             Root + "/Textures/T_ENV_FiberPlant_LeafAtlas.png";
-        private const string BundleAtlasPath =
-            Root + "/Textures/T_ENV_FiberBundle.png";
+        // The bundle is hand modelled and UV mapped onto a flat swatch palette
+        // rather than onto a painted map, so it carries its own atlas and its
+        // own material. T_ENV_FiberBundle and M_ENV_FiberBundle, which the item
+        // used before, are left on disk but nothing builds or reads them now.
+        private const string PaletteAtlasPath =
+            Root + "/Textures/T_ENV_PlantFiber_Palette.png";
         private const string LeafMaterialPath =
             Root + "/Materials/M_ENV_FiberPlant_Leaves.mat";
-        private const string BundleMaterialPath =
-            Root + "/Materials/M_ENV_FiberBundle.mat";
+        private const string ItemMaterialPath =
+            Root + "/Materials/M_ENV_PlantFiber_Item.mat";
         private const string PlantLargeModelPath =
             Root + "/Models/ENV_FiberPlant_Wild_A.fbx";
         private const string PlantSmallModelPath =
@@ -53,7 +57,7 @@ namespace CML.Editor.Art
         // Blender writes these names into the FBX; the remap keys have to match
         // them exactly or Unity keeps its own imported stand-ins.
         private const string LeafMaterialName = "M_ENV_FiberPlant_Leaves";
-        private const string BundleMaterialName = "M_ENV_FiberBundle";
+        private const string ItemMaterialName = "M_ENV_PlantFiber_Item";
 
         /// <summary>
         /// Headless entry point: assets, then the inventory icon, then the
@@ -80,7 +84,12 @@ namespace CML.Editor.Art
             EnsureFolder("Assets/_Project/Resources/Items");
 
             ConfigureTexture(LeafAtlasPath, alphaIsTransparency: true);
-            ConfigureTexture(BundleAtlasPath, alphaIsTransparency: false);
+            // Point sampled and without mipmaps, unlike the painted atlases:
+            // this one is 128px of flat swatches and every face lands on a
+            // single pixel of it. Filtered or mipped, neighbouring swatches
+            // average together and the bundle picks up colours nobody chose.
+            ConfigureTexture(
+                PaletteAtlasPath, alphaIsTransparency: false, palette: true);
 
             var shader = Shader.Find(TreeShaderName);
             if (shader == null)
@@ -90,7 +99,7 @@ namespace CML.Editor.Art
             }
 
             var leafMaterial = BuildLeafMaterial(shader);
-            var bundleMaterial = BuildBundleMaterial(shader);
+            var itemMaterial = BuildItemMaterial(shader);
 
             foreach (var modelPath in new[]
                      {
@@ -104,7 +113,7 @@ namespace CML.Editor.Art
 
             RemapMaterial(PlantLargeModelPath, LeafMaterialName, leafMaterial);
             RemapMaterial(PlantSmallModelPath, LeafMaterialName, leafMaterial);
-            RemapMaterial(ItemModelPath, BundleMaterialName, bundleMaterial);
+            RemapMaterial(ItemModelPath, ItemMaterialName, itemMaterial);
 
             // Knee-high plants must never block the player, so their collider
             // is a trigger. FactoryCentralInteractor queries with
@@ -121,9 +130,9 @@ namespace CML.Editor.Art
                 leafMaterial,
                 height: 0.59f,
                 radius: 0.26f);
-            BuildItemPrefab(ItemModelPath, ItemPrefabPath, bundleMaterial);
+            BuildItemPrefab(ItemModelPath, ItemPrefabPath, itemMaterial);
             BuildItemPrefab(
-                ItemModelPath, CarriedItemPrefabPath, bundleMaterial);
+                ItemModelPath, CarriedItemPrefabPath, itemMaterial);
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -166,10 +175,10 @@ namespace CML.Editor.Art
             return material;
         }
 
-        private static Material BuildBundleMaterial(Shader shader)
+        private static Material BuildItemMaterial(Shader shader)
         {
-            var atlas = RequireAsset<Texture2D>(BundleAtlasPath);
-            var material = LoadOrCreateMaterial(BundleMaterialPath, shader);
+            var atlas = RequireAsset<Texture2D>(PaletteAtlasPath);
+            var material = LoadOrCreateMaterial(ItemMaterialPath, shader);
             material.SetTexture("_BaseMap", atlas);
             material.SetColor("_BaseColor", Color.white);
             material.SetFloat("_Metallic", 0f);
@@ -217,7 +226,8 @@ namespace CML.Editor.Art
 
         private static void ConfigureTexture(
             string path,
-            bool alphaIsTransparency)
+            bool alphaIsTransparency,
+            bool palette = false)
         {
             AssetDatabase.ImportAsset(
                 path,
@@ -234,12 +244,13 @@ namespace CML.Editor.Art
             importer.sRGBTexture = true;
             importer.alphaSource = TextureImporterAlphaSource.FromInput;
             importer.alphaIsTransparency = alphaIsTransparency;
-            importer.mipmapEnabled = true;
+            importer.mipmapEnabled = !palette;
             // Clamp, not repeat: the atlas holds separate cells and a repeat
             // wrap bleeds one leaf variant into its neighbour at the border.
             importer.wrapMode = TextureWrapMode.Clamp;
-            importer.filterMode = FilterMode.Bilinear;
-            importer.anisoLevel = 4;
+            importer.filterMode =
+                palette ? FilterMode.Point : FilterMode.Bilinear;
+            importer.anisoLevel = palette ? 1 : 4;
             importer.SaveAndReimport();
         }
 

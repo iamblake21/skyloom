@@ -1,0 +1,122 @@
+// Ports of the clean-room visual-test shaders.
+//
+// These are the measured reference surfaces the project validates its stylised
+// look against, so their procedural values must reproduce exactly rather than
+// approximately: same hash, same octave weights, same slope thresholds.
+
+#pragma once
+
+#include "/CML/CMLMaterialCommon.ush"
+
+// --------------------------------------------------------------------------
+// CML/Clean Room/Measured Geometric Cloud
+// --------------------------------------------------------------------------
+
+float3 CMLCleanRoomCloudColor(
+    float3 UnityNormalWS,
+    float3 BottomColor,
+    float3 LayerColor,
+    float3 TopColor)
+{
+    float Upward = saturate(normalize(UnityNormalWS).y * 0.5f + 0.5f);
+    return Upward < 0.5f
+        ? lerp(BottomColor, LayerColor, Upward * 2.0f)
+        : lerp(LayerColor, TopColor, (Upward - 0.5f) * 2.0f);
+}
+
+// --------------------------------------------------------------------------
+// CML/Clean Room/Measured Grass Wind
+// --------------------------------------------------------------------------
+
+float3 CMLCleanRoomGrassWindOffset(
+    float3 UnityPositionWS,
+    float Weight,
+    float TimeSeconds,
+    float3 WindDirection,
+    float WindIntensity,
+    float WindWeight,
+    float WindSpeed)
+{
+    float2 Direction = normalize(WindDirection.xz + float2(0.0001f, 0.0001f));
+    float Phase = dot(UnityPositionWS.xz, float2(0.071f, 0.053f)) + TimeSeconds * WindSpeed;
+    float Gust = sin(Phase) + sin(Phase * 2.17f + 1.31f) * 0.34f;
+    float Amplitude = WindWeight * WindIntensity * 0.08f * Weight;
+
+    float3 Offset = float3(0.0f, 0.0f, 0.0f);
+    Offset.xz += Direction * Gust * Amplitude;
+    Offset.xz += float2(-Direction.y, Direction.x) * sin(Phase * 0.73f + 2.1f) * Amplitude * 0.22f;
+    return Offset;
+}
+
+/** Blade silhouette carved out of the quad by a serrated edge distance. */
+float CMLCleanRoomGrassAlpha(float2 UnityUV)
+{
+    float EdgeDistance = 1.0f - abs(UnityUV.x * 2.0f - 1.0f);
+    float Serration = CMLHash21(floor(UnityUV * float2(12.0f, 24.0f)) + 7.0f);
+    return smoothstep(0.03f, 0.15f + Serration * 0.025f, EdgeDistance);
+}
+
+float3 CMLCleanRoomGrassColor(
+    float3 UnityPositionWS,
+    float HeightWeight,
+    float3 BottomColor,
+    float3 TopColor,
+    float3 DryColor)
+{
+    float DryVariation = CMLHash21(floor(UnityPositionWS.xz * 1.7f));
+    float3 Color = lerp(BottomColor, TopColor, HeightWeight);
+    return lerp(Color, DryColor, saturate(DryVariation - 0.82f) * 0.34f);
+}
+
+// --------------------------------------------------------------------------
+// CML/Clean Room/Measured Cliff
+// --------------------------------------------------------------------------
+
+float3 CMLCleanRoomCliffAlbedo(
+    float3 UnityPositionWS,
+    float3 UnityNormalWS,
+    float3 RockDark,
+    float3 RockBase,
+    float3 RockLight,
+    float MacroScale,
+    float StrataScale,
+    float StrataStrength,
+    float3 GrassDark,
+    float3 GrassBase,
+    float3 GrassLight,
+    float GrassSlopeStart,
+    float GrassSlopeEnd,
+    float GrassBreakup)
+{
+    float3 N = normalize(UnityNormalWS);
+
+    float Macro = CMLValueNoise2D(UnityPositionWS.xz * MacroScale + 17.3f);
+    float Broad = CMLValueNoise2D(float2(
+        (UnityPositionWS.x + UnityPositionWS.z * 0.63f) * StrataScale,
+        UnityPositionWS.y * StrataScale * 0.12f + 41.0f));
+    float Fine = CMLValueNoise2D(float2(
+        (UnityPositionWS.x * 0.31f - UnityPositionWS.z) * StrataScale * 2.7f,
+        UnityPositionWS.y * StrataScale * 0.24f + 79.0f));
+
+    float RockValue = saturate(Macro * 0.68f + Broad * 0.23f + Fine * 0.09f);
+    float3 Rock = RockValue < 0.5f
+        ? lerp(RockDark, RockBase, RockValue * 2.0f)
+        : lerp(RockBase, RockLight, (RockValue - 0.5f) * 2.0f);
+    Rock *= 1.0f + (Broad - 0.5f) * StrataStrength;
+
+    float TopNoise = CMLValueNoise2D(UnityPositionWS.xz * 0.11f + 13.0f);
+    float FineTop = CMLValueNoise2D(UnityPositionWS.xz * 0.37f + 63.0f);
+    float Slope = saturate(
+        N.y + (TopNoise - 0.5f) * GrassBreakup + (FineTop - 0.5f) * GrassBreakup * 0.42f);
+
+    float Fringe = smoothstep(GrassSlopeStart - 0.08f, GrassSlopeEnd - 0.12f, Slope);
+    float Crown = smoothstep(GrassSlopeStart + 0.08f, GrassSlopeEnd, Slope);
+
+    float GrassVariation = CMLValueNoise2D(UnityPositionWS.xz * 0.145f + 107.0f);
+    float3 Grass = GrassVariation < 0.5f
+        ? lerp(GrassDark, GrassBase, GrassVariation * 2.0f)
+        : lerp(GrassBase, GrassLight, (GrassVariation - 0.5f) * 2.0f);
+
+    float3 BaseColor = lerp(Rock, GrassDark, Fringe * (1.0f - Crown));
+    return lerp(BaseColor, Grass, Crown);
+}

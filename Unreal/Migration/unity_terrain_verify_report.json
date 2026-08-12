@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "checked": 2,
+  "verified": 2,
+  "failed": 0,
+  "results": [
+    {
+      "status": "verified",
+      "terrain": "TD_StarterIsland",
+      "level": "/Game/Maps/A_99_TerrainMigration_Work",
+      "actor": "TerrainTop",
+      "heightsCompared": 24408,
+      "heightMismatches": 0,
+      "worstHeightErrorMetres": 0.0,
+      "worldExtentCentimetres": {
+        "x": 50000.0,
+        "y": 66000.0
+      },
+      "expectedWorldExtentCentimetres": {
+        "x": 50000.0,
+        "y": 66000.0
+      },
+      "problems": []
+    },
+    {
+      "status": "verified",
+      "terrain": "TerrainData_c7381312-f45e-4991-a939-1f289b31c874",
+      "level": "/Game/Maps/A_99_TerrainMigration_Work",
+      "actor": "Terrain_(330.00, 0.00, -750.00)",
+      "heightsCompared": 24408,
+      "heightMismatches": 0,
+      "worstHeightErrorMetres": 0.0,
+      "worldExtentCentimetres": {
+        "x": 50000.0,
+        "y": 66000.0
+      },
+      "expectedWorldExtentCentimetres": {
+        "x": 50000.0,
+        "y": 66000.0
+      },
+      "problems": []
+    }
+  ]
+}

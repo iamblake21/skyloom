@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "map": "/Game/Maps/A_10_StarterIsland_TerrainMasterPreview",
+  "landscapes": [
+    {
+      "actor": "TerrainTop",
+      "material": "/Game/Migration/LandscapeMaterials/MI_TD_StarterIsland.MI_TD_StarterIsland",
+      "parent": "/Game/Migration/Masters/M_CML_Env_TerrainSplat.M_CML_Env_TerrainSplat",
+      "textures": {
+        "_Control": "/Game/Migration/LandscapeTextures/T_TD_StarterIsland_Control.T_TD_StarterIsland_Control",
+        "_Splat0": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun.T_StarterIsland_GrassSun",
+        "_Splat2": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath.T_StarterIsland_DirtPath",
+        "_Normal1": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep_Normal.T_StarterIsland_GrassDeep_Normal",
+        "_LandmassCliffAlbedo": "/Game/Migration/DefaultTextures/T_CML_UnityWhite.T_CML_UnityWhite",
+        "_LandmassCliffNormal": "/Engine/EngineMaterials/DefaultNormal.DefaultNormal",
+        "_Splat1": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassDeep.T_StarterIsland_GrassDeep",
+        "_Normal0": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_GrassSun_Normal.T_StarterIsland_GrassSun_Normal",
+        "_Normal2": "/Game/Migrated/Project/Art/Environment/StarterIsland/Terrain/Textures/T_StarterIsland_DirtPath_Normal.T_StarterIsland_DirtPath_Normal"
+      },
+      "scalars": {
+        "_NormalScale0": 0.3199999928474426,
+        "_NormalScale2": 0.9200000166893005,
+        "_LandmassWorldSize": 30.0,
+        "_LandmassSlopeOffset": -0.6000000238418579,
+        "_ClayMode": 0.0,
+        "_NormalScale1": 0.3199999928474426,
+        "_LandmassNormalStrength": 1.2999999523162842,
+        "_LandmassSlopeHardness": 10.0
+      },
+      "vectors": {
+        "_DiffuseRemapScale1": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "_CMLTerrainOriginInvSize": [
+          -330.0,
+          -250.0,
+          0.0015151514671742916,
+          0.0020000000949949026
+        ],
+        "_Splat0_ST": [
+          165.0,
+          125.0,
+          0.0,
+          0.0
+        ],
+        "_Splat1_ST": [
+          143.47825622558594,
+          108.6956558227539,
+          0.0,
+          0.0
+        ],
+        "_Splat2_ST": [
+          206.25,
+          156.25,
+          0.0,
+          0.0
+        ],
+        "_DiffuseRemapScale0": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "_DiffuseRemapScale2": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "_ClayColor": [
+          0.550000011920929,
+          0.47999998927116394,
+          0.4300000071525574,
+          1.0
+        ]
+      }
+    }
+  ]
+}

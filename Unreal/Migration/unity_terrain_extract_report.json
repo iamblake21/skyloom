@@ -1,0 +1,377 @@
+{
+  "schema": 1,
+  "unityRoot": "D:/Changing My Life/Game",
+  "extracted": 2,
+  "skipped": 26,
+  "terrains": [
+    {
+      "name": "TD_StarterIsland",
+      "guid": "ca2e48647a69b7a4aa707ba6c9dc0e46",
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TD_StarterIsland.asset",
+      "unity": {
+        "heightmapResolution": 1025,
+        "alphamapResolution": 1024,
+        "size": {
+          "x": 660.0,
+          "y": 200.0,
+          "z": 500.0
+        },
+        "rawHeightRange": [
+          2053,
+          13459
+        ],
+        "maxRawHeight": 32766,
+        "holesResolution": 1024,
+        "holeCellCount": 151499
+      },
+      "landscape": {
+        "sectionSizeQuads": 127,
+        "subsectionsPerComponent": 1,
+        "componentCount": 8,
+        "resolution": 1017,
+        "sourceQuads": 1024,
+        "targetQuads": 1016,
+        "resampledSampleDelta": -8,
+        "heightmapFile": "heightmap.r16",
+        "controlFile": "control.tga",
+        "visibilityFile": "visibility.r8",
+        "visibilityHiddenVertexCount": 150363,
+        "drawScale": {
+          "x": 49.21259842519685,
+          "y": 64.96062992125984,
+          "z": 78.1297686626381
+        },
+        "layers": [
+          {
+            "unityIndex": 0,
+            "name": "TL_StarterIsland_GrassSun",
+            "guid": "6bc7beed0161a4e418668eaa9cef7479",
+            "weightFile": "weight_0_TL_StarterIsland_GrassSun.r8"
+          },
+          {
+            "unityIndex": 1,
+            "name": "TL_StarterIsland_GrassDeep",
+            "guid": "ee6e615f6bee37844bda5d8e87cc481e",
+            "weightFile": "weight_1_TL_StarterIsland_GrassDeep.r8"
+          },
+          {
+            "unityIndex": 2,
+            "name": "TL_StarterIsland_DirtPath",
+            "guid": "8e385e762a2109b4f8173895d8c30700",
+            "weightFile": "weight_2_TL_StarterIsland_DirtPath.r8"
+          },
+          {
+            "unityIndex": 3,
+            "name": "TL_StarterIsland_CliffPeach_ReferenceMatch_v1",
+            "guid": "5d6febf385f24314fbc442dbf7b59621",
+            "weightFile": "weight_3_TL_StarterIsland_CliffPeach_ReferenceMatch_v1.r8"
+          }
+        ]
+      },
+      "placements": [
+        {
+          "scene": "Assets/_Project/Scenes/91_StarterIsland_Terrain_Review.unity",
+          "actorName": "TerrainTop",
+          "unityPosition": {
+            "x": -330.0,
+            "y": 0.0,
+            "z": -250.0
+          },
+          "unrealLocation": {
+            "x": -25000.0,
+            "y": -33000.0,
+            "z": 0.0
+          },
+          "materialGuid": "7427e427b136ae74d992266a3d9978a8"
+        }
+      ],
+      "detailPrototypes": [
+        {
+          "prefabGuid": "c988fcc87d1723e4fb41939dc631a310",
+          "minWidth": 0.47999998927116394,
+          "maxWidth": 0.7200000286102295,
+          "minHeight": 0.5,
+          "maxHeight": 0.7599999904632568,
+          "noiseSeed": 4951,
+          "noiseSpread": 0.2199999988079071,
+          "density": 1.0,
+          "alignToGround": 0.1599999964237213,
+          "positionJitter": 0.9200000166893005,
+          "targetCoverage": 1.0,
+          "useInstancing": true
+        },
+        {
+          "prefabGuid": "2df1705045ef4b74c97cc18843e3bdfe",
+          "minWidth": 0.41999998688697815,
+          "maxWidth": 0.6600000262260437,
+          "minHeight": 0.44999998807907104,
+          "maxHeight": 0.699999988079071,
+          "noiseSeed": 9320,
+          "noiseSpread": 0.2199999988079071,
+          "density": 1.0,
+          "alignToGround": 0.1599999964237213,
+          "positionJitter": 0.9200000166893005,
+          "targetCoverage": 1.0,
+          "useInstancing": true
+        },
+        {
+          "prefabGuid": "204abd3039c45da468e186507322ddc2",
+          "minWidth": 0.36000001430511475,
+          "maxWidth": 0.5600000023841858,
+          "minHeight": 0.3400000035762787,
+          "maxHeight": 0.5400000214576721,
+          "noiseSeed": 13689,
+          "noiseSpread": 0.2800000011920929,
+          "density": 1.0,
+          "alignToGround": 0.11999999731779099,
+          "positionJitter": 0.8600000143051147,
+          "targetCoverage": 1.0,
+          "useInstancing": false
+        },
+        {
+          "prefabGuid": "3c0b3d580f6cec94ab821571d9911035",
+          "minWidth": 0.36000001430511475,
+          "maxWidth": 0.5600000023841858,
+          "minHeight": 0.3400000035762787,
+          "maxHeight": 0.5400000214576721,
+          "noiseSeed": 18058,
+          "noiseSpread": 0.2800000011920929,
+          "density": 1.0,
+          "alignToGround": 0.11999999731779099,
+          "positionJitter": 0.8600000143051147,
+          "targetCoverage": 1.0,
+          "useInstancing": false
+        }
+      ],
+      "detailPatchCount": 1024,
+      "detailResolutionPerPatch": 16,
+      "detailPatchesPerSide": 32,
+      "treeInstanceCount": 0,
+      "files": {
+        "heightmap.r16": "fdb5e784dab4dba413283df5239e82a51c3fb80b8aed7882b900f8e147df6ae3",
+        "visibility.r8": "0199c6af0e61f0c368e0c9f0d0590f8a061fa7b56856cb998d568d7a6940c832",
+        "weight_0_TL_StarterIsland_GrassSun.r8": "dce2727e8a00586bc4dee4bc5d710d385af8541ca88871a1cd04540b2ae03165",
+        "weight_1_TL_StarterIsland_GrassDeep.r8": "f1e5a1f76613195095717172789da14c3c9e799d501644d915cadd01df4212bb",
+        "weight_2_TL_StarterIsland_DirtPath.r8": "52d2cf9e842d53c48721ef2aaf902ff8cbebde15d8f583d8f67406514e7054d1",
+        "weight_3_TL_StarterIsland_CliffPeach_ReferenceMatch_v1.r8": "674485776c0bd3090b30630e5f1922d6ad4a7b2b090a729336ed78933d4a6f9f",
+        "control.tga": "2356862654e00d7d48df5c8fcf1de581045e03d8eb98b030bac5c64732fac694"
+      }
+    },
+    {
+      "name": "TerrainData_c7381312-f45e-4991-a939-1f289b31c874",
+      "guid": "019f5b329d0863543a2abfae3bf3692c",
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_c7381312-f45e-4991-a939-1f289b31c874.asset",
+      "unity": {
+        "heightmapResolution": 1025,
+        "alphamapResolution": 1024,
+        "size": {
+          "x": 660.0,
+          "y": 200.0,
+          "z": 500.0
+        },
+        "rawHeightRange": [
+          0,
+          9862
+        ],
+        "maxRawHeight": 32766,
+        "holesResolution": 0,
+        "holeCellCount": 0
+      },
+      "landscape": {
+        "sectionSizeQuads": 127,
+        "subsectionsPerComponent": 1,
+        "componentCount": 8,
+        "resolution": 1017,
+        "sourceQuads": 1024,
+        "targetQuads": 1016,
+        "resampledSampleDelta": -8,
+        "heightmapFile": "heightmap.r16",
+        "controlFile": "control.tga",
+        "visibilityFile": "",
+        "visibilityHiddenVertexCount": 0,
+        "drawScale": {
+          "x": 49.21259842519685,
+          "y": 64.96062992125984,
+          "z": 78.1297686626381
+        },
+        "layers": [
+          {
+            "unityIndex": 0,
+            "name": "TL_StarterIsland_GrassSun",
+            "guid": "6bc7beed0161a4e418668eaa9cef7479",
+            "weightFile": "weight_0_TL_StarterIsland_GrassSun.r8"
+          },
+          {
+            "unityIndex": 1,
+            "name": "TL_StarterIsland_GrassDeep",
+            "guid": "ee6e615f6bee37844bda5d8e87cc481e",
+            "weightFile": "weight_1_TL_StarterIsland_GrassDeep.r8"
+          },
+          {
+            "unityIndex": 2,
+            "name": "TL_StarterIsland_DirtPath",
+            "guid": "8e385e762a2109b4f8173895d8c30700",
+            "weightFile": "weight_2_TL_StarterIsland_DirtPath.r8"
+          },
+          {
+            "unityIndex": 3,
+            "name": "TL_StarterIsland_CliffPeach_ReferenceMatch_v1",
+            "guid": "5d6febf385f24314fbc442dbf7b59621",
+            "weightFile": "weight_3_TL_StarterIsland_CliffPeach_ReferenceMatch_v1.r8"
+          }
+        ]
+      },
+      "placements": [
+        {
+          "scene": "Assets/_Project/Scenes/91_StarterIsland_Terrain_Review.unity",
+          "actorName": "Terrain_(330.00, 0.00, -750.00)",
+          "unityPosition": {
+            "x": 330.0,
+            "y": 0.0,
+            "z": -750.0
+          },
+          "unrealLocation": {
+            "x": -75000.0,
+            "y": 33000.0,
+            "z": 0.0
+          },
+          "materialGuid": "bd51c00f356b05648b1da518267787a5"
+        }
+      ],
+      "detailPrototypes": [
+        {
+          "prefabGuid": "c988fcc87d1723e4fb41939dc631a310",
+          "minWidth": 1.0,
+          "maxWidth": 2.0,
+          "minHeight": 1.0,
+          "maxHeight": 2.0,
+          "noiseSeed": 1452868311,
+          "noiseSpread": 0.10000000149011612,
+          "density": 1.0,
+          "alignToGround": 0.0,
+          "positionJitter": 0.0,
+          "targetCoverage": 1.0,
+          "useInstancing": true
+        }
+      ],
+      "detailPatchCount": 1024,
+      "detailResolutionPerPatch": 16,
+      "detailPatchesPerSide": 32,
+      "treeInstanceCount": 0,
+      "files": {
+        "heightmap.r16": "ffa3221470e764d68555540495f2d6d3583bce96feef6f19193ae529aa24bc72",
+        "weight_0_TL_StarterIsland_GrassSun.r8": "975527769e6439824e81387773517390048cef593b12ecea09c688087775d278",
+        "weight_1_TL_StarterIsland_GrassDeep.r8": "105eb44b82ab9e4645d99d3531aafd84209dc20d88907f25db54abe90e20b4fe",
+        "weight_2_TL_StarterIsland_DirtPath.r8": "779d66a36ea41cfe6917e845f43f23ffdd3e17830bddbf0435e38c9bff76ddd0",
+        "weight_3_TL_StarterIsland_CliffPeach_ReferenceMatch_v1.r8": "1c23ba7533f1ef41aa3f1c11323ab4fad86839938d9448fdde81a6add65e8e03",
+        "control.tga": "774e6f316c9d8a116cba10a6805c0e586a7fb13ba67db35cb32ad012e7922f94"
+      }
+    }
+  ],
+  "notExtracted": [
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_10d7e296-b44f-43a7-8a17-ace238447ec7.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_3af0b211-7ca0-4a83-b79e-56c3b1cab797.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_455edb8a-d5ed-4059-949c-d6da49e531ba.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_4857643a-9366-4212-96f0-1d0df8ebbb99.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_50558906-641e-4f16-850f-0376e8923a3a.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_59ca407d-4ef0-4302-8193-78f381f010cf.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_5a9047d1-7ede-4822-bbeb-02eea09e6666.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_75ba6875-e1c2-46c0-94e7-2fcb6e8f1490.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_76aa5771-8040-4472-9f9d-3e0e0c1d8e11.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_7b20f000-4371-475a-b4ea-1ef7b1b4b9ba.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_85042af4-39c6-4326-a71d-e149f4a3265b.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_8c991ac5-9e92-459f-aeb6-a0d6f89e93a0.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_981ea481-5ca6-4e9e-908b-f36fa48ceef1.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_a2d886b8-c244-4525-b6ec-ad7f7ad1e297.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_d794935f-323c-4127-ba2a-2c5018a50558.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/_Project/Art/Environment/StarterIsland/Terrain/Data/TerrainData_e95b0e75-a063-406d-98dd-38fb79b4f578.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain 1.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain 2.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain 3.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain 4.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain 5.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain 6.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/New Terrain.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/Proxy Games/Stylized Nature Kit Lite/Terrain/Terrain.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/TerrainData_10cc1cd9-7bc8-4e5a-a3d2-24ef50cd7006.asset",
+      "reason": "no scene uses it"
+    },
+    {
+      "source": "Assets/TerrainData_1260174e-7ef3-420d-ace9-f74aea52b70e.asset",
+      "reason": "no scene uses it"
+    }
+  ]
+}

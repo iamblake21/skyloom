@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "requested": 1,
+  "ported": 1,
+  "failed": 0,
+  "results": [
+    {
+      "unityShader": "CML/Cinematics/Star Streak",
+      "master": "/Game/Migration/Masters/M_CML_Cin_StarStreak.M_CML_Cin_StarStreak",
+      "parameters": [
+        "_Color",
+        "_CoreBoost",
+        "_Softness"
+      ],
+      "status": "ported"
+    }
+  ]
+}
